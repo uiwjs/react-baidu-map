@@ -1,16 +1,16 @@
 {
-  "name": "react-component",
+  "name": "@uiw/react-baidu-map",
   "version": "1.0.0",
   "description": "React Component Example.",
   "author": "",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
-  "typings": "lib/cjs/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
     "watch": "npm run watch:types & npm run watch:ts -- --env-name esm:dev --env-name cjs",
     "build": "npm run build:ts & npm run build:types & npm run build:css & npm run build:types -- --outDir lib/cjs",
     "watch:types": "npm run build:types -- --watch",
+    "watch:cjs:types": "npm run build:types -- --outDir lib/cjs --watch",
     "build:types": "tsbb types --outDir lib/esm --target ESNEXT",
     "watch:ts": "tsbb watch --target react",
     "build:ts": "tsbb build --target react",
@@ -30,7 +30,10 @@
     "typings",
     "lib"
   ],
-  "keywords": [],
+  "keywords": [
+    "baidu-map",
+    "map"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "react": ">=16.7.0",

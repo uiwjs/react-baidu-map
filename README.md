@@ -1,61 +1,42 @@
-React Component Example
+react-baidu-map
 ---
 
+这是一个基于 React 封装的百度地图组件。帮助你轻松的接入地图到 React 项目中。
+
+> 不依赖 uiw 组件库
+
+## 安装
+
+```
+npm install @uiw/react-baidu-map --save
+```
+
+## 使用
+
+```jsx
+import { Map } from '@uiw/react-baidu-map';
+
+function Demo() {
+  return (
+    <div style={{ width: '100%', height: '300px' }}>
+      <Map akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f"  />
+    </div>
+  );
+}
+```
+
+## 组件 
+
+- [`<Map>`](src/map/README.md)
+
+## 开发
+
 ```bash
+npm install # 安装依赖
 npm run watch # Listen compile .ts files.
 npm run build # compile .ts files.
 
 npm run start
-```
 
-The components are placed in the `src` directory.
-
-## babel
-
-If `--target=react`, the babel environment(`--env-name=esm:dev`) variable supports development mode.
-
-```json
-{
-  "scripts": {
-    "watch": "tsbb watch --target react --env-name esm:dev"
-  }
-}
-```
-
-Babel configuration example:
-
-```json
-{
-  "env": {
-    "cjs": {
-      "plugins": [
-        [
-          "babel-plugin-transform-remove-imports",
-          { "test": "(less|css)$" }
-        ]
-      ]
-    },
-    "esm": {
-      "plugins": [
-        [
-          "babel-plugin-transform-rename-import",
-          { "original": "^(.+?)\\.less$", "replacement": "$1.css" }
-        ]
-      ]
-    },
-    "esm:dev": {
-      "presets": [
-        [
-          "@tsbb/babel-preset-tsbb",
-          {
-            "modules": false,
-            "targets": {
-              "browsers": [ "last 2 versions" ]
-            },
-            "transformRuntime": { "useESModules": true }
-          }
-        ]
-      ]
-    }
-}
+npm run doc:dev # 文档网站运行
 ```
