@@ -1,11 +1,11 @@
 react-baidu-map
----
+===
 
 这是一个基于 React 封装的百度地图组件。帮助你轻松的接入地图到 React 项目中。
 
-> 不依赖 uiw 组件库
-
 ## 安装
+
+> 不依赖 [`uiw`](https://github.com/uiwjs/uiw) 组件库
 
 ```bash
 npm install @uiw/react-baidu-map --save
