@@ -13,19 +13,20 @@ npm install @uiw/react-baidu-map --save
 
 ## 使用
 
-<!--DemoStart,bgWhite,codePen-->
+<!--DemoStart,bgWhite,codePen--> 
 ```jsx
-import { Map } from '@uiw/react-baidu-map';
+import { Map, APILoader } from '@uiw/react-baidu-map';
 
-function Demo() {
-  return (
-    <div style={{ width: '100%', height: '300px' }}>
-      <Map akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f"  />
-    </div>
-  );
-}
+const Demo = () => (
+  <div style={{ width: '100%', height: '300px' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <Map />
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
 ```
-<!--DemoStart,bgWhite,codePen-->
+<!--End-->
 
 ## 组件 
 
