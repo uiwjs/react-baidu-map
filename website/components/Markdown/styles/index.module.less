@@ -1,0 +1,52 @@
+:global {
+  .markdown {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.5;
+    color: #24292e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    word-wrap: break-word;
+  
+    code, pre {
+      font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    }
+  }
+
+  .markdown {
+    .language-jsx, .language-js,.language-javascript{
+      .keyword, .selector-tag {
+        color: #b111bf;
+        font-weight: 600;
+      }
+      .subst {
+        color: #0000ca;
+      }
+      .title, .section {
+        color: #4e00dc;
+        font-weight: normal;
+      }
+      .string, .doctag {
+        color: #d73a49;
+      }
+      .attr {
+        color: #0000ca;
+      }
+      .class .keyword{
+        color: #333;
+      }
+      .function {
+        color: #0000ca;
+        .params {
+          color: #008cd4;
+        }
+      }
+    }
+    .language-json {
+      color: #444;
+      .attr {
+        color: #0000ca;
+      }
+    }
+  }
+}

@@ -7,12 +7,13 @@ react-baidu-map
 
 ## 安装
 
-```
+```bash
 npm install @uiw/react-baidu-map --save
 ```
 
 ## 使用
 
+<!--DemoStart,bgWhite,codePen-->
 ```jsx
 import { Map } from '@uiw/react-baidu-map';
 
@@ -24,6 +25,7 @@ function Demo() {
   );
 }
 ```
+<!--DemoStart,bgWhite,codePen-->
 
 ## 组件 
 

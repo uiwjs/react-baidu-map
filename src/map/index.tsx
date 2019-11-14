@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import APILoader from '../utils/APILoader';
 import {
-  Config, NavigationControlOptions, ScaleControlOptions, MapTypeControlOptions, OverviewMapControlOptions, CopyrightControlOptions, GeolocationControlOptions,
-  BMap, Point, MapOptions
+  NavigationControlOptions, ScaleControlOptions, MapTypeControlOptions, OverviewMapControlOptions, CopyrightControlOptions, GeolocationControlOptions,
+  BMapProps, Point, MapOptions
 } from '../common/map';
 
 export interface Control {
@@ -16,7 +15,7 @@ export interface Control {
 
 export type ControlOptions = {
   name: keyof Control;
-  options?: (map: BMap) => void | Control[keyof Control] ;
+  options?: (map: BMapProps) => void | Control[keyof Control] ;
 }
 
 export type ControlOptionsAll = keyof Control | {
@@ -24,7 +23,9 @@ export type ControlOptionsAll = keyof Control | {
   options?: Control[keyof Control] ;
 };
 
-export interface MapProps extends Config, MapOptions {
+export interface MapProps extends MapOptions {
+  className?: React.HTMLAttributes<HTMLDivElement>['className'];
+  style?: React.HTMLAttributes<HTMLDivElement>['style'];
   /**
    * 百度地图上负责与地图交互的UI元素称为控件。
    */
@@ -49,22 +50,23 @@ export default class Map extends Component<MapProps> {
     };
   }
   static defaultProps: MapProps = {
-    akay: '',
-    version: '3.0',
-    hostAndPath: 'api.map.baidu.com/api',
-    callback: '__baidumap_init_callback',
     widget: [],
-    center: '上海'
+    center: '上海',
   }
   async componentDidMount() {
+    if (window.BMap) {
+      this.initializeMap();
+      return;
+    }
+    throw new TypeError('BaiDuMap should be used under <APILoader />');
+  }
+  initializeMap = () => {
     const {
-      akay, version, protocol, callback, hostAndPath, widget, zoom, center,
+      widget, zoom, center,
       minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick
     } = this.props;
-    // 加载百度地图 SDK JS文件
-    const apiObj = new APILoader({ akay, version, protocol, callback, hostAndPath }).load();
-    if (apiObj && this.divRef.current) {
-      const BMap = await apiObj;
+    if (this.divRef.current) {
+      const BMap = window.BMap
       const map = new BMap.Map(this.divRef.current, { minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick });
       map.centerAndZoom(center!, zoom!);
       widget!.forEach((item) => {
@@ -78,10 +80,9 @@ export default class Map extends Component<MapProps> {
     }
   }
   render() {
+    const { style, className } = this.props;
     return (
-      <div ref={this.divRef} style={{ height: '100%' }}>
-        loading...
-      </div>
+      <div ref={this.divRef} className={className} style={{ height: '100%', ...style}} />
     );
   }
 }

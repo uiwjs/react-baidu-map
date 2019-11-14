@@ -32,26 +32,6 @@
           }
         ]
       ]
-    },
-    "umd": {
-      "presets": [
-        "@tsbb/babel-preset-tsbb",
-        "@babel/preset-react"
-      ],
-      "plugins": [
-        [
-          "babel-plugin-transform-remove-imports",
-          {
-            "test": "(less|css)$"
-          }
-        ],
-        [
-          "@babel/plugin-transform-modules-umd",
-          {
-            "exactGlobals": true
-          }
-        ]
-      ]
     }
   }
 }

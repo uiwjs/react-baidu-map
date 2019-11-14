@@ -1,37 +1,38 @@
 {
   "name": "@uiw/react-baidu-map",
   "version": "1.0.0",
-  "description": "React Component Example.",
-  "author": "",
+  "description": "Baidu Map Components for React.",
+  "author": "kenny wong <wowohoo@qq.com>",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "scripts": {
     "prepare": "npm run build",
-    "watch": "npm run watch:types & npm run watch:ts -- --env-name esm:dev --env-name cjs",
-    "build": "npm run build:ts & npm run build:types & npm run build:css & npm run build:types -- --outDir lib/cjs",
-    "watch:types": "npm run build:types -- --watch",
-    "watch:cjs:types": "npm run build:types -- --outDir lib/cjs --watch",
-    "build:types": "tsbb types --outDir lib/esm --target ESNEXT",
-    "watch:ts": "tsbb watch --target react",
-    "build:ts": "tsbb build --target react",
-    "build:umd": "tsbb build --target react --env-name umd",
-    "build:css": "compile-less -d src -o lib/esm",
-    "test": "tsbb test --env=jsdom",
-    "coverage": "tsbb test --env=jsdom --coverage",
-    "doc": "npm run doc:build",
-    "doc:dev": "NODE_ENV=development parcel website/index.html --out-dir doc --no-cache",
-    "doc:build": "NODE_ENV=production parcel build website/index.html --out-dir doc --public-url ./ --no-cache --no-source-maps"
+    "released": "npm run build && npm run doc",
+    "predeploy": "npm run released",
+    "deploy": "gh-pages -d build",
+    "doc": "ENTRYDIR=website kkt build",
+    "doc:dev": "ENTRYDIR=website kkt start",
+    "build": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build",
+    "types:build": "tsbb types --sourceRoot src --target ESNEXT",
+    "types:watch": "npm run types:esm -- --watch & npm run types:cjs -- --watch",
+    "types:esm": "npm run types:build -- --outDir ../lib/esm",
+    "types:cjs": "npm run types:build -- --outDir ../lib/cjs",
+    "css:build": "compile-less -d src -o lib/esm",
+    "ts:watch": "tsbb watch --env-name esm:dev --env-name cjs --target react",
+    "ts:build": "tsbb build --target react"
   },
+  "homepage": "https://uiwjs.github.io/react-baidu-map",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaywcjlove/tsbb/tree/master/example/basic"
+    "url": "https://github.com/uiwjs/react-baidu-map"
   },
   "files": [
-    "typings",
     "lib"
   ],
   "keywords": [
+    "react-baidu-map",
     "baidu-map",
+    "baidu",
     "map"
   ],
   "license": "MIT",
@@ -40,23 +41,43 @@
     "react-dom": ">=16.7.0"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-umd": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@kkt/loader-less": "^1.0.3",
+    "@loadable/component": "^5.10.3",
     "@types/classnames": "^2.2.7",
+    "@types/loadable__component": "^5.10.0",
+    "@types/node": "^12.12.7",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
+    "@types/react-router-dom": "^5.1.2",
     "@types/react-test-renderer": "^16.8.1",
-    "babel-plugin-transform-remove-imports": "^1.0.8",
-    "babel-plugin-transform-rename-import": "^2.3.0",
+    "@uiw/react-code-preview": "^1.7.0",
+    "@uiw/reset.css": "^1.0.3",
+    "classnames": "^2.2.6",
     "compile-less-cli": "^1.1.5",
-    "less": "^3.9.0",
-    "parcel-bundler": "^1.12.3",
+    "kkt": "^5.0.0-alpha.11",
+    "prismjs": "^1.17.1",
+    "raw-loader": "^3.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-markdown": "^4.2.2",
+    "react-router-dom": "^5.1.2",
     "react-test-renderer": "^16.8.6",
-    "tsbb": "1.3.0"
+    "tsbb": "^1.3.5",
+    "uiw": "^3.9.0"
   },
   "dependencies": {
-    "classnames": "^2.2.6"
+    "@babel/runtime": "^7.7.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

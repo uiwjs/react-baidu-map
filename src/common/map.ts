@@ -17,11 +17,6 @@ export interface Config {
    */
   protocol?: 'http' | 'https';
   /**
-   * JSONP 回调函数名称
-   * @default __baidumap_init_callback
-   */
-  callback?: string;
-  /**
    * 请求 SDK 的前半部分
    * http://api.map.baidu.com/api?v=2.0&ak=E480562045
    * @default api.map.baidu.com/api
@@ -647,7 +642,7 @@ export interface AlbumsControlOptions {
   imageHeight?: number;
 }
 
-export interface BMap {
+export interface BMapProps {
   /**
    * 此类是负责进行地图定位的控件，使用html5浏览器定位功能，此类继承Control所有功能。
    */
