@@ -80,16 +80,16 @@ declare namespace BMap {
     /**
      * 设置标注的标题，当鼠标移至标注上时显示此标题
      */
-    setTitle: (title: string) => void;
+    setTitle(title: string): void;
     /**
      * 返回标注的标题
      */
-    getTitle: () => string;
+    getTitle(): string;
     /**
      * 将标注置于其他标注之上。默认情况下，纬度较低的标注会覆盖在纬度较高的标注之上，从而形成一种立体效果。通过此方法可使某个标注覆盖在其他所有标注之上。
      * 注意：如果在多个标注对象上调用此方法，则这些标注依旧按照纬度产生默认的覆盖效果
      */
-    setTop: (isTop: Boolean) => void;
+    setTop(isTop: Boolean): void;
     /**
      * 开启标注拖拽功能
      */
@@ -117,39 +117,39 @@ declare namespace BMap {
     /**
      * 添加右键菜单
      */
-    addContextMenu: (menu: ContextMenu) => void;
+    addContextMenu(menu: ContextMenu): void;
     /**
      * 移除右键菜单
      */
-    removeContextMenu: (menu: ContextMenu) => void;
+    removeContextMenu(menu: ContextMenu): void;
     /**
      * 设置标注动画效果。如果参数为null，则取消动画效果。该方法需要在addOverlay方法后设置
      */
-    setAnimation: (animation: Animation | null) => void;
+    setAnimation(animation: Animation | null): void;
     /**
      * 设置点的旋转角度
      */
-    setRotation: (rotation: Number) => void;
+    setRotation(rotation: Number): void;
     /**
      * 获取点的旋转角度
      */
-    getRotation: () => Number;
+    getRotation(): Number;
     /**
      * 设置标注阴影图标
      */
-    setShadow: (shadow: Icon)  => void;
+    setShadow(shadow: Icon): void;
     /**
      * 获取标注阴影图标
      */
-    getShadow: () => Icon;
+    getShadow(): Icon;
     /**
      * 添加事件监听函数
      */
-    addEventListener: (event: String, handler: Function)   => void;
+    addEventListener(event: String, handler: Function): void;
     /**
      * 移除事件监听函数
      */
-    removeEventListener: (event: String, handler: Function)  => void;
+    removeEventListener(event: String, handler: Function) : void;
   
 		onclick: (event: { type: string, target: any }) => void;
 		ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
@@ -190,46 +190,46 @@ declare namespace BMap {
 		constructor(points: Point[], opts?: PointCollectionOption);
 	}
 	interface MarkerOptions {
-        /**
-         * 标注的位置偏移值
-         */
-        offset?: Size;
-        /**
-         * 标注所用的图标对象
-         */
-        icon?: Icon;
-        /**
-         * 是否在调用map.clearOverlays清除此覆盖物，默认为true
-         */
-        enableMassClear?: boolean;
-        /**
-         * 是否启用拖拽，默认为false
-         */
-        enableDragging?: boolean;
-        /**
-         * 是否响应点击事件。默认为true
-         */
-        enableClicking?: boolean;
-        /**
-         * 拖拽标注时，标注是否开启离开地图表面效果。默认为false
-         */
-        raiseOnDrag?: boolean;
-        /**
-         * 拖拽标注时的鼠标指针样式。此属性值需遵循CSS的cursor属性规范
-         */
-        draggingCursor?: string;
-        /**
-         * 旋转角度
-         */
-        rotation?: Number;
-        /**
-         * 阴影图标
-         */
-        shadow?: Icon;
-        /**
-         * 鼠标移到marker上的显示内容
-         */
-        title?: string;
+    /**
+     * 标注的位置偏移值
+     */
+    offset?: Size;
+    /**
+     * 标注所用的图标对象
+     */
+    icon?: Icon;
+    /**
+     * 是否在调用map.clearOverlays清除此覆盖物，默认为true
+     */
+    enableMassClear?: boolean;
+    /**
+     * 是否启用拖拽，默认为false
+     */
+    enableDragging?: boolean;
+    /**
+     * 是否响应点击事件。默认为true
+     */
+    enableClicking?: boolean;
+    /**
+     * 拖拽标注时，标注是否开启离开地图表面效果。默认为false
+     */
+    raiseOnDrag?: boolean;
+    /**
+     * 拖拽标注时的鼠标指针样式。此属性值需遵循CSS的cursor属性规范
+     */
+    draggingCursor?: string;
+    /**
+     * 旋转角度
+     */
+    rotation?: Number;
+    /**
+     * 阴影图标
+     */
+    shadow?: Icon;
+    /**
+     * 鼠标移到marker上的显示内容
+     */
+    title?: string;
 	}
 	interface InfoWindow extends Overlay {
     /**
@@ -370,24 +370,24 @@ declare namespace BMap {
     /**
      * 设置图标的大小
      */
-    setImageSize?: (offset: Size) => void;
+    setImageSize(offset: Size): void;
     /**
      * 设置图标定位点相对于其左上角的偏移值
      */
-    setAnchor?: (anchor: Size) => void;
+    setAnchor(anchor: Size): void;
     /**
      * 设置图片相对于可视区域的偏移值
      */
-    setImageOffset?: (offset: Size) => void;
+    setImageOffset(offset: Size): void;
     /**
      * 设置信息窗口开启位置相对于图标左上角的偏移值
      */
-    setInfoWindowAnchor?: (anchor: Size) => void;
+    setInfoWindowAnchor(anchor: Size): void;
     /**
      * 设置icon的打印图片，该打印图片只针对IE6有效，解决IE6使用PNG滤镜导致的错位问题。
      * 如果您的icon没有使用PNG格式图片或者没有使用CSS Sprites技术，则可忽略此配置
      */
-    setPrintImageUrl?: (url: String) => void;
+    setPrintImageUrl(url: String): void;
   }
   /**
    * 此类表示标注覆盖物所使用的图标。
@@ -404,59 +404,59 @@ declare namespace BMap {
      * 比如： setStyle({ color : "red", fontSize : "12px" }) 
      注意：如果css的属性名中包含连字符，需要将连字符去掉并将其后的字母进行大写处理，例如：背景色属性要写成：backgroundColor
     */
-    setStyle: (styles: Object)   => void;
+    setStyle(styles: Object): void;
     /**
      *   设置文本标注的内容。支持HTML
      */
-    setContent: (content: String)  => void;
+    setContent(content: String): void;
     /**
      *   设置文本标注坐标。仅当通过Map.addOverlay()方法添加的文本标注有效
      */
-    setPosition:(position: Point)   => void;
+    setPosition(position: Point): void;
     /**
      * 获取Label的地理坐标
      */
-    getPosition:() => Point;
+    getPosition(): Point;
     /**
      *   设置文本标注的偏移值
      */
-    setOffset: (offset: Size)  => void;
+    setOffset(offset: Size) : void;
     /**
      * 返回文本标注的偏移值
      */
-    getOffset:() => Size;
+    getOffset(): Size;
     /**
      *   设置文本标注的标题，当鼠标移至标注上时显示此标题
      */
-    setTitle: (title: String)  => void;
+    setTitle(title: String): void;
     /**
      * 返回文本标注的标题
      */
-    getTitle: () => String;
+    getTitle(): String;
     /**
      * 允许覆盖物在map.clearOverlays方法中被清除
      */
-    enableMassClear: ()  => void;
+    enableMassClear(): void;
     /**
      * 禁止覆盖物在map.clearOverlays方法中被清除
      */
-    disableMassClear: ()   => void;
+    disableMassClear(): void;
     /**
      * 设置覆盖物的zIndex
      */
-    setZIndex: (zIndex: Number)  => void;
+    setZIndex(zIndex: Number): void;
     /**
      * 返回覆盖物所在的map对象
      */
-    getMap: () => MapProps;
+    getMap(): MapProps;
     /**
      * 添加事件监听函数
      */
-    addEventListener: (event: String, handler: Function)   => void;
+    addEventListener(event: String, handler: Function): void;
     /**
      * 移除事件监听函数
      */
-    removeEventListener: (event: String, handler: Function)  => void;
+    removeEventListener(event: String, handler: Function): void;
 		onclick: (event: { type: string, target: any }) => void;
 		ondblclick: (event: { type: string, target: any }) => void;
 		onmousedown: (event: { type: string, target: any }) => void;
@@ -512,9 +512,21 @@ declare namespace BMap {
 	}
 	type SizeType = number;
 	interface IconOptions {
-		anchor?: Size;
-		imageOffset?: Size;
-		infoWindowAnchor?: Size;
+    /**
+     * 图标的定位锚点。此点用来决定图标与地理位置的关系，是相对于图标左上角的偏移值，默认等于图标宽度和高度的中间值
+     */
+    anchor?: Size;
+    /**
+     * 图片相对于可视区域的偏移值
+     */
+    imageOffset?: Size;
+    /**
+     * 信息窗口定位锚点。开启信息窗口时，信息窗口底部尖角相对于图标左上角的位置，默认等于图标的ancho
+     */
+    infoWindowAnchor?: Size;
+    /**
+     * 用于打印的图片，此属性只适用于IE6，为了解决IE6在包含滤镜的情况下打印样式不正确的问题
+     */
 		printImageUrl?: string;
 	}
 	interface LabelOptions {
@@ -547,27 +559,27 @@ declare namespace BMap {
     /**
      * 获取热区位置坐标
      */
-    getPosition: () => Point;
+    getPosition(): Point;
     /**
      * 设置热区位置坐标
      */
-    setPosition: (position: Point) => void;
+    setPosition(position: Point): void;
     /**
      * 获取热区提示文本
      */
-    getText: () => string;
+    getText(): string;
     /**
      * 设置热区提示文本
      */
-    setText: (text: string) => void;
+    setText(text: string): void;
     /**
      * 获取热区对应的用户数据
      */
-    getUserData: () => Mix;
+    getUserData(): Mix;
     /**
      * 设置热区对应的用户数据
      */
-    setUserData: (data: Mix) => void;  
+    setUserData(data: Mix): void;  
   }
   /**
    * 此类表示地图上的一个热区。
