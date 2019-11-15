@@ -25,6 +25,10 @@ export const routes: Routes = [
     path: "/map",
     component: loadable(() => import('./pages/map'), options),
   },
+  {
+    path: "/marker",
+    component: loadable(() => import('./pages/marker'), options),
+  },
 ];
 
 
@@ -40,5 +44,9 @@ export const menus = [
   {
     label: 'Map 组件',
     path: '/map',
+  },
+  {
+    label: 'Marker 点标注组件',
+    path: '/marker',
   },
 ]

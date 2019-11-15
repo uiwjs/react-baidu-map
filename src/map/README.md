@@ -1,7 +1,7 @@
 Map 组件
 ===
 
-Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子组件使用；Map 组件会给所有的子组件注入两个属性，和加载 百度地图 SDK。
+Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子组件使用；Map 组件会给所有的子组件注入两个属性，`<Map>` 组件必须包裹在 `<APILoader>` 组件内，该组件作用是加载百度地图 SDK。
 
 ```jsx
 import { Map, APILoader } from '@uiw/react-baidu-map';
@@ -71,6 +71,7 @@ ReactDOM.render(<Demo />, _mount_);
 |--------- |-------- |--------- |-------- |
 | widget | 百度地图上负责与地图交互的UI元素称为控件。[`百度控件文档`](http://lbsyun.baidu.com/index.php?title=jspopular3.0/guide/widget) | `string[]`/`object[]` | `[]` |
 | center | 定位, 可使用如 `上海市青浦区` 的地区字符串，也可以使用对象如 `{lng: 121.424333, lat: 31.228604}` 表示经纬度。[百度拾取坐标系统](http://api.map.baidu.com/lbsapi/getpoint/index.html) | Point,String | `上海市` |
+| autoLocalCity | 设为 `true`, IP定位获取当前城市，进行自动定位 | boolean | - |
 | zoom | 缩放等级，如果 `center` 类型为 `Point` 时，zoom必须赋值，范围 `3-19` 级， 若调用高清底图（针对移动端开发）时，zoom 可赋值范围为 `3-18` 级。 如果center类型为字符串时，比如“北京”，zoom可以忽略，地图将自动根据 `center` 适配最佳 `zoom` 级别 | number | - |
 | minZoom | 地图允许展示的最小级别 | number | - |
 | maxZoom | 地图允许展示的最大级别 | number | - |

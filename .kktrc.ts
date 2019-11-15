@@ -3,8 +3,9 @@ import path from 'path';
 export const moduleScopePluginOpts = [
   path.resolve(process.cwd(), 'README.md'),
   path.resolve(process.cwd(), 'src'),
-  path.resolve(process.cwd(), 'src/map/README.md'),
   path.resolve(process.cwd(), 'src/api-loader/README.md'),
+  path.resolve(process.cwd(), 'src/map/README.md'),
+  path.resolve(process.cwd(), 'src/marker/README.md'),
 ];
 
 export const loaderOneOf = [

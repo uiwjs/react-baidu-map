@@ -15,7 +15,7 @@ export function delay(time: number): Promise<undefined> {
 declare global {
   interface Window {
     loadBMapSDK?: () => void
-    BMap: any;
+    BMap: typeof BMap;
   }
 }
 

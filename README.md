@@ -28,18 +28,18 @@ ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 
-## 组件 
-
-- [`<Map>`](src/map/README.md)
-
 ## 开发
 
 ```bash
 npm install # 安装依赖
-npm run watch # Listen compile .ts files.
-npm run build # compile .ts files.
 
-npm run start
+npm run ts:watch    # 监听编译输出 js 文件
+npm run types:watch # 监听编译输出 .d.ts 类型文件
+npm run doc:dev     # 文档网站运行
 
-npm run doc:dev # 文档网站运行
+# 上传 gh-pages 将会执行 `npm run released` 命令
+npm run deploy
+
+# 发布
+npm run released    # 编译输出 js 文件 和 .d.ts 类型文件
 ```
