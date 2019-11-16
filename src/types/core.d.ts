@@ -252,7 +252,7 @@ declare namespace BMap {
     /**
      * 在地图上打开信息窗口
      */
-    openInfoWindow(infoWnd: InfoWindow, point: Point)   : void;
+    openInfoWindow(infoWnd?: InfoWindow, point?: Point)   : void;
     /**
      * 关闭在地图上打开的信息窗口。在标注上打开的信息窗口也可通过此方法进行关闭
      */
