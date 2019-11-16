@@ -18,10 +18,7 @@ export default class Marker extends Component<MarkerProps> {
     type: 'loc_blue',
   }
   componentDidMount() {
-    const { map, BMap } = this.props;
-    if (map && BMap) {
-      this.addMarker();
-    }
+    this.addMarker();
   }
   UNSAFE_componentWillReceiveProps(nextProps: MarkerProps) {
     const { map, BMap } = nextProps;

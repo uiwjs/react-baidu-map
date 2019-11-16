@@ -231,35 +231,18 @@ declare namespace BMap {
      */
     title?: string;
 	}
-	interface InfoWindow extends Overlay {
+	interface InfoWindowEvent {
     /**
-     * 设置信息窗口的宽度，单位像素。取值范围：220 - 730
+     * 信息窗口被关闭时触发此事件
      */
-		setWidth(width: number): void;
-		setHeight(height: number): void;
-		redraw(): void;
-		setTitle(title: string | HTMLElement): void;
-		getTitle(): string | HTMLElement;
-		setContent(content: string | HTMLElement): void;
-		getContent(): string | HTMLElement;
-		getPosition(): Point;
-		enableMaximize(): void;
-		disableMaximize(): void;
-		isOpen(): boolean;
-		setMaxContent(content: string): void;
-		maximize(): void;
-		restore(): void;
-		enableAutoPan(): void;
-		disableAutoPan(): void;
-		enableCloseOnClick(): void;
-		disableCloseOnClick(): void;
-		addEventListener(event: string, handler: Callback): void;
-		removeEventListener(event: string, handler: Callback): void;
-		onclose: (event: { type: string, target: any, point: Point }) => void;
-		onopen: (event: { type: string, target: any, point: Point }) => void;
-		onmaximize: (event: { type: string, target: any }) => void;
-		onrestore: (event: { type: string, target: any }) => void;
-		onclickclose: (event: { type: string, target: any }) => void;
+    onClose: (event: { type: string, target: any, point: Point }) => void;
+    /**
+     * 信息窗口被打开时触发此事件
+     */
+		onOpen: (event: { type: string, target: any, point: Point }) => void;
+		onMaximize: (event: { type: string, target: any }) => void;
+		onRestore: (event: { type: string, target: any }) => void;
+		onClickclose: (event: { type: string, target: any }) => void;
 	}
   /**
    * 此类表示地图上包含信息的窗口。
@@ -272,6 +255,134 @@ declare namespace BMap {
      * @param opts 
      */
 		constructor(content: string | HTMLElement, opts?: InfoWindowOptions);
+    /**
+     * 设置信息窗口的宽度，单位像素。取值范围：220 - 730
+     */
+    setWidth(width: number): void;
+    /**
+     * 设置信息窗口的高度，单位像素。取值范围：60 - 650
+     */
+    setHeight(height: number): void;
+    /**
+     * 重绘信息窗口，当信息窗口内容发生变化时进行调用
+     */
+    redraw(): void;
+    /**
+     * 设置信息窗口标题。支持HTML内容。1.2版本开始title参数支持传入DOM结点
+     */
+    setTitle(title: string | HTMLElement): void;
+    /**
+     * 返回信息窗口标题
+     */
+    getTitle(): string | HTMLElement;
+    /**
+     * 设置信息窗口内容。支持HTML内容。1.2版本开始content参数支持传入DOM结点
+     * @param content 
+     */
+    setContent(content: string | HTMLElement): void;
+    /**
+     * 返回信息窗口内容
+     */
+    getContent(): string | HTMLElement;
+    /**
+     * 返回信息窗口的位置
+     */
+    getPosition(): Point;
+    /**
+     * 启用窗口最大化功能。需要设置最大化后信息窗口里的内容，该接口才生效
+     */
+    enableMaximize(): void;
+    /**
+     * 禁用窗口最大化功能
+     */
+    disableMaximize(): void;
+    /**
+     * 返回信息窗口的打开状态
+     */
+    isOpen(): boolean;
+    /**
+     * 信息窗口最大化时所显示内容，支持HTML内容
+     * @param content 
+     */
+    setMaxContent(content: string): void;
+    /**
+     * 最大化信息窗口
+     */
+    maximize(): void;
+    /**
+     * 还原信息窗口
+     */
+    restore(): void;
+    /**
+     * 开启打开信息窗口时地图自动平移
+     */
+    enableAutoPan(): void;
+    /**
+     * 关闭打开信息窗口时地图自动平移
+     */
+    disableAutoPan(): void;
+    /**
+     * 开启点击地图时关闭信息窗口
+     */
+    enableCloseOnClick(): void;
+    /**
+     * 关闭点击地图时关闭信息窗口
+     */
+    disableCloseOnClick(): void;
+    /**
+     * 添加事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    addEventListener(event: string, handler: Callback): void;
+    /**
+     * 移除事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    removeEventListener(event: string, handler: Callback): void;
+	}
+	interface InfoWindowOptions {
+    /**
+     * 信息窗宽度，单位像素。取值范围：0, 220 - 730。
+     * 如果您指定宽度为0，则信息窗口的宽度将按照其内容自动调整
+     */
+    width?: number;
+    /**
+     * 信息窗高度，单位像素。取值范围：0, 60 - 650。
+     * 如果您指定高度为0，则信息窗口的高度将按照其内容自动调整
+     */
+    height?: number;
+    /**
+     * 信息窗最大化时的宽度，单位像素。取值范围：220 - 730
+     */
+    maxWidth?: number;
+    /**
+     * 信息窗位置偏移值。默认情况下在地图上打开的信息窗底端的尖角将指向其地理坐标，
+     * 在标注上打开的信息窗底端尖角的位置取决于标注所用图标的 infoWindowOffset 属性值，
+     * 您可以为信息窗添加偏移量来改变默认位置
+     */
+    offset?: Size;
+    /**
+     * 信息窗标题文字，支持HTML内容
+     */
+    title?: string;
+    /**
+     * 是否开启信息窗口打开时地图自动移动（默认开启）
+     */
+    enableAutoPan?: boolean;
+    /**
+     * 是否开启点击地图关闭信息窗口（默认开启）
+     */
+    enableCloseOnClick?: boolean;
+    /**
+     * 是否在信息窗里显示短信发送按钮（默认开启）
+     */
+    enableMessage?: boolean;
+    /**
+     * 自定义部分的短信内容，可选项。完整的短信内容包括：自定义部分+位置链接，不设置时，显示默认短信内容。短信内容最长为140个字
+     */
+    message?: string;
 	}
 	interface Polygon extends Overlay {
 		setPath(path: Point[]): void;
@@ -319,17 +430,6 @@ declare namespace BMap {
      * 此常量表示标注的动画效果。
      */
 	type Animation = number;
-	interface InfoWindowOptions {
-		width?: number;
-		height?: number;
-		maxWidth?: number;
-		offset?: Size;
-		title?: string;
-		enableAutoPan?: boolean;
-		enableCloseOnClick?: boolean;
-		enableMessage?: boolean;
-		message?: string;
-	}
 	interface PolygonOptions {
 		strokeColor?: string;
 		fillColor?: string;

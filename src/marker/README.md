@@ -1,4 +1,3 @@
-
 Marker 点标注组件
 ===
 
@@ -21,7 +20,7 @@ const Demo = () => (
       >
         <Marker position={{ lng: 121.411535, lat: 31.222965 }} animation={2} />
         <Marker position={{ lng: 121.465145, lat: 31.241245 }} />
-        <Marker position={{ lng: 121.466008, lat: 31.220001 }} type="loc_red" />
+        <Marker position={{ lng: 121.466008, lat: 31.220001 }} type="loc_red" /> 
         <Marker position={{ lng: 121.501365, lat: 31.224942 }} type="simple_blue" />
         <Marker position={{ lng: 121.464858, lat: 31.202705 }} type="simple_red" />
         <Marker position={{ lng: 121.458534, lat: 31.224942}} type="start" />

@@ -105,6 +105,7 @@ export default class Map extends Component<MapProps, MapState> {
   }
   render() {
     const { style, className } = this.props;
+    console.log('~~~~children~~:', this.props.children);
     return (
       <Fragment>
         <div ref={this.divRef} className={className} style={{ height: '100%', ...style}} />

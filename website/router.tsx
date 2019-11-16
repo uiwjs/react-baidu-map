@@ -18,8 +18,8 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/home'), options),
   },
   {
-    path: "/apiloader",
-    component: loadable(() => import('./pages/apiloader'), options),
+    path: "/api-loader",
+    component: loadable(() => import('./pages/api-loader'), options),
   },
   {
     path: "/map",
@@ -28,6 +28,10 @@ export const routes: Routes = [
   {
     path: "/marker",
     component: loadable(() => import('./pages/marker'), options),
+  },
+  {
+    path: "/info-window",
+    component: loadable(() => import('./pages/info-window'), options),
   },
 ];
 
@@ -48,5 +52,9 @@ export const menus = [
   {
     label: 'Marker 点标注组件',
     path: '/marker',
+  },
+  {
+    label: 'InfoWindow 信息窗口',
+    path: '/info-window',
   },
 ]
