@@ -22,20 +22,20 @@ export default (props: UseMap = {}) => {
         cent = new BMap.Point((center as BMap.Point).lng, (center as BMap.Point).lat);
       }
       instance.centerAndZoom(cent!, zoom!);
-      setMap(instance);
-    }
-    if (map) {
       /**
        * 加载控件
        */
       (widget || []).forEach((item) => {
         if(typeof item === 'string') {
-          map.addControl(new (BMap[item] as any)()); 
+          instance.addControl(new (BMap[item] as any)()); 
         } else if (typeof item === 'object' && item.name) {
           const options = typeof item.options === 'function' ? item.options(BMap) : item.options
-          map.addControl(new (BMap[item.name] as any)(options)); 
+          instance.addControl(new (BMap[item.name] as any)(options)); 
         }
       });
+      setMap(instance);
+    }
+    if (map) {
       /**
        * 根据参数设置中心点
        */
