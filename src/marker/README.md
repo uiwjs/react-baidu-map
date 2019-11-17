@@ -3,6 +3,10 @@ Marker 点标注组件
 
 表示地图上一个图像标注。
 
+```jsx
+import { Marker } from '@uiw/react-baidu-map';
+```
+
 ### 基本用法
 
 <!--DemoStart,bgWhite,codePen--> 
