@@ -1,4 +1,11 @@
 
+declare global {
+  interface Window {
+    loadBMapSDK?: () => void
+    BMap: typeof BMap;
+  }
+}
+
 declare namespace BMap {
   type Callback = (...args: any[]) => void;
   /**

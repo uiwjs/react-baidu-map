@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { MapChildProps } from '../common/map';
+import React, { useRef, useEffect, Fragment } from 'react';
+import useMap from './useMap';
 
 export interface Control {
   Control: BMap.Control;
@@ -41,83 +41,28 @@ export interface MapProps extends BMap.MapOptions {
    * IP定位获取当前城市，进行自动定位
    */
   autoLocalCity?: boolean;
+  children?: React.ReactNode;
 }
 
-export interface MapState extends MapChildProps {}
-
-export default class Map extends Component<MapProps, MapState> {
-  public divRef = React.createRef<HTMLDivElement>();
-  constructor(props: MapProps) {
-    super(props);
-    this.state = {};
-  }
-  static defaultProps: MapProps = {
-    widget: [],
-    center: '上海',
-  }
-  async componentDidMount() {
-    if (window.BMap) {
-      this.initializeMap();
-      return;
-    }
-    throw new TypeError('BaiDuMap should be used under <APILoader />');
-  }
-  initializeMap = () => {
-    const {
-      widget, zoom, center,
-      minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick,
-      autoLocalCity
-    } = this.props;
-    if (this.divRef.current) {
-      const BMap = window.BMap
-      const map = new BMap.Map(this.divRef.current, { minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick });
-      /**
-       * 加载控件
-       */
-      widget!.forEach((item) => {
-        if(typeof item === 'string') {
-          map.addControl(new (BMap[item] as any)()); 
-        } else if (typeof item === 'object' && item.name) {
-          const options = typeof item.options === 'function' ? item.options(BMap) : item.options
-          map.addControl(new (BMap[item.name] as any)(options)); 
-        }
-      });
-      /**
-       * 根据参数设置中心点
-       */
-      let cent = center;
-      if ((center as BMap.Point).lng && (center as BMap.Point).lat) {
-        cent = new BMap.Point((center as BMap.Point).lng, (center as BMap.Point).lat);
-      }
-      map.centerAndZoom(cent!, zoom!);
-      /**
-       * IP定位获取当前城市，进行自动定位
-       */
-      if (autoLocalCity) {
-        const myCity = new BMap.LocalCity();
-        myCity.get((result) => {
-          map.setCenter(result.center);
-          map.setZoom(result.level);
+export default function Map({ className, style, children, ...props }: MapProps) {
+  const divElm = useRef<HTMLDivElement>(null);
+  const { setContainer, map } = useMap({ container: divElm.current as (string | HTMLDivElement), ...props });
+  useEffect(() => {
+    if (divElm.current && !map) {
+      setContainer(divElm.current);
+    };
+  });
+  return (
+    <Fragment>
+      <div ref={divElm} className={className} style={{ height: '100%', ...style}} />
+      {BMap && React.Children.toArray(children).map((child) => {
+        if (!React.isValidElement(child)) return;
+        return React.cloneElement(child, {
+          ...child.props,
+          BMap: BMap,
+          map: map,
         });
-      }
-      this.setState({ BMap, map });
-    }
-  }
-  render() {
-    const { style, className } = this.props;
-    console.log('~~~~children~~:', this.props.children);
-    return (
-      <Fragment>
-        <div ref={this.divRef} className={className} style={{ height: '100%', ...style}} />
-        {this.state.BMap && React.Children.toArray(this.props.children).map((child) => {
-          if (!React.isValidElement(child)) return;
-          return React.cloneElement(child, {
-            ...child.props,
-            BMap: this.state.BMap,
-            map: this.state.map,
-          });
-        })}
-      </Fragment>
-    );
-  }
+      })}
+    </Fragment>
+  )
 }

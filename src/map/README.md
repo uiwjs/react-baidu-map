@@ -65,6 +65,39 @@ ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 
+### 使用 hooks
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import { useRef, useEffect, useState } from 'react';
+import { Map, APILoader, useMap } from '@uiw/react-baidu-map';
+
+const Example = () => {
+  const divElm = useRef(null);
+  const { setContainer, map } = useMap({
+    widget: ['GeolocationControl', 'NavigationControl']
+  });
+  useEffect(() => {
+    if (divElm.current) {
+      setContainer(divElm.current);
+    }
+  });
+  return (
+    <div ref={divElm} style={{ height: '100%' }} />
+  )
+}
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '300px' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <Example />
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
+```
+<!--End-->
+
 ### Props
 
 | 参数 | 说明 | 类型 | 默认值 |

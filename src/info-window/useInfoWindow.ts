@@ -3,11 +3,8 @@ import { InfoWindowProps } from './';
 
 const EVENTS = ['close', 'open', 'maximize', 'restore', 'clickclose'];
 
-export default (props: InfoWindowProps) => {
-  const {
-    BMap, map, position,
-    ...opts
-  } = props;
+export default (props = {} as InfoWindowProps) => {
+  const { BMap, map, position, ...opts } = props;
   const [infoWindow, useInfoWindow] = useState<BMap.InfoWindow>();
   const [isOpen, useIsOpen] = useState(opts.isOpen);
   const [title, useTitle] = useState(opts.title);
@@ -23,7 +20,6 @@ export default (props: InfoWindowProps) => {
           win.addEventListener(evnetName, (opts as any)[name]);
         }
       });
-      // addEventListener
     } else {
       if(opts.isOpen !== isOpen) {
         useIsOpen(opts.isOpen);
@@ -46,6 +42,13 @@ export default (props: InfoWindowProps) => {
     }
   });
   return {
-    infoWindow, useInfoWindow, isOpen, useIsOpen, title, useTitle, content, useContent
+    /**
+     * 信息窗口实例对象
+     */
+    infoWindow,
+    /**
+     * 更新 信息窗口实例对象
+     */
+    useInfoWindow, isOpen, useIsOpen, title, useTitle, content, useContent
   }
 }

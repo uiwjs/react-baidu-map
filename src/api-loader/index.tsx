@@ -14,7 +14,7 @@ export function delay(time: number): Promise<undefined> {
 
 declare global {
   interface Window {
-    loadBMapSDK?: () => void
+    load_bmap_sdk?: () => void
     BMap: typeof BMap;
   }
 }
@@ -72,7 +72,7 @@ export default class APILoader extends React.Component<APILoaderProps> {
 
   public componentDidMount() {
     if (window.BMap == null) {
-      if (window.loadBMapSDK) {
+      if (window.load_bmap_sdk) {
         APILoader.waitQueue.push([this.finish, this.handleError])
         return
       }
@@ -97,14 +97,14 @@ export default class APILoader extends React.Component<APILoaderProps> {
     if (protocol!.indexOf(':') === -1) {
       protocol += ':';
     }
-    return `${protocol}//${cfg.hostAndPath}?v=${cfg.version}&ak=${cfg.akay}&callback=loadBMapSDK`;
+    return `${protocol}//${cfg.hostAndPath}?v=${cfg.version}&ak=${cfg.akay}&callback=load_bmap_sdk`;
   }
   /**
    * load BaiduMap in script tag
    */
   private async loadMap() {
     const src = this.getScriptSrc();
-    window.loadBMapSDK = () => {
+    window.load_bmap_sdk = () => {
       // flush queue
       const queue = APILoader.waitQueue
       APILoader.waitQueue = []
