@@ -239,9 +239,18 @@ declare namespace BMap {
     /**
      * 信息窗口被打开时触发此事件
      */
-		onOpen: (event: { type: string, target: any, point: Point }) => void;
-		onMaximize: (event: { type: string, target: any }) => void;
-		onRestore: (event: { type: string, target: any }) => void;
+    onOpen: (event: { type: string, target: any, point: Point }) => void;
+    /**
+     * 信息窗口最大化后触发此事件
+     */
+    onMaximize: (event: { type: string, target: any }) => void;
+    /**
+     * 信息窗口还原时触发此事件
+     */
+    onRestore: (event: { type: string, target: any }) => void;
+    /**
+     * 点击信息窗口的关闭按钮时触发此事件
+     */
 		onClickclose: (event: { type: string, target: any }) => void;
 	}
   /**
