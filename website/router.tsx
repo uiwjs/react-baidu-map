@@ -43,7 +43,7 @@ export const menus = [
   },
   {
     label: 'APILoader 组件',
-    path: '/apiloader',
+    path: '/api-loader',
   },
   {
     label: 'Map 组件',

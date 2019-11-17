@@ -55,7 +55,7 @@ export default function Map({ className, style, children, ...props }: MapProps) 
   return (
     <Fragment>
       <div ref={divElm} className={className} style={{ height: '100%', ...style}} />
-      {BMap && React.Children.toArray(children).map((child) => {
+      {BMap && map && React.Children.toArray(children).map((child) => {
         if (!React.isValidElement(child)) return;
         return React.cloneElement(child, {
           ...child.props,

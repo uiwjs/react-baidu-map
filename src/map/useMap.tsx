@@ -9,7 +9,7 @@ export interface UseMap extends MapProps {
 }
 
 export default (props: UseMap = {}) => {
-  const { widget, zoom, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick } = props
+  const { widget, zoom = 13, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick } = props;
   const [center, setCenter] = useState(props.center || '上海');
   const [autoLocalCity, setAutoLocalCity] = useState(props.autoLocalCity);
   const [map, setMap] = useState<BMap.Map>();
@@ -17,6 +17,11 @@ export default (props: UseMap = {}) => {
   useEffect(() => {
     if (container && !map) {
       const instance = new BMap.Map(container, { minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick });
+      let cent = center;
+      if ((center as BMap.Point).lng && (center as BMap.Point).lat) {
+        cent = new BMap.Point((center as BMap.Point).lng, (center as BMap.Point).lat);
+      }
+      instance.centerAndZoom(cent!, zoom!);
       setMap(instance);
     }
     if (map) {
@@ -34,8 +39,8 @@ export default (props: UseMap = {}) => {
       /**
        * 根据参数设置中心点
        */
-      if (center) {
-        let cent = center;
+      if (props.center !== center) {
+        let cent = props.center;
         if ((center as BMap.Point).lng && (center as BMap.Point).lat) {
           cent = new BMap.Point((center as BMap.Point).lng, (center as BMap.Point).lat);
         }
@@ -44,7 +49,7 @@ export default (props: UseMap = {}) => {
       /**
        * IP定位获取当前城市，进行自动定位
        */
-      if (autoLocalCity) {
+      if (props.autoLocalCity !== autoLocalCity) {
         const myCity = new BMap.LocalCity();
         myCity.get((result) => {
           map.setCenter(result.center);

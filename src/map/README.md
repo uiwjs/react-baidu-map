@@ -67,6 +67,8 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 使用 hooks
 
+`map`, `setMap`, `container`, `setContainer`, `center`, `setCenter`, `autoLocalCity`, `setAutoLocalCity`,
+
 <!--DemoStart,bgWhite--> 
 ```jsx
 import { useRef, useEffect, useState } from 'react';

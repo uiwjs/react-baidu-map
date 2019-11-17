@@ -49,9 +49,9 @@ import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
 const CustomIcon = () => {
   const icon = new BMap.Icon('http://developer.baidu.com/map/jsdemo/img/fox.gif', new BMap.Size(300, 157));
   return (
-      <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
-        <Marker position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} type="loc_red" />
-      </Map>
+    <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
+      <Marker position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} type="loc_red" />
+    </Map>
   );
 }
 
@@ -66,7 +66,6 @@ ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 
-
 ### 可拖拽
 
 <!--DemoStart,bgWhite,codePen--> 
@@ -76,11 +75,11 @@ import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
 const CustomIcon = () => {
   const icon = new BMap.Icon('http://developer.baidu.com/map/jsdemo/img/fox.gif', new BMap.Size(300, 157));
   return (
-      <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
-        <Marker  title="title" enableDragging position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} type="loc_red" />
-        <Marker enableDragging position={{ lng: 121.458534, lat: 31.224942}} type="start" />
-        <Marker enableDragging position={{ lng: 121.434962, lat: 31.200729 }} type="end" />
-      </Map>
+    <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
+      <Marker  title="title" enableDragging position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} type="loc_red" />
+      <Marker enableDragging position={{ lng: 121.458534, lat: 31.224942}} type="start" />
+      <Marker enableDragging position={{ lng: 121.434962, lat: 31.200729 }} type="end" />
+    </Map>
   );
 }
 
@@ -88,6 +87,44 @@ const Demo = () => (
   <div style={{ width: '100%', height: '350px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <CustomIcon />
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
+```
+<!--End-->
+
+### 使用 hooks
+
+`marker`, `setMarker`, `animation`, `setAnimation`, `type`, `setType`
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import { useRef, useEffect, useState } from 'react';
+import { Map, APILoader, useMarkers } from '@uiw/react-baidu-map';
+
+const Example = () => {
+  const divElm = useRef(null);
+  const { setContainer, map } = useMap({ widget: ['GeolocationControl', 'NavigationControl'] });
+  const { setType } = useMarkers({ map, position: { lng: 121.444017, lat: 31.237787 }, });
+  useEffect(() => {
+    if (divElm.current) {
+      setContainer(divElm.current);
+    }
+  });
+  return (
+    <>
+      <button onClick={() => setType('red2')}>设置 red2</button>
+      <button onClick={() => setType('loc_blue')}>设置 loc_blue</button>
+      <div ref={divElm} style={{ height: '100%' }} />
+    </>
+  )
+}
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '300px' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <Example />
     </APILoader>
   </div>
 );

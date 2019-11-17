@@ -49,6 +49,8 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 使用 hooks
 
+`infoWindow`, `useInfoWindow`, `isOpen`, `useIsOpen`, `title`, `useTitle`, `content`, `useContent`
+
 <!--DemoStart,bgWhite,codePen--> 
 ```jsx
 import React, { useState, useEffect } from 'react';
@@ -56,11 +58,12 @@ import { Map, InfoWindow, useInfoWindow, APILoader } from '@uiw/react-baidu-map'
 
 const Example = ({ BMap, map, isOpen, value }) => {
   const position = { lng: 121.501365, lat: 31.224942 }
-  useInfoWindow({
-    BMap, map, isOpen, position,
+  const { infoWindow } = useInfoWindow({
+    BMap, map, isOpen, position, enableCloseOnClick: false,
     content: '上海市 <del>青浦区</del> 徐泾镇盈港东路',
     title: value,
   });
+
   return null;
 }
 
