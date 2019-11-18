@@ -6,3 +6,5 @@ export { default as Marker } from './Marker';
 export { default as useMarkers } from './Marker/useMarkers';
 export { default as InfoWindow } from './InfoWindow';
 export { default as useInfoWindow } from './InfoWindow/useInfoWindow';
+export { default as PointCollection } from './PointCollection';
+export { default as usePointCollection } from './PointCollection/usePointCollection';

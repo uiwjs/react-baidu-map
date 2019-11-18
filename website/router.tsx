@@ -33,6 +33,10 @@ export const routes: Routes = [
     path: "/info-window",
     component: loadable(() => import('./pages/info-window'), options),
   },
+  {
+    path: "/point-collection",
+    component: loadable(() => import('./pages/point-collection'), options),
+  },
 ];
 
 
@@ -50,8 +54,12 @@ export const menus = [
     path: '/map',
   },
   {
-    label: 'Marker 点标注组件',
+    label: 'Marker 点标注',
     path: '/marker',
+  },
+  {
+    label: 'PointCollection 海量点标注',
+    path: '/point-collection',
   },
   {
     label: 'InfoWindow 信息窗口',

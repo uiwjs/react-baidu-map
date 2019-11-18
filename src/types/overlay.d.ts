@@ -177,18 +177,83 @@ declare namespace BMap {
 	}
 	class IconSequence {
 		constructor(symbol: symbol, offset?: string, repeat?: string, fixedRotation?: boolean);
-	}
-	interface PointCollection extends Overlay {
-		setPoints(points: Point[]): void;
-		setStyles(styles: PointCollectionOption): void;
-		clear(): void;
-		onclick: (event: { type: string, target: any, point: Point }) => void;
-		onmouseover: (event: { type: string, target: any, point: Point }) => void;
-		onmouseout: (event: { type: string, target: any, point: Point }) => void;
-	}
+  }
+  interface PointCollection extends Overlay {
+    /**
+     * 设置要在地图上展示的点坐标集合
+     * @param points 
+     */
+    setPoints(points: Point[]): void;
+    /**
+     * 点的样式，包括:大小"size"（可选,默认正常尺寸10*10px，SizeType类型），
+     * 形状"shape"（可选，默认圆形，ShapeType类型），
+     * 颜色"color"（可选，字符串类型）
+     */
+    setStyles(styles: PointCollectionOption): void;
+    /**
+     * 清除海量点
+     */
+    clear(): void;
+    /**
+     * 添加事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    addEventListener(event: string, handler: Callback): void;
+    /**
+     * 移除事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    removeEventListener(event: string, handler: Callback): void;
+  }
+  /**
+   * 此类表示海量点类，利用该类可同时在地图上展示万级别的点，目前仅适用于html5浏览器。
+   */
 	class PointCollection {
-		constructor(points: Point[], opts?: PointCollectionOption);
-	}
+    /**
+     * 创建海量点类。points为点的坐标集合，opts为点的绘制样式
+     * @param points 
+     * @param opts 
+     */
+    constructor(points: Point[], opts?: PointCollectionOption);
+  }
+  interface PointCollectionEvents {
+    /**
+     * 鼠标点击点时会触发此事件
+     */
+    onClick?: (event: { type: string, target: any, point: Point }) => void;
+    /**
+     * 鼠标移入点时会触发该事件
+     */
+    onMouseOver?: (event: { type: string, target: any, point: Point }) => void;
+    /**
+     * 鼠标移出点时会触发该事件
+     */
+		onMouseOut?: (event: { type: string, target: any, point: Point }) => void;
+  }
+	interface PointCollectionOption {
+    /**
+     * 海量点的预设形状
+     */
+    shape?: ShapeType;
+    /**
+     * 海量点的颜色，默认为'#fa937e'，同时支持颜色字符串，
+     * 如'red'；
+     * 哈希字符串: 如 `#000000`；
+     * rgb字符串: 如 `rgb(0,0,0)`；
+     * rgba字符串: 如 `rgb(255,0,0,0.1)`；
+     * hsl字符串: 如 `hsl(0,100%,50%)`；
+     * hsla字符串: 如 `hsla(0,100%,50%,0.4)`
+     * @default BMAP_POINT_SHAPE_WATERDROP
+     */
+    color?: string;
+    /**
+     * 海量点的预设尺寸
+     * @default BMAP_POINT_SIZE_SMALL
+     */
+		size?: SizeType;
+  }
 	interface MarkerOptions {
     /**
      * 标注的位置偏移值
@@ -430,14 +495,9 @@ declare namespace BMap {
 	class Polygon {
 		constructor(points: Point[], opts?: PolygonOptions);
 	}
-	interface PointCollectionOption {
-		shape?: ShapeType;
-		color?: string;
-		size?: SizeType;
-    }
-    /**
-     * 此常量表示标注的动画效果。
-     */
+  /**
+   * 此常量表示标注的动画效果。
+   */
 	type Animation = number;
 	interface PolygonOptions {
 		strokeColor?: string;
@@ -826,16 +886,28 @@ declare const BMAP_ANIMATION_DROP: BMap.Animation;
  */
 declare const BMAP_ANIMATION_BOUNCE: BMap.Animation;
 
+/** 圆形，为默认形状 */
 declare const BMAP_POINT_SHAPE_CIRCLE: BMap.ShapeType;
-declare const APE_STAR: BMap.ShapeType;
-declare const APE_SQUARE: BMap.ShapeType;
-declare const APE_RHOMBUS: BMap.ShapeType;
-declare const APE_WATERDROP: BMap.ShapeType;
+/** 星形 */
+declare const BMAP_POINT_SHAPE_STAR: BMap.ShapeType;
+/** 方形 */
+declare const BMAP_POINT_SHAPE_SQUARE: BMap.ShapeType;
+/** 菱形 */
+declare const BMAP_POINT_SHAPE_RHOMBUS: BMap.ShapeType;
+/** 水滴状，该类型无size和color属性 */
+declare const BMAP_POINT_SHAPE_WATERDROP: BMap.ShapeType;
 
+/** 定义点的尺寸为超小，宽高为2px*2px */
 declare const BMAP_POINT_SIZE_TINY: BMap.SizeType;
+/** 定义点的尺寸为很小，宽高为4px*4px */
 declare const BMAP_POINT_SIZE_SMALLER: BMap.SizeType;
+/** 定义点的尺寸为小，宽高为8px*8px */
 declare const BMAP_POINT_SIZE_SMALL: BMap.SizeType;
+/** 定义点的尺寸为正常，宽高为10px*10px，为海量点默认尺寸 */
 declare const BMAP_POINT_SIZE_NORMAL: BMap.SizeType;
+/** 定义点的尺寸为大，宽高为16px*16px */
 declare const BMAP_POINT_SIZE_BIG: BMap.SizeType;
+/** 定义点的尺寸为很大，宽高为20px*20px */
 declare const BMAP_POINT_SIZE_BIGGER: BMap.SizeType;
+/** 定义点的尺寸为超大，宽高为30px*30px */
 declare const BMAP_POINT_SIZE_HUGE: BMap.SizeType;

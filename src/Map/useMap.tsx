@@ -36,6 +36,7 @@ export default (props: UseMap = {}) => {
 
   useEffect(() => {
     if (map && zoom) {
+      console.log('zoom:', zoom);
       map.setZoom(zoom!);
     }
   }, [zoom, map]);
