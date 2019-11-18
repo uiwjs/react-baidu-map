@@ -34,6 +34,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/info-window'), options),
   },
   {
+    path: "/label",
+    component: loadable(() => import('./pages/label'), options),
+  },
+  {
     path: "/point-collection",
     component: loadable(() => import('./pages/point-collection'), options),
   },
@@ -64,5 +68,9 @@ export const menus = [
   {
     label: 'InfoWindow 信息窗口',
     path: '/info-window',
+  },
+  {
+    label: 'Label 文本标注',
+    path: '/label',
   },
 ]

@@ -563,10 +563,13 @@ declare namespace BMap {
    */
 	class Icon {
     /**
-     * 以给定的图像地址和大小创建图标对象实例
+     * 创建一个文本标注实例。point参数指定了文本标注所在的地理位置
      */
 		constructor(url: string, size: Size, opts?: IconOptions);
-	}
+  }
+  /**
+   * 此类表示地图上的文本标注。
+   */
 	interface Label extends Overlay {
     /**
      * 设置文本标注样式，该样式将作用于文本标注的容器元素上。其中styles为JavaScript对象常量，
@@ -626,15 +629,55 @@ declare namespace BMap {
      * 移除事件监听函数
      */
     removeEventListener(event: String, handler: Function): void;
-		onclick: (event: { type: string, target: any }) => void;
-		ondblclick: (event: { type: string, target: any }) => void;
-		onmousedown: (event: { type: string, target: any }) => void;
-		onmouseup: (event: { type: string, target: any }) => void;
-		onmouseout: (event: { type: string, target: any }) => void;
-		onmouseover: (event: { type: string, target: any }) => void;
-		onremove: (event: { type: string, target: any }) => void;
-		onrightclick: (event: { type: string, target: any }) => void;
+  }
+	interface LabelOptions {
+    /**
+     * 文本标注的位置偏移值
+     */
+    offset?: Size;
+    /**
+     * 文本标注的地理位置
+     */
+    position?: Point;
+    /**
+     * 是否在调用map.clearOverlays清除此覆盖物，默认为true
+     */
+    enableMassClear?: Boolean;
 	}
+  interface LabelEvents {
+    /**
+     * 点击文本标注后会触发此事件
+     */
+    onClick: (event: { type: string, target: any }) => void;
+    /**
+     * 双击文本标注后会触发此事件
+     */
+    onDblClick: (event: { type: string, target: any }) => void;
+    /**
+     * 鼠标在文本标注上按下触发此事件
+     */
+    onMouseDown: (event: { type: string, target: any }) => void;
+    /**
+     * 鼠标在文本标注释放触发此事件
+     */
+    onMouseUp: (event: { type: string, target: any }) => void;
+    /**
+     * 鼠标离开文本标注时触发此事件
+     */
+    onMouseOout: (event: { type: string, target: any }) => void;
+    /**
+     * 当鼠标进入文本标注区域时会触发此事件
+     */
+    onMouseOver: (event: { type: string, target: any }) => void;
+    /**
+     * 移除文本标注时触发
+     */
+    onRemove: (event: { type: string, target: any }) => void;
+    /**
+     * 右键点击标注时触发此事件
+     */
+		onRightClick: (event: { type: string, target: any }) => void;
+  }
   /**
    * 此类表示地图上的文本标注。
    * 创建一个文本标注实例。point参数指定了文本标注所在的地理位置
@@ -697,20 +740,6 @@ declare namespace BMap {
      * 用于打印的图片，此属性只适用于IE6，为了解决IE6在包含滤镜的情况下打印样式不正确的问题
      */
 		printImageUrl?: string;
-	}
-	interface LabelOptions {
-    /**
-     * 文本标注的位置偏移值
-     */
-    offset: Size;
-    /**
-     * 文本标注的地理位置
-     */
-    position: Point;
-    /**
-     * 是否在调用map.clearOverlays清除此覆盖物，默认为true
-     */
-    enableMassClear: Boolean;
 	}
 	interface CircleOptions {
 		strokeColor?: string;

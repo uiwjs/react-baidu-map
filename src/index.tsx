@@ -4,6 +4,8 @@ export { default as Map } from './Map';
 export { default as useMap } from './Map/useMap';
 export { default as Marker } from './Marker';
 export { default as useMarkers } from './Marker/useMarkers';
+export { default as Label } from './Label';
+export { default as useLabel } from './Label/useLabel';
 export { default as InfoWindow } from './InfoWindow';
 export { default as useInfoWindow } from './InfoWindow/useInfoWindow';
 export { default as PointCollection } from './PointCollection';

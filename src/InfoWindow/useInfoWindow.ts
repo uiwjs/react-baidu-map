@@ -4,7 +4,7 @@ import { InfoWindowProps } from './';
 const EVENTS = ['close', 'open', 'maximize', 'restore', 'clickclose'];
 
 export default (props = {} as InfoWindowProps) => {
-  const { BMap, map, position, ...opts } = props;
+  const { map, position, ...opts } = props;
   const [infoWindow, setInfoWindow] = useState<BMap.InfoWindow>();
   const [isOpen, setIsOpen] = useState(opts.isOpen === undefined ? true : opts.isOpen);
   const [title, setTitle] = useState(opts.title);
