@@ -3,5 +3,5 @@ import { Map, APILoader } from '../../../';
 
 export default class Page extends Markdown {
   dependencies = { Map, APILoader };
-  getMdStr = () => import('../../../src/api-loader/README.md');
+  getMdStr = () => import('../../../src/APILoader/README.md');
 }

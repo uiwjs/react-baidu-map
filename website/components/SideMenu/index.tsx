@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import classNames from 'classnames';
 import { menus } from '../../router';
 import styles from './index.module.less';
 
