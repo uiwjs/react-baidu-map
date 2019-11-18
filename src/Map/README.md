@@ -67,7 +67,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 使用 hooks
 
-`map`, `setMap`, `container`, `setContainer`, `center`, `setCenter`, `autoLocalCity`, `setAutoLocalCity`,
+`map`, `setMap`, `container`, `setContainer`, `zoom`, `setZoom`, `center`, `setCenter`, `autoLocalCity`, `setAutoLocalCity`,
 
 <!--DemoStart,bgWhite--> 
 ```jsx
@@ -76,7 +76,7 @@ import { Map, APILoader, useMap } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
-  const { setContainer, map } = useMap({
+  const { setContainer, zoom, setZoom, center, setCenter, setAutoLocalCity } = useMap({
     widget: ['GeolocationControl', 'NavigationControl']
   });
   useEffect(() => {
@@ -84,8 +84,17 @@ const Example = () => {
       setContainer(divElm.current);
     }
   });
+  let counts = zoom || 15;
   return (
-    <div ref={divElm} style={{ height: '100%' }} />
+    <>
+      <button onClick={() => setZoom(counts-1)}>-</button>
+      <span>{zoom || 15}</span>
+      <button onClick={() => setZoom(counts+1)}>+</button>
+      <button onClick={() => setCenter('北京')}>北京</button>
+      <button onClick={() => setCenter('上海')}>上海</button>
+      <button onClick={() => setAutoLocalCity(true)}>上海</button>
+      <div ref={divElm} style={{ height: '100%' }} />
+    </>
   )
 }
 
