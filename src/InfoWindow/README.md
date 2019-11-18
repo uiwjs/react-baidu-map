@@ -49,30 +49,14 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 使用 hooks
 
-`infoWindow`, `useInfoWindow`, `isOpen`, `useIsOpen`, `title`, `useTitle`, `content`, `useContent`
+`infoWindow`, `setInfoWindow`, `isOpen`, `setIsOpen`, `title`, `setTitle`, `content`, `setContent`
 
 <!--DemoStart,bgWhite,codePen--> 
 ```jsx
 import React, { useState, useEffect } from 'react';
 import { Map, InfoWindow, useInfoWindow, APILoader } from '@uiw/react-baidu-map';
 
-const Example2 = ({ BMap, map, isOpen, value }) => {
-  const position = { lng: 121.501365, lat: 31.224942 }
-  const { infoWindow } = useInfoWindow({
-    BMap, map, isOpen, position, enableCloseOnClick: false,
-    content: '上海市 <del>青浦区</del> 徐泾镇盈港东路',
-    title: value,
-    onClose: () => {
-      console.log('onClose:');
-    }
-  });
-
-  return null;
-}
-
 const Example = () => {
-  const [ isOpen, setIsOpen ] = useState(true);
-  const [ value, setValue ] = useState('地址信息二');
   const divElm = useRef(null);
   const { setContainer, map } = useMap({
     zoom: 13, center: { lng: 121.460977, lat: 31.227906 },
@@ -80,10 +64,10 @@ const Example = () => {
   });
 
   const position = { lng: 121.501365, lat: 31.224942 };
-  const { infoWindow } = useInfoWindow({
-    BMap, map, isOpen, position, enableCloseOnClick: false,
+  const { infoWindow, isOpen, setIsOpen, title, setTitle } = useInfoWindow({
+    BMap, map, position, enableCloseOnClick: false, isOpen: true,
     content: '上海市 <del>青浦区</del> 徐泾镇盈港东路',
-    title: value,
+    title: '地址信息二',
     onClose: () => {
       console.log('onClose:');
     }
@@ -96,7 +80,7 @@ const Example = () => {
   return (
     <>
       <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? '显示' : '隐藏'}</button>
-      <input value={value} onChange={(e) => setValue(e.target.value)} />
+      <input value={title} onChange={(e) => setTitle(e.target.value)} />
       <div ref={divElm} style={{ height: '100%' }} />
     </>
   )

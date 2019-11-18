@@ -1,46 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { InfoWindowProps } from './';
 
 const EVENTS = ['close', 'open', 'maximize', 'restore', 'clickclose'];
 
 export default (props = {} as InfoWindowProps) => {
   const { BMap, map, position, ...opts } = props;
-  const [infoWindow, useInfoWindow] = useState<BMap.InfoWindow>();
-  const [isOpen, useIsOpen] = useState(opts.isOpen);
-  const [title, useTitle] = useState(opts.title);
-  const [content, useContent] = useState(opts.content);
-  useEffect(() => {
+  const [infoWindow, setInfoWindow] = useState<BMap.InfoWindow>();
+  const [isOpen, setIsOpen] = useState(opts.isOpen === undefined ? true : opts.isOpen);
+  const [title, setTitle] = useState(opts.title);
+  const [content, setContent] = useState(opts.content);
+  useMemo(() => {
     if (!BMap || !map) return;
     if (!infoWindow) {
-      const win = new BMap.InfoWindow(content || '', { ...opts, title })
-      useInfoWindow(win);
+      const win = new BMap.InfoWindow('', { ...opts, title })
+      setInfoWindow(win);
       EVENTS.forEach((evnetName) => {
         const name = `on${evnetName.charAt(0).toUpperCase()}${evnetName.slice(1)}` as keyof BMap.InfoWindowEvent;
         if (opts[name]) {
           win.addEventListener(evnetName, (opts as any)[name]);
         }
       });
-    } else {
-      if(opts.isOpen !== isOpen) {
-        useIsOpen(opts.isOpen);
-      }
-      if(opts.content !== content) {
-        useContent(opts.content);
-        infoWindow.setContent(opts.content || '');
-      }
-      if(opts.title !== title) {
-        useTitle(opts.title);
-        infoWindow.setTitle(opts.title || '');
-      }
-      if(!infoWindow.isOpen() && position) {
+    }
+  }, [map]);
+
+  useEffect(() => {
+    if (map && BMap && infoWindow) {
+      if(!isOpen) {
+        map.closeInfoWindow();
+      } else if (position) {
         const point = new BMap.Point(position.lng, position.lat);
         map.openInfoWindow(infoWindow, point);
       }
-      if(!isOpen) {
-        map.closeInfoWindow();
-      }
     }
-  });
+  }, [isOpen, infoWindow]);
+
+  useEffect(() => {
+    if (map && BMap && infoWindow && content) {
+      infoWindow.setContent(content);
+    }
+  }, [content, infoWindow]);
+
+  useEffect(() => {
+    if (map && BMap && infoWindow) {
+      infoWindow.setTitle(title!);
+    }
+  }, [title]);
+
   return {
     /**
      * 信息窗口实例对象
@@ -49,6 +54,6 @@ export default (props = {} as InfoWindowProps) => {
     /**
      * 更新 信息窗口实例对象
      */
-    useInfoWindow, isOpen, useIsOpen, title, useTitle, content, useContent
+    setInfoWindow, isOpen, setIsOpen, title, setTitle, content, setContent
   }
 }

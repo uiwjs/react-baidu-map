@@ -16,14 +16,9 @@ export default (props: UseMap = {}) => {
   const [map, setMap] = useState<BMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);
   const [container, setContainer] = useState<string | HTMLDivElement>(props.container as (string | HTMLDivElement));
-  useEffect(() => {
-    if (container && !map) {
+  useMemo(() => {
+    if (container && !map && BMap) {
       const instance = new BMap.Map(container, { minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick });
-      let cent = center;
-      if (center && (center as BMap.Point).lng && (center as BMap.Point).lat) {
-        cent = new BMap.Point((center as BMap.Point).lng, (center as BMap.Point).lat);
-      }
-      instance.centerAndZoom(cent!, zoom!);
       /**
        * 加载控件
        */
@@ -43,7 +38,7 @@ export default (props: UseMap = {}) => {
     if (map && zoom) {
       map.setZoom(zoom!);
     }
-  }, [zoom]);
+  }, [zoom, map]);
 
   /**
    * 根据参数设置中心点
@@ -54,16 +49,15 @@ export default (props: UseMap = {}) => {
       if (center && (center as BMap.Point).lng && (center as BMap.Point).lat) {
         cent = new BMap.Point((center as BMap.Point).lng, (center as BMap.Point).lat);
       }
-      map.setCenter(cent);
+      map.centerAndZoom(cent!, zoom!);
     }
-  }, [center]);
+  }, [center, map]);
 
   /**
    * IP定位获取当前城市，进行自动定位
    */
   useEffect(() => {
     if (map && autoLocalCity) {
-      console.log('autoLocalCity:', autoLocalCity)
       const myCity = new BMap.LocalCity();
       myCity.get((result) => {
         setCenter(result.name as any);
@@ -71,7 +65,7 @@ export default (props: UseMap = {}) => {
         setAutoLocalCity(false);
       });
     }
-  }, [autoLocalCity]);
+  }, [autoLocalCity, map]);
 
   return {
     map, setMap,

@@ -46,12 +46,11 @@ export interface MapProps extends BMap.MapOptions {
 
 export default function Map({ className, style, children, ...props }: MapProps) {
   const divElm = useRef<HTMLDivElement>(null);
-  const { setContainer, map } = useMap({ container: divElm.current as (string | HTMLDivElement), ...props });
-  useEffect(() => {
-    if (divElm.current && !map) {
-      setContainer(divElm.current);
-    };
-  });
+  const { setContainer, setZoom, setCenter, setAutoLocalCity, map } = useMap({ container: divElm.current as (string | HTMLDivElement), ...props });
+  useEffect(() => setContainer(divElm.current!), [divElm.current]);
+  useEffect(() => setZoom(props.zoom || 15), [props.zoom]);
+  useEffect(() => setCenter(props.center || '上海'), [props.center]);
+  useEffect(() => setAutoLocalCity(props.autoLocalCity!), [props.autoLocalCity]);
   return (
     <Fragment>
       <div ref={divElm} className={className} style={{ height: '100%', ...style}} />

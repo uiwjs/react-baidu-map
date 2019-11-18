@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MapChildProps } from '../common/map';
 import useInfoWindow from './useInfoWindow';
 
@@ -19,6 +19,9 @@ export interface InfoWindowProps extends MapChildProps, BMap.InfoWindowOptions, 
 }
 
 export default function InfoWindow(props: InfoWindowProps) {
-  useInfoWindow(props);
+  const { setContent, setIsOpen, setTitle } = useInfoWindow(props);
+  useEffect(() => setTitle(props.title), [props.title]);
+  useEffect(() => setContent(props.content), [props.content]);
+  useEffect(() => setIsOpen(props.isOpen!), [props.isOpen]);
   return null;
 }

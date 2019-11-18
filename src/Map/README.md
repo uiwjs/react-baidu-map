@@ -77,6 +77,7 @@ import { Map, APILoader, useMap } from '@uiw/react-baidu-map';
 const Example = () => {
   const divElm = useRef(null);
   const { setContainer, zoom, setZoom, center, setCenter, setAutoLocalCity } = useMap({
+    center: '北京',
     widget: ['GeolocationControl', 'NavigationControl']
   });
   useEffect(() => {
@@ -92,7 +93,7 @@ const Example = () => {
       <button onClick={() => setZoom(counts+1)}>+</button>
       <button onClick={() => setCenter('北京')}>北京</button>
       <button onClick={() => setCenter('上海')}>上海</button>
-      <button onClick={() => setAutoLocalCity(true)}>上海</button>
+      <button onClick={() => setAutoLocalCity(true)}>IP定位</button>
       <div ref={divElm} style={{ height: '100%' }} />
     </>
   )

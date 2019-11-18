@@ -109,8 +109,8 @@ import { Map, APILoader, useMarkers } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
-  const { setContainer, map } = useMap({ widget: ['GeolocationControl', 'NavigationControl'] });
-  const { setType } = useMarkers({ map, position: { lng: 121.444017, lat: 31.237787 }, });
+  const { setContainer, map } = useMap({ widget: ['GeolocationControl', 'NavigationControl'], zoom: 8 });
+  const { setType, marker } = useMarkers({ map, position: { lng: 121.444017, lat: 31.237787 }, });
   useEffect(() => {
     if (divElm.current) {
       setContainer(divElm.current);
@@ -120,6 +120,7 @@ const Example = () => {
     <>
       <button onClick={() => setType('red2')}>设置 red2</button>
       <button onClick={() => setType('loc_blue')}>设置 loc_blue</button>
+      <button onClick={() => marker.setPosition(new BMap.Point(121.497197, 31.232847))}>设置 setPosition</button>
       <div ref={divElm} style={{ height: '100%' }} />
     </>
   )
@@ -139,7 +140,7 @@ ReactDOM.render(<Demo />, _mount_);
 ### Props
 
 | 参数 | 说明 | 类型 | 默认值 |
-|--------- |-------- |--------- |-------- |
+| ----- | ----- | ----- | ----- |
 | position | **`必填`** 设置标注的地理坐标。[百度拾取坐标系统](http://api.map.baidu.com/lbsapi/getpoint/index.html) | `Point` | - |
 | animation | 此常量表示标注的动画效果, `1` 坠落动画，`2` 跳动动画。 | `number` | - |
 | type | 标点类型，默认自定义标点 `location`, `end`, `start`, `simple_red`, `simple_blue`, `loc_blue`, `loc_red`, `dot_red`, `dot_blue', 'red1`, `red2`, `red3`, `red4`, `red5`, `red6`, `red7`, `red8`, `red9', 'blue1`, `blue2`, `blue3`, `blue4`, `blue5`, `blue6`, `blue7`, `blue8`, `blue9`。| `string` | - |
