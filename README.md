@@ -1,7 +1,14 @@
 react-baidu-map
 ===
 
-这是一个基于 React 封装的百度地图组件。帮助你轻松的接入地图到 React 项目中。
+[![](https://img.shields.io/github/issues/uiwjs/react-baidu-map.svg)](https://github.com/uiwjs/react-baidu-map/issues)
+[![](https://img.shields.io/github/forks/uiwjs/react-baidu-map.svg)](https://github.com/uiwjs/react-baidu-map/network)
+[![](https://img.shields.io/github/stars/uiwjs/react-baidu-map.svg)](https://github.com/uiwjs/react-baidu-map/stargazers)
+[![](https://img.shields.io/github/release/uiwjs/react-baidu-map)](https://github.com/uiwjs/react-baidu-map/releases)
+[![](https://img.shields.io/npm/v/@uiw/react-baidu-map.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map)
+[![](https://jaywcjlove.github.io/sb/ico/gitee.svg)](https://uiw.gitee.io/react-baidu-map/)
+
+这是一个基于 React 封装的百度地图组件，帮助你轻松的接入地图到 React 项目中，[文档实例预览](https://uiwjs.github.io/react-baidu-map/)。
 
 ## 安装
 
