@@ -1,0 +1,154 @@
+Polyline 折线组件
+===
+
+使用浏览器的矢量制图工具（如果可用）在地图上绘制折线的地图叠加层。
+
+### 基本用法
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import React, { useState } from 'react';
+import { Map, Label, APILoader } from '@uiw/react-baidu-map';
+
+const Example = () => {
+  const [enableEditing, setEnableEditing] = useState(false);
+  const [strokeOpacity, setStrokeOpacity] = useState(0.9);
+  return (
+    <>
+      <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '编辑'}</button>
+      <button onClick={() => setStrokeOpacity(0.7)}>透明度0.7</button>
+      <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
+      <Map zoom={13} center="北京" widget={['NavigationControl']}>
+        <Polyline
+          enableEditing={enableEditing}
+          strokeOpacity={strokeOpacity}
+          path={[
+            { lng: 116.399, lat: 39.910 },
+            { lng: 116.405, lat: 39.920 },
+            { lng: 116.423493, lat: 39.907445 },
+          ]}
+        />
+        <Polyline
+          enableEditing={enableEditing}
+          strokeOpacity={strokeOpacity}
+          path={[
+            { lng: 116.399, lat: 39.920977 },
+            { lng: 116.385243, lat: 39.913063 },
+            { lng: 116.394226, lat: 39.917988 },
+            { lng: 116.401772, lat: 39.921364 },
+            { lng: 116.41248, lat: 39.927893 },
+          ]}
+        />
+      </Map>
+    </>
+  );
+}
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '350px' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <Example />
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
+```
+<!--End-->
+
+### 使用 hooks
+
+`polyline`, `setPolyline`, `path`, `setPath`
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import { useRef, useEffect, useState } from 'react';
+import { Map, APILoader, useMap, usePolyline } from '@uiw/react-baidu-map';
+
+const Example = () => {
+  const [enableEditing, setEnableEditing] = useState(false);
+  const [strokeOpacity, setStrokeOpacity] = useState(0.9);
+  const divElm = useRef(null);
+  const { setContainer, map } = useMap({
+    enableEditing, strokeOpacity,
+    zoom: 13,
+    center: '北京',
+    widget: ['GeolocationControl', 'NavigationControl']
+  });
+  const { polyline } = usePolyline({ map,
+    path: [
+      { lng: 116.387112, lat: 39.920977 },
+      { lng: 116.385243, lat: 39.913063 },
+      { lng: 116.394226, lat: 39.917988 },
+      { lng: 116.401772, lat: 39.921364 },
+      { lng: 116.41248, lat: 39.927893 },
+    ],
+  });
+  usePolyline({ map,
+    path: [
+      { lng: 116.399, lat: 39.910 },
+      { lng: 116.405, lat: 39.920 },
+      { lng: 116.423493, lat: 39.907445 },
+    ],
+  });
+  useEffect(() => {
+    if (divElm.current) {
+      setContainer(divElm.current);
+    }
+  });
+  useEffect(() => {
+    if (map) {
+      // 启用滚轮放大缩小，默认禁用
+      map.enableScrollWheelZoom();
+    }
+  }, [map]);
+
+  useEffect(() => {
+    if (map && polyline) {
+      polyline.setFillColor('red');
+      if (enableEditing) {
+        polyline.enableEditing();
+      } else {
+        polyline.disableEditing();
+      }
+    }
+  }, [enableEditing]);
+
+  useEffect(() => {
+    if (map && polyline) {
+      polyline.setStrokeOpacity(strokeOpacity);
+    }
+  }, [strokeOpacity]);
+
+  return (
+    <>
+      <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '编辑'}</button>
+      <button onClick={() => setStrokeOpacity(0.7)}>透明度0.7</button>
+      <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
+      <div ref={divElm} style={{ height: '100%' }} />
+    </>
+  )
+}
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '300px' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <Example />
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
+```
+<!--End-->
+
+### Props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| ----- | ----- | ----- | ----- |
+| strokeColor |  折线颜色 | String | - |
+| strokeWeight |  折线的宽度，以像素为单位 | Number | - |
+| strokeOpacity |  折线的透明度，取值范围0 - 1 | Number | - |
+| strokeStyle |  折线的样式，solid或dashed | String | - |
+| enableMassClear |  是否在调用map.clearOverlays清除此覆盖物，默认为true | Boolean | - |
+| enableEditing |  是否启用线编辑，默认为false | Boolean | - |
+| enableClicking |  是否响应点击事件，默认为true | Boolean | - |
+| icons | 配置贴合折线的图标 | IconSequence[] | - |

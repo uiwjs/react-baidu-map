@@ -3,7 +3,6 @@ Label 文本标注
 
 表示地图上包含信息的窗口。
 
-
 ### 基本用法
 
 <!--DemoStart,bgWhite--> 

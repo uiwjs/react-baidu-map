@@ -10,15 +10,6 @@ declare namespace BMap {
 		hide?(): void;
 	}
 	type SymbolShapeType = number;
-	interface PolylineOptions {
-		strokeColor?: string;
-		strokeWeight?: number;
-		strokeOpacity?: number;
-		strokeStyle?: string;
-		enableMassClear?: boolean;
-		enableEditing?: boolean;
-		enableClicking?: boolean;
-	}
 	interface GroundOverlayOptions {
 		opacity?: number;
 		imageURL?: string;
@@ -89,7 +80,7 @@ declare namespace BMap {
      * 将标注置于其他标注之上。默认情况下，纬度较低的标注会覆盖在纬度较高的标注之上，从而形成一种立体效果。通过此方法可使某个标注覆盖在其他所有标注之上。
      * 注意：如果在多个标注对象上调用此方法，则这些标注依旧按照纬度产生默认的覆盖效果
      */
-    setTop(isTop: Boolean): void;
+    setTop(isTop: boolean): void;
     /**
      * 开启标注拖拽功能
      */
@@ -109,7 +100,7 @@ declare namespace BMap {
     /**
      * 设置覆盖物的zIndex
      */
-    setZIndex(zIndex: Number): void;
+    setZIndex(zIndex: number): void;
     /**
      * 返回覆盖物所在的map对象
      */
@@ -129,11 +120,11 @@ declare namespace BMap {
     /**
      * 设置点的旋转角度
      */
-    setRotation(rotation: Number): void;
+    setRotation(rotation: number): void;
     /**
      * 获取点的旋转角度
      */
-    getRotation(): Number;
+    getRotation(): number;
     /**
      * 设置标注阴影图标
      */
@@ -145,11 +136,11 @@ declare namespace BMap {
     /**
      * 添加事件监听函数
      */
-    addEventListener(event: String, handler: Function): void;
+    addEventListener(event: string, handler: Function): void;
     /**
      * 移除事件监听函数
      */
-    removeEventListener(event: String, handler: Function) : void;
+    removeEventListener(event: string, handler: Function) : void;
   
 		onclick: (event: { type: string, target: any }) => void;
 		ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
@@ -286,7 +277,7 @@ declare namespace BMap {
     /**
      * 旋转角度
      */
-    rotation?: Number;
+    rotation?: number;
     /**
      * 阴影图标
      */
@@ -457,59 +448,176 @@ declare namespace BMap {
      * 自定义部分的短信内容，可选项。完整的短信内容包括：自定义部分+位置链接，不设置时，显示默认短信内容。短信内容最长为140个字
      */
     message?: string;
+  }
+  /**
+   * 此类表示一个多边形覆盖物。
+   */
+	class Polygon {
+    /**
+     * 创建多边形覆盖物
+     * @param points 
+     * @param opts 
+     */
+		constructor(points: Point[], opts?: PolygonOptions);
+  }
+	interface PolygonOptions {
+    /**
+     * 边线颜色
+     */
+    strokeColor?: string;
+    /**
+     * 填充颜色。当参数为空时，折线覆盖物将没有填充效果
+     */
+    fillColor?: string;
+    /**
+     * 边线的宽度，以像素为单位
+     */
+    strokeWeight?: number;
+    /**
+     * 边线透明度，取值范围0 - 1
+     */
+    strokeOpacity?: number;
+    /**
+     * 填充的透明度，取值范围0 - 1
+     */
+    fillOpacity?: number;
+    /**
+     * 边线的样式，solid或dashed
+     */
+    strokeStyle?: string;
+    /**
+     * 是否在调用map.clearOverlays清除此覆盖物，默认为true
+     */
+    enableMassClear?: boolean;
+    /**
+     * 是否启用线编辑，默认为false
+     */
+    enableEditing?: boolean;
+    /**
+     * 是否响应点击事件，默认为true
+     */
+    enableClicking?: boolean;
 	}
 	interface Polygon extends Overlay {
-		setPath(path: Point[]): void;
-		getPath(): Point[];
-		setStrokeColor(color: string): void;
-		getStrokeColor(): string;
-		setFillColor(color: string): void;
-		getFillColor(): string;
-		setStrokeOpacity(opacity: number): void;
-		getStrokeOpacity(): number;
-		setFillOpacity(opacity: number): void;
-		getFillOpacity(): number;
-		setStrokeWeight(weight: number): void;
-		getStrokeWeight(): number;
-		setStrokeStyle(style: string): void;
-		getStrokeStyle(): string;
-		getBounds(): Bounds;
-		enableEditing(): void;
-		disableEditing(): void;
-		enableMassClear(): void;
-		disableMassClear(): void;
-		setPointAt(index: number, point: Point): void;
-		setPositionAt(index: number, point: Point): void;
-		getMap(): Map;
-		addEventListener(event: string, handler: Callback): void;
+    /**
+     * 设置多边型的点数组
+     * @param path 
+     */
+    setPath(path: Point[]): void;
+    /**
+     * 返回多边型的点数组
+     */
+    getPath(): Point[];
+    /**
+     * 设置多边型的边线颜色，参数为合法的CSS颜色值
+     * @param color 
+     */
+    setStrokeColor(color: string): void;
+    /**
+     * 返回多边型的边线颜色
+     */
+    getStrokeColor(): string;
+    /**
+     * 设置多边形的填充颜色，参数为合法的CSS颜色值。当参数为空字符串时，折线覆盖物将没有填充效果
+     * @param color 
+     */
+    setFillColor(color: string): void;
+    /**
+     * 返回多边形的填充颜色
+     */
+    getFillColor(): string;
+    /**
+     * 设置多边形的边线透明度，取值范围0 - 1
+     * @param opacity 
+     */
+    setStrokeOpacity(opacity: number): void;
+    /**
+     * 返回多边形的边线透明度
+     */
+    getStrokeOpacity(): number;
+    /**
+     * 设置多边形的填充透明度，取值范围0 - 1
+     * @param opacity 
+     */
+    setFillOpacity(opacity: number): void;
+    /**
+     * 返回多边形的填充透明度
+     */
+    getFillOpacity(): number;
+    /**
+     * 设置多边形边线的宽度，取值为大于等于1的整数
+     */
+    setStrokeWeight(weight: number): void;
+    /**
+     * 返回多边形边线的宽度
+     */
+    getStrokeWeight(): number;
+    /**
+     * 设置多边形边线样式为实线或虚线，取值solid或dashed
+     * @param style 
+     */
+    setStrokeStyle(style: string): void;
+    /**
+     * 返回多边形边线样式
+     */
+    getStrokeStyle(): string;
+    /**
+     * 返回覆盖物的地理区域范围
+     */
+    getBounds(): Bounds;
+    /**
+     * 开启编辑功能
+     */
+    enableEditing(): void;
+    /**
+     * 关闭编辑功能
+     */
+    disableEditing(): void;
+    /**
+     * 允许覆盖物在map.clearOverlays方法中被清除
+     */
+    enableMassClear(): void;
+    /**
+     * 禁止覆盖物在map.clearOverlays方法中被清除
+     */
+    disableMassClear(): void;
+    /**
+     * 修改指定位置的坐标。索引index从0开始计数。例如setPositionAt(2, point)代表将折线的第3个点的坐标设为point
+     * @param index 
+     * @param point 
+     */
+    setPositionAt(index: number, point: Point): void;
+    /**
+     * 返回覆盖物所在的map对象
+     */
+    getMap(): Map;
+    /**
+     * 添加事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    addEventListener(event: string, handler: Callback): void;
+    /**
+     * 移除事件监听函数
+     * @param event 
+     * @param handler 
+     */
 		removeEventListener(event: string, handler: Callback): void;
-		onclick: (event: { type: string, target: any }) => void;
-		ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseout: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseover: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onremove: (event: { type: string, target: any }) => void;
-		onlineupdate: (event: { type: string, target: any }) => void;
 	}
-	class Polygon {
-		constructor(points: Point[], opts?: PolygonOptions);
-	}
+  interface PolygonEvents {
+		onClick: (event: { type: string, target: any }) => void;
+		onDoubleClick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+		onMouseDown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+		onMouseUp: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+		onMouseOut: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+		onMouseOver: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+		onRemove: (event: { type: string, target: any }) => void;
+		onLineUpdate: (event: { type: string, target: any }) => void;
+  }
   /**
    * 此常量表示标注的动画效果。
    */
 	type Animation = number;
-	interface PolygonOptions {
-		strokeColor?: string;
-		fillColor?: string;
-		strokeWeight?: number;
-		strokeOpacity?: number;
-		fillOpacity?: number;
-		strokeStyle?: string;
-		enableMassClear?: boolean;
-		enableEditing?: boolean;
-		enableClicking?: boolean;
-	}
 	type ShapeType = number;
 	interface Icon extends Overlay {
     /**
@@ -531,7 +639,7 @@ declare namespace BMap {
     /**
      * 设置图片资源的地址
      */
-    setImageUrl?: (imageUrl: String) => void;
+    setImageUrl?: (imageUrl: string) => void;
     /**
      * 设置图标可视区域的大小
      */
@@ -556,7 +664,7 @@ declare namespace BMap {
      * 设置icon的打印图片，该打印图片只针对IE6有效，解决IE6使用PNG滤镜导致的错位问题。
      * 如果您的icon没有使用PNG格式图片或者没有使用CSS Sprites技术，则可忽略此配置
      */
-    setPrintImageUrl(url: String): void;
+    setPrintImageUrl(url: string): void;
   }
   /**
    * 此类表示标注覆盖物所使用的图标。
@@ -580,7 +688,7 @@ declare namespace BMap {
     /**
      *   设置文本标注的内容。支持HTML
      */
-    setContent(content: String): void;
+    setContent(content: string): void;
     /**
      *   设置文本标注坐标。仅当通过Map.addOverlay()方法添加的文本标注有效
      */
@@ -600,11 +708,11 @@ declare namespace BMap {
     /**
      *   设置文本标注的标题，当鼠标移至标注上时显示此标题
      */
-    setTitle(title: String): void;
+    setTitle(title: string): void;
     /**
      * 返回文本标注的标题
      */
-    getTitle(): String;
+    getTitle(): string;
     /**
      * 允许覆盖物在map.clearOverlays方法中被清除
      */
@@ -616,7 +724,7 @@ declare namespace BMap {
     /**
      * 设置覆盖物的zIndex
      */
-    setZIndex(zIndex: Number): void;
+    setZIndex(zIndex: number): void;
     /**
      * 返回覆盖物所在的map对象
      */
@@ -624,11 +732,11 @@ declare namespace BMap {
     /**
      * 添加事件监听函数
      */
-    addEventListener(event: String, handler: Function): void;
+    addEventListener(event: string, handler: Function): void;
     /**
      * 移除事件监听函数
      */
-    removeEventListener(event: String, handler: Function): void;
+    removeEventListener(event: string, handler: Function): void;
   }
 	interface LabelOptions {
     /**
@@ -642,7 +750,7 @@ declare namespace BMap {
     /**
      * 是否在调用map.clearOverlays清除此覆盖物，默认为true
      */
-    enableMassClear?: Boolean;
+    enableMassClear?: boolean;
 	}
   interface LabelEvents {
     /**
@@ -804,6 +912,40 @@ declare namespace BMap {
 	class Symbol {
 		constructor(path: string | SymbolShapeType, opts?: SymbolOptions);
 	}
+	interface PolylineOptions {
+    /**
+     * 折线颜色
+     */
+    strokeColor?: string;
+    /**
+     * 折线的宽度，以像素为单位
+     */
+    strokeWeight?: number;
+    /**
+     * 折线的透明度，取值范围0 - 1
+     */
+    strokeOpacity?: number;
+    /**
+     * 折线的样式，solid或dashed
+     */
+    strokeStyle?: string;
+    /**
+     * 是否在调用map.clearOverlays清除此覆盖物，默认为true
+     */
+    enableMassClear?: boolean;
+    /**
+     * 是否启用线编辑，默认为false
+     */
+    enableEditing?: boolean;
+    /**
+     * 是否响应点击事件，默认为true
+     */
+    enableClicking?: boolean;
+    /**
+     * 配置贴合折线的图标
+     */
+    icons?: Array<IconSequence>;
+	}
 	interface Polyline extends Overlay {
 		setPath(path: Point[]): void;
 		getPath(): Point[];
@@ -824,7 +966,6 @@ declare namespace BMap {
 		disableEditing(): void;
 		enableMassClear(): void;
 		disableMassClear(): void;
-		setPointAt(index: number, point: Point): void;
 		setPositionAt(index: number, point: Point): void;
 		getMap(): Map;
 		addEventListener(event: string, handler: Callback): void;

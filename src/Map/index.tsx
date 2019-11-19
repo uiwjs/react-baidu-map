@@ -33,7 +33,7 @@ export interface MapProps extends BMap.MapOptions {
    */
   zoom?: number;
   /**
-   * 定位, 可使用如 `上海市青浦区` 的地区字符串，
+   * 定位, 可使用如 `上海市` 的地区字符串，
    * 也可以使用对象如 `{lng: 121.424333, lat: 31.228604}` 表示经纬度
    */
   center?: string | BMap.Point;

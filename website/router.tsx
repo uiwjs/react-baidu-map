@@ -41,6 +41,10 @@ export const routes: Routes = [
     path: "/point-collection",
     component: loadable(() => import('./pages/point-collection'), options),
   },
+  {
+    path: "/polyline",
+    component: loadable(() => import('./pages/polyline'), options),
+  },
 ];
 
 
@@ -62,15 +66,19 @@ export const menus = [
     path: '/marker',
   },
   {
-    label: 'PointCollection 海量点标注',
-    path: '/point-collection',
-  },
-  {
     label: 'InfoWindow 信息窗口',
     path: '/info-window',
   },
   {
     label: 'Label 文本标注',
     path: '/label',
+  },
+  {
+    label: 'PointCollection 海量点标注',
+    path: '/point-collection',
+  },
+  {
+    label: 'Polyline 折线组件',
+    path: '/polyline',
   },
 ]
