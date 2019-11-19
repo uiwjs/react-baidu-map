@@ -8,8 +8,6 @@
   "scripts": {
     "prepare": "npm run build",
     "released": "npm run build && npm run doc",
-    "predeploy": "npm run released",
-    "deploy": "gh-pages -d build",
     "doc": "ENTRYDIR=website kkt build",
     "doc:dev": "ENTRYDIR=website kkt start",
     "build": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build",
@@ -54,7 +52,6 @@
     "@uiw/reset.css": "^1.0.3",
     "classnames": "^2.2.6",
     "compile-less-cli": "^1.1.5",
-    "gh-pages": "^2.1.1",
     "kkt": "^5.0.0-alpha.11",
     "prismjs": "^1.17.1",
     "raw-loader": "^3.1.0",
