@@ -38,6 +38,11 @@ const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Map
+        ready={(bmap, map) => {
+          console.log('准备好了！', map);
+          // 启用滚轮放大缩小，默认禁用
+          map.enableScrollWheelZoom();
+        }}
         widget={[
           'GeolocationControl',
           {
@@ -76,7 +81,7 @@ import { Map, APILoader, useMap } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
-  const { setContainer, zoom, setZoom, center, setCenter, setAutoLocalCity } = useMap({
+  const { setContainer, map, zoom, setZoom, center, setCenter, setAutoLocalCity } = useMap({
     center: '北京',
     widget: ['GeolocationControl', 'NavigationControl']
   });
@@ -85,6 +90,12 @@ const Example = () => {
       setContainer(divElm.current);
     }
   });
+  useEffect(() => {
+    if (map) {
+      // 启用滚轮放大缩小，默认禁用
+      map.enableScrollWheelZoom();
+    }
+  }, [map]);
   let counts = zoom || 15;
   return (
     <>
@@ -124,3 +135,4 @@ ReactDOM.render(<Demo />, _mount_);
 | enableHighResolution | 是否启用使用高分辨率地图。在iPhone4及其后续设备上，可以通过开启此选项获取更高分辨率的底图，v1.2,v1.3版本默认不开启，v1.4 默认为开启状态 | boolean | - |
 | enableAutoResize | 地图允许展示的最大级别 | boolean | `true` |
 | enableMapClick | 是否开启底图可点功能 | boolean | `true` |
+| ready | 地图实例加载完成执行事件 | (bmap: typeof BMap, map: BMap.Map): void | - |

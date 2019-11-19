@@ -10,7 +10,7 @@ export interface UseMap extends MapProps, MapChildProps {
 }
 
 export default (props: UseMap = {}) => {
-  const { widget, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick } = props;
+  const { widget, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick, ready } = props;
   const [center, setCenter] = useState(props.center || '上海');
   const [autoLocalCity, setAutoLocalCity] = useState(props.autoLocalCity);
   const [map, setMap] = useState<BMap.Map>();
@@ -18,7 +18,7 @@ export default (props: UseMap = {}) => {
   const [container, setContainer] = useState<string | HTMLDivElement>(props.container as (string | HTMLDivElement));
   useMemo(() => {
     if (container && !map && BMap) {
-      const instance = new BMap.Map(container, { minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick });
+      let instance = new BMap.Map(container, { minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick });
       /**
        * 加载控件
        */
@@ -31,12 +31,12 @@ export default (props: UseMap = {}) => {
         }
       });
       setMap(instance);
+    } else {
     }
   }, [container, map]);
 
   useEffect(() => {
     if (map && zoom) {
-      console.log('zoom:', zoom);
       map.setZoom(zoom!);
     }
   }, [zoom, map]);

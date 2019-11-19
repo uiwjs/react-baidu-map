@@ -297,7 +297,10 @@ declare namespace BMap {
      * 经纬度坐标转换为像素坐标
      */
     pointToPixel(point: Point): Pixel;
-
+    addEventListener(event: string, handler: Callback): void;
+    removeEventListener(event: string, handler: Callback): void;
+  }
+  interface MapEvents {
 		onclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
 		ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
 		onrightclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
@@ -331,9 +334,7 @@ declare namespace BMap {
 		ontouchmove: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
 		ontouchend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
     onlongpress: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    addEventListener(event: string, handler: Callback): void;
-    removeEventListener(event: string, handler: Callback): void;
-	}
+  }
   /**
    * 此类是 `panBy` 和 `panTo` 方法的可选参数，没有构造函数，通过对象字面量形式表示。
    */

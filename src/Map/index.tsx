@@ -42,11 +42,22 @@ export interface MapProps extends BMap.MapOptions {
    */
   autoLocalCity?: boolean;
   children?: React.ReactNode;
+  /**
+   * 地图实例加载完成执行事件
+   * @param bmap 地图API的核心类，SDK加载完成才有
+   * @param map 实例化后的地图对象
+   */
+  ready?(bmap: typeof BMap, map: BMap.Map): BMap.Map;
 }
 
 export default function Map({ className, style, children, ...props }: MapProps) {
   const divElm = useRef<HTMLDivElement>(null);
   const { setContainer, setZoom, setCenter, setAutoLocalCity, map } = useMap({ container: divElm.current as (string | HTMLDivElement), ...props });
+  useEffect(() => {
+    if (props.ready && map) {
+      props.ready(BMap, map) as BMap.Map;
+    }
+  }, [map]);
   useEffect(() => setContainer(divElm.current!), [divElm.current]);
   useEffect(() => setZoom(props.zoom || 15), [props.zoom]);
   useEffect(() => setCenter(props.center || '上海'), [props.center]);
