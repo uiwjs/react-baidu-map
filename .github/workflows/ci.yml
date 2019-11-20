@@ -1,8 +1,10 @@
 name: GitHub Actions Build and Deploy react-baidu-map
 on:
   push:
-    branches:
-      - master
+    # branches:
+    #   - master
+    tags:
+      - v1.*
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
