@@ -1,14 +1,16 @@
 import { useMemo, useState, useEffect } from 'react';
 import { LabelProps } from './';
+import { useEnableProperties, useProperties } from '../common/useEnableProperties';
 
 const EVENTS = ['onClick', 'onDblClick', 'onMouseDo', 'onMouseUp', 'onMouseOout', 'onMouseO', 'onRemove', 'onRightClick'];
 
-export default (props = {} as LabelProps) => {
+export interface UseLabel extends LabelProps {
+
+}
+
+export default (props = {} as UseLabel) => {
   const [label, setLabel] = useState<BMap.Label>();
-  const [content, setContent] = useState(props.content);
-  const [style, setStyle] = useState(props.style);
-  const [position, setPosition] = useState(props.position);
-  const { map, offset, enableMassClear } = props;
+  const { map, offset, style, content, position, enableMassClear } = props;
 
   useMemo(() => {
     if (!BMap || !map) return;
@@ -28,28 +30,12 @@ export default (props = {} as LabelProps) => {
     }
   }, [map]);
 
-  useEffect(() => {
-    if(label && content) {
-      label.setContent(content);
-    }
-  }, [content, label]);
-
-  useEffect(() => {
-    if(label && style) {
-      label.setStyle({ ...style });
-    }
-  }, [style, label]);
-
-  useEffect(() => {
-    if(label && position) {
-      label.setPosition(position);
-    }
-  }, [position, label]);
+  useProperties<BMap.Label, UseLabel>(label!, props, [
+    'Style', 'Content', 'Position', 'Offset', 'Title', 'ZIndex'
+  ]);
+  useEnableProperties<BMap.Label, UseLabel>(label!, props, ['MassClear']);
 
   return {
-    label, setLabel,
-    content, setContent,
-    style, setStyle,
-    position, setPosition,
+    label, setLabel
   };
 }

@@ -130,7 +130,7 @@ const Example = () => {
       <button onClick={() => setType('loc_blue')}>设置 loc_blue</button>
       <button onClick={() => marker.setPosition(new BMap.Point(121.497197, 31.232847))}>设置坐标点</button>
       <button onClick={() => marker.setAnimation(2)}>设置动画</button>
-      <button onClick={() => marker.setAnimation()}>取消动画</button>
+      <button onClick={() => marker.setAnimation(null)}>取消动画</button>
       <div ref={divElm} style={{ height: '100%' }} />
     </>
   )
@@ -159,6 +159,7 @@ ReactDOM.render(<Demo />, _mount_);
 | icon | 标注所用的图标对象 | `Icon` | - |
 | enableDragging | 是否启用拖拽 | `boolean` | `false` |
 | enableClicking | 是否响应点击事件 | `boolean` | `true` |
+| enableMassClear | 允许覆盖物在map.clearOverlays方法中被清除 | `boolean` | `true` |
 | raiseOnDrag | 拖拽标注时，标注是否开启离开地图表面效果。 | `boolean` | `false` |
 | draggingCursor | 拖拽标注时的鼠标指针样式。此属性值需遵循CSS的cursor属性规范 | `string` | - |
 | rotation | 是否响应点击事件 | `number` | - |

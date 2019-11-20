@@ -45,19 +45,9 @@ export function useProperties<T, F>(instance: T, props: F, propsName: string[] =
     const [state, setState] = useState(props[eName]);
     useEffect(() => {
       if (!instance) return;
-      /**
-       * 坐标点的参数设置
-       */
-      let data: any = props[eName];
-      let preData: any = state;
-      if(data && data.lng && data.lat && preData && preData.lng && preData.lat) {
-        data = new BMap.Point(data.lng, data.lat);
-        preData = new BMap.Point(preData.lng, preData.lat);
-      }
-
-      if (instance[`set${name}` as keyof T] && state !== props[eName]) {
+      if (instance[`set${name}` as keyof T] && props[eName] !== undefined) {
         /**
-         * 坐标点的参数设置，比对
+         * 坐标点的参数设置，比对, 坐标点的参数设置
          */
         let data: any = props[eName];
         if(data && data.lng && data.lat) {
@@ -72,8 +62,11 @@ export function useProperties<T, F>(instance: T, props: F, propsName: string[] =
         }
 
         (instance[`set${name}` as keyof T] as any)(data);
-        setState(props[eName]);
+        // 属性发生变化缓存
+        if (state !== props[eName]) {
+          setState(props[eName]);
+        }
       }
-    }, [instance, state, props[eName]]);
+    }, [instance, props[eName]]);
   });
 }

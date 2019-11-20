@@ -18,6 +18,7 @@ const Example = () => {
       <Map zoom={13} widget={['NavigationControl']}>
         <Label content={content} position={{ lng: 121.436256, lat: 31.246926 }}/>
         <Label
+          title="wwww"
           content={content}
           position={{ lng: 121.501365, lat: 31.224942 }}
           onClick={() => setContent('您！点击了文本标注！')}
@@ -95,7 +96,10 @@ ReactDOM.render(<Demo />, _mount_);
 | content | 文本标注内容 | `string` | - |
 | offset | 文本标注的位置偏移值 | `Size` | - |
 | position | 文本标注的地理位置 | `Point` | - |
+| title | 文本标注的标题 | `string` | - |
+| zIndex | 设置覆盖物的 zIndex | `number` | - |
 | style | 文本标注样式，该样式将作用于文本标注的容器元素上，如：`{ color : "red", fontSize : "12px" }`。 | `Style` | - |
+| enableMassClear | 允许覆盖物在 map.clearOverlays 方法中被清除 | `boolean` | - |
 
 ### 事件
 

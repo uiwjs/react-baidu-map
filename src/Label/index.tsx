@@ -18,9 +18,6 @@ export interface LabelProps extends MapChildProps, BMap.LabelOptions, BMap.Label
 }
 
 export default (props = {} as LabelProps) => {
-  const { setContent, setStyle, setPosition } = useLabel(props);
-  useEffect(() => setContent(props.content), [props.content]);
-  useEffect(() => setStyle(props.style), [props.style]);
-  useEffect(() => setPosition(props.position), [props.position]);
+  useLabel(props);
   return null;
 }
