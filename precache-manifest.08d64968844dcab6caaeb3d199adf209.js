@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dcb526cd5aa817b1d244892880da8953",
+    "revision": "456f7adfcb74542ee89422aeb1365f5b",
     "url": "/react-baidu-map/index.html"
   },
   {
@@ -8,11 +8,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/css/2.205cc77c.chunk.css"
   },
   {
-    "revision": "0dd266d806ae3e67b5e2",
+    "revision": "f7effe6177630afee06f",
     "url": "/react-baidu-map/static/css/3.53558320.chunk.css"
   },
   {
-    "revision": "a5a1c54bb38274089903",
+    "revision": "dec3285378b48a1ad350",
     "url": "/react-baidu-map/static/css/main.a010b600.css"
   },
   {
@@ -184,12 +184,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/135.d802d5f2.chunk.js"
   },
   {
-    "revision": "d9e4068d33e20c9d676d",
-    "url": "/react-baidu-map/static/js/136.27356b99.chunk.js"
+    "revision": "74613b0e77174ad57e4b",
+    "url": "/react-baidu-map/static/js/136.29bb4530.chunk.js"
   },
   {
-    "revision": "174bf154700ea9471923",
-    "url": "/react-baidu-map/static/js/137.e2652cf1.chunk.js"
+    "revision": "907670088a8596beeda1",
+    "url": "/react-baidu-map/static/js/137.4ae0d158.chunk.js"
   },
   {
     "revision": "c2d8c952190bba099c4f",
@@ -264,8 +264,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/29.1ec112d9.chunk.js"
   },
   {
-    "revision": "0dd266d806ae3e67b5e2",
-    "url": "/react-baidu-map/static/js/3.64c56069.chunk.js"
+    "revision": "f7effe6177630afee06f",
+    "url": "/react-baidu-map/static/js/3.3e6c8dbb.chunk.js"
   },
   {
     "revision": "664504a2518dfbe11aea",
@@ -568,8 +568,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/99.1c4aad78.chunk.js"
   },
   {
-    "revision": "a5a1c54bb38274089903",
-    "url": "/react-baidu-map/static/js/main.7599ae53.js"
+    "revision": "dec3285378b48a1ad350",
+    "url": "/react-baidu-map/static/js/main.577ace1a.js"
   },
   {
     "revision": "fbb9e99f420769ece2aaf13517430834",
