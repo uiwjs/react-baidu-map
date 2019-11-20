@@ -41,7 +41,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 使用 hooks
 
-`label`, `setLabel`, `content`, `setContent`, `style`, `setStyle`, `position`, `setPosition`
+`label`, `setLabel`
 
 <!--DemoStart,bgWhite--> 
 ```jsx
