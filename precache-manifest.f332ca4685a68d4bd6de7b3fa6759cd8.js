@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "456f7adfcb74542ee89422aeb1365f5b",
+    "revision": "8a9fed46a44e00e9fb79b7b0cb374aaf",
     "url": "/react-baidu-map/index.html"
   },
   {
@@ -8,11 +8,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/css/2.205cc77c.chunk.css"
   },
   {
-    "revision": "f7effe6177630afee06f",
+    "revision": "16750d4254982c217111",
     "url": "/react-baidu-map/static/css/3.53558320.chunk.css"
   },
   {
-    "revision": "dec3285378b48a1ad350",
+    "revision": "13ccb61ea9e1b227c361",
     "url": "/react-baidu-map/static/css/main.a010b600.css"
   },
   {
@@ -172,20 +172,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/132.0182c07f.chunk.js"
   },
   {
-    "revision": "63df68e218e4700c178f",
-    "url": "/react-baidu-map/static/js/133.271155e2.chunk.js"
+    "revision": "75a9e556b5d5b3470463",
+    "url": "/react-baidu-map/static/js/133.643795f7.chunk.js"
   },
   {
-    "revision": "548ee4fcdc256e9c0cb4",
-    "url": "/react-baidu-map/static/js/134.4c488cd5.chunk.js"
+    "revision": "47bc4e30bdb87d652573",
+    "url": "/react-baidu-map/static/js/134.61b36812.chunk.js"
   },
   {
-    "revision": "5fb04468aac07395ab49",
-    "url": "/react-baidu-map/static/js/135.d802d5f2.chunk.js"
+    "revision": "ebde66e137a70d0f430e",
+    "url": "/react-baidu-map/static/js/135.2fb8b98a.chunk.js"
   },
   {
-    "revision": "74613b0e77174ad57e4b",
-    "url": "/react-baidu-map/static/js/136.29bb4530.chunk.js"
+    "revision": "00aee8815b67ace344d4",
+    "url": "/react-baidu-map/static/js/136.b1d55d41.chunk.js"
   },
   {
     "revision": "907670088a8596beeda1",
@@ -264,8 +264,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/29.1ec112d9.chunk.js"
   },
   {
-    "revision": "f7effe6177630afee06f",
-    "url": "/react-baidu-map/static/js/3.3e6c8dbb.chunk.js"
+    "revision": "16750d4254982c217111",
+    "url": "/react-baidu-map/static/js/3.213a1e23.chunk.js"
   },
   {
     "revision": "664504a2518dfbe11aea",
@@ -568,8 +568,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/99.1c4aad78.chunk.js"
   },
   {
-    "revision": "dec3285378b48a1ad350",
-    "url": "/react-baidu-map/static/js/main.577ace1a.js"
+    "revision": "13ccb61ea9e1b227c361",
+    "url": "/react-baidu-map/static/js/main.d75823b6.js"
   },
   {
     "revision": "fbb9e99f420769ece2aaf13517430834",
