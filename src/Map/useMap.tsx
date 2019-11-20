@@ -61,8 +61,8 @@ export default (props: UseMap = {}) => {
       });
     }
   }, [autoLocalCity, map]);
-
-  useProperties<BMap.Map, UseMap>(map!, props, ['DefaultCursor', 'DraggingCursor', 'MinZoom', 'MaxZoom', 'MapStyle', 'MapStyleV2', 'Panorama', 'Center', 'CurrentCity', 'MapType', 'Viewport', 'Zoom',]);
+  // 'Center',
+  useProperties<BMap.Map, UseMap>(map!, props, ['DefaultCursor', 'DraggingCursor', 'MinZoom', 'MaxZoom', 'MapStyle', 'MapStyleV2', 'Panorama', 'CurrentCity', 'MapType', 'Viewport', 'Zoom',]);
   useEnableProperties<BMap.Map, UseMap>(map!, props, ['Dragging', 'ScrollWheelZoom', 'DoubleClickZoom', 'Keyboard', 'InertialDragging', 'ContinuousZoom', 'PinchToZoom', 'AutoResize']);
   return {
     map, setMap,
