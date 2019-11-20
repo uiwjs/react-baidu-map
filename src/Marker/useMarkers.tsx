@@ -68,7 +68,6 @@ export default (props = {} as UseMarkers) => {
   } = props;
   const [type, setType] = useState(props.type || 'loc_blue');
   const [marker, setMarker] = useState();
-  // const [animation, setAnimation] = useState(props.animation);
   const options = { offset, icon, enableMassClear, enableDragging, enableClicking, raiseOnDrag, draggingCursor, rotation, shadow, title };
   useMemo(() => {
     if (!BMap || !map) return;
@@ -92,6 +91,7 @@ export default (props = {} as UseMarkers) => {
     }
   }, [type, marker]);
 
+  useEnableProperties<BMap.Marker, UseMarkers>(marker!, props, ['Dragging', 'MassClear', 'Clicking']);
   useProperties<BMap.Marker, UseMarkers>(marker!, props, ['Icon', 'Position', 'Animation', 'Offset', 'Label', 'Title', 'Top', 'ZIndex', 'Rotation', 'Shadow']);
 
   return {

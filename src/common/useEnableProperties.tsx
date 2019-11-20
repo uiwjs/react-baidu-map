@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 
 /**
  * 批量创建多个如下 State，监听并设置值，
- * 根据 boolean 值执行 `enable` 和 `disable` 开头的函数。
+ * 组件属性更改 <Componet enableDragging={true} >
+ * 根据 enableDragging 的 Boolean 值，执行 `enable` 和 `disable` 开头的函数。
  * @example
  * ```js
- * const [strokeOpacity, setStrokeOpacity] = useState(props.strokeOpacity);
+ * const [enableDragging, setEnableDragging] = useState(props.enableDragging);
  * useEffect(() => {
- *   console.log('~~:strokeOpacity', strokeOpacity, props.strokeOpacity, polyline);
- *   setStrokeOpacity(props.strokeOpacity)
- * }, [polyline, strokeOpacity, props.strokeOpacity]);
+ *   console.log('~~:enableDragging', enableDragging, props.enableDragging, polyline);
+ *   setEnableDragging(props.enableDragging)
+ * }, [polyline, enableDragging, props.enableDragging]);
  * ```
  * @param instance 
  * @param props 

@@ -81,13 +81,17 @@ ReactDOM.render(<Demo />, _mount_);
 import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const CustomIcon = () => {
+  const [enableDragging, setEnableDragging] = useState(true);
   const icon = new BMap.Icon('http://developer.baidu.com/map/jsdemo/img/fox.gif', new BMap.Size(300, 157));
   return (
-    <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
-      <Marker  title="title" enableDragging position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} type="loc_red" />
-      <Marker enableDragging position={{ lng: 121.458534, lat: 31.224942}} type="start" />
-      <Marker enableDragging position={{ lng: 121.434962, lat: 31.200729 }} type="end" />
-    </Map>
+    <>
+      <button onClick={() => setEnableDragging(!enableDragging)}>{enableDragging ? '禁用拖拽' : '启用拖拽'}</button>
+      <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
+        <Marker title="title" enableDragging={enableDragging} position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} type="loc_red" />
+        <Marker enableDragging={enableDragging} position={{ lng: 121.458534, lat: 31.224942}} type="start" />
+        <Marker enableDragging={enableDragging} position={{ lng: 121.434962, lat: 31.200729 }} type="end" />
+      </Map>
+    </>
   );
 }
 
