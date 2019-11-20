@@ -18,7 +18,7 @@ export default (props: UseMap = {}) => {
   const [zoom, setZoom] = useState(props.zoom || 15);
   const [container, setContainer] = useState<string | HTMLDivElement>(props.container as (string | HTMLDivElement));
   useMemo(() => {
-    if (container && !map && BMap) {
+    if (container && !map && BMap && BMap.Map) {
       const instance = new BMap.Map(container, { minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick });
       /**
        * 加载控件

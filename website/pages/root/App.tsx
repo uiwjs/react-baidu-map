@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import GitHubCorners from '@uiw/react-github-corners';
 import { routes } from '../../router';
 import SideMenu from '../../components/SideMenu';
 import styles from './App.module.less';
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <HashRouter>
       <div className={styles.warpper}>
+        <GitHubCorners target="__blank" href="https://github.com/uiwjs/react-baidu-map" />
         <SideMenu />
         <div className={styles.content}>
           <Switch>
