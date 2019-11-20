@@ -48,18 +48,46 @@ export interface MapProps extends BMap.MapOptions {
    * @param map 实例化后的地图对象
    */
   ready?(bmap: typeof BMap, map: BMap.Map): BMap.Map;
+  /**
+   * 启用地图拖拽，默认启用
+   */
+  enableDragging?: boolean;
+  /**
+   * 启用滚轮放大缩小，默认禁用
+   */
+  enableScrollWheelZoom?: boolean;
+  /**
+   * 启用双击放大，默认启用
+   */
+  enableDoubleClickZoom?: boolean;
+  /**
+   * 启用地图惯性拖拽，默认禁用
+   */
+  enableInertialDragging?: boolean;
+  /**
+   * 启用连续缩放效果，默认禁用
+   */
+  enableContinuousZoom?: boolean;
+  /**
+   * 启用双指操作缩放，默认启用
+   */
+  enablePinchToZoom?: boolean;
+  /**
+   * 启用键盘操作，默认禁用。键盘的上、下、左、右键可连续移动地图。同时按下其中两个键可使地图进行对角移动。
+   * PgUp、PgDn、Home和End键会使地图平移其1/2的大小。+、-键会使地图放大或缩小一级
+   */
+  enableKeyboard?: boolean;
 }
 
 export default function Map({ className, style, children, ...props }: MapProps) {
   const divElm = useRef<HTMLDivElement>(null);
-  const { setContainer, setZoom, setCenter, setAutoLocalCity, map } = useMap({ container: divElm.current as (string | HTMLDivElement), ...props });
+  const { setContainer, setCenter, setAutoLocalCity, map } = useMap({ container: divElm.current as (string | HTMLDivElement), ...props });
   useEffect(() => {
     if (props.ready && map) {
       props.ready(BMap, map) as BMap.Map;
     }
   }, [map]);
   useEffect(() => setContainer(divElm.current!), [divElm.current]);
-  useEffect(() => setZoom(props.zoom || 15), [props.zoom]);
   useEffect(() => setCenter(props.center || '上海'), [props.center]);
   useEffect(() => setAutoLocalCity(props.autoLocalCity!), [props.autoLocalCity]);
   return (

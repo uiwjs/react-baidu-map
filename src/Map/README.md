@@ -70,9 +70,33 @@ ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 
+### 可控属性
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import { Map, APILoader } from '@uiw/react-baidu-map';
+
+const Demo = () => {
+  const [center, setCenter] = useState('北京');
+  const [enableScrollWheelZoom, setEnableScrollWheelZoom] = useState(true);
+  return (
+    <div style={{ width: '100%', height: '300px' }}>
+      <button onClick={() => setCenter('北京')}>北京</button>
+      <button onClick={() => setCenter('上海')}>上海</button>
+      <button onClick={() => setEnableScrollWheelZoom(!enableScrollWheelZoom)}>{enableScrollWheelZoom ? '禁用': '启用'}滚轮放大缩小</button>
+      <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+        <Map enableScrollWheelZoom={enableScrollWheelZoom} zoom={10}  center={center}/>
+      </APILoader>
+    </div>
+  );
+}
+ReactDOM.render(<Demo />, _mount_);
+```
+<!--End-->
+
 ### 使用 hooks
 
-`map`, `setMap`, `container`, `setContainer`, `zoom`, `setZoom`, `center`, `setCenter`, `autoLocalCity`, `setAutoLocalCity`,
+`map`, `setMap`, `container`, `setContainer`, `zoom`, `setZoom`, `setCenter`, `autoLocalCity`, `setAutoLocalCity`,
 
 <!--DemoStart,bgWhite--> 
 ```jsx
@@ -80,13 +104,14 @@ import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap } from '@uiw/react-baidu-map';
 
 const Example = () => {
-  const divElm = useRef(null);
-  const { setContainer, map, zoom, setZoom, center, setCenter, setAutoLocalCity } = useMap({
+  const divElm = useRef();
+  const [zoom, setZoom] = useState(15)
+  const { setContainer, map, center, setCenter, setAutoLocalCity } = useMap({
     center: '北京',
     widget: ['GeolocationControl', 'NavigationControl']
   });
   useEffect(() => {
-    if (divElm.current) {
+    if (divElm.current && !map) {
       setContainer(divElm.current);
     }
   });
@@ -96,12 +121,19 @@ const Example = () => {
       map.enableScrollWheelZoom();
     }
   }, [map]);
-  let counts = zoom || 15;
+
+  useEffect(() => {
+    if (map) {
+      // 启用滚轮放大缩小，默认禁用
+      map.setZoom(zoom);
+    }
+  }, [zoom, map]);
+  
   return (
     <>
-      <button onClick={() => setZoom(counts-1)}>-</button>
+      <button onClick={() => setZoom(zoom-1)}>-</button>
       <span>{zoom || 15}</span>
-      <button onClick={() => setZoom(counts+1)}>+</button>
+      <button onClick={() => setZoom(zoom+1)}>+</button>
       <button onClick={() => setCenter('北京')}>北京</button>
       <button onClick={() => setCenter('上海')}>上海</button>
       <button onClick={() => setAutoLocalCity(true)}>IP定位</button>
@@ -135,4 +167,11 @@ ReactDOM.render(<Demo />, _mount_);
 | enableHighResolution | 是否启用使用高分辨率地图。在iPhone4及其后续设备上，可以通过开启此选项获取更高分辨率的底图，v1.2,v1.3版本默认不开启，v1.4 默认为开启状态 | boolean | - |
 | enableAutoResize | 地图允许展示的最大级别 | boolean | `true` |
 | enableMapClick | 是否开启底图可点功能 | boolean | `true` |
+| enableDragging | 启用地图拖拽，默认启用 | boolean | - |
+| enableScrollWheelZoom | 启用滚轮放大缩小，默认禁用 | boolean | - |
+| enableDoubleClickZoom | 启用双击放大，默认启用 | boolean | `true` |
+| enableInertialDragging | 启用地图惯性拖拽，默认禁用 | boolean | - |
+| enableContinuousZoom | 启用连续缩放效果，默认禁用 | boolean | - |
+| enablePinchToZoom | 启用双指操作缩放，默认启用 | boolean | `true` |
+| enableKeyboard | 启用键盘操作，默认禁用。键盘的上、下、左、右键可连续移动地图。同时按下其中两个键可使地图进行对角移动。PgUp、PgDn、Home和End键会使地图平移其1/2的大小。+、-键会使地图放大或缩小一级 | boolean | - |
 | ready | 地图实例加载完成执行事件 | (bmap: typeof BMap, map: BMap.Map): void | - |

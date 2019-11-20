@@ -21,12 +21,14 @@ export function useEnableProperties<T, F>(instance: T, props: F, propsName: stri
     const eName = `enable${name}` as keyof F;
     const [state, setState] = useState(props[eName]);
     useEffect(() => {
-      if (instance && state !== props[eName]) {
-        const funName = (props[eName] ? `enable${name}` : `disable${name}`) as keyof T;
+      const funName = (props[eName] ? `enable${name}` : `disable${name}`) as keyof T;
+      if (instance && props[eName] !== undefined) {
         instance[funName] && (instance[funName] as any)();
-        setState(props[eName]);
+        if(props[eName] !== state) {
+          setState(props[eName]);
+        }
       }
-    }, [instance, state, props[eName]]);
+    }, [instance, props[eName]]);
   });
 }
 

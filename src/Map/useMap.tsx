@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { MapChildProps } from '../common/map';
 import { MapProps } from './';
+import { useEnableProperties, useProperties } from '../common/useEnableProperties';
 
 export interface UseMap extends MapProps, MapChildProps {
   /**
@@ -31,15 +32,8 @@ export default (props: UseMap = {}) => {
         }
       });
       setMap(instance);
-    } else {
     }
   }, [container, map]);
-
-  useEffect(() => {
-    if (map && zoom) {
-      map.setZoom(zoom!);
-    }
-  }, [zoom, map]);
 
   /**
    * 根据参数设置中心点
@@ -68,9 +62,10 @@ export default (props: UseMap = {}) => {
     }
   }, [autoLocalCity, map]);
 
+  useProperties<BMap.Map, UseMap>(map!, props, ['DefaultCursor', 'DraggingCursor', 'MinZoom', 'MaxZoom', 'MapStyle', 'MapStyleV2', 'Panorama', 'Center', 'CurrentCity', 'MapType', 'Viewport', 'Zoom',]);
+  useEnableProperties<BMap.Map, UseMap>(map!, props, ['Dragging', 'ScrollWheelZoom', 'DoubleClickZoom', 'Keyboard', 'InertialDragging', 'ContinuousZoom', 'PinchToZoom', 'AutoResize']);
   return {
     map, setMap,
-    zoom, setZoom,
     container, setContainer,
     center, setCenter,
     autoLocalCity, setAutoLocalCity,
