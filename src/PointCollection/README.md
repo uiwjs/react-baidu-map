@@ -114,6 +114,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
+| points | **`必填`** 创建海量点类。为点的坐标集合 `[[74.438,39.006,1],[74.932,38.382,1]]` | [lng: number, lat: number][] | - |
 | styles | 设置 `{shape,size,color}`，是一个可控属性 | object | - |
 | shape | 海量点的预设形状 | `ShapeType` | `BMAP_POINT_SHAPE_WATERDROP` |
 | size | 海量点的预设尺寸 | `SizeType` | `BMAP_POINT_SIZE_SMALL` |

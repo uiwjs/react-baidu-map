@@ -116,7 +116,7 @@ declare namespace BMap {
     /**
      * 设置标注动画效果。如果参数为null，则取消动画效果。该方法需要在addOverlay方法后设置
      */
-    setAnimation(animation: Animation | null): void;
+    setAnimation(animation?: Animation | null): void;
     /**
      * 设置点的旋转角度
      */

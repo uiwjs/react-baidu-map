@@ -14,8 +14,7 @@ export interface MarkerProps extends MapChildProps, BMap.MarkerOptions {
 }
 
 export default (props: MarkerProps) => {
-  const { setAnimation, setType } = useMarkers(props);
-  useEffect(() => setAnimation(props.animation), [props.animation]);
+  const { setType } = useMarkers(props);
   useEffect(() => setType(props.type!), [props.type]);
   return null;
 }

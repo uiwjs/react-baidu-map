@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import defaultIconUrl from './markers.png';
 import { MarkerProps } from './';
+import { useEnableProperties, useProperties } from '../common/useEnableProperties';
 
 export interface UseMarkers extends MarkerProps{}
 
@@ -62,12 +63,12 @@ const getIcons = (name: string) => {
 
 export default (props = {} as UseMarkers) => {
   const {
-    map, position,
+    map, position, animation,
     offset, icon, enableMassClear, enableDragging, enableClicking, raiseOnDrag, draggingCursor, rotation, shadow, title,
   } = props;
   const [type, setType] = useState(props.type || 'loc_blue');
   const [marker, setMarker] = useState();
-  const [animation, setAnimation] = useState(props.animation);
+  // const [animation, setAnimation] = useState(props.animation);
   const options = { offset, icon, enableMassClear, enableDragging, enableClicking, raiseOnDrag, draggingCursor, rotation, shadow, title };
   useMemo(() => {
     if (!BMap || !map) return;
@@ -75,6 +76,7 @@ export default (props = {} as UseMarkers) => {
       const point = new BMap.Point(position.lng, position.lat);
       const marker = new BMap.Marker(point, options);
       map.addOverlay(marker);
+      marker.setAnimation(animation);
       setMarker(marker);
     }
   }, [map]);
@@ -90,16 +92,10 @@ export default (props = {} as UseMarkers) => {
     }
   }, [type, marker]);
 
-
-  useEffect(() => {
-    if(map && marker && animation) {
-      marker.setAnimation(props.animation);
-    }
-  }, [animation, marker]);
+  useProperties<BMap.Marker, UseMarkers>(marker!, props, ['Icon', 'Position', 'Animation', 'Offset', 'Label', 'Title', 'Top', 'ZIndex', 'Rotation', 'Shadow']);
 
   return {
     marker, setMarker,
-    animation, setAnimation,
     type, setType,
   }
 }

@@ -41,8 +41,34 @@ export function useProperties<T, F>(instance: T, props: F, propsName: string[] =
     const eName = `${name.charAt(0).toLowerCase()}${name.slice(1)}` as keyof F;
     const [state, setState] = useState(props[eName]);
     useEffect(() => {
-      if (instance && instance[`set${name}` as keyof T] && state !== props[eName]) {
-        (instance[`set${name}` as keyof T] as any)(props[eName]);
+      if (!instance) return;
+      /**
+       * 坐标点的参数设置
+       */
+      let data: any = props[eName];
+      let preData: any = state;
+      if(data && data.lng && data.lat && preData && preData.lng && preData.lat) {
+        data = new BMap.Point(data.lng, data.lat);
+        preData = new BMap.Point(preData.lng, preData.lat);
+      }
+
+      if (instance[`set${name}` as keyof T] && state !== props[eName]) {
+        /**
+         * 坐标点的参数设置，比对
+         */
+        let data: any = props[eName];
+        if(data && data.lng && data.lat) {
+          data = new BMap.Point(data.lng, data.lat);
+          let preData: any = state;
+          if (preData && preData.lng && preData.lat) {
+            preData = new BMap.Point(preData.lng, preData.lat);
+            if (data.equals(preData)) {
+              return;
+            }
+          }
+        }
+
+        (instance[`set${name}` as keyof T] as any)(data);
         setState(props[eName]);
       }
     }, [instance, state, props[eName]]);
