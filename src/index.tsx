@@ -12,3 +12,5 @@ export { default as PointCollection } from './PointCollection';
 export { default as usePointCollection } from './PointCollection/usePointCollection';
 export { default as Polyline } from './Polyline';
 export { default as usePolyline } from './Polyline/usePolyline';
+export { default as Polygon } from './Polygon';
+export { default as usePolygon } from './Polygon/usePolygon';

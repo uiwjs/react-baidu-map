@@ -1,14 +1,14 @@
-Polyline 折线组件
+Polygon 多边形组件
 ===
 
-使用浏览器的矢量制图工具（如果可用）在地图上绘制折线的地图叠加层。
+表示一个多边形覆盖物。
 
 ### 基本用法
 
 <!--DemoStart,bgWhite--> 
 ```jsx
 import React, { useState } from 'react';
-import { Map, Polyline, APILoader } from '@uiw/react-baidu-map';
+import { Map, Polygon, APILoader } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [enableEditing, setEnableEditing] = useState(false);
@@ -19,7 +19,7 @@ const Example = () => {
       <button onClick={() => setStrokeOpacity(0.7)}>透明度0.7</button>
       <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
       <Map zoom={13} center="北京" widget={['NavigationControl']}>
-        <Polyline
+        <Polygon
           enableEditing={enableEditing}
           strokeOpacity={strokeOpacity}
           path={[
@@ -28,7 +28,7 @@ const Example = () => {
             { lng: 116.423493, lat: 39.907445 },
           ]}
         />
-        <Polyline
+        <Polygon
           enableEditing={enableEditing}
           strokeOpacity={strokeOpacity}
           path={[
@@ -57,12 +57,12 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 使用 hooks
 
-`polyline`, `setPolyline`, `path`, `setPath`
+`polygon`, `setPolygon`, `path`, `setPath`
 
 <!--DemoStart,bgWhite--> 
 ```jsx
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, usePolyline } from '@uiw/react-baidu-map';
+import { Map, APILoader, useMap, usePolygon } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [enableEditing, setEnableEditing] = useState(false);
@@ -74,7 +74,7 @@ const Example = () => {
     center: '北京',
     widget: ['GeolocationControl', 'NavigationControl']
   });
-  const { polyline } = usePolyline({ map,
+  const { polygon } = usePolygon({ map,
     path: [
       { lng: 116.387112, lat: 39.920977 },
       { lng: 116.385243, lat: 39.913063 },
@@ -83,7 +83,7 @@ const Example = () => {
       { lng: 116.41248, lat: 39.927893 },
     ],
   });
-  usePolyline({ map,
+  usePolygon({ map,
     path: [
       { lng: 116.399, lat: 39.910 },
       { lng: 116.405, lat: 39.920 },
@@ -103,20 +103,20 @@ const Example = () => {
   }, [map]);
 
   useEffect(() => {
-    if (map && polyline) {
+    if (map && polygon) {
       if (enableEditing) {
-        polyline.setFillColor('red');
-        polyline.enableEditing();
+        polygon.setFillColor('red');
+        polygon.enableEditing();
       } else {
-        polyline.setFillColor('transparent');
-        polyline.disableEditing();
+        polygon.setFillColor('transparent');
+        polygon.disableEditing();
       }
     }
   }, [enableEditing]);
 
   useEffect(() => {
-    if (map && polyline) {
-      polyline.setStrokeOpacity(strokeOpacity);
+    if (map && polygon) {
+      polygon.setStrokeOpacity(strokeOpacity);
     }
   }, [strokeOpacity]);
 
@@ -146,10 +146,11 @@ ReactDOM.render(<Demo />, _mount_);
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
 | strokeColor |  折线颜色 | String | - |
+| fillColor |  填充颜色。当参数为空时，折线覆盖物将没有填充效果 | String | - |
 | strokeWeight |  折线的宽度，以像素为单位 | Number | - |
-| strokeOpacity |  折线的透明度，取值范围0 - 1 | Number | - |
+| strokeOpacity |  折线的透明度，取值范围 0 - 1 | Number | - |
+| fillOpacity |  填充的透明度，取值范围 0 - 1 | Number | - |
 | strokeStyle |  折线的样式，solid或dashed | String | - |
 | enableMassClear |  是否在调用map.clearOverlays清除此覆盖物，默认为true | Boolean | - |
 | enableEditing |  是否启用线编辑，默认为false | Boolean | - |
 | enableClicking |  是否响应点击事件，默认为true | Boolean | - |
-| icons | 配置贴合折线的图标 | IconSequence[] | - |

@@ -25,7 +25,7 @@ export default (props = {} as PolylineProps) => {
   }, [polyline, path]);
 
   useEnableProperties<BMap.Polyline, PolylineProps>(polyline!, props, ['Editing', 'MassClear']);
-  // 'setPath', 'setFillOpacity', 'setFillColor'
+  // PositionAt
   useProperties<BMap.Polyline, PolylineProps>(polyline!, props, ['StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'StrokeStyle']);
 
   return {

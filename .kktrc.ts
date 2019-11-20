@@ -10,6 +10,7 @@ export const moduleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/Marker/README.md'),
   path.resolve(process.cwd(), 'src/PointCollection/README.md'),
   path.resolve(process.cwd(), 'src/Polyline/README.md'),
+  path.resolve(process.cwd(), 'src/Polygon/README.md'),
 ];
 
 export const loaderOneOf = [
