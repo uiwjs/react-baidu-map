@@ -1,4 +1,4 @@
-name: GitHub Actions Build and Deploy linux-command
+name: GitHub Actions Build and Deploy react-baidu-map
 on:
   push:
     branches:
