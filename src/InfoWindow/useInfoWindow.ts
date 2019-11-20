@@ -1,18 +1,19 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { InfoWindowProps } from './';
+import { useEnableProperties, useProperties } from '../common/useEnableProperties';
 
 const EVENTS = ['close', 'open', 'maximize', 'restore', 'clickclose'];
 
-export default (props = {} as InfoWindowProps) => {
+export interface UseInfoWindow extends InfoWindowProps {}
+
+export default (props = {} as UseInfoWindow) => {
   const { map, position, ...opts } = props;
   const [infoWindow, setInfoWindow] = useState<BMap.InfoWindow>();
   const [isOpen, setIsOpen] = useState(opts.isOpen === undefined ? true : opts.isOpen);
-  const [title, setTitle] = useState(opts.title);
-  const [content, setContent] = useState(opts.content);
   useMemo(() => {
     if (!BMap || !map) return;
     if (!infoWindow) {
-      const win = new BMap.InfoWindow('', { ...opts, title })
+      const win = new BMap.InfoWindow('', { ...opts })
       setInfoWindow(win);
       EVENTS.forEach((evnetName) => {
         const name = `on${evnetName.charAt(0).toUpperCase()}${evnetName.slice(1)}` as keyof BMap.InfoWindowEvent;
@@ -34,17 +35,10 @@ export default (props = {} as InfoWindowProps) => {
     }
   }, [isOpen, infoWindow]);
 
-  useEffect(() => {
-    if (map && BMap && infoWindow && content) {
-      infoWindow.setContent(content);
-    }
-  }, [content, infoWindow]);
-
-  useEffect(() => {
-    if (map && BMap && infoWindow) {
-      infoWindow.setTitle(title!);
-    }
-  }, [title]);
+  useProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
+    'Width', 'Height', 'Title', 'Content', 'MaxContent'
+  ]);
+  useEnableProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, ['CloseOnClick', 'Maximize', 'AutoPan']);
 
   return {
     /**
@@ -54,6 +48,6 @@ export default (props = {} as InfoWindowProps) => {
     /**
      * 更新 信息窗口实例对象
      */
-    setInfoWindow, isOpen, setIsOpen, title, setTitle, content, setContent
+    setInfoWindow, isOpen, setIsOpen
   }
 }

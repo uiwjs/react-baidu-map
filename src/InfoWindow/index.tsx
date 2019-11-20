@@ -16,12 +16,14 @@ export interface InfoWindowProps extends MapChildProps, BMap.InfoWindowOptions, 
    * 展示文本内容，支持 HTML 内容字符串
    */
   content?: string;
+  /**
+   * 信息窗口最大化时所显示内容，支持HTML内容
+   */
+  maxContent?: string;
 }
 
 export default function InfoWindow(props: InfoWindowProps) {
-  const { setContent, setIsOpen, setTitle } = useInfoWindow(props);
-  useEffect(() => setTitle(props.title), [props.title]);
-  useEffect(() => setContent(props.content), [props.content]);
+  const { setIsOpen } = useInfoWindow(props);
   useEffect(() => setIsOpen(props.isOpen!), [props.isOpen]);
   return null;
 }
