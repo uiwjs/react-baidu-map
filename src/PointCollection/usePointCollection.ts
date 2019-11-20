@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { PointCollectionProps } from './';
-import { useEnableProperties, useProperties } from '../common/useEnableProperties';
+import { useProperties } from '../common/useEnableProperties';
 
 const EVENTS = ['onClick', 'onMouseOver', 'onMouseOut'];
 
@@ -26,7 +26,7 @@ export default (props = {} as PointCollectionProps) => {
       if (!opts.shape) opts.shape = BMAP_POINT_SHAPE_WATERDROP;
       if (!opts.color) opts.color = '#d340c3';
       const pointCollection = new BMap.PointCollection(getPoints(points), opts);
-      pointCollection.clear();
+      // pointCollection.clear();
       map.addOverlay(pointCollection);
       setPointCollection(pointCollection);
       EVENTS.forEach((evnetName) => {
@@ -40,7 +40,7 @@ export default (props = {} as PointCollectionProps) => {
 
   useEffect(() => {
     if (pointCollection && points) {
-      pointCollection.clear();
+      // pointCollection.clear();
       pointCollection.setPoints(getPoints(points));
     }
   }, [points, pointCollection]);
