@@ -947,28 +947,94 @@ declare namespace BMap {
     icons?: Array<IconSequence>;
 	}
 	interface Polyline extends Overlay {
-		setPath(path: Point[]): void;
-		getPath(): Point[];
-		setStrokeColor(color: string): void;
+    /**
+     * 设置折线的点数组
+     * @param path 
+     */
+    setPath(path: Point[]): void;
+    /**
+     * 返回折线的点数组
+     */
+    getPath(): Point[];
+    /**
+     * 设置折线的颜色
+     * @param color 
+     */
+    setStrokeColor(color: string): void;
+    /**
+     * 返回折线的颜色
+     */
 		getStrokeColor(): string;
-		setFillColor(color: string): void;
-		getFillColor(): string;
-		setStrokeOpacity(opacity: number): void;
-		getStrokeOpacity(): number;
-		setFillOpacity(opacity: number): void;
-		getFillOpacity(): number;
-		setStrokeWeight(weight: number): void;
-		getStrokeWeight(): number;
-		setStrokeStyle(style: string): void;
-		getStrokeStyle(): string;
-		getBounds(): Bounds;
-		enableEditing(): void;
-		disableEditing(): void;
-		enableMassClear(): void;
-		disableMassClear(): void;
-		setPositionAt(index: number, point: Point): void;
-		getMap(): Map;
-		addEventListener(event: string, handler: Callback): void;
+    /**
+     * 设置透明度，取值范围0 - 1
+     * @param opacity 
+     */
+    setStrokeOpacity(opacity: number): void;
+    /**
+     * 返回透明度
+     */
+    getStrokeOpacity(): number;
+    /**
+     * 设置线的宽度，范围为大于等于1的整数
+     * @param weight 
+     */
+    setStrokeWeight(weight: number): void;
+    /**
+     * 返回线的宽度
+     */
+    getStrokeWeight(): number;
+    /**
+     * 设置是为实线或虚线，solid 或 dashed
+     * @param style 
+     */
+    setStrokeStyle(style: 'solid' | 'dashed'): void;
+    /**
+     * 返回当前线样式状态，实线或者虚线
+     */
+    getStrokeStyle(): string;
+    /**
+     * 返回覆盖物的地理区域范围
+     */
+    getBounds(): Bounds;
+    /**
+     * 开启编辑功能
+     */
+    enableEditing(): void;
+    /**
+     * 关闭编辑功能
+     */
+    disableEditing(): void;
+    /**
+     * 允许覆盖物在 map.clearOverlays 方法中被清除
+     */
+    enableMassClear(): void;
+    /**
+     * 禁止覆盖物在 map.clearOverlays 方法中被清除
+     */
+    disableMassClear(): void;
+    /**
+     * 修改指定位置的坐标。
+     * 索引index从0开始计数。
+     * 例如 setPointAt(2, point) 代表将折线的第3个点的坐标设为point
+     * @param index 
+     * @param point 
+     */
+    setPositionAt(index: number, point: Point): void;
+    /**
+     * 返回覆盖物所在的map对象
+     */
+    getMap(): Map;
+    /**
+     * 添加事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    addEventListener(event: string, handler: Callback): void;
+    /**
+     * 移除事件监听函数
+     * @param event 
+     * @param handler 
+     */
 		removeEventListener(event: string, handler: Callback): void;
 		onclick: (event: { type: string, target: any }) => void;
 		ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;

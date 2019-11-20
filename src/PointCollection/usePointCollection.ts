@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { PointCollectionProps } from './';
+import { useEnableProperties, useProperties } from '../common/useEnableProperties';
 
 const EVENTS = ['onClick', 'onMouseOver', 'onMouseOut'];
 
@@ -43,6 +44,8 @@ export default (props = {} as PointCollectionProps) => {
       pointCollection.setPoints(getPoints(points));
     }
   }, [points, pointCollection]);
+
+  useProperties<BMap.PointCollection, PointCollectionProps>(pointCollection!, props, ['Styles']);
   
   return {
     pointCollection, setPointCollection,

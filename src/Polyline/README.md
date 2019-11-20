@@ -104,10 +104,11 @@ const Example = () => {
 
   useEffect(() => {
     if (map && polyline) {
-      polyline.setFillColor('red');
       if (enableEditing) {
+        polyline.setFillColor('red');
         polyline.enableEditing();
       } else {
+        polyline.setFillColor('transparent');
         polyline.disableEditing();
       }
     }

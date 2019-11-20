@@ -36,6 +36,7 @@ const Example = () => {
           onClick={(e) => {
             usePositon(JSON.stringify(e.point))
           }}
+          styles={{ shape: 1 }}
           points={[
             ...points
           ]}
@@ -113,6 +114,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
+| styles | 设置 `{shape,size,color}`，是一个可控属性 | object | - |
 | shape | 海量点的预设形状 | `ShapeType` | `BMAP_POINT_SHAPE_WATERDROP` |
 | size | 海量点的预设尺寸 | `SizeType` | `BMAP_POINT_SIZE_SMALL` |
 | color | 海量点的颜色，默认为'#fa937e'，同时支持颜色字符串，如'red'； | `string` | `#d340c3` |
@@ -132,8 +134,8 @@ ReactDOM.render(<Demo />, _mount_);
 |BMAP_POINT_SHAPE_CIRCLE | 圆形，为默认形状 |
 |BMAP_POINT_SHAPE_STAR | 星形 |
 |BMAP_POINT_SHAPE_SQUARE | 方形 |
-|BMAP_POINT_SHAPE_RHOMBUS |  菱形 |
-|BMAP_POINT_SHAPE_WATERDROP |  水滴状，该类型无size和color属性 |
+|BMAP_POINT_SHAPE_RHOMBUS | 菱形 |
+|BMAP_POINT_SHAPE_WATERDROP | 水滴状，该类型无size和color属性 |
 
 ### SizeType
 
