@@ -3,6 +3,10 @@ Polygon 多边形组件
 
 表示一个多边形覆盖物。
 
+```jsx
+import { Polygon, usePolygon } from '@uiw/react-baidu-map';
+```
+
 ### 基本用法
 
 <!--DemoStart,bgWhite--> 

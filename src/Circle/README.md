@@ -3,6 +3,9 @@ Circle 圆
 
 表示地图上的圆覆盖物。
 
+```jsx
+import { Circle, useCircle } from '@uiw/react-baidu-map';
+```
 
 ### 基本用法
 

@@ -6,7 +6,7 @@ PointCollection 加载海量点
 > 渲染海量点会耗费一定性能，应该注意不要频繁变动 point 数组
 
 ```jsx
-import { PointCollection } from '@uiw/react-baidu-map';
+import { PointCollection, usePointCollection } from '@uiw/react-baidu-map';
 ```
 
 ### 基本用法

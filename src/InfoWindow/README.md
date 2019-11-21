@@ -4,7 +4,7 @@ InfoWindow 信息窗口
 表示地图上包含信息的窗口。
 
 ```jsx
-import { InfoWindow } from '@uiw/react-baidu-map';
+import { InfoWindow, useInfoWindow } from '@uiw/react-baidu-map';
 ```
 
 ### 基本用法

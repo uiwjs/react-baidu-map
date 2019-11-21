@@ -3,6 +3,10 @@ Label 文本标注
 
 表示地图上包含信息的窗口。
 
+```jsx
+import { Label, useLabel } from '@uiw/react-baidu-map';
+```
+
 ### 基本用法
 
 <!--DemoStart,bgWhite--> 

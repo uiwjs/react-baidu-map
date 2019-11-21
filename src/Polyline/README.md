@@ -3,6 +3,10 @@ Polyline 折线组件
 
 使用浏览器的矢量制图工具（如果可用）在地图上绘制折线的地图叠加层。
 
+```jsx
+import { Polyline, usePolyline } from '@uiw/react-baidu-map';
+```
+
 ### 基本用法
 
 <!--DemoStart,bgWhite--> 
