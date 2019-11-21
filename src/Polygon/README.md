@@ -69,12 +69,12 @@ const Example = () => {
   const [strokeOpacity, setStrokeOpacity] = useState(0.9);
   const divElm = useRef(null);
   const { setContainer, map } = useMap({
-    enableEditing, strokeOpacity,
     zoom: 13,
     center: '北京',
     widget: ['GeolocationControl', 'NavigationControl']
   });
   const { polygon } = usePolygon({ map,
+    enableEditing, strokeOpacity,
     path: [
       { lng: 116.387112, lat: 39.920977 },
       { lng: 116.385243, lat: 39.913063 },

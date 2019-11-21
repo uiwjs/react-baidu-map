@@ -2,6 +2,8 @@ export { requireScript } from './utils/requireScript';
 export { default as APILoader } from './APILoader';
 export { default as Map } from './Map';
 export { default as useMap } from './Map/useMap';
+export { default as Circle } from './Circle';
+export { default as useCircle } from './Circle/useCircle';
 export { default as Marker } from './Marker';
 export { default as useMarker } from './Marker/useMarker';
 export { default as Label } from './Label';

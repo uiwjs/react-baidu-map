@@ -49,6 +49,10 @@ export const routes: Routes = [
     path: "/polygon",
     component: loadable(() => import('./pages/polygon'), options),
   },
+  {
+    path: "/circle",
+    component: loadable(() => import('./pages/circle'), options),
+  },
 ];
 
 
@@ -88,5 +92,9 @@ export const menus = [
   {
     label: 'Polygon 多边形组件',
     path: '/polygon',
+  },
+  {
+    label: 'Circle 圆',
+    path: '/circle',
   },
 ]

@@ -1,43 +1,41 @@
-Polyline 折线组件
+Circle 圆
 ===
 
-使用浏览器的矢量制图工具（如果可用）在地图上绘制折线的地图叠加层。
+表示地图上的圆覆盖物。
+
 
 ### 基本用法
 
 <!--DemoStart,bgWhite--> 
 ```jsx
 import React, { useState } from 'react';
-import { Map, Polyline, APILoader } from '@uiw/react-baidu-map';
+import { Map, Circle, APILoader } from '@uiw/react-baidu-map';
 
 const Example = () => {
+  const [visiable, setVisiable] = useState(true);
   const [enableEditing, setEnableEditing] = useState(false);
   const [strokeOpacity, setStrokeOpacity] = useState(0.9);
   return (
     <>
+      <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
       <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '编辑'}</button>
       <button onClick={() => setStrokeOpacity(0.7)}>透明度0.7</button>
       <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
-      <Map zoom={13} center="北京" widget={['NavigationControl']}>
-        <Polyline
+      <Map widget={['NavigationControl']}>
+        <Circle
+          visiable={visiable}
           enableEditing={enableEditing}
           strokeOpacity={strokeOpacity}
-          path={[
-            { lng: 116.399, lat: 39.910 },
-            { lng: 116.405, lat: 39.920 },
-            { lng: 116.423493, lat: 39.907445 },
-          ]}
+          strokeWeight={1}
+          center={{ lng: 121.455228, lat: 31.240257 }}
+          radius={1000}
         />
-        <Polyline
+        <Circle
+          visiable={visiable}
           enableEditing={enableEditing}
           strokeOpacity={strokeOpacity}
-          path={[
-            { lng: 116.399, lat: 39.920977 },
-            { lng: 116.385243, lat: 39.913063 },
-            { lng: 116.394226, lat: 39.917988 },
-            { lng: 116.401772, lat: 39.921364 },
-            { lng: 116.41248, lat: 39.927893 },
-          ]}
+          center={{ lng: 121.490298, lat: 31.229388 }}
+          radius={1500}
         />
       </Map>
     </>
@@ -55,46 +53,40 @@ ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 
+
 ### 使用 hooks
 
-`polyline`, `setPolyline`, `path`, `setPath`
+`circle`, `setCircle`
 
 <!--DemoStart,bgWhite--> 
 ```jsx
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, usePolyline } from '@uiw/react-baidu-map';
+import { Map, APILoader, useMap, useCircle } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [enableEditing, setEnableEditing] = useState(false);
   const [strokeOpacity, setStrokeOpacity] = useState(0.9);
   const divElm = useRef(null);
   const { setContainer, map } = useMap({
-    zoom: 13,
-    center: '北京',
     widget: ['GeolocationControl', 'NavigationControl']
   });
-  const { polyline } = usePolyline({ map,
+  const { circle } = useCircle({ map,
     enableEditing, strokeOpacity,
-    path: [
-      { lng: 116.387112, lat: 39.920977 },
-      { lng: 116.385243, lat: 39.913063 },
-      { lng: 116.394226, lat: 39.917988 },
-      { lng: 116.401772, lat: 39.921364 },
-      { lng: 116.41248, lat: 39.927893 },
-    ],
+    center: { lng: 121.455228, lat: 31.240257 },
+    radius: 1000,
   });
-  usePolyline({ map,
-    path: [
-      { lng: 116.399, lat: 39.910 },
-      { lng: 116.405, lat: 39.920 },
-      { lng: 116.423493, lat: 39.907445 },
-    ],
+  useCircle({ map,
+    strokeWeight: 1,
+    center: { lng: 121.490298, lat: 31.229388 },
+    radius: 1500,
   });
+
   useEffect(() => {
     if (divElm.current) {
       setContainer(divElm.current);
     }
   });
+
   useEffect(() => {
     if (map) {
       // 启用滚轮放大缩小，默认禁用
@@ -103,20 +95,20 @@ const Example = () => {
   }, [map]);
 
   useEffect(() => {
-    if (map && polyline) {
+    if (map && circle) {
       if (enableEditing) {
-        polyline.setFillColor('red');
-        polyline.enableEditing();
+        circle.setFillColor('red');
+        circle.enableEditing();
       } else {
-        polyline.setFillColor('transparent');
-        polyline.disableEditing();
+        circle.setFillColor('transparent');
+        circle.disableEditing();
       }
     }
   }, [enableEditing]);
 
   useEffect(() => {
-    if (map && polyline) {
-      polyline.setStrokeOpacity(strokeOpacity);
+    if (map && circle) {
+      circle.setStrokeOpacity(strokeOpacity);
     }
   }, [strokeOpacity]);
 
@@ -145,12 +137,15 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
+| center | **`必填`** 圆形的中心点坐标。[百度拾取坐标系统](http://api.map.baidu.com/lbsapi/getpoint/index.html) | `Point` | - |
+| radius | **`必填`** 设置圆形的半径，单位为米。 | `number` | - |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
-| strokeColor |  折线颜色 | String | - |
-| strokeWeight |  折线的宽度，以像素为单位 | Number | - |
-| strokeOpacity |  折线的透明度，取值范围0 - 1 | Number | - |
-| strokeStyle |  折线的样式，solid或dashed | String | - |
-| enableMassClear |  是否在调用map.clearOverlays清除此覆盖物，默认为true | Boolean | - |
-| enableEditing |  是否启用线编辑，默认为false | Boolean | - |
-| enableClicking |  是否响应点击事件，默认为true | Boolean | - |
-| icons | 配置贴合折线的图标 | IconSequence[] | - |
+| strokeColor | 圆形边线颜色 | `String` | - |
+| fillColor | 圆形填充颜色。当参数为空时，圆形将没有填充效果 | `String` | - |
+| strokeWeight | 圆形边线的宽度，以像素为单位 | `Number` | - |
+| strokeOpacity | 圆形边线透明度，取值范围0 - 1 | `Number` | - |
+| fillOpacity | 圆形填充的透明度，取值范围0 - 1 | `Number` | - |
+| strokeStyle | 圆形边线的样式，solid或dashed | `String` | - |
+| enableMassClear | 是否在调用 `map.clearOverlays` 清除此覆盖物。 | `Boolean` | `true` |
+| enableEditing | 是否启用线编辑。 | `Boolean` | `false` |
+| enableClicking | 是否响应点击事件。 | `Boolean` | `true` |
