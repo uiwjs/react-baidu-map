@@ -1,7 +1,6 @@
 
 declare global {
   interface Window {
-    loadBMapSDK?: () => void
     BMap: typeof BMap;
   }
 }

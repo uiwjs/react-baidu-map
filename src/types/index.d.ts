@@ -12,3 +12,4 @@
 /// <reference path="./panorama.d.ts" />
 /// <reference path="./service.d.ts" />
 /// <reference path="./tools.d.ts" />
+/// <reference path="./bmaplib.d.ts" />

@@ -22,6 +22,10 @@ export interface Config {
    * @default api.map.baidu.com/api
    */
   hostAndPath?: string;
+  /**
+   * JSONP 回调函数
+   */
+  callbackName?: string;
 }
 
 /**

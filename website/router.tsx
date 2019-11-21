@@ -46,6 +46,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/polyline'), options),
   },
   {
+    path: "/curve-line",
+    component: loadable(() => import('./pages/curve-line'), options),
+  },
+  {
     path: "/polygon",
     component: loadable(() => import('./pages/polygon'), options),
   },
@@ -92,6 +96,10 @@ export const menus = [
   {
     label: 'Polyline 折线组件',
     path: '/polyline',
+  },
+  {
+    label: 'CurveLine 弧线组件',
+    path: '/curve-line',
   },
   {
     label: 'Polygon 多边形组件',

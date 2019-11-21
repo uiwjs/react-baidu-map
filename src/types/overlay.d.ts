@@ -966,7 +966,7 @@ declare namespace BMap {
 	}
 	class Symbol {
 		constructor(path: string | SymbolShapeType, opts?: SymbolOptions);
-	}
+  }
 	interface PolylineOptions {
     /**
      * 折线颜色

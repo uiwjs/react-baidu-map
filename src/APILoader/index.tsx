@@ -12,13 +12,6 @@ export function delay(time: number): Promise<undefined> {
   })
 }
 
-declare global {
-  interface Window {
-    load_bmap_sdk?: () => void
-    BMap: typeof BMap;
-  }
-}
-
 export interface APILoaderProps extends Config {
   /**
    * 用于展示加载中或错误状态
@@ -41,6 +34,7 @@ export default class APILoader extends React.Component<APILoaderProps> {
     akay: '',
     hostAndPath: 'api.map.baidu.com/api',
     version: '3.0',
+    callbackName: 'load_bmap_sdk',
   }
 
   /**
@@ -71,13 +65,14 @@ export default class APILoader extends React.Component<APILoaderProps> {
   }
 
   public componentDidMount() {
+    const { callbackName } = this.props;
     if (window.BMap == null) {
-      if (window.load_bmap_sdk) {
+      if (window[callbackName as any]) {
         APILoader.waitQueue.push([this.finish, this.handleError])
         return
       }
 
-      this.loadMap()
+      this.loadMap();
     }
   }
 
@@ -97,14 +92,15 @@ export default class APILoader extends React.Component<APILoaderProps> {
     if (protocol!.indexOf(':') === -1) {
       protocol += ':';
     }
-    return `${protocol}//${cfg.hostAndPath}?v=${cfg.version}&ak=${cfg.akay}&callback=load_bmap_sdk`;
+    return `${protocol}//${cfg.hostAndPath}?v=${cfg.version}&ak=${cfg.akay}&callback=${cfg.callbackName}`;
   }
   /**
    * load BaiduMap in script tag
    */
   private async loadMap() {
+    const { callbackName } = this.props;
     const src = this.getScriptSrc();
-    window.load_bmap_sdk = () => {
+    (window as any)[callbackName as any] = () => {
       // flush queue
       const queue = APILoader.waitQueue
       APILoader.waitQueue = []
