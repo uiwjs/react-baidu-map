@@ -3,8 +3,8 @@
 /// <reference path="./panorama.d.ts" />
 
 declare namespace BMap {
-	class Map {
-		constructor(container: string | HTMLElement, opts?: MapOptions);
+  class Map {
+    constructor(container: string | HTMLElement, opts?: MapOptions);
     /**
      * 启用地图拖拽，默认启用
      */
@@ -301,50 +301,50 @@ declare namespace BMap {
     removeEventListener(event: string, handler: Callback): void;
   }
   interface MapEvents {
-		onclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
-		ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onrightclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
-		onrightdblclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
-		onmaptypechange: (event: { type: string, target: any }) => void;
-		onmousemove: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
-		onmouseover: (event: { type: string, target: any }) => void;
-		onmouseout: (event: { type: string, target: any }) => void;
-		onmovestart: (event: { type: string, target: any }) => void;
-		onmoving: (event: { type: string, target: any }) => void;
-		onmoveend: (event: { type: string, target: any }) => void;
-		onzoomstart: (event: { type: string, target: any }) => void;
-		onzoomend: (event: { type: string, target: any }) => void;
-		onaddoverlay: (event: { type: string, target: any }) => void;
-		onaddcontrol: (event: { type: string, target: any }) => void;
-		onremovecontrol: (event: { type: string, target: any }) => void;
-		onremoveoverlay: (event: { type: string, target: any }) => void;
-		onclearoverlays: (event: { type: string, target: any }) => void;
-		ondragstart: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		ondragging: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		ondragend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onaddtilelayer: (event: { type: string, target: any }) => void;
-		onremovetilelayer: (event: { type: string, target: any }) => void;
-		onload: (event: { type: string, target: any, point: Point, pixel: Pixel, zoom: number }) => void;
-		onresize: (event: { type: string, target: any, size: Size }) => void;
-		onhotspotclick: (event: { type: string, target: any, spots: HotspotOptions }) => void;
-		onhotspotover: (event: { type: string, target: any, spots: HotspotOptions }) => void;
-		onhotspotout: (event: { type: string, target: any, spots: HotspotOptions }) => void;
-		ontilesloaded: (event: { type: string, target: any }) => void;
-		ontouchstart: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		ontouchmove: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		ontouchend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
+    ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onrightclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
+    onrightdblclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
+    onmaptypechange: (event: { type: string, target: any }) => void;
+    onmousemove: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
+    onmouseover: (event: { type: string, target: any }) => void;
+    onmouseout: (event: { type: string, target: any }) => void;
+    onmovestart: (event: { type: string, target: any }) => void;
+    onmoving: (event: { type: string, target: any }) => void;
+    onmoveend: (event: { type: string, target: any }) => void;
+    onzoomstart: (event: { type: string, target: any }) => void;
+    onzoomend: (event: { type: string, target: any }) => void;
+    onaddoverlay: (event: { type: string, target: any }) => void;
+    onaddcontrol: (event: { type: string, target: any }) => void;
+    onremovecontrol: (event: { type: string, target: any }) => void;
+    onremoveoverlay: (event: { type: string, target: any }) => void;
+    onclearoverlays: (event: { type: string, target: any }) => void;
+    ondragstart: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    ondragging: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    ondragend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onaddtilelayer: (event: { type: string, target: any }) => void;
+    onremovetilelayer: (event: { type: string, target: any }) => void;
+    onload: (event: { type: string, target: any, point: Point, pixel: Pixel, zoom: number }) => void;
+    onresize: (event: { type: string, target: any, size: Size }) => void;
+    onhotspotclick: (event: { type: string, target: any, spots: HotspotOptions }) => void;
+    onhotspotover: (event: { type: string, target: any, spots: HotspotOptions }) => void;
+    onhotspotout: (event: { type: string, target: any, spots: HotspotOptions }) => void;
+    ontilesloaded: (event: { type: string, target: any }) => void;
+    ontouchstart: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    ontouchmove: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    ontouchend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
     onlongpress: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
   }
   /**
    * 此类是 `panBy` 和 `panTo` 方法的可选参数，没有构造函数，通过对象字面量形式表示。
    */
-	interface PanOptions {
+  interface PanOptions {
     /**
      * 是否在平移过程中禁止动画
      */
-		noAnimation?: boolean;
-	}
-	interface MapOptions {
+    noAnimation?: boolean;
+  }
+  interface MapOptions {
     /**
      * 地图允许展示的最小级别
      */
@@ -374,7 +374,7 @@ declare namespace BMap {
   /**
    * 此类代表视野，不可实例化，通过对象字面量形式表示。
    */
-	interface Viewport {
+  interface Viewport {
     /**
      * 视野中心点
      */
@@ -382,12 +382,12 @@ declare namespace BMap {
     /**
      * 视野级别
      */
-		zoom: number;
+    zoom: number;
   }
   /**
    * 此类作为map.getViewport与map.setViewport方法的可选参数，不可实例化。
    */
-	interface ViewportOptions {
+  interface ViewportOptions {
     /**
      * 是否启用动画效果移动地图，默认为true。当调整后的级别与当前地图级别一致时，将使用动画效果移动地图
      */
@@ -403,13 +403,13 @@ declare namespace BMap {
     /**
      * 改变地图视野的延迟执行时间，单位毫秒，默认为200ms。此延时仅针对动画效果有效
      */
-		delay?: number;
-	}
+    delay?: number;
+  }
   type APIVersion = number;
   /**
    * 该类用于设置地图样式，使用对象字面量形式表示，不可实例化。
    */
-	interface MapStyle {
+  interface MapStyle {
     /**
      * 设置地图上展示的元素种类，支持point（兴趣点）、road（道路）、water（河流）、land（陆地）、building（建筑物）
      */
@@ -417,7 +417,7 @@ declare namespace BMap {
     /**
      * 设置地图底图样式，目前支持normal（默认样式）,dark（深色样式）,light（浅色样式）三种
      */
-		style: string;
+    style: string;
   }
   /**
    * 该类用于设置地图样式的个性化地图服务V2，使用对象字面量形式表示，不可实例化。

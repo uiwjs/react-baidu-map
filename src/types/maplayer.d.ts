@@ -4,8 +4,8 @@ declare namespace BMap {
   /**
    * 此类表示一个地图图层，您可以向地图中添加自定义图层。
    */
-	class TileLayer {
-		constructor(opts?: TileLayerOptions);
+  class TileLayer {
+    constructor(opts?: TileLayerOptions);
     /**
      * 抽象。向地图返回地图图块的网址，图块索引由 tileCoord 的 x 和 y 属性在指定的缩放级别 zoom 提供。
      * 如果您在 TileLayerOptions 中提供了 tileUrlTemplate 参数，则可不实现此接口
@@ -19,8 +19,8 @@ declare namespace BMap {
      * 如果图层所用的图片为PNG格式并且包含透明信息，则返回true
      */
     isTransparentPng?: () => boolean;
-	}
-	interface TileLayerOptions {
+  }
+  interface TileLayerOptions {
     /**
      * 是否使用了带有透明信息的PNG。由于IE6不支持PNG透明，因此需要特殊处理
      */
@@ -39,55 +39,55 @@ declare namespace BMap {
      * 图层的zIndex
      */
     zIndex?: number;
-	}
-	class TrafficLayer extends TileLayer {
-		constructor(opts?: TrafficLayerOptions);
-	}
-	interface TrafficLayerOptions {
-		predictDate?: PredictDate;
-	}
-	interface PredictDate {
-		weekday: number;
-		hour: number;
-	}
-	class CustomLayer extends TileLayer {
-		constructor(opts: CustomLayerOptions);
-		onhotspotclick: (event: { type: string, target: any, content: any }) => void;
-	}
-	interface Custompoi {
-		poiId: string;
-		databoxId: string;
-		title: string;
-		address: string;
-		phoneNumber: string;
-		postcode: string;
-		provinceCode: number;
-		province: string;
-		cityCode: number;
-		city: string;
-		districtCode: number;
-		district: string;
-		point: Point;
-		tags: string[];
-		typeId: number;
-		extendedData: any;
+  }
+  class TrafficLayer extends TileLayer {
+    constructor(opts?: TrafficLayerOptions);
+  }
+  interface TrafficLayerOptions {
+    predictDate?: PredictDate;
+  }
+  interface PredictDate {
+    weekday: number;
+    hour: number;
+  }
+  class CustomLayer extends TileLayer {
+    constructor(opts: CustomLayerOptions);
+    onhotspotclick: (event: { type: string, target: any, content: any }) => void;
+  }
+  interface Custompoi {
+    poiId: string;
+    databoxId: string;
+    title: string;
+    address: string;
+    phoneNumber: string;
+    postcode: string;
+    provinceCode: number;
+    province: string;
+    cityCode: number;
+    city: string;
+    districtCode: number;
+    district: string;
+    point: Point;
+    tags: string[];
+    typeId: number;
+    extendedData: any;
   }
   /**
    * 此图层用来展示全景覆盖的区域。
    * 创建全景覆盖区域图层的实例
    */
-	class PanoramaCoverageLayer extends TileLayer {
-		constructor();
-	}
-	interface CustomLayerOptions {
-		databoxId?: string;
-		geotableId?: string;
-		q?: string;
-		tags?: string;
-		filter?: string;
-		pointDensityType?: PointDensityType;
-	}
-	type PointDensityType = number;
+  class PanoramaCoverageLayer extends TileLayer {
+    constructor();
+  }
+  interface CustomLayerOptions {
+    databoxId?: string;
+    geotableId?: string;
+    q?: string;
+    tags?: string;
+    filter?: string;
+    pointDensityType?: PointDensityType;
+  }
+  type PointDensityType = number;
 }
 
 declare const BMAP_POINT_DENSITY_HIGH: BMap.PointDensityType;

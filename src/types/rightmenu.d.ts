@@ -1,8 +1,8 @@
 /// <reference path="./base.d.ts" />
 
 declare namespace BMap {
-	type ContextMenuIcon = string;
-	interface MenuItemOptions {
+  type ContextMenuIcon = string;
+  interface MenuItemOptions {
     /**
      * 指定此菜单项的宽度，菜单以最长的菜单项宽度为准
      */
@@ -15,9 +15,9 @@ declare namespace BMap {
      * 指定此菜单项的icon URL（大小为17px*17px）
      */
     iconUrl: string | ContextMenuIcon;
-	}
-	class MenuItem {
-		constructor(text: string, callback: (point: Point) => void, opts?: MenuItemOptions);
+  }
+  class MenuItem {
+    constructor(text: string, callback: (point: Point) => void, opts?: MenuItemOptions);
     /**
      * 设置菜单项显示的文本
      */
@@ -39,8 +39,8 @@ declare namespace BMap {
   /**
    * 此类表示右键菜单。您可以在地图上添加自定义内容的右键菜单。
    */
-	class ContextMenu {
-		constructor();
+  class ContextMenu {
+    constructor();
     /**
      * 添加菜单项
      */
@@ -61,9 +61,9 @@ declare namespace BMap {
      * 移除指定索引位置的分隔符，第一个分隔符的索引为0
      */
     removeSeparator: (index: number) => void;
-		onopen: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onclose: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-	}
+    onopen: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onclose: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+  }
 }
 declare const BMAP_CONTEXT_MENU_ICON_ZOOMIN: string;
 declare const BMAP_CONTEXT_MENU_ICON_ZOOMOUT: string;

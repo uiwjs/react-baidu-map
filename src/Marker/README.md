@@ -179,7 +179,7 @@ import { Map, APILoader, useMarker } from '@uiw/react-baidu-map';
 const Example = () => {
   const divElm = useRef(null);
   const { setContainer, map } = useMap({ widget: ['GeolocationControl', 'NavigationControl'], zoom: 8 });
-  const { setType, marker } = useMarker({ map, position: { lng: 121.444017, lat: 31.237787 }, });
+  const { setType, marker } = useMarker({ map, position: { lng: 121.444017, lat: 31.237787 } });
   useEffect(() => {
     if (divElm.current && !map) {
       setContainer(divElm.current);

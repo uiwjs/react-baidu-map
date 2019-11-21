@@ -7,11 +7,11 @@ declare namespace BMap {
    * 此类用来展示某位置的全景视图，可以单独放置在一个div容器中，也可以放在Map类的容器中。
    * http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html#a8b0
    */
-	class Panorama {
+  class Panorama {
     /**
      * 在给定的结点中创建全景
      */
-		constructor(container: string | HTMLElement, opts?: PanoramaOptions);
+    constructor(container: string | HTMLElement, opts?: PanoramaOptions);
     /**
      * 获取全景中道路指示信息
      */
@@ -105,11 +105,11 @@ declare namespace BMap {
      * 全景场景点类型改变（室内景、室外景）时触发
      */
     onscene_type_changed?: () => void;
-	}
+  }
   /**
    * 此类为Panorama类构造函数的可选参数，使用对象字面量形式表示，不可实例化。
    */
-	interface PanoramaOptions {
+  interface PanoramaOptions {
     /**
      * 是否显示全景的导航控件，默认为true
      */
@@ -130,8 +130,8 @@ declare namespace BMap {
      * 全景相册控件配置参数
      */
     albumsControlOptions: AlbumsControlOptions;
-	}
-	interface PanoramaLink {
+  }
+  interface PanoramaLink {
     /**
      * 相连全景的描述信息
      */
@@ -143,9 +143,9 @@ declare namespace BMap {
     /**
      * 相邻全景的id
      */
-		id: string;
-	}
-	interface PanoramaPov {
+    id: string;
+  }
+  interface PanoramaPov {
     /**
      * 水平方向的角度，正北方向为0，正东为90，正南为180，正西为270
      */
@@ -153,12 +153,12 @@ declare namespace BMap {
     /**
      * 竖直方向的角度，向上最大到90度，向下最大到-90度。（在某些场景下，俯角可能无法到达最大值）
      */
-		pitch: number;
+    pitch: number;
   }
   /**
    * 此类用来检索全景数据信息。
    */
-	class PanoramaService {
+  class PanoramaService {
     /**
      * 在创建检索全景数据信息类的实例
      */
@@ -171,25 +171,25 @@ declare namespace BMap {
      * 根据坐标及半径返回该范围内的全景数据；
      * 不设置半径参数时，默认半径为50米；当获取不到数据时，回调函数参数为null
      */
-		getPanoramaByLocation(point: Point, radius?: number, callback?: (data: PanoramaData) => void): void;
-	}
-	interface PanoramaData {
-		id: string;
-		description: string;
-		links: PanoramaLink[];
-		position: Point;
-		tiles: PanoramaTileData;
-	}
-	interface PanoramaTileData {
-		centerHeading: number;
-		tileSize: Size;
-		worldSize: Size;
+    getPanoramaByLocation(point: Point, radius?: number, callback?: (data: PanoramaData) => void): void;
+  }
+  interface PanoramaData {
+    id: string;
+    description: string;
+    links: PanoramaLink[];
+    position: Point;
+    tiles: PanoramaTileData;
+  }
+  interface PanoramaTileData {
+    centerHeading: number;
+    tileSize: Size;
+    worldSize: Size;
   }
   /**
    * 该类提供在全景中添加标签功能。
    */
-	class PanoramaLabel {
-		constructor(content: string, opts?: PanoramaLabelOptions);
+  class PanoramaLabel {
+    constructor(content: string, opts?: PanoramaLabelOptions);
     /**
     * 设置标签的经纬度坐标
     */
@@ -234,12 +234,12 @@ declare namespace BMap {
       * 移除事件
       */
     removeEventListener?: () => void; 
-		onclick: (event: { type: string, target: any }) => void;
-		onmouseover: (event: { type: string, target: any }) => void;
-		onmouseout: (event: { type: string, target: any }) => void;
-		onremove: (event: { type: string, target: any }) => void;
-	}
-	interface PanoramaLabelOptions {
+    onclick: (event: { type: string, target: any }) => void;
+    onmouseover: (event: { type: string, target: any }) => void;
+    onmouseout: (event: { type: string, target: any }) => void;
+    onremove: (event: { type: string, target: any }) => void;
+  }
+  interface PanoramaLabelOptions {
     /**
      * 文本标注的地理位置
      */
@@ -248,8 +248,8 @@ declare namespace BMap {
      * 文本标注在全景场景点中距地面的高度。（javascript全景实现方式暂不支持），默认为2米
      */
     altitude?: number;
-	}
-	interface AlbumsControlOptions {
+  }
+  interface AlbumsControlOptions {
     /**
      * 相册控件的停靠位置
      */
@@ -266,9 +266,9 @@ declare namespace BMap {
      * 相册内图片的高度。默认为 80px。（为保证图片比例，只设置高度，宽度自如会拉宽）
      */
     imageHeight?: number;
-	}
-	type PanoramaSceneType = string;
-	type PanoramaPOIType = string;
+  }
+  type PanoramaSceneType = string;
+  type PanoramaPOIType = string;
 }
 /**
  * 全景场景点的类型为室内场景

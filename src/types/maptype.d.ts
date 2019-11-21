@@ -2,14 +2,14 @@
 /// <reference path="./maplayer.d.ts" />
 
 declare namespace BMap {
-	class MapType {
+  class MapType {
     /**
      * 创建 MapType 对象实例
      * @param name 
      * @param layers 
      * @param opts 
      */
-		constructor(name: string, layers: TileLayer | TileLayer[], opts?: MapTypeOptions);
+    constructor(name: string, layers: TileLayer | TileLayer[], opts?: MapTypeOptions);
     /**
      * 返回地图类型名称
      */
@@ -38,8 +38,8 @@ declare namespace BMap {
      * 返回地图类型的提示说明，用于在地图类型控件中提示
      */
     getTips(): string;
-	}
-	interface MapTypeOptions {
+  }
+  interface MapTypeOptions {
     /**
      * 该类型地图的最小级别
      */
@@ -64,7 +64,7 @@ declare namespace BMap {
   /**
    * 此类表示地图投影抽象基类，不可实例化，但可通过MapType的getProjection方法获得。
    */
-	interface Projection {
+  interface Projection {
     /**
      * 抽象，根据球面坐标获得平面坐标
      * @param lngLat 
@@ -74,7 +74,7 @@ declare namespace BMap {
      * 抽象，根据平面坐标获得球面坐标
      * @param point 
      */
-		pointToLngLat(point: Pixel): Point;
+    pointToLngLat(point: Pixel): Point;
   }
   /**
    * 此类表示街道地图投影类，一般通过 MapType 的getProjection方法获得实例。
@@ -83,7 +83,7 @@ declare namespace BMap {
   /**
    * 此类表示透视地图投影类，一般通过 MapType 的getProjection方法获得实例
    */
-	type PerspectiveProjection = Projection;
+  type PerspectiveProjection = Projection;
 }
 declare const BMAP_NORMAL_MAP: BMap.MapType;
 declare const BMAP_PERSPECTIVE_MAP: BMap.MapType;

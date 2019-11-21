@@ -10,26 +10,26 @@ declare namespace BMap {
   /**
    * 此类表示一个地理坐标点。
    */
-	class Point {
+  class Point {
     /**
      * 以指定的经度和纬度创建一个地理点坐标
      * @param lng 地理经度
      * @param lat 地理纬度
      */
-		constructor(lng: number, lat: number);
-		lng: number;
+    constructor(lng: number, lat: number);
+    lng: number;
     lat: number;
     /**
      * 判断坐标点是否相等，当且仅当两点的经度和纬度均相等时返回true
      * @param other 
      */
-		equals(other: Point): boolean;
+    equals(other: Point): boolean;
   }
   /**
    * 此类表示地图上的一点，单位为像素。
    * 创建像素点对象实例。像素坐标的坐标原点为地图区域的左上角
    */
-	class Pixel {
+  class Pixel {
     constructor(x: number, y: number);
     /**
      * x坐标
@@ -38,13 +38,13 @@ declare namespace BMap {
     /**
      * y坐标
      */
-		y: number;
-		equals(other: Pixel): boolean;
+    y: number;
+    equals(other: Pixel): boolean;
   }
   /**
    * 此类以像素表示一个矩形区域的大小。
    */
-	class Size {
+  class Size {
     /**
      * 以指定的宽度和高度创建一个矩形区域大小对象
      * @param width 
@@ -62,10 +62,10 @@ declare namespace BMap {
     /**
      * 当且仅当此矩形中的宽度和高度都等于其他矩形的宽度和高度时，返回true
      */
-		equals(other: Size): boolean;
-	}
-	class Bounds {
-		constructor(sw: Point, ne: Point);
+    equals(other: Size): boolean;
+  }
+  class Bounds {
+    constructor(sw: Point, ne: Point);
     /**
      * 当且仅当此矩形中的两点参数都等于其他矩形的两点参数时，返回true
      */
@@ -106,5 +106,5 @@ declare namespace BMap {
      * 返回矩形区域的跨度
      */
     toSpan(): Point;
-	}
+  }
 }

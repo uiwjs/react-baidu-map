@@ -2,32 +2,32 @@
 /// <reference path="./core.d.ts" />
 /// <reference path="./rightmenu.d.ts" />
 declare namespace BMap {
-	interface Overlay {
-		initialize?(map: Map): HTMLElement;
-		isVisible?(): boolean;
-		draw?(): void;
-		show?(): void;
-		hide?(): void;
-	}
-	type SymbolShapeType = number;
-	interface GroundOverlayOptions {
-		opacity?: number;
-		imageURL?: string;
-		displayOnMinLevel?: number;
-		displayOnMaxLevel?: number;
-	}
+  interface Overlay {
+    initialize?(map: Map): HTMLElement;
+    isVisible?(): boolean;
+    draw?(): void;
+    show?(): void;
+    hide?(): void;
+  }
+  type SymbolShapeType = number;
+  interface GroundOverlayOptions {
+    opacity?: number;
+    imageURL?: string;
+    displayOnMinLevel?: number;
+    displayOnMaxLevel?: number;
+  }
   /**
    * 此类表示地图上一个图像标注。
    */
-	class Marker {
+  class Marker {
     /**
      * 创建一个图像标注实例。point参数指定了图像标注所在的地理位置
      * @param point 
      * @param opts 
      */
-		constructor(point: Point, opts?: MarkerOptions);
-	}
-	interface MarkerOptions {
+    constructor(point: Point, opts?: MarkerOptions);
+  }
+  interface MarkerOptions {
     /**
      * 标注的位置偏移值
      */
@@ -68,8 +68,8 @@ declare namespace BMap {
      * 鼠标移到marker上的显示内容
      */
     title?: string;
-	}
-	interface Marker extends Overlay {
+  }
+  interface Marker extends Overlay {
     /**
      * 打开信息窗
      */
@@ -184,32 +184,32 @@ declare namespace BMap {
      */
     removeEventListener(event: string, handler: Function) : void;
   
-		onclick: (event: { type: string, target: any }) => void;
-		ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseout: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseover: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onremove: (event: { type: string, target: any }) => void;
-		oninfowindowclose: (event: { type: string, target: any }) => void;
-		oninfowindowopen: (event: { type: string, target: any }) => void;
-		ondragstart: (event: { type: string, target: any }) => void;
-		ondragging: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		ondragend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onrightclick: (event: { type: string, target: any }) => void;
+    onclick: (event: { type: string, target: any }) => void;
+    ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onmouseout: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onmouseover: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onremove: (event: { type: string, target: any }) => void;
+    oninfowindowclose: (event: { type: string, target: any }) => void;
+    oninfowindowopen: (event: { type: string, target: any }) => void;
+    ondragstart: (event: { type: string, target: any }) => void;
+    ondragging: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    ondragend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onrightclick: (event: { type: string, target: any }) => void;
   }
-	interface SymbolOptions {
-		anchor?: Size;
-		fillColor?: string;
-		fillOpacity?: number;
-		scale?: number;
-		rotation?: number;
-		strokeColor?: string;
-		strokeOpacity?: number;
-		strokeWeight?: number;
-	}
-	class IconSequence {
-		constructor(symbol: symbol, offset?: string, repeat?: string, fixedRotation?: boolean);
+  interface SymbolOptions {
+    anchor?: Size;
+    fillColor?: string;
+    fillOpacity?: number;
+    scale?: number;
+    rotation?: number;
+    strokeColor?: string;
+    strokeOpacity?: number;
+    strokeWeight?: number;
+  }
+  class IconSequence {
+    constructor(symbol: symbol, offset?: string, repeat?: string, fixedRotation?: boolean);
   }
   interface PointCollection extends Overlay {
     /**
@@ -243,7 +243,7 @@ declare namespace BMap {
   /**
    * 此类表示海量点类，利用该类可同时在地图上展示万级别的点，目前仅适用于html5浏览器。
    */
-	class PointCollection {
+  class PointCollection {
     /**
      * 创建海量点类。points为点的坐标集合，opts为点的绘制样式
      * @param points 
@@ -263,9 +263,9 @@ declare namespace BMap {
     /**
      * 鼠标移出点时会触发该事件
      */
-		onMouseOut?: (event: { type: string, target: any, point: Point }) => void;
+    onMouseOut?: (event: { type: string, target: any, point: Point }) => void;
   }
-	interface PointCollectionOption {
+  interface PointCollectionOption {
     /**
      * 海量点的预设形状
      */
@@ -285,9 +285,9 @@ declare namespace BMap {
      * 海量点的预设尺寸
      * @default BMAP_POINT_SIZE_SMALL
      */
-		size?: SizeType;
+    size?: SizeType;
   }
-	interface InfoWindowEvent {
+  interface InfoWindowEvent {
     /**
      * 信息窗口被关闭时触发此事件
      */
@@ -307,7 +307,7 @@ declare namespace BMap {
     /**
      * 点击信息窗口的关闭按钮时触发此事件
      */
-		onClickclose: (event: { type: string, target: any }) => void;
+    onClickclose: (event: { type: string, target: any }) => void;
   }
   interface InfoWindow extends Overlay {
     /**
@@ -400,16 +400,16 @@ declare namespace BMap {
   /**
    * 此类表示地图上包含信息的窗口。
    */
-	class InfoWindow {
+  class InfoWindow {
     /**
      * 创建一个信息窗实例，其中 content 支持HTML内容。
      * 1.2 版本开始content参数支持传入DOM结点
      * @param content 
      * @param opts 
      */
-		constructor(content: string | HTMLElement, opts?: InfoWindowOptions);
-	}
-	interface InfoWindowOptions {
+    constructor(content: string | HTMLElement, opts?: InfoWindowOptions);
+  }
+  interface InfoWindowOptions {
     /**
      * 信息窗宽度，单位像素。取值范围：0, 220 - 730。
      * 如果您指定宽度为0，则信息窗口的宽度将按照其内容自动调整
@@ -454,15 +454,15 @@ declare namespace BMap {
   /**
    * 此类表示一个多边形覆盖物。
    */
-	class Polygon {
+  class Polygon {
     /**
      * 创建多边形覆盖物
      * @param points 
      * @param opts 
      */
-		constructor(points: Point[], opts?: PolygonOptions);
+    constructor(points: Point[], opts?: PolygonOptions);
   }
-	interface PolygonOptions {
+  interface PolygonOptions {
     /**
      * 边线颜色
      */
@@ -499,8 +499,8 @@ declare namespace BMap {
      * 是否响应点击事件，默认为true
      */
     enableClicking?: boolean;
-	}
-	interface Polygon extends Overlay {
+  }
+  interface Polygon extends Overlay {
     /**
      * 设置多边型的点数组
      * @param path 
@@ -604,24 +604,24 @@ declare namespace BMap {
      * @param event 
      * @param handler 
      */
-		removeEventListener(event: string, handler: Callback): void;
-	}
+    removeEventListener(event: string, handler: Callback): void;
+  }
   interface PolygonEvents {
-		onClick: (event: { type: string, target: any }) => void;
-		onDoubleClick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onMouseDown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onMouseUp: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onMouseOut: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onMouseOver: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onRemove: (event: { type: string, target: any }) => void;
-		onLineUpdate: (event: { type: string, target: any }) => void;
+    onClick: (event: { type: string, target: any }) => void;
+    onDoubleClick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseDown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseUp: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseOut: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseOver: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onRemove: (event: { type: string, target: any }) => void;
+    onLineUpdate: (event: { type: string, target: any }) => void;
   }
   /**
    * 此常量表示标注的动画效果。
    */
-	type Animation = number;
-	type ShapeType = number;
-	interface Icon extends Overlay {
+  type Animation = number;
+  type ShapeType = number;
+  interface Icon extends Overlay {
     /**
      * 图标的定位点相对于图标左上角的偏移值
      */
@@ -671,16 +671,16 @@ declare namespace BMap {
   /**
    * 此类表示标注覆盖物所使用的图标。
    */
-	class Icon {
+  class Icon {
     /**
      * 创建一个文本标注实例。point参数指定了文本标注所在的地理位置
      */
-		constructor(url: string, size: Size, opts?: IconOptions);
+    constructor(url: string, size: Size, opts?: IconOptions);
   }
   /**
    * 此类表示地图上的文本标注。
    */
-	interface Label extends Overlay {
+  interface Label extends Overlay {
     /**
      * 设置文本标注样式，该样式将作用于文本标注的容器元素上。其中styles为JavaScript对象常量，
      * 比如： setStyle({ color : "red", fontSize : "12px" }) 
@@ -740,7 +740,7 @@ declare namespace BMap {
      */
     removeEventListener(event: string, handler: Function): void;
   }
-	interface LabelOptions {
+  interface LabelOptions {
     /**
      * 文本标注的位置偏移值
      */
@@ -753,7 +753,7 @@ declare namespace BMap {
      * 是否在调用map.clearOverlays清除此覆盖物，默认为true
      */
     enableMassClear?: boolean;
-	}
+  }
   interface LabelEvents {
     /**
      * 点击文本标注后会触发此事件
@@ -786,54 +786,54 @@ declare namespace BMap {
     /**
      * 右键点击标注时触发此事件
      */
-		onRightClick: (event: { type: string, target: any }) => void;
+    onRightClick: (event: { type: string, target: any }) => void;
   }
   /**
    * 此类表示地图上的文本标注。
    * 创建一个文本标注实例。point参数指定了文本标注所在的地理位置
    */
-	class Label {
-		constructor(content: string, opts?: LabelOptions);
-	}
-	interface Circle extends Overlay {
-		setCenter(center: Point): void;
-		getCenter(): Point;
-		setRadius(radius: number): void;
-		getRadius(): number;
-		getBounds(): Bounds;
-		setStrokeColor(color: string): void;
-		getStrokeColor(): string;
-		setFillColor(color: string): void;
-		getFillColor(): string;
-		setStrokeOpacity(opacity: number): void;
-		getStrokeOpacity(): number;
-		setFillOpacity(opacity: number): void;
-		getFillOpacity(): number;
-		setStrokeWeight(weight: number): void;
-		getStrokeWeight(): number;
-		setStrokeStyle(style: string): void;
-		getStrokeStyle(): string;
-		enableEditing(): void;
-		disableEditing(): void;
-		enableMassClear(): void;
-		disableMassClear(): void;
-		getMap(): Map;
-		addEventListener(event: string, handler: Callback): void;
-		removeEventListener(event: string, handler: Callback): void;
-		onclick: (event: { type: string, target: any }) => void;
-		ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseout: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseover: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onremove: (event: { type: string, target: any }) => void;
-		onlineupdate: (event: { type: string, target: any }) => void;
-	}
-	class CanvasLayer {
+  class Label {
+    constructor(content: string, opts?: LabelOptions);
+  }
+  interface Circle extends Overlay {
+    setCenter(center: Point): void;
+    getCenter(): Point;
+    setRadius(radius: number): void;
+    getRadius(): number;
+    getBounds(): Bounds;
+    setStrokeColor(color: string): void;
+    getStrokeColor(): string;
+    setFillColor(color: string): void;
+    getFillColor(): string;
+    setStrokeOpacity(opacity: number): void;
+    getStrokeOpacity(): number;
+    setFillOpacity(opacity: number): void;
+    getFillOpacity(): number;
+    setStrokeWeight(weight: number): void;
+    getStrokeWeight(): number;
+    setStrokeStyle(style: string): void;
+    getStrokeStyle(): string;
+    enableEditing(): void;
+    disableEditing(): void;
+    enableMassClear(): void;
+    disableMassClear(): void;
+    getMap(): Map;
+    addEventListener(event: string, handler: Callback): void;
+    removeEventListener(event: string, handler: Callback): void;
+    onclick: (event: { type: string, target: any }) => void;
+    ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onmouseout: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onmouseover: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onremove: (event: { type: string, target: any }) => void;
+    onlineupdate: (event: { type: string, target: any }) => void;
+  }
+  class CanvasLayer {
     /**
      * 创建一个CanvasLayer实例，每个实例都是一个单独的canvas标签即单独的一层。可以为同一个地图添加多层的CanvasLayer叠加。
      */
-		constructor(opts?: CanvasLayerOptions);
+    constructor(opts?: CanvasLayerOptions);
   }
   interface CanvasLayer extends Overlay {}
   /**
@@ -855,11 +855,11 @@ declare namespace BMap {
      */
     update?(): void;
   }
-	class Circle {
-		constructor(center: Point, radius: number, opts?: CircleOptions);
-	}
-	type SizeType = number;
-	interface IconOptions {
+  class Circle {
+    constructor(center: Point, radius: number, opts?: CircleOptions);
+  }
+  type SizeType = number;
+  interface IconOptions {
     /**
      * 图标的定位锚点。此点用来决定图标与地理位置的关系，是相对于图标左上角的偏移值，默认等于图标宽度和高度的中间值
      */
@@ -875,9 +875,9 @@ declare namespace BMap {
     /**
      * 用于打印的图片，此属性只适用于IE6，为了解决IE6在包含滤镜的情况下打印样式不正确的问题
      */
-		printImageUrl?: string;
-	}
-	interface CircleOptions {
+    printImageUrl?: string;
+  }
+  interface CircleOptions {
     /**
      * 圆形边线颜色
      */
@@ -914,9 +914,9 @@ declare namespace BMap {
      * 是否响应点击事件，默认为true
      */
     enableClicking?: boolean;
-	}
-	// interface Hotspot extends Overlay {
-	interface Hotspot {
+  }
+  // interface Hotspot extends Overlay {
+  interface Hotspot {
     /**
      * 获取热区位置坐标
      */
@@ -945,29 +945,29 @@ declare namespace BMap {
   /**
    * 此类表示地图上的一个热区。
    */
-	class Hotspot {
+  class Hotspot {
     /**
      * 创建Hotspot对象实例
      * @param position 
      * @param opts 
      */
-		constructor(position: Point, opts?: HotspotOptions);
-	}
-	interface Symbol extends Overlay {
-		setPath(path: string | SymbolShapeType): void;
-		setAnchor(anchor: Size): void;
-		setRotation(rotation: number): void;
-		setScale(scale: number): void;
-		setStrokeWeight(strokeWeight: number): void;
-		setStrokeColor(color: string): void;
-		setStrokeOpacity(opacity: number): void;
-		setFillOpacity(opacity: number): void;
-		setFillColor(color: string): void;
-	}
-	class Symbol {
-		constructor(path: string | SymbolShapeType, opts?: SymbolOptions);
+    constructor(position: Point, opts?: HotspotOptions);
   }
-	interface PolylineOptions {
+  interface Symbol extends Overlay {
+    setPath(path: string | SymbolShapeType): void;
+    setAnchor(anchor: Size): void;
+    setRotation(rotation: number): void;
+    setScale(scale: number): void;
+    setStrokeWeight(strokeWeight: number): void;
+    setStrokeColor(color: string): void;
+    setStrokeOpacity(opacity: number): void;
+    setFillOpacity(opacity: number): void;
+    setFillColor(color: string): void;
+  }
+  class Symbol {
+    constructor(path: string | SymbolShapeType, opts?: SymbolOptions);
+  }
+  interface PolylineOptions {
     /**
      * 折线颜色
      */
@@ -1000,8 +1000,8 @@ declare namespace BMap {
      * 配置贴合折线的图标
      */
     icons?: Array<IconSequence>;
-	}
-	interface Polyline extends Overlay {
+  }
+  interface Polyline extends Overlay {
     /**
      * 设置折线的点数组
      * @param path 
@@ -1019,7 +1019,7 @@ declare namespace BMap {
     /**
      * 返回折线的颜色
      */
-		getStrokeColor(): string;
+    getStrokeColor(): string;
     /**
      * 设置透明度，取值范围0 - 1
      * @param opacity 
@@ -1090,11 +1090,11 @@ declare namespace BMap {
      * @param event 
      * @param handler 
      */
-		removeEventListener(event: string, handler: Callback): void;
-		onclick: (event: { type: string, target: any }) => void;
-		ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    removeEventListener(event: string, handler: Callback): void;
+    onclick: (event: { type: string, target: any }) => void;
+    ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+  	onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
 		onmouseout: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
 		onmouseover: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
 		onremove: (event: { type: string, target: any }) => void;

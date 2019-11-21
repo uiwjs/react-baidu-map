@@ -2,22 +2,22 @@
 /// <reference path="./base.d.ts" />
 
 declare namespace BMap {
-	class Control {
-		constructor();
-		defaultAnchor: ControlAnchor;
-		defaultOffset: Size;
-		initialize(map: Map): HTMLElement;
-		setAnchor(anchor: ControlAnchor): void;
-		getAnchor(): ControlAnchor;
-		setOffset(offset: Size): void;
-		getOffset(): Size;
-		show(): void;
-		hide(): void;
-      isVisible(): boolean;
-      /** 自定义Control在add之后立马能读取到Container, 内置Control不能 */
-      getContainer(): HTMLElement | undefined;
-	}
-	interface NavigationControlOptions {
+  class Control {
+    constructor();
+    defaultAnchor: ControlAnchor;
+    defaultOffset: Size;
+    initialize(map: Map): HTMLElement;
+    setAnchor(anchor: ControlAnchor): void;
+    getAnchor(): ControlAnchor;
+    setOffset(offset: Size): void;
+    getOffset(): Size;
+    show(): void;
+    hide(): void;
+    isVisible(): boolean;
+    /** 自定义Control在add之后立马能读取到Container, 内置Control不能 */
+    getContainer(): HTMLElement | undefined;
+  }
+  interface NavigationControlOptions {
     /**
      * 控件的水平偏移值
      */
@@ -38,7 +38,7 @@ declare namespace BMap {
   /**
    * 此类表示ScaleControl构造函数的可选参数。它没有构造函数，但可通过对象字面量形式表示。
    */
-	interface ScaleControlOptions {
+  interface ScaleControlOptions {
     /**
      * 控件的停靠位置
      */
@@ -47,8 +47,8 @@ declare namespace BMap {
      * 控件的水平偏移值
      */
     offset?: Size;
-	}
-	interface CopyrightControlOptions {
+  }
+  interface CopyrightControlOptions {
     /**
      * 控件的停靠位置
      */
@@ -57,14 +57,14 @@ declare namespace BMap {
      * 控件的水平偏移值
      */
     offset?: Size;
-	}
+  }
   type ControlAnchor = number;
   /**
    * 此类表示OverviewMapControl构造函数的可选参数。
    * 它没有构造函数，但可通过对象字面量形式表示。
    */
-	class OverviewMapControl extends Control {
-		constructor(opts: OverviewMapControlOptions);
+  class OverviewMapControl extends Control {
+    constructor(opts: OverviewMapControlOptions);
     /**
      * 切换缩略地图控件的开合状态
      */
@@ -85,16 +85,16 @@ declare namespace BMap {
      * 缩略地图开合状态发生变化过程中触发此事件
      */
     onviewchanging: (event: { type: string, target: any }) => void;
-	}
+  }
   type LengthUnit = string;
   /**
    * 此类是负责切换地图类型的控件，此类继承Control所有功能。
    */
-	class MapTypeControl extends Control {
-		constructor(opts?: MapTypeControlOptions);
-	}
-	class NavigationControl extends Control {
-		constructor(opts?: NavigationControlOptions);
+  class MapTypeControl extends Control {
+    constructor(opts?: MapTypeControlOptions);
+  }
+  class NavigationControl extends Control {
+    constructor(opts?: NavigationControlOptions);
     /**
      * 返回平移缩放控件的类型
      */
@@ -103,15 +103,15 @@ declare namespace BMap {
      * 设置平移缩放控件的类型
      */
     setType: (type: NavigationControlType) => void;
-	}
-	interface OverviewMapControlOptions {
-		anchor?: ControlAnchor;
-		offset?: Size;
-		size?: Size;
-		isOpen?: boolean;
-	}
-	class CopyrightControl extends Control {
-		constructor(opts?: CopyrightControlOptions);
+  }
+  interface OverviewMapControlOptions {
+    anchor?: ControlAnchor;
+    offset?: Size;
+    size?: Size;
+    isOpen?: boolean;
+  }
+  class CopyrightControl extends Control {
+    constructor(opts?: CopyrightControlOptions);
     /**
      * 添加版权信息
      */
@@ -128,14 +128,14 @@ declare namespace BMap {
      * 返回版权信息列表
      */
     getCopyrightCollection(): Copyright[];
-	}
-	interface MapTypeControlOptions {
-		type?: MapTypeControlType;
-		mapTypes?: MapType[];
-	}
-	type NavigationControlType = number;
-	class ScaleControl extends Control {
-		constructor(opts?: ScaleControlOptions);
+  }
+  interface MapTypeControlOptions {
+    type?: MapTypeControlType;
+    mapTypes?: MapType[];
+  }
+  type NavigationControlType = number;
+  class ScaleControl extends Control {
+    constructor(opts?: ScaleControlOptions);
     /**
      * 返回比例尺单位制
      */
@@ -144,21 +144,21 @@ declare namespace BMap {
      * 设置比例尺单位制
      */
     setUnit?: (unit: LengthUnit) => void;
-	}
-	interface Copyright {
-		id?: number;
-		content?: string;
-		bounds?: Bounds;
+  }
+  interface Copyright {
+    id?: number;
+    content?: string;
+    bounds?: Bounds;
   }
   type MapTypeControlType = number;
   /**
    * 此类表示GeolocationControl构造函数的可选参数。
    * 它没有构造函数，但可通过对象字面量形式表示。
    */
-	class GeolocationControl extends Control {
-		constructor(opts?: GeolocationControlOptions);
-	}
-	interface GeolocationControlOptions {
+  class GeolocationControl extends Control {
+    constructor(opts?: GeolocationControlOptions);
+  }
+  interface GeolocationControlOptions {
     /**
      * 控件的停靠位置
      */
@@ -179,11 +179,11 @@ declare namespace BMap {
      * 可自定义定位中心点的Icon样式
      */
     locationIcon?: Icon;
-	}
-	type StatusCode = number;
-	class PanoramaControl extends Control {
-		constructor();
-	}
+  }
+  type StatusCode = number;
+  class PanoramaControl extends Control {
+    constructor();
+  }
 }
 
 /**
@@ -212,7 +212,7 @@ declare const BMAP_ANCHOR_BOTTOM_RIGHT: BMap.ControlAnchor;
  * - `BMAP_NAVIGATION_CONTROL_LARGE` 标准的平移缩放控件(包括平移、缩放按钮和滑块)
  * - `BMAP_NAVIGATION_CONTROL_SMALL` 仅包含平移和缩放按钮
  * - `BMAP_NAVIGATION_CONTROL_PAN` 仅包含平移按钮
- * - `BMAP_NAVIGATION_CONTROL_ZOOM`	仅包含缩放按钮
+ * - `BMAP_NAVIGATION_CONTROL_ZOOM` 仅包含缩放按钮
  */
 declare const BMAP_NAVIGATION_CONTROL_LARGE: BMap.NavigationControlType;
 declare const BMAP_NAVIGATION_CONTROL_SMALL: BMap.NavigationControlType;
