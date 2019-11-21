@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { MapChildProps } from '../common/map';
-import useMarkers from './useMarkers';
+import useMarker from './useMarker';
 
 export interface MarkerProps extends MapChildProps, BMap.MarkerOptions {
   position: BMap.Point;
@@ -14,7 +14,7 @@ export interface MarkerProps extends MapChildProps, BMap.MarkerOptions {
 }
 
 export default (props: MarkerProps) => {
-  const { setType } = useMarkers(props);
+  const { setType } = useMarker(props);
   useEffect(() => setType(props.type!), [props.type]);
   return null;
 }

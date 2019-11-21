@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo } from 'react';
 import defaultIconUrl from './markers.png';
-import { MarkerProps } from './';
+import { MarkerProps } from '.';
 import { useEnableProperties, useProperties } from '../common/useEnableProperties';
 
-export interface UseMarkers extends MarkerProps{}
+export interface UseMarker extends MarkerProps{}
 
 const getIcons = (name: string) => {
   const icons = {
@@ -61,7 +61,7 @@ const getIcons = (name: string) => {
   return icons[name as keyof typeof icons];
 }
 
-export default (props = {} as UseMarkers) => {
+export default (props = {} as UseMarker) => {
   const {
     map, position, animation,
     offset, icon, enableMassClear, enableDragging, enableClicking, raiseOnDrag, draggingCursor, rotation, shadow, title,
@@ -91,8 +91,8 @@ export default (props = {} as UseMarkers) => {
     }
   }, [type, marker]);
 
-  useEnableProperties<BMap.Marker, UseMarkers>(marker!, props, ['Dragging', 'MassClear', 'Clicking']);
-  useProperties<BMap.Marker, UseMarkers>(marker!, props, ['Icon', 'Position', 'Animation', 'Offset', 'Label', 'Title', 'Top', 'ZIndex', 'Rotation', 'Shadow']);
+  useEnableProperties<BMap.Marker, UseMarker>(marker!, props, ['Dragging', 'MassClear', 'Clicking']);
+  useProperties<BMap.Marker, UseMarker>(marker!, props, ['Icon', 'Position', 'Animation', 'Offset', 'Label', 'Title', 'Top', 'ZIndex', 'Rotation', 'Shadow']);
 
   return {
     marker, setMarker,

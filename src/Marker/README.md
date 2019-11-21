@@ -106,6 +106,67 @@ ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 
+
+### 矢量图标
+
+百度地图[官方实例](http://lbsyun.baidu.com/jsdemo.htm#c1_20)。
+
+<!--DemoStart,bgWhite-->
+```jsx
+import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
+
+const CustomIcon = () => {
+  const [display, setDisplay] = useState(true);
+  const icon = new BMap.Symbol('m0.5,48.67105l106.55963,0m-53.03642,45.73853l52.06349,51.09042m-52.06349,-51.57716l-48.65731,51.57716m48.41391,-112.39955l0,60.82238m16.17517,-77.24814c0,8.93415 -7.24208,16.17461 -16.17517,16.17461c-8.93307,0 -16.17464,-7.24046 -16.17464,-16.17461c0,-8.93309 7.24156,-16.1747 16.17464,-16.1747c8.93309,0 16.17517,7.24161 16.17517,16.1747z', {
+    rotation: 0, // 顺时针旋转40度
+    fillColor: 'green',
+    fillOpacity: 0.8,
+    strokeColor: '#555',
+    strokeWeight: 3 // 线宽
+  });
+  const iconForwardClosedArrow = new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+    scale: 5,
+    strokeWeight: 1,
+    rotation: 0, // 顺时针旋转30度
+    fillColor: 'red',
+    fillOpacity: 0.8
+  });
+  const iconBackwardClosedArrow = new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_CLOSED_ARROW, {
+    scale: 5,
+    strokeWeight: 1,
+    rotation: 180,
+    fillColor: 'gold',
+    fillOpacity: 0.8
+  });
+  const iconShapePoint = new BMap.Symbol(BMap_Symbol_SHAPE_POINT, {
+    scale: 2, // 图标缩放大小
+    fillColor: "orange", // 填充颜色
+    fillOpacity: 0.8, // 填充透明度
+  });
+  return (
+    <>
+      <button onClick={() => setDisplay(!display)}>{display ? '隐藏' : '显示'}</button>
+      <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
+        <Marker position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} />
+        <Marker position={{ lng: 121.458534, lat: 31.224942}} icon={iconForwardClosedArrow} />
+        <Marker position={{ lng: 121.434962, lat: 31.200729 }} icon={iconBackwardClosedArrow} />
+        <Marker position={{ lng: 121.437962, lat: 31.200729 }} icon={iconShapePoint} />
+      </Map>
+    </>
+  );
+}
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '350px' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <CustomIcon />
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
+```
+<!--End-->
+
 ### 使用 hooks
 
 `marker`, `setMarker`, `type`, `setType`
@@ -113,12 +174,12 @@ ReactDOM.render(<Demo />, _mount_);
 <!--DemoStart,bgWhite-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMarkers } from '@uiw/react-baidu-map';
+import { Map, APILoader, useMarker } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
   const { container, setContainer, map } = useMap({ widget: ['GeolocationControl', 'NavigationControl'], zoom: 8 });
-  const { setType, marker } = useMarkers({ map, position: { lng: 121.444017, lat: 31.237787 }, });
+  const { setType, marker } = useMarker({ map, position: { lng: 121.444017, lat: 31.237787 }, });
   useEffect(() => {
     if (divElm.current && !container) {
       setContainer(divElm.current);
