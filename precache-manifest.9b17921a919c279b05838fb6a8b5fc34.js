@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "024f4bf1811dd0c1a8e42eb02325f630",
+    "revision": "05fb886f955df85c089e4ba6a435c6de",
     "url": "/react-baidu-map/index.html"
   },
   {
@@ -8,11 +8,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/css/1.cf1f0810.chunk.css"
   },
   {
-    "revision": "99098ed819ee7c440abd",
+    "revision": "19d5941f59a42774927a",
     "url": "/react-baidu-map/static/css/2.53558320.chunk.css"
   },
   {
-    "revision": "ad09af6485867e33b5a2",
+    "revision": "015486aea22b32bffd0b",
     "url": "/react-baidu-map/static/css/main.4e79d9a3.css"
   },
   {
@@ -188,40 +188,40 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/136.fdda7e42.chunk.js"
   },
   {
-    "revision": "7b26d39f5ad9f083b1bd",
-    "url": "/react-baidu-map/static/js/137.577ef25e.chunk.js"
+    "revision": "82a9bc72d91ebcba3554",
+    "url": "/react-baidu-map/static/js/137.3b42c828.chunk.js"
   },
   {
-    "revision": "8b1928e83b84f3f92caa",
-    "url": "/react-baidu-map/static/js/138.0fc4b429.chunk.js"
+    "revision": "f6a26296fd97c83048fe",
+    "url": "/react-baidu-map/static/js/138.25080a3c.chunk.js"
   },
   {
-    "revision": "399e14fcd44cd9311de6",
-    "url": "/react-baidu-map/static/js/139.53e02b3a.chunk.js"
+    "revision": "5276a0e42ad1c873be3d",
+    "url": "/react-baidu-map/static/js/139.3ab79dfc.chunk.js"
   },
   {
     "revision": "b3f8a9efb39aaf6ce57f",
     "url": "/react-baidu-map/static/js/14.e7f4e61f.chunk.js"
   },
   {
-    "revision": "524f444ea6fff592187b",
-    "url": "/react-baidu-map/static/js/140.ea6ba01f.chunk.js"
+    "revision": "e3f4525e2b10b81c1d57",
+    "url": "/react-baidu-map/static/js/140.030a15d2.chunk.js"
   },
   {
-    "revision": "3fd7cb3109fdf354eb3a",
-    "url": "/react-baidu-map/static/js/141.3d735d53.chunk.js"
+    "revision": "90f3d3b346a8c51cc97e",
+    "url": "/react-baidu-map/static/js/141.3786e3ab.chunk.js"
   },
   {
-    "revision": "6df285fe2439a2e6e73f",
-    "url": "/react-baidu-map/static/js/142.3694a337.chunk.js"
+    "revision": "e37c23bda1c241944514",
+    "url": "/react-baidu-map/static/js/142.e8446f52.chunk.js"
   },
   {
-    "revision": "fee0976afec06039dc74",
-    "url": "/react-baidu-map/static/js/143.f55cc10d.chunk.js"
+    "revision": "6d082e8fc0d50591c445",
+    "url": "/react-baidu-map/static/js/143.218e0ed5.chunk.js"
   },
   {
-    "revision": "6d7aef72fea326713e47",
-    "url": "/react-baidu-map/static/js/144.e5641755.chunk.js"
+    "revision": "78619e453c10fbcb3645",
+    "url": "/react-baidu-map/static/js/144.d1d84dc5.chunk.js"
   },
   {
     "revision": "86e0d9104b5b12f1f275",
@@ -252,8 +252,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/19.d1a23128.chunk.js"
   },
   {
-    "revision": "99098ed819ee7c440abd",
-    "url": "/react-baidu-map/static/js/2.fb3ff358.chunk.js"
+    "revision": "19d5941f59a42774927a",
+    "url": "/react-baidu-map/static/js/2.58e08b02.chunk.js"
   },
   {
     "revision": "c24225c65099e5dbcca4",
@@ -600,8 +600,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/99.7f04dc2d.chunk.js"
   },
   {
-    "revision": "ad09af6485867e33b5a2",
-    "url": "/react-baidu-map/static/js/main.b1c30c3f.js"
+    "revision": "015486aea22b32bffd0b",
+    "url": "/react-baidu-map/static/js/main.89144fcd.js"
   },
   {
     "revision": "fbb9e99f420769ece2aaf13517430834",
