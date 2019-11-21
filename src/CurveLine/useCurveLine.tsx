@@ -49,6 +49,7 @@ export default (props = {} as UseCurveLine) => {
 
   return {
     curveLine, setCurveLine,
+    BMapLib: bMapLib,
     path, setPath
   }
 }

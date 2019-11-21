@@ -110,16 +110,20 @@ export const menus = [
     path: '/polygon',
   },
   {
-    label: 'CurveLine 弧线组件',
-    path: '/curve-line',
-  },
-  {
     label: 'Circle 圆',
     path: '/circle',
   },
   {
     label: 'CanvasLayer 自定义Canvas',
     path: '/canvas-layer',
+  },
+  {
+    divider: true,
+    label: '第三方组件',
+  },
+  {
+    label: 'CurveLine 弧线组件',
+    path: '/curve-line',
   },
   {
     divider: true,

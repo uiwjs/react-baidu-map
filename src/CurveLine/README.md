@@ -1,7 +1,7 @@
 CurveLine 弧线组件
 ===
 
-使用浏览器的矢量制图工具（如果可用）在地图上绘制折线的地图叠加层。
+使用浏览器的矢量制图工具（如果可用）在地图上绘制弧线的地图叠加层，当前组件自动加载 [CurveLine.min.js](https://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js) 包，加载完成将会有个 `window.BMapLib` 的全局对象。
 
 ```jsx
 import { CurveLine, useCurveLine } from '@uiw/react-baidu-map';
@@ -19,7 +19,7 @@ const Example = () => {
   const [strokeOpacity, setStrokeOpacity] = useState(0.5);
   function curveLineRef(props) {
     if (props && props.curveLine) {
-      console.log('curveLine:', props.curveLine, props.map, props.BMap);
+      console.log('curveLine:', props.curveLine, props.map, props.BMapLib);
     }
   }
   return (
@@ -58,7 +58,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 使用 hooks
 
-`curveLine`, `setCurveLine`, `path`, `setPath`
+`curveLine`, `setCurveLine`, `path`, `setPath`, `BMapLib`
 
 <!--DemoStart,bgWhite--> 
 ```jsx
