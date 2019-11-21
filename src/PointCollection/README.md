@@ -17,6 +17,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Map, PointCollection, APILoader, requireScript } from '@uiw/react-baidu-map';
 
 const Example = () => {
+  const [visiable, setVisiable] = useState(true);
   const [points, usePoints] = useState([]);
   const [position, usePositon] = useState('');
   useEffect(() => {
@@ -30,9 +31,11 @@ const Example = () => {
   });
   return (
     <>
-      {position && <div>标注点经纬度：{position}</div>}
+      <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
+      {position && <span>标注点经纬度：{position}</span>}
       <Map widget={['NavigationControl']} zoom={5}>
         <PointCollection
+          visiable={visiable}
           onClick={(e) => {
             usePositon(JSON.stringify(e.point))
           }}
@@ -72,11 +75,11 @@ import { Map, APILoader, usePointCollection } from '@uiw/react-baidu-map';
 let loadData = false;
 let data = []
 const Example = () => {
-  const divElm = useRef(null);
-  const { setContainer, map, setZoom } = useMap({ widget: ['GeolocationControl', 'NavigationControl'], zoom: 5 });
+  const divElm = useRef();
+  const { setContainer, map } = useMap({ widget: ['GeolocationControl', 'NavigationControl'], zoom: 5 });
   const { points, setPoints } = usePointCollection({ map });
   useEffect(() => {
-    if (divElm.current) {
+    if (divElm.current && !map) {
       setContainer(divElm.current);
     }
     if (!loadData) {
@@ -115,6 +118,7 @@ ReactDOM.render(<Demo />, _mount_);
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
 | points | **`必填`** 创建海量点类。为点的坐标集合 `[[74.438,39.006,1],[74.932,38.382,1]]` | [lng: number, lat: number][] | - |
+| visiable | 覆盖物是否可见。 | `boolean` | - |
 | styles | 设置 `{shape,size,color}`，是一个可控属性 | object | - |
 | shape | 海量点的预设形状 | `ShapeType` | `BMAP_POINT_SHAPE_WATERDROP` |
 | size | 海量点的预设尺寸 | `SizeType` | `BMAP_POINT_SIZE_SMALL` |

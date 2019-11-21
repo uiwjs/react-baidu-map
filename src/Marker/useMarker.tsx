@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import defaultIconUrl from './markers.png';
 import { MarkerProps } from '.';
-import { useEnableProperties, useProperties } from '../common/useEnableProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
 
 export interface UseMarker extends MarkerProps{}
 
@@ -90,7 +90,7 @@ export default (props = {} as UseMarker) => {
       marker.setIcon(newIcon);
     }
   }, [type, marker]);
-
+  useVisiable(marker, props);
   useEnableProperties<BMap.Marker, UseMarker>(marker!, props, ['Dragging', 'MassClear', 'Clicking']);
   useProperties<BMap.Marker, UseMarker>(marker!, props, ['Icon', 'Position', 'Animation', 'Offset', 'Label', 'Title', 'Top', 'ZIndex', 'Rotation', 'Shadow']);
 

@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PointCollectionProps } from './';
-import { useProperties } from '../common/useEnableProperties';
+import { useProperties, useVisiable } from '../common/useProperties';
 
 const EVENTS = ['onClick', 'onMouseOver', 'onMouseOut'];
 
@@ -45,6 +45,7 @@ export default (props = {} as PointCollectionProps) => {
     }
   }, [points, pointCollection]);
 
+  useVisiable(pointCollection!, props);
   useProperties<BMap.PointCollection, PointCollectionProps>(pointCollection!, props, ['Styles']);
   
   return {

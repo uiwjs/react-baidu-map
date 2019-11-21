@@ -116,7 +116,7 @@ ReactDOM.render(<Demo />, _mount_);
 import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const CustomIcon = () => {
-  const [display, setDisplay] = useState(true);
+  const [visiable, setVisiable] = useState(true);
   const icon = new BMap.Symbol('m0.5,48.67105l106.55963,0m-53.03642,45.73853l52.06349,51.09042m-52.06349,-51.57716l-48.65731,51.57716m48.41391,-112.39955l0,60.82238m16.17517,-77.24814c0,8.93415 -7.24208,16.17461 -16.17517,16.17461c-8.93307,0 -16.17464,-7.24046 -16.17464,-16.17461c0,-8.93309 7.24156,-16.1747 16.17464,-16.1747c8.93309,0 16.17517,7.24161 16.17517,16.1747z', {
     rotation: 0, // 顺时针旋转40度
     fillColor: 'green',
@@ -145,12 +145,12 @@ const CustomIcon = () => {
   });
   return (
     <>
-      <button onClick={() => setDisplay(!display)}>{display ? '隐藏' : '显示'}</button>
+      <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
       <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
-        <Marker position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} />
-        <Marker position={{ lng: 121.458534, lat: 31.224942}} icon={iconForwardClosedArrow} />
-        <Marker position={{ lng: 121.434962, lat: 31.200729 }} icon={iconBackwardClosedArrow} />
-        <Marker position={{ lng: 121.437962, lat: 31.200729 }} icon={iconShapePoint} />
+        <Marker visiable={visiable} position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} />
+        <Marker visiable={visiable} position={{ lng: 121.458534, lat: 31.224942}} icon={iconForwardClosedArrow} />
+        <Marker visiable={visiable} position={{ lng: 121.434962, lat: 31.200729 }} icon={iconBackwardClosedArrow} />
+        <Marker visiable={visiable} position={{ lng: 121.437962, lat: 31.200729 }} icon={iconShapePoint} />
       </Map>
     </>
   );
@@ -178,10 +178,10 @@ import { Map, APILoader, useMarker } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
-  const { container, setContainer, map } = useMap({ widget: ['GeolocationControl', 'NavigationControl'], zoom: 8 });
+  const { setContainer, map } = useMap({ widget: ['GeolocationControl', 'NavigationControl'], zoom: 8 });
   const { setType, marker } = useMarker({ map, position: { lng: 121.444017, lat: 31.237787 }, });
   useEffect(() => {
-    if (divElm.current && !container) {
+    if (divElm.current && !map) {
       setContainer(divElm.current);
     }
   });
@@ -218,6 +218,7 @@ ReactDOM.render(<Demo />, _mount_);
 | offset | 标注的位置偏移值 | `Size` | - |
 | enableMassClear | 是否在调用 `map.clearOverlays` 清除此覆盖物 | `boolean` | `true` |
 | icon | 标注所用的图标对象 | `Icon` | - |
+| visiable | 覆盖物是否可见。 | `boolean` | - |
 | enableDragging | 是否启用拖拽 | `boolean` | `false` |
 | enableClicking | 是否响应点击事件 | `boolean` | `true` |
 | enableMassClear | 允许覆盖物在map.clearOverlays方法中被清除 | `boolean` | `true` |

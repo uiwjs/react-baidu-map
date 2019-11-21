@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { MapChildProps } from '../common/map';
 import { MapProps } from './';
-import { useEnableProperties, useProperties } from '../common/useEnableProperties';
+import { useEnableProperties, useProperties } from '../common/useProperties';
 
 export interface UseMap extends MapProps, MapChildProps {
   /**

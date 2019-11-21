@@ -1,12 +1,10 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
 import { LabelProps } from './';
-import { useEnableProperties, useProperties } from '../common/useEnableProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
 
 const EVENTS = ['onClick', 'onDblClick', 'onMouseDo', 'onMouseUp', 'onMouseOout', 'onMouseO', 'onRemove', 'onRightClick'];
 
-export interface UseLabel extends LabelProps {
-
-}
+export interface UseLabel extends LabelProps {}
 
 export default (props = {} as UseLabel) => {
   const [label, setLabel] = useState<BMap.Label>();
@@ -30,6 +28,7 @@ export default (props = {} as UseLabel) => {
     }
   }, [map]);
 
+  useVisiable(label!, props);
   useProperties<BMap.Label, UseLabel>(label!, props, [
     'Style', 'Content', 'Position', 'Offset', 'Title', 'ZIndex'
   ]);

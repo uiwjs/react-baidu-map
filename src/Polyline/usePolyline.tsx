@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { PolylineProps } from './';
-import { useEnableProperties, useProperties } from '../common/useEnableProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
 
 export default (props = {} as PolylineProps) => {
   const { map, strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableEditing, enableClicking, icons, } = props;
@@ -24,6 +24,7 @@ export default (props = {} as PolylineProps) => {
     }
   }, [polyline, path]);
 
+  useVisiable(polyline!, props);
   useEnableProperties<BMap.Polyline, PolylineProps>(polyline!, props, ['Editing', 'MassClear']);
   // PositionAt
   useProperties<BMap.Polyline, PolylineProps>(polyline!, props, ['StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'StrokeStyle']);

@@ -145,6 +145,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
+| visiable | 覆盖物是否可见。 | `boolean` | - |
 | strokeColor |  折线颜色 | String | - |
 | fillColor |  填充颜色。当参数为空时，折线覆盖物将没有填充效果 | String | - |
 | strokeWeight |  折线的宽度，以像素为单位 | Number | - |

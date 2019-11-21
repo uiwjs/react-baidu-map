@@ -15,14 +15,17 @@ import React, { useState } from 'react';
 import { Map, InfoWindow, APILoader } from '@uiw/react-baidu-map';
 
 const Example = () => {
+  const [visiable, setVisiable] = useState(true);
   const [ isOpen, setIsOpen ] = useState(true);
   const [ content, setContent ] = useState('上海市 <del>青浦区</del> 徐泾镇盈港东路');
   return (
     <>
-      <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? '隐藏' : '显示'}</button>
+      <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? '关闭' : '打开'} isOpen={String(isOpen)}</button>
+      <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}visiable={String(visiable)}</button>
       <input value={content} onChange={(e) => setContent(e.target.value)} />
       <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
         <InfoWindow
+          visiable={visiable}
           isOpen={isOpen}
           onClose={() => {
             console.log(':onClose');
@@ -106,6 +109,7 @@ ReactDOM.render(<Demo />, _mount_);
 | ----- | ----- | ----- | ----- |
 | position | **`必填`** 指定的经度和纬度创建一个地理点坐标 | `Point` | - |
 | isOpen | 窗口是否打开 | `Point` | - |
+| visiable | 覆盖物是否可见。此属性来自继承 Overlay 实例对象。 | `boolean` | - |
 | width | 信息窗宽度，单位像素。取值范围：0, 220 - 730。如果您指定宽度为0，则信息窗口的宽度将按照其内容自动调整 | `number` | `true` |
 | height | 信息窗高度，单位像素。取值范围：0, 60 - 650。如果您指定宽度为0，则信息窗口的宽度将按照其内容自动调整 | `number` | - |
 | maxWidth | 信息窗最大化时的宽度，单位像素。取值范围：220 - 730 | `number` | - |

@@ -16,7 +16,7 @@ import React, { useEffect, useState } from 'react';
  * @param props 
  * @param propsName 
  */
-export function useEnableProperties<T, F>(instance: T, props: F, propsName: string[] = []) {
+export function useEnableProperties<T = {}, F = {}>(instance: T, props = {} as F, propsName: string[] = []) {
   propsName.forEach((name) => {
     const eName = `enable${name}` as keyof F;
     const [state, setState] = useState(props[eName]);
@@ -30,6 +30,31 @@ export function useEnableProperties<T, F>(instance: T, props: F, propsName: stri
       }
     }, [instance, props[eName]]);
   });
+}
+
+interface OverlayCommonProps {
+  visiable?: boolean;
+}
+
+/**
+ * 针对 Overlay 类型的组件，有公共的是否显示 对象处理
+ * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
+ */
+export function useVisiable<T extends BMap.Overlay, F extends OverlayCommonProps>(instance: T, props = {} as F) {
+  const visiable = (props as any).visiable;
+  const [state, setState] = useState(visiable);
+  useEffect(() => {
+    if (instance && visiable !== undefined) {
+      if (visiable) {
+        instance.show && instance.show();
+      } else {
+        instance.hide && instance.hide();
+      }
+      if(visiable !== state) {
+        setState(visiable);
+      }
+    }
+  }, [instance, visiable]);
 }
 
 /**

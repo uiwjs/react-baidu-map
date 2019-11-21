@@ -11,12 +11,14 @@ import React, { useState } from 'react';
 import { Map, Label, APILoader } from '@uiw/react-baidu-map';
 
 const Example = () => {
-  const [ content, setContent ] = useState('上海市 <del>青浦区</del> 徐泾镇盈港东路');
+  const [visiable, setVisiable] = useState(true);
+  const [content, setContent] = useState('上海市 <del>青浦区</del> 徐泾镇盈港东路');
   return (
     <>
       <input value={content} onChange={(e) => setContent(e.target.value)} />
+      <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
       <Map zoom={13} widget={['NavigationControl']}>
-        <Label content={content} position={{ lng: 121.436256, lat: 31.246926 }}/>
+        <Label visiable={visiable} content={content} position={{ lng: 121.436256, lat: 31.246926 }}/>
         <Label
           title="wwww"
           content={content}
@@ -99,6 +101,7 @@ ReactDOM.render(<Demo />, _mount_);
 | title | 文本标注的标题 | `string` | - |
 | zIndex | 设置覆盖物的 zIndex | `number` | - |
 | style | 文本标注样式，该样式将作用于文本标注的容器元素上，如：`{ color : "red", fontSize : "12px" }`。 | `Style` | - |
+| visiable | 覆盖物是否可见。 | `boolean` | - |
 | enableMassClear | 允许覆盖物在 map.clearOverlays 方法中被清除 | `boolean` | - |
 
 ### 事件

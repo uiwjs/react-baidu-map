@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { MapChildProps } from '../common/map';
+import { OverlayProps } from '../common/map';
 import useInfoWindow from './useInfoWindow';
 
-export interface InfoWindowProps extends MapChildProps, BMap.InfoWindowOptions, BMap.InfoWindowEvent {
+export interface InfoWindowProps extends OverlayProps, BMap.InfoWindowOptions, BMap.InfoWindowEvent {
   /**
    * 窗口是否打开
    * @default true

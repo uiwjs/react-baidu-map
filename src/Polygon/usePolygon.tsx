@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
+import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
 import { PolygonProps } from './';
-import { useEnableProperties, useProperties } from '../common/useEnableProperties';
 
 export default (props = {} as PolygonProps) => {
   const { map, strokeColor, fillColor, strokeWeight, strokeOpacity, fillOpacity, strokeStyle, enableMassClear, enableEditing, enableClicking } = props;
@@ -24,6 +24,7 @@ export default (props = {} as PolygonProps) => {
     }
   }, [polygon, path]);
 
+  useVisiable(polygon!, props);
   useEnableProperties<BMap.Polygon, PolygonProps>(polygon!, props, ['Editing', 'MassClear']);
   // PositionAt
   useProperties<BMap.Polygon, PolygonProps>(polygon!, props, ['StrokeColor', 'StrokeOpacity', 'FillColor', 'FillOpacity', 'StrokeWeight', 'StrokeStyle']);

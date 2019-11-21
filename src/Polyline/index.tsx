@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { MapChildProps } from '../common/map';
+import { OverlayProps } from '../common/map';
 import usePolyline from './usePolyline';
 
-export interface PolylineProps extends BMap.PolylineOptions, MapChildProps {
+export interface PolylineProps extends BMap.PolylineOptions, OverlayProps {
   /**
    * 设置折线的点数组
    */

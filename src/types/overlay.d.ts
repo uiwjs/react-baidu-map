@@ -27,6 +27,48 @@ declare namespace BMap {
      */
 		constructor(point: Point, opts?: MarkerOptions);
 	}
+	interface MarkerOptions {
+    /**
+     * 标注的位置偏移值
+     */
+    offset?: Size;
+    /**
+     * 标注所用的图标对象
+     */
+    icon?: Icon;
+    /**
+     * 是否在调用map.clearOverlays清除此覆盖物，默认为true
+     */
+    enableMassClear?: boolean;
+    /**
+     * 是否启用拖拽，默认为false
+     */
+    enableDragging?: boolean;
+    /**
+     * 是否响应点击事件。默认为true
+     */
+    enableClicking?: boolean;
+    /**
+     * 拖拽标注时，标注是否开启离开地图表面效果。默认为false
+     */
+    raiseOnDrag?: boolean;
+    /**
+     * 拖拽标注时的鼠标指针样式。此属性值需遵循CSS的cursor属性规范
+     */
+    draggingCursor?: string;
+    /**
+     * 旋转角度
+     */
+    rotation?: number;
+    /**
+     * 阴影图标
+     */
+    shadow?: Icon;
+    /**
+     * 鼠标移到marker上的显示内容
+     */
+    title?: string;
+	}
 	interface Marker extends Overlay {
     /**
      * 打开信息窗
@@ -245,48 +287,6 @@ declare namespace BMap {
      */
 		size?: SizeType;
   }
-	interface MarkerOptions {
-    /**
-     * 标注的位置偏移值
-     */
-    offset?: Size;
-    /**
-     * 标注所用的图标对象
-     */
-    icon?: Icon;
-    /**
-     * 是否在调用map.clearOverlays清除此覆盖物，默认为true
-     */
-    enableMassClear?: boolean;
-    /**
-     * 是否启用拖拽，默认为false
-     */
-    enableDragging?: boolean;
-    /**
-     * 是否响应点击事件。默认为true
-     */
-    enableClicking?: boolean;
-    /**
-     * 拖拽标注时，标注是否开启离开地图表面效果。默认为false
-     */
-    raiseOnDrag?: boolean;
-    /**
-     * 拖拽标注时的鼠标指针样式。此属性值需遵循CSS的cursor属性规范
-     */
-    draggingCursor?: string;
-    /**
-     * 旋转角度
-     */
-    rotation?: number;
-    /**
-     * 阴影图标
-     */
-    shadow?: Icon;
-    /**
-     * 鼠标移到marker上的显示内容
-     */
-    title?: string;
-	}
 	interface InfoWindowEvent {
     /**
      * 信息窗口被关闭时触发此事件
@@ -308,18 +308,8 @@ declare namespace BMap {
      * 点击信息窗口的关闭按钮时触发此事件
      */
 		onClickclose: (event: { type: string, target: any }) => void;
-	}
-  /**
-   * 此类表示地图上包含信息的窗口。
-   */
-	class InfoWindow {
-    /**
-     * 创建一个信息窗实例，其中 content 支持HTML内容。
-     * 1.2 版本开始content参数支持传入DOM结点
-     * @param content 
-     * @param opts 
-     */
-		constructor(content: string | HTMLElement, opts?: InfoWindowOptions);
+  }
+  interface InfoWindow extends Overlay {
     /**
      * 设置信息窗口的宽度，单位像素。取值范围：220 - 730
      */
@@ -406,6 +396,18 @@ declare namespace BMap {
      * @param handler 
      */
     removeEventListener(event: string, handler: Callback): void;
+  }
+  /**
+   * 此类表示地图上包含信息的窗口。
+   */
+	class InfoWindow {
+    /**
+     * 创建一个信息窗实例，其中 content 支持HTML内容。
+     * 1.2 版本开始content参数支持传入DOM结点
+     * @param content 
+     * @param opts 
+     */
+		constructor(content: string | HTMLElement, opts?: InfoWindowOptions);
 	}
 	interface InfoWindowOptions {
     /**

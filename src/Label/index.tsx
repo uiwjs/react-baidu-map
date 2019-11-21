@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { MapChildProps } from '../common/map';
+import { OverlayProps } from '../common/map';
 import useLabel from './useLabel';
 
 
-export interface LabelProps extends MapChildProps, BMap.LabelOptions, BMap.LabelEvents {
+export interface LabelProps extends OverlayProps, BMap.LabelOptions, BMap.LabelEvents {
   /**
    * 文本标注内容
    */

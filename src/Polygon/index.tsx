@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { MapChildProps } from '../common/map';
+import { OverlayProps } from '../common/map';
 import usePolygon from './usePolygon';
 
-export interface PolygonProps extends BMap.PolygonOptions, MapChildProps {
+export interface PolygonProps extends BMap.PolygonOptions, OverlayProps {
   /**
    * 设置折线的点数组
    */

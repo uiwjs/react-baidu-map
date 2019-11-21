@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import usePointCollection from './usePointCollection';
-import { MapChildProps } from '../common/map';
+import { OverlayProps } from '../common/map';
 
-export interface PointCollectionProps extends MapChildProps, BMap.PointCollectionOption, BMap.PointCollectionEvents {
+export interface PointCollectionProps extends OverlayProps, BMap.PointCollectionOption, BMap.PointCollectionEvents {
   points?: [number, number][];
 }
 

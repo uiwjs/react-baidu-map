@@ -37,3 +37,18 @@ export interface MapChildProps {
    */
   map?: BMap.Map;
 }
+
+export interface OverlayProps extends MapChildProps {
+  /**
+   * 地图API的核心类，SDK加载完成才有
+   */
+  BMap?: typeof BMap;
+  /**
+   * 实例化后的地图对象
+   */
+  map?: BMap.Map;
+  /**
+   * 覆盖物是否可见
+   */
+  visiable?: boolean;
+}

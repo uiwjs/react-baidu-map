@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { InfoWindowProps } from './';
-import { useEnableProperties, useProperties } from '../common/useEnableProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
 
 const EVENTS = ['close', 'open', 'maximize', 'restore', 'clickclose'];
 
@@ -35,6 +35,7 @@ export default (props = {} as UseInfoWindow) => {
     }
   }, [isOpen, infoWindow]);
 
+  useVisiable(infoWindow!, props);
   useProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
     'Width', 'Height', 'Title', 'Content', 'MaxContent'
   ]);
