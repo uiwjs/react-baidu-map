@@ -829,6 +829,32 @@ declare namespace BMap {
 		onremove: (event: { type: string, target: any }) => void;
 		onlineupdate: (event: { type: string, target: any }) => void;
 	}
+	class CanvasLayer {
+    /**
+     * 创建一个CanvasLayer实例，每个实例都是一个单独的canvas标签即单独的一层。可以为同一个地图添加多层的CanvasLayer叠加。
+     */
+		constructor(opts?: CanvasLayerOptions);
+  }
+  interface CanvasLayer extends Overlay {}
+  /**
+   * CanvasLayer构造函数的可选参数。
+   */
+  interface CanvasLayerOptions {
+    /**
+     * 对应 canvas 的 css z-index 属性，当添加了多个 CanvasLayer 时，可以用于设置层叠顺序
+     */
+    zIndex?: Number;
+    /**
+     * CanvasLayer位于的覆盖物层级，
+     * 例：paneName: floatPane。JSAPI把地图覆盖物分为了8个层级，顶层为'floatPane'，
+     * 低层为'vertexPane'。可以通过Map实例的getPanes()方法，获取到8个层级的名称
+     */
+    paneName?: 'floatPane' | 'floatShadow' | 'labelPane' | 'mapPane' | 'markerMouseTarget' | 'markerPane' | 'markerShadow' | 'vertexPane';
+    /**
+     * 具体的绘制逻辑。通过this.canvas获取当前的canvas对象
+     */
+    update?(): void;
+  }
 	class Circle {
 		constructor(center: Point, radius: number, opts?: CircleOptions);
 	}

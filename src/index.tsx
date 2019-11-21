@@ -4,6 +4,8 @@ export { default as Map } from './Map';
 export { default as useMap } from './Map/useMap';
 export { default as Circle } from './Circle';
 export { default as useCircle } from './Circle/useCircle';
+export { default as CanvasLayer } from './CanvasLayer';
+export { default as useCanvasLayer } from './CanvasLayer/useCanvasLayer';
 export { default as Marker } from './Marker';
 export { default as useMarker } from './Marker/useMarker';
 export { default as Label } from './Label';

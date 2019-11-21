@@ -53,6 +53,10 @@ export const routes: Routes = [
     path: "/circle",
     component: loadable(() => import('./pages/circle'), options),
   },
+  {
+    path: "/canvas-layer",
+    component: loadable(() => import('./pages/canvas-layer'), options),
+  },
 ];
 
 
@@ -96,5 +100,9 @@ export const menus = [
   {
     label: 'Circle 圆',
     path: '/circle',
+  },
+  {
+    label: 'CanvasLayer 自定义Canvas',
+    path: '/canvas-layer',
   },
 ]
