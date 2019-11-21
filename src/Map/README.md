@@ -38,10 +38,11 @@ const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Map
-        ready={(bmap, map) => {
-          console.log('准备好了！', map);
-          // 启用滚轮放大缩小，默认禁用
-          map.enableScrollWheelZoom();
+        ref={(props) => {
+          if (props && props.map) {
+            // 启用滚轮放大缩小，默认禁用
+            props.map.enableScrollWheelZoom();
+          }
         }}
         widget={[
           'GeolocationControl',
@@ -107,6 +108,7 @@ const Example = () => {
   const divElm = useRef();
   const [zoom, setZoom] = useState(15)
   const { setContainer, map, center, setCenter, setAutoLocalCity } = useMap({
+    enableScrollWheelZoom: true, // 启用滚轮放大缩小，默认禁用
     center: '北京',
     widget: ['GeolocationControl', 'NavigationControl']
   });
@@ -115,12 +117,6 @@ const Example = () => {
       setContainer(divElm.current);
     }
   });
-  useEffect(() => {
-    if (map) {
-      // 启用滚轮放大缩小，默认禁用
-      map.enableScrollWheelZoom();
-    }
-  }, [map]);
 
   useEffect(() => {
     if (map) {
@@ -174,4 +170,3 @@ ReactDOM.render(<Demo />, _mount_);
 | enableContinuousZoom | 启用连续缩放效果，默认禁用 | boolean | - |
 | enablePinchToZoom | 启用双指操作缩放，默认启用 | boolean | `true` |
 | enableKeyboard | 启用键盘操作，默认禁用。键盘的上、下、左、右键可连续移动地图。同时按下其中两个键可使地图进行对角移动。PgUp、PgDn、Home和End键会使地图平移其1/2的大小。+、-键会使地图放大或缩小一级 | boolean | - |
-| ready | 地图实例加载完成执行事件 | (bmap: typeof BMap, map: BMap.Map): void | - |

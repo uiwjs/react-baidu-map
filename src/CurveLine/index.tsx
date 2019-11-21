@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useCurveLine from './useCurveLine';
 
@@ -9,8 +9,9 @@ export interface CurveLineProps extends BMapLib.CurveLineOptions, OverlayProps {
   path: BMap.Point[];
 }
 
-export default (props = {} as CurveLineProps) => {
-  const { setPath } = useCurveLine(props);
+export default React.forwardRef<CurveLineProps & { curveLine?: BMapLib.CurveLine }, CurveLineProps>((props, ref) => {
+  const { curveLine, setPath } = useCurveLine(props);
   useEffect(() => setPath(props.path), [props.path]);
+  useImperativeHandle(ref, () => ({ ...props, curveLine }));
   return null;
-}
+});

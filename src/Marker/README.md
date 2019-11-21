@@ -14,16 +14,16 @@ import { Marker, useMarker } from '@uiw/react-baidu-map';
 import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => {
+  function markerRef(props) {
+    if (props && props.marker) {
+      console.log('marker::', props.marker, props.map, props.BMap);
+    }
+  }
   return (
     <div style={{ width: '100%', height: '350px' }}>
       <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-        <Map
-          widget={['NavigationControl']}
-          zoom={13}
-          // center="上海"
-          center={{ lng: 121.460977, lat: 31.227906 }}
-        >
-          <Marker position={{ lng: 121.411535, lat: 31.222965 }} animation={2} />
+        <Map widget={['NavigationControl']} zoom={13}>
+          <Marker ref={markerRef} animation={2} position={{ lng: 121.411535, lat: 31.222965 }} />
           <Marker position={{ lng: 121.465145, lat: 31.241245 }} />
           <Marker position={{ lng: 121.466008, lat: 31.220001 }} type="loc_red" /> 
           <Marker position={{ lng: 121.501365, lat: 31.224942 }} type="simple_blue" />

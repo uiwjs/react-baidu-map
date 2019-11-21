@@ -18,6 +18,12 @@ const Example = () => {
   const [visiable, setVisiable] = useState(true);
   const [ isOpen, setIsOpen ] = useState(true);
   const [ content, setContent ] = useState('上海市 <del>青浦区</del> 徐泾镇盈港东路');
+
+  function infoWindowRef(props) {
+    if (props && props.infoWindow) {
+      console.log('infoWindow:', props.infoWindow, props.map, props.BMap);
+    }
+  }
   return (
     <>
       <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? '关闭' : '打开'} isOpen={String(isOpen)}</button>
@@ -25,6 +31,7 @@ const Example = () => {
       <input value={content} onChange={(e) => setContent(e.target.value)} />
       <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
         <InfoWindow
+          ref={infoWindowRef}
           visiable={visiable}
           isOpen={isOpen}
           onClose={() => {

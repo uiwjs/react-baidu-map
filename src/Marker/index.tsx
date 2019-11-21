@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useMarker from './useMarker';
 
@@ -19,8 +19,9 @@ export interface MarkerProps extends OverlayProps, BMap.MarkerOptions {
     | 'blue1' | 'blue2' | 'blue3' | 'blue4' | 'blue5' | 'blue6' | 'blue7' | 'blue8' | 'blue9';
 }
 
-export default (props: MarkerProps) => {
-  const { setType } = useMarker(props);
-  useEffect(() => setType(props.type!), [props.type]);
+export default React.forwardRef<MarkerProps & { marker?: BMap.Marker}, MarkerProps>((props, ref) => {
+  const { marker, setType } = useMarker(props);
+  useEffect(() => props.type && setType(props.type), [props.type]);
+  useImperativeHandle(ref, () => ({ ...props, marker }));
   return null;
-}
+});

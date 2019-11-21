@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useImperativeHandle } from 'react';
 import usePointCollection from './usePointCollection';
 import { OverlayProps } from '../common/map';
 
@@ -6,8 +6,9 @@ export interface PointCollectionProps extends OverlayProps, BMap.PointCollection
   points?: [number, number][];
 }
 
-export default (props: PointCollectionProps = {}) => {
-  const { setPoints } = usePointCollection(props);
+export default React.forwardRef<PointCollectionProps & { pointCollection?: BMap.PointCollection }, PointCollectionProps>((props, ref) => {
+  const { pointCollection, setPoints } = usePointCollection(props);
   useEffect(() => setPoints(props.points), [props.points]);
+  useImperativeHandle(ref, () => ({ ...props, pointCollection }), [pointCollection]);
   return null;
-}
+});

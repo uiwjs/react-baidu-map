@@ -16,11 +16,17 @@ import { Map, CanvasLayer, APILoader } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [visiable, setVisiable] = useState(true);
+  function canvasLayerRef(props) {
+    if (props && props.canvasLayer) {
+      console.log('canvasLayer:', props.canvasLayer, props.map, props.BMap);
+    }
+  }
   return (
     <>
       <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
       <Map zoom={12} widget={['NavigationControl']}>
         <CanvasLayer
+          ref={canvasLayerRef}
           visiable={visiable}
           update={({ canvas, map }) => {
             const ctx = canvas.getContext('2d');

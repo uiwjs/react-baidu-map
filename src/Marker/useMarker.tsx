@@ -66,8 +66,7 @@ export default (props = {} as UseMarker) => {
     map, position, animation,
     offset, icon, enableMassClear, enableDragging, enableClicking, raiseOnDrag, draggingCursor, rotation, shadow, title,
   } = props;
-  const [type, setType] = useState(props.type || 'loc_blue');
-  const [marker, setMarker] = useState();
+  const [marker, setMarker] = useState<BMap.Marker>();
   const options = { offset, icon, enableMassClear, enableDragging, enableClicking, raiseOnDrag, draggingCursor, rotation, shadow, title };
   useMemo(() => {
     if (!BMap || !map) return;
@@ -78,8 +77,9 @@ export default (props = {} as UseMarker) => {
       marker.setAnimation(animation);
       setMarker(marker);
     }
-  }, [map]);
+  }, [map, marker]);
 
+  const [type, setType] = useState(props.type || 'loc_blue');
   /**
    * 设置标注点 `图标`
    */
@@ -90,7 +90,7 @@ export default (props = {} as UseMarker) => {
       marker.setIcon(newIcon);
     }
   }, [type, marker]);
-  useVisiable(marker, props);
+  useVisiable(marker!, props);
   useEnableProperties<BMap.Marker, UseMarker>(marker!, props, ['Dragging', 'MassClear', 'Clicking']);
   useProperties<BMap.Marker, UseMarker>(marker!, props, ['Icon', 'Position', 'Animation', 'Offset', 'Label', 'Title', 'Top', 'ZIndex', 'Rotation', 'Shadow']);
 

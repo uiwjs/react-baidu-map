@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useInfoWindow from './useInfoWindow';
 
@@ -22,8 +22,9 @@ export interface InfoWindowProps extends OverlayProps, BMap.InfoWindowOptions, B
   maxContent?: string;
 }
 
-export default function InfoWindow(props: InfoWindowProps) {
-  const { setIsOpen } = useInfoWindow(props);
+export default React.forwardRef<InfoWindowProps & { infoWindow?: BMap.InfoWindow }, InfoWindowProps>((props, ref) => {
+  const { infoWindow, setIsOpen } = useInfoWindow(props);
   useEffect(() => setIsOpen(props.isOpen!), [props.isOpen]);
+  useImperativeHandle(ref, () => ({ ...props, infoWindow }));
   return null;
-}
+});

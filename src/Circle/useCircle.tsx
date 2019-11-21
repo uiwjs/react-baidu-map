@@ -11,7 +11,6 @@ export default (props = {} as UseCircle) => {
   } = props;
   const [circle, setCircle] = useState<BMap.Circle>();
 
-  
   useMemo(() => {
     if (map && !circle) {
       let point = center;
@@ -24,7 +23,6 @@ export default (props = {} as UseCircle) => {
       setCircle(instance);
     }
   }, [map, circle]);
-
 
   useVisiable(circle!, props);
   useEnableProperties<BMap.Circle, CircleProps>(circle!, props, ['Editing', 'MassClear']);

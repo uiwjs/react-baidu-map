@@ -11,12 +11,10 @@ export interface UseMap extends MapProps, MapChildProps {
 }
 
 export default (props: UseMap = {}) => {
-  const { widget, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick, ready } = props;
-  const [center, setCenter] = useState(props.center || '上海');
-  const [autoLocalCity, setAutoLocalCity] = useState(props.autoLocalCity);
+  const { widget, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick } = props;
   const [map, setMap] = useState<BMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);
-  const [container, setContainer] = useState<string | HTMLDivElement>(props.container as (string | HTMLDivElement));
+  const [container, setContainer] = useState(props.container);
   useMemo(() => {
     if (container && !map && BMap && BMap.Map) {
       const instance = new BMap.Map(container, { minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick });
@@ -35,6 +33,7 @@ export default (props: UseMap = {}) => {
     }
   }, [container, map]);
 
+  const [center, setCenter] = useState(props.center || '上海');
   /**
    * 根据参数设置中心点
    */
@@ -48,6 +47,7 @@ export default (props: UseMap = {}) => {
     }
   }, [center, map]);
 
+  const [autoLocalCity, setAutoLocalCity] = useState(props.autoLocalCity);
   /**
    * IP定位获取当前城市，进行自动定位
    */

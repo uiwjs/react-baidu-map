@@ -10,12 +10,12 @@ export default (props = {} as PolygonProps) => {
   const opts = { strokeColor, fillColor, strokeWeight, strokeOpacity, fillOpacity, strokeStyle, enableMassClear, enableEditing, enableClicking }
   useMemo(() => {
     if (map && !polygon) {
-      const points = (props.path || []).map((item) => new BMap.Point(item.lng, item.lat));
+      const points = (path || []).map((item) => new BMap.Point(item.lng, item.lat));
       const instance = new BMap.Polygon(points, opts);
       map.addOverlay(instance);
       setPolygon(instance);
     }
-  }, [map, polygon]);
+  }, [map, props.path, polygon]);
 
   useEffect(() => {
     if (path && polygon) {

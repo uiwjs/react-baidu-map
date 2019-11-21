@@ -18,6 +18,11 @@ const Example = () => {
   const [visiable, setVisiable] = useState(true);
   const [enableEditing, setEnableEditing] = useState(false);
   const [strokeOpacity, setStrokeOpacity] = useState(0.9);
+  function circleRef(props) {
+    if (props && props.circle) {
+      console.log('circle:', props.circle, props.map, props.BMap);
+    }
+  }
   return (
     <>
       <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
@@ -26,6 +31,7 @@ const Example = () => {
       <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
       <Map widget={['NavigationControl']}>
         <Circle
+          ref={circleRef}
           visiable={visiable}
           enableEditing={enableEditing}
           strokeOpacity={strokeOpacity}
@@ -74,6 +80,7 @@ const Example = () => {
     widget: ['GeolocationControl', 'NavigationControl']
   });
   const { circle } = useCircle({ map,
+    enableScrollWheelZoom: true, // 启用滚轮放大缩小，默认禁用
     enableEditing, strokeOpacity,
     center: { lng: 121.455228, lat: 31.240257 },
     radius: 1000,
@@ -89,13 +96,6 @@ const Example = () => {
       setContainer(divElm.current);
     }
   });
-
-  useEffect(() => {
-    if (map) {
-      // 启用滚轮放大缩小，默认禁用
-      map.enableScrollWheelZoom();
-    }
-  }, [map]);
 
   useEffect(() => {
     if (map && circle) {
@@ -117,7 +117,7 @@ const Example = () => {
 
   return (
     <>
-      <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '编辑'}</button>
+      <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '开启编辑'}</button>
       <button onClick={() => setStrokeOpacity(0.7)}>透明度0.7</button>
       <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
       <div ref={divElm} style={{ height: '100%' }} />

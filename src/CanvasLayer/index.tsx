@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useCanvasLayer, { CanvasLayerResult } from './useCanvasLayer';
 
@@ -8,7 +8,8 @@ export interface CanvasLayerProps extends Omit<BMap.CanvasLayerOptions, 'update'
   update?(argument: Argument): void; 
 }
 
-export default (props = {} as CanvasLayerProps) => {
-  useCanvasLayer(props);
+export default React.forwardRef<CanvasLayerProps & { canvasLayer?: BMap.CanvasLayer }, CanvasLayerProps>((props, ref) => {
+  const { canvasLayer } = useCanvasLayer(props);
+  useImperativeHandle(ref, () => ({ ...props, canvasLayer }));
   return null;
-}
+});

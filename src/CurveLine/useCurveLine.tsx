@@ -12,7 +12,6 @@ export default (props = {} as UseCurveLine) => {
   const libSDK = window.BMapLib;
   const [bMapLib, setBMapLib] = useState<typeof BMapLib>(libSDK);
   const [loadMapLib, setLoadBMapLib] = useState(false || !!libSDK);
-  const [path, setPath] = useState(props.path || []);
   const opts = { strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableClicking, icons, }
   useMemo(() => {
     if (map && bMapLib && !curveLine) {
@@ -33,6 +32,7 @@ export default (props = {} as UseCurveLine) => {
     }
   }, [map, loadMapLib, bMapLib, curveLine]);
 
+  const [path, setPath] = useState(props.path || []);
   useEffect(() => {
     if (curveLine && props.path && path && JSON.stringify(path) !== JSON.stringify(props.path)) {
       const points = path.map((item) => new BMap.Point(item.lng, item.lat));

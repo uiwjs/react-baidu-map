@@ -29,12 +29,18 @@ const Example = () => {
       });
     }
   });
+  function compRef(props) {
+    if (props && props.pointCollection) {
+      console.log('pointCollection::', props.pointCollection, props.map, props.BMap);
+    }
+  }
   return (
     <>
       <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
       {position && <span>标注点经纬度：{position}</span>}
       <Map widget={['NavigationControl']} zoom={5}>
         <PointCollection
+          ref={compRef}
           visiable={visiable}
           onClick={(e) => {
             usePositon(JSON.stringify(e.point))

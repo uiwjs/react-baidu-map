@@ -17,6 +17,11 @@ import { Map, Label, APILoader } from '@uiw/react-baidu-map';
 const Example = () => {
   const [visiable, setVisiable] = useState(true);
   const [content, setContent] = useState('上海市 <del>青浦区</del> 徐泾镇盈港东路');
+  function labelRef(props) {
+    if (props && props.label) {
+      console.log('label:', props.label, props.map, props.BMap);
+    }
+  }
   return (
     <>
       <input value={content} onChange={(e) => setContent(e.target.value)} />
@@ -24,6 +29,7 @@ const Example = () => {
       <Map zoom={13} widget={['NavigationControl']}>
         <Label visiable={visiable} content={content} position={{ lng: 121.436256, lat: 31.246926 }}/>
         <Label
+          ref={labelRef}
           title="wwww"
           content={content}
           position={{ lng: 121.501365, lat: 31.224942 }}

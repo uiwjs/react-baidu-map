@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useLabel from './useLabel';
 
@@ -17,7 +17,8 @@ export interface LabelProps extends OverlayProps, BMap.LabelOptions, BMap.LabelE
   style?: HTMLDivElement['style'];
 }
 
-export default (props = {} as LabelProps) => {
-  useLabel(props);
+export default React.forwardRef<LabelProps & { label?: BMap.Label }, LabelProps>((props, ref) => {
+  const { label } = useLabel(props);
+  useImperativeHandle(ref, () => ({ ...props, label }), [label]);
   return null;
-}
+})

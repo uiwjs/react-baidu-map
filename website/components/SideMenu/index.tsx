@@ -16,10 +16,10 @@ export default function SideMenu() {
       <div className={styles.menus}>
         {menus.map(({ label, path, divider, ...otherItem }, idx) => {
           if(divider) {
-            return <div className={styles.divider}>{label}</div>;
+            return <div key={idx} className={styles.divider}>{label}</div>;
           }
           if (path && /^http/.test(path)) {
-            return <a href={path} {...otherItem}>{label}</a>;
+            return <a key={idx} href={path} {...otherItem}>{label}</a>;
           }
           return (
             <NavLink key={idx} to={path || ''} exact>

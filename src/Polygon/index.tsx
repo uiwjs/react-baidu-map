@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import usePolygon from './usePolygon';
 
@@ -9,8 +9,9 @@ export interface PolygonProps extends BMap.PolygonOptions, OverlayProps {
   path: BMap.Point[];
 }
 
-export default (props = {} as PolygonProps) => {
-  const { setPath } = usePolygon(props);
+export default React.forwardRef<PolygonProps & { polygon?: BMap.Polygon }, PolygonProps>((props, ref) => {
+  const { polygon, setPath } = usePolygon(props);
   useEffect(() => setPath(props.path), [props.path]);
+  useImperativeHandle(ref, () => ({ ...props, polygon }), [polygon]);
   return null;
-}
+});

@@ -9,7 +9,6 @@ export interface UseInfoWindow extends InfoWindowProps {}
 export default (props = {} as UseInfoWindow) => {
   const { map, position, ...opts } = props;
   const [infoWindow, setInfoWindow] = useState<BMap.InfoWindow>();
-  const [isOpen, setIsOpen] = useState(opts.isOpen === undefined ? true : opts.isOpen);
   useMemo(() => {
     if (!BMap || !map) return;
     if (!infoWindow) {
@@ -24,6 +23,7 @@ export default (props = {} as UseInfoWindow) => {
     }
   }, [map]);
 
+  const [isOpen, setIsOpen] = useState(opts.isOpen === undefined ? true : opts.isOpen);
   useEffect(() => {
     if (map && BMap && infoWindow) {
       if(!isOpen) {

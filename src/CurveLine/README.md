@@ -17,6 +17,11 @@ import { Map, CurveLine, APILoader } from '@uiw/react-baidu-map';
 const Example = () => {
   const [enableEditing, setEnableEditing] = useState(true);
   const [strokeOpacity, setStrokeOpacity] = useState(0.5);
+  function curveLineRef(props) {
+    if (props && props.curveLine) {
+      console.log('curveLine:', props.curveLine, props.map, props.BMap);
+    }
+  }
   return (
     <>
       <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '编辑'}</button>
@@ -24,6 +29,7 @@ const Example = () => {
       <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
       <Map zoom={4} center="武汉" widget={['NavigationControl']}>
         <CurveLine
+          ref={curveLineRef}
           enableEditing={enableEditing}
           strokeOpacity={strokeOpacity}
           strokeWeight={3}
@@ -52,7 +58,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 使用 hooks
 
-`curveline`, `setCurveLine`, `path`, `setPath`
+`curveLine`, `setCurveLine`, `path`, `setPath`
 
 <!--DemoStart,bgWhite--> 
 ```jsx
@@ -65,9 +71,10 @@ const Example = () => {
   const divElm = useRef(null);
   const { setContainer, map } = useMap({
     zoom: 8,
+    enableScrollWheelZoom: true,
     widget: ['GeolocationControl', 'NavigationControl']
   });
-  const { curveline } = useCurveLine({ map,
+  const { curveLine } = useCurveLine({ map,
     enableEditing, strokeOpacity,
     path: [
       { lng: 118.798544, lat: 32.076761 },
@@ -82,31 +89,26 @@ const Example = () => {
       { lng: 121.484549, lat: 31.226918 },
     ],
   });
+
   useEffect(() => {
     if (divElm.current) {
       setContainer(divElm.current);
     }
   });
-  useEffect(() => {
-    if (map) {
-      // 启用滚轮放大缩小，默认禁用
-      map.enableScrollWheelZoom();
-    }
-  }, [map]);
 
   useEffect(() => {
-    if (map && curveline) {
+    if (map && curveLine) {
       if (enableEditing) {
-        curveline.enableEditing();
+        curveLine.enableEditing();
       } else {
-        curveline.disableEditing();
+        curveLine.disableEditing();
       }
     }
   }, [enableEditing]);
 
   useEffect(() => {
-    if (map && curveline) {
-      curveline.setStrokeOpacity(strokeOpacity);
+    if (map && curveLine) {
+      curveLine.setStrokeOpacity(strokeOpacity);
     }
   }, [strokeOpacity]);
 

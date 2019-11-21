@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useCircle from './useCircle';
 
@@ -13,7 +13,8 @@ export interface CircleProps extends BMap.CircleOptions, OverlayProps {
   radius: number;
 }
 
-export default (props = {} as CircleProps) => {
-  useCircle(props);
+export default React.forwardRef<CircleProps & { circle?: BMap.Circle }, CircleProps>((props, ref) => {
+  const { circle } = useCircle(props);
+  useImperativeHandle(ref, () => ({ ...props, circle }));
   return null;
-}
+});
