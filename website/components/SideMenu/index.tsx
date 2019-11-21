@@ -13,15 +13,21 @@ export default function SideMenu() {
         </svg>
         <div>百度地图 React 组件</div>
       </div>
-      {menus.map((item, idx) => (
-        <NavLink
-          key={idx}
-          to={item.path}
-          exact
-        >
-          {item.label}
-        </NavLink>
-      ))}
+      <div className={styles.menus}>
+        {menus.map(({ label, path, divider, ...otherItem }, idx) => {
+          if(divider) {
+            return <div className={styles.divider}>{label}</div>;
+          }
+          if (path && /^http/.test(path)) {
+            return <a href={path} {...otherItem}>{label}</a>;
+          }
+          return (
+            <NavLink key={idx} to={path || ''} exact>
+              {label}
+            </NavLink>
+          );
+        })}
+      </div>
     </div>
   );
 }

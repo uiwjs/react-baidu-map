@@ -66,8 +66,12 @@ export const routes: Routes = [
 
 export const menus = [
   {
-    label: '基本介绍',
+    label: '快速开始',
     path: '/',
+  },
+  {
+    divider: true,
+    label: '容器',
   },
   {
     label: 'APILoader 组件',
@@ -76,6 +80,10 @@ export const menus = [
   {
     label: 'Map 组件',
     path: '/map',
+  },
+  {
+    divider: true,
+    label: '覆盖物',
   },
   {
     label: 'Marker 点标注',
@@ -98,12 +106,12 @@ export const menus = [
     path: '/polyline',
   },
   {
-    label: 'CurveLine 弧线组件',
-    path: '/curve-line',
-  },
-  {
     label: 'Polygon 多边形组件',
     path: '/polygon',
+  },
+  {
+    label: 'CurveLine 弧线组件',
+    path: '/curve-line',
   },
   {
     label: 'Circle 圆',
@@ -112,5 +120,34 @@ export const menus = [
   {
     label: 'CanvasLayer 自定义Canvas',
     path: '/canvas-layer',
+  },
+  {
+    divider: true,
+    label: '其它',
+  },
+  {
+    label: '百度拾取坐标系统',
+    target: '__blank',
+    path: 'https://api.map.baidu.com/lbsapi/getpoint/index.html',
+  },
+  {
+    label: '百度地图官方 Demo 示例',
+    target: '__blank',
+    path: 'https://lbsyun.baidu.com/jsdemo.htm',
+  },
+  {
+    label: '百度地图 API v3.0',
+    target: '__blank',
+    path: 'https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html',
+  },
+  {
+    label: '源码 Github 仓库',
+    target: '__blank',
+    path: 'https://github.com/uiwjs/react-baidu-map',
+  },
+  {
+    label: '源码 Gitee 仓库',
+    target: '__blank',
+    path: 'https://gitee.com/uiw/react-baidu-map',
   },
 ]
