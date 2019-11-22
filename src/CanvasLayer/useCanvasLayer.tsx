@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { CanvasLayerProps } from '.';
-import { useVisiable } from '../common/useProperties';
+import { useVisiable } from '../common/hooks';
 
 export interface UseCanvasLayer extends CanvasLayerProps {}
 

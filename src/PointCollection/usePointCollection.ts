@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PointCollectionProps } from './';
-import { useProperties, useVisiable } from '../common/useProperties';
+import { useProperties, useVisiable } from '../common/hooks';
 
 const EVENTS = ['onClick', 'onMouseOver', 'onMouseOut'];
 

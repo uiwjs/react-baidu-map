@@ -1,7 +1,12 @@
 Map 组件
 ===
 
-Map 组件是其他组件的基础，其他地图组件必须作为 Map 的子组件使用；Map 组件会给所有的子组件注入两个属性，`<Map>` 组件必须包裹在 `<APILoader>` 组件内，该组件作用是加载百度地图 SDK。
+Map 组件是其他组件的基础，Map 组件会给所有的子组件注入两个属性 **`map`** 和 **`BMap`**，
+
+⚠️ 注意
+
+> 1. 组件 `<Map>` 必须包裹在 `<APILoader>` 组件内，该组件作用是加载百度地图 SDK。  
+> 2. 其他地图组件必须作为 `<Map>` 的子组件使用；
 
 ```jsx
 import { Map, useMap, APILoader } from '@uiw/react-baidu-map';

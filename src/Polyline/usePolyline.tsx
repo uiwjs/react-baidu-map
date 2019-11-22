@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { PolylineProps } from './';
-import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
 
 export default (props = {} as PolylineProps) => {
   const { map, strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableEditing, enableClicking, icons, } = props;

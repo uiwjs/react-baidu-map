@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { LabelProps } from './';
-import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
 
 const EVENTS = ['onClick', 'onDblClick', 'onMouseDo', 'onMouseUp', 'onMouseOout', 'onMouseO', 'onRemove', 'onRightClick'];
 

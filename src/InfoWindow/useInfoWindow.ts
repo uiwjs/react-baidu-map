@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { InfoWindowProps } from './';
-import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
 
 const EVENTS = ['close', 'open', 'maximize', 'restore', 'clickclose'];
 

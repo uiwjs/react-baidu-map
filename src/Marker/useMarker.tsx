@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import defaultIconUrl from './markers.png';
 import { MarkerProps } from '.';
-import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
 
 export interface UseMarker extends MarkerProps{}
 

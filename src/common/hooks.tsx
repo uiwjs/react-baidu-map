@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 /**
  * 批量创建多个如下 State，监听并设置值，
@@ -32,15 +32,11 @@ export function useEnableProperties<T = {}, F = {}>(instance: T, props = {} as F
   });
 }
 
-interface OverlayCommonProps {
-  visiable?: boolean;
-}
-
 /**
  * 针对 Overlay 类型的组件，有公共的是否显示 对象处理
  * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
  */
-export function useVisiable<T extends BMap.Overlay, F extends OverlayCommonProps>(instance: T, props = {} as F) {
+export function useVisiable<T extends BMap.Overlay, F extends { visiable?: boolean; }>(instance: T, props = {} as F) {
   const visiable = (props as any).visiable;
   const [state, setState] = useState(visiable);
   useEffect(() => {

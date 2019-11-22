@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { CircleProps } from './';
-import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
 
 export interface UseCircle extends CircleProps {}
 

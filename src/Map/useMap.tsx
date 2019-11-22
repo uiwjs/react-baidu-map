@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { MapChildProps } from '../common/map';
 import { MapProps } from './';
-import { useEnableProperties, useProperties } from '../common/useProperties';
+import { useEnableProperties, useProperties } from '../common/hooks';
 
 export interface UseMap extends MapProps, MapChildProps {
   /**
@@ -61,6 +61,13 @@ export default (props: UseMap = {}) => {
       });
     }
   }, [autoLocalCity, map]);
+
+  useEffect(() => {
+    console.log('Addds');
+    return function clean() {
+      console.log('Delete');
+    }
+  }, [map]);
   // 'Center',
   useProperties<BMap.Map, UseMap>(map!, props, ['DefaultCursor', 'DraggingCursor', 'MinZoom', 'MaxZoom', 'MapStyle', 'MapStyleV2', 'Panorama', 'CurrentCity', 'MapType', 'Viewport', 'Zoom',]);
   useEnableProperties<BMap.Map, UseMap>(map!, props, ['Dragging', 'ScrollWheelZoom', 'DoubleClickZoom', 'Keyboard', 'InertialDragging', 'ContinuousZoom', 'PinchToZoom', 'AutoResize']);

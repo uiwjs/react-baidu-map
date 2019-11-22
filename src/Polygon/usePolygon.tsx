@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
 import { PolygonProps } from './';
 
 export default (props = {} as PolygonProps) => {

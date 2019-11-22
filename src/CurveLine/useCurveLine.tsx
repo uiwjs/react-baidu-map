@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { useEnableProperties, useProperties, useVisiable } from '../common/useProperties';
+import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
 import { CurveLineProps } from '.';
 import { requireScript } from '../utils/requireScript';
 
