@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { MapChildProps } from '../common/map';
 import { MapProps } from './';
-import { useEnableProperties, useProperties } from '../common/hooks';
+import { useEnableProperties, useProperties, useEventProperties } from '../common/hooks';
 
 export interface UseMap extends MapProps, MapChildProps {
   /**
@@ -62,12 +62,15 @@ export default (props: UseMap = {}) => {
     }
   }, [autoLocalCity, map]);
 
-  useEffect(() => {
-    console.log('Addds');
-    return function clean() {
-      console.log('Delete');
-    }
-  }, [map]);
+  useEventProperties<BMap.Map, UseMap>(map!, props, [
+    'Click', 'DblClick', 'RightClick', 'RightdblClick', 'MapTypeChange',
+    'MouseMove', 'MouseOver', 'MouseOut', 'MoveStart',
+    'Moving', 'MoveEnd', 'ZoomStart', 'ZoomEnd', 'AddOverlay', 'AddControl',
+    'RemoveControl', 'RemoveOverlay', 'ClearOverlays', 'DragStart', 'Dragging', 'DragEnd',
+    'AddTileLayer', 'RemoveTileLayer', 'Load', 'ReSize',
+    'HotspotClick', 'HotspotOver', 'HotspotOut',
+    'TilesLoaded', 'TouchStart', 'TouchMove', 'TouchEnd', 'LongPress',
+  ]);
   // 'Center',
   useProperties<BMap.Map, UseMap>(map!, props, ['DefaultCursor', 'DraggingCursor', 'MinZoom', 'MaxZoom', 'MapStyle', 'MapStyleV2', 'Panorama', 'CurrentCity', 'MapType', 'Viewport', 'Zoom',]);
   useEnableProperties<BMap.Map, UseMap>(map!, props, ['Dragging', 'ScrollWheelZoom', 'DoubleClickZoom', 'Keyboard', 'InertialDragging', 'ContinuousZoom', 'PinchToZoom', 'AutoResize']);

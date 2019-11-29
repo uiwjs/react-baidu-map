@@ -132,11 +132,11 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 事件
 
-| 参数 | 说明 | 类型 | 默认值 |
-| ----- | ----- | ----- | ----- |
-| onClick | 鼠标点击点时会触发此事件 | (event: { type: string, target: any, point: Point }) => void; | - |
-| onMouseOver | 鼠标移入点时会触发该事件 | (event: { type: string, target: any, point: Point }) => void; | - |
-| onMouseOut | 鼠标移出点时会触发该事件 | (event: { type: string, target: any }) => void; | - |
+| 参数 | 说明 | 类型 |
+| ----- | ----- | ----- |
+| onClick | 鼠标点击点时会触发此事件 | (event: { type: string, target: any, point: Point }) => void; |
+| onMouseOver | 鼠标移入点时会触发该事件 | (event: { type: string, target: any, point: Point }) => void; |
+| onMouseOut | 鼠标移出点时会触发该事件 | (event: { type: string, target: any }) => void; |
 
 ### ShapeType
 

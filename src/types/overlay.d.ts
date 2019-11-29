@@ -183,20 +183,60 @@ declare namespace BMap {
      * 移除事件监听函数
      */
     removeEventListener(event: string, handler: Function) : void;
-  
-    onclick: (event: { type: string, target: any }) => void;
-    ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onmouseout: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onmouseover: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onremove: (event: { type: string, target: any }) => void;
-    oninfowindowclose: (event: { type: string, target: any }) => void;
-    oninfowindowopen: (event: { type: string, target: any }) => void;
-    ondragstart: (event: { type: string, target: any }) => void;
-    ondragging: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    ondragend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onrightclick: (event: { type: string, target: any }) => void;
+  }
+  interface MarkerEvents {
+    /**
+     * 点击标注图标后会触发此事件
+     */
+    onClick(event: { type: string, target: any }): void;
+    /**
+     * 双击标注图标后会触发此事件
+     */
+    onDblClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标在标注图上按下触发此事件
+     */
+    onMouseDown(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标在标注图上释放触发此事件
+     */
+    onMouseUp(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标离开标注时触发此事件
+     */
+    onMouseOut(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 当鼠标进入标注图标区域时会触发此事件
+     */
+    onMouseOver(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 移除标注时触发
+     */
+    onRemove(event: { type: string, target: any }): void;
+    /**
+     * 信息窗在此标注上关闭时触发此事件
+     */
+    onInfowindowClose(event: { type: string, target: any }): void;
+    /**
+     * 信息窗在此标注上打开时触发此事件
+     */
+    onInfowindowOpen(event: { type: string, target: any }): void;
+    /**
+     * 开始拖拽标注时触发此事件
+     */
+    onDragStart(event: { type: string, target: any }): void;
+    /**
+     * 拖拽标注过程中触发此事件
+     */
+    onDragging(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 拖拽结束时触发此事件
+     */
+    onDragEnd(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 右键点击标注时触发此事件
+     */
+    onRightClick(event: { type: string, target: any }): void;
   }
   interface SymbolOptions {
     anchor?: Size;
@@ -607,13 +647,37 @@ declare namespace BMap {
     removeEventListener(event: string, handler: Callback): void;
   }
   interface PolygonEvents {
+    /**
+     * 点击多边形后会触发此事件
+     */
     onClick: (event: { type: string, target: any }) => void;
+    /**
+     * 双击多边形后会触发此事件
+     */
     onDoubleClick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    /**
+     * 鼠标在多边形上按下触发此事件
+     */
     onMouseDown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    /**
+     * 鼠标在多边形释放触发此事件
+     */
     onMouseUp: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    /**
+     * 鼠标离开多边形时触发此事件
+     */
     onMouseOut: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    /**
+     * 当鼠标进入多边形区域时会触发此事件
+     */
     onMouseOver: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    /**
+     * 移除多边形时触发
+     */
     onRemove: (event: { type: string, target: any }) => void;
+    /**
+     * 覆盖物的属性发生变化时触发
+     */
     onLineUpdate: (event: { type: string, target: any }) => void;
   }
   /**
@@ -795,40 +859,6 @@ declare namespace BMap {
   class Label {
     constructor(content: string, opts?: LabelOptions);
   }
-  interface Circle extends Overlay {
-    setCenter(center: Point): void;
-    getCenter(): Point;
-    setRadius(radius: number): void;
-    getRadius(): number;
-    getBounds(): Bounds;
-    setStrokeColor(color: string): void;
-    getStrokeColor(): string;
-    setFillColor(color: string): void;
-    getFillColor(): string;
-    setStrokeOpacity(opacity: number): void;
-    getStrokeOpacity(): number;
-    setFillOpacity(opacity: number): void;
-    getFillOpacity(): number;
-    setStrokeWeight(weight: number): void;
-    getStrokeWeight(): number;
-    setStrokeStyle(style: string): void;
-    getStrokeStyle(): string;
-    enableEditing(): void;
-    disableEditing(): void;
-    enableMassClear(): void;
-    disableMassClear(): void;
-    getMap(): Map;
-    addEventListener(event: string, handler: Callback): void;
-    removeEventListener(event: string, handler: Callback): void;
-    onclick: (event: { type: string, target: any }) => void;
-    ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onmouseout: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onmouseover: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onremove: (event: { type: string, target: any }) => void;
-    onlineupdate: (event: { type: string, target: any }) => void;
-  }
   class CanvasLayer {
     /**
      * 创建一个CanvasLayer实例，每个实例都是一个单独的canvas标签即单独的一层。可以为同一个地图添加多层的CanvasLayer叠加。
@@ -843,7 +873,7 @@ declare namespace BMap {
     /**
      * 对应 canvas 的 css z-index 属性，当添加了多个 CanvasLayer 时，可以用于设置层叠顺序
      */
-    zIndex?: Number;
+    zIndex?: number;
     /**
      * CanvasLayer位于的覆盖物层级，
      * 例：paneName: floatPane。JSAPI把地图覆盖物分为了8个层级，顶层为'floatPane'，
@@ -857,25 +887,6 @@ declare namespace BMap {
   }
   class Circle {
     constructor(center: Point, radius: number, opts?: CircleOptions);
-  }
-  type SizeType = number;
-  interface IconOptions {
-    /**
-     * 图标的定位锚点。此点用来决定图标与地理位置的关系，是相对于图标左上角的偏移值，默认等于图标宽度和高度的中间值
-     */
-    anchor?: Size;
-    /**
-     * 图片相对于可视区域的偏移值
-     */
-    imageOffset?: Size;
-    /**
-     * 信息窗口定位锚点。开启信息窗口时，信息窗口底部尖角相对于图标左上角的位置，默认等于图标的ancho
-     */
-    infoWindowAnchor?: Size;
-    /**
-     * 用于打印的图片，此属性只适用于IE6，为了解决IE6在包含滤镜的情况下打印样式不正确的问题
-     */
-    printImageUrl?: string;
   }
   interface CircleOptions {
     /**
@@ -914,6 +925,157 @@ declare namespace BMap {
      * 是否响应点击事件，默认为true
      */
     enableClicking?: boolean;
+  }
+  interface Circle extends Overlay {
+    /**
+     * 设置圆形的中心点坐标
+     */
+    setCenter(center: Point): void;
+    /**
+     * 返回圆形的中心点坐标
+     */
+    getCenter(): Point;
+    /**
+     * 设置圆形的半径，单位为米
+     */
+    setRadius(radius: number): void;
+    /**
+     * 返回圆形的半径，单位为米
+     */
+    getRadius(): number;
+    /**
+     * 返回圆形的地理区域范围
+     */
+    getBounds(): Bounds;
+    /**
+     * 设置圆形的边线颜色，参数为合法的CSS颜色值
+     */
+    setStrokeColor(color: string): void;
+    /**
+     * 返回圆形的边线颜色
+     */
+    getStrokeColor(): string;
+    /**
+     * 设置圆形的填充颜色，参数为合法的CSS颜色值。当参数为空字符串时，圆形覆盖物将没有填充效果
+     */
+    setFillColor(color: string): void;
+    /**
+     * 返回圆形的填充颜色
+     */
+    getFillColor(): string;
+    /**
+     * 设置圆形的边线透明度，取值范围0 - 1
+     */
+    setStrokeOpacity(opacity: number): void;
+    /**
+     * 返回圆形的边线透明度
+     */
+    getStrokeOpacity(): number;
+    /**
+     * 设置圆形的填充透明度，取值范围0 - 1
+     */
+    setFillOpacity(opacity: number): void;
+    /**
+     * 返回圆形的填充透明度
+     */
+    getFillOpacity(): number;
+    /**
+     * 设置圆形边线的宽度，取值为大于等于1的整数
+     */
+    setStrokeWeight(weight: number): void;
+    /**
+     * 返回圆形边线的宽度
+     */
+    getStrokeWeight(): number;
+    /**
+     * 设置圆形边线样式为实线或虚线，取值solid或dashed
+     */
+    setStrokeStyle(style: string): void;
+    /**
+     * 返回圆形边线样式
+     */
+    getStrokeStyle(): string;
+    /**
+     * 开启编辑功能
+     */
+    enableEditing(): void;
+    /**
+     * 关闭编辑功能
+     */
+    disableEditing(): void;
+    /**
+     * 允许覆盖物在map.clearOverlays方法中被清除
+     */
+    enableMassClear(): void;
+    /**
+     * 禁止覆盖物在map.clearOverlays方法中被清除
+     */
+    disableMassClear(): void;
+    /**
+     * 返回覆盖物所在的map对象
+     */
+    getMap(): Map;
+    /**
+     * 添加事件监听函数
+     */
+    addEventListener(event: string, handler: Function): void;
+    /**
+     * 移除事件监听函数
+     */
+    removeEventListener(event: string, handler: Function): void;
+  }
+  interface CircleEvents {
+    /**
+     * 鼠标点击圆形后会触发此事件
+     */
+    onClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标双击圆形后会触发此事件
+     */
+    onDblClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标在圆形上按下触发此事件
+     */
+    onMouseDown(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标在圆形释放触发此事件
+     */
+    onMouseUp(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标离开圆形时触发此事件
+     */
+    onMouseOut(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 当鼠标进入圆形区域时会触发此事件
+     */
+    onMouseOver(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 移除圆形时触发此事件
+     */
+    onRemove(event: { type: string, target: any }): void;
+    /**
+     * 圆形覆盖物的属性发生变化时触发此事件
+     */
+    onLineUpdate(event: { type: string, target: any }): void;
+  }
+  type SizeType = number;
+  interface IconOptions {
+    /**
+     * 图标的定位锚点。此点用来决定图标与地理位置的关系，是相对于图标左上角的偏移值，默认等于图标宽度和高度的中间值
+     */
+    anchor?: Size;
+    /**
+     * 图片相对于可视区域的偏移值
+     */
+    imageOffset?: Size;
+    /**
+     * 信息窗口定位锚点。开启信息窗口时，信息窗口底部尖角相对于图标左上角的位置，默认等于图标的ancho
+     */
+    infoWindowAnchor?: Size;
+    /**
+     * 用于打印的图片，此属性只适用于IE6，为了解决IE6在包含滤镜的情况下打印样式不正确的问题
+     */
+    printImageUrl?: string;
   }
   // interface Hotspot extends Overlay {
   interface Hotspot {
@@ -1091,15 +1253,41 @@ declare namespace BMap {
      * @param handler 
      */
     removeEventListener(event: string, handler: Callback): void;
-    onclick: (event: { type: string, target: any }) => void;
-    ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onmousedown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-  	onmouseup: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseout: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onmouseover: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-		onremove: (event: { type: string, target: any }) => void;
-		onlineupdate: (event: { type: string, target: any }) => void;
-	}
+  }
+  interface PolylineEvents {
+    /**
+     * 点击折线后会触发此事件
+     */
+    onClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 双击折线后会触发此事件
+     */
+    onDblClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标在折线上按下触发此事件
+     */
+    onMouseDown(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标在折线释放触发此事件
+     */
+    onMouseUp(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 鼠标离开折线时触发此事件
+     */
+    onMouseOut(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 当鼠标进入折线区域时会触发此事件
+     */
+    onMouseOver(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    /**
+     * 移除折线时触发
+     */
+    onRemove(event: { type: string, target: any }): void;
+    /**
+     * 覆盖物的属性发生变化时触发
+     */
+    onLineUpdate(event: { type: string, target: any }): void;
+  }
 	class Polyline {
 		constructor(points: Point[], opts?: PolylineOptions);
 	}

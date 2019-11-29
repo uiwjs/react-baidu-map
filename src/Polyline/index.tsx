@@ -2,7 +2,7 @@ import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import usePolyline from './usePolyline';
 
-export interface PolylineProps extends BMap.PolylineOptions, OverlayProps {
+export interface PolylineProps extends BMap.PolylineOptions, BMap.PolylineEvents, OverlayProps {
   /**
    * 设置折线的点数组
    */

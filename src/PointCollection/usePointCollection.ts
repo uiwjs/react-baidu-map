@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PointCollectionProps } from './';
-import { useProperties, useVisiable } from '../common/hooks';
+import { useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 const EVENTS = ['onClick', 'onMouseOver', 'onMouseOut'];
 
@@ -46,6 +46,9 @@ export default (props = {} as PointCollectionProps) => {
   }, [points, pointCollection]);
 
   useVisiable(pointCollection!, props);
+  useEventProperties<BMap.PointCollection, PointCollectionProps>(pointCollection!, props, [
+    'onClick', 'onMouseOver', 'onMouseOut'
+  ]);
   useProperties<BMap.PointCollection, PointCollectionProps>(pointCollection!, props, ['Styles']);
   
   return {

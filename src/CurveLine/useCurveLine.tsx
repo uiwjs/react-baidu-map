@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 import { CurveLineProps } from '.';
 import { requireScript } from '../utils/requireScript';
 
@@ -41,6 +41,11 @@ export default (props = {} as UseCurveLine) => {
   }, [curveLine, props.path]);
 
   useVisiable(curveLine!, props);
+  useEventProperties<BMap.Polyline, UseCurveLine>(curveLine!, props, [
+    'Click', 'DblClick',
+    'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver',
+    'Remove', 'LineUpdate',
+  ]);
   useEnableProperties<BMapLib.CurveLine, UseCurveLine>(curveLine!, props, [ 'Editing', 'MassClear']);
   // PositionAt
   useProperties<BMapLib.CurveLine, UseCurveLine>(curveLine!, props, [

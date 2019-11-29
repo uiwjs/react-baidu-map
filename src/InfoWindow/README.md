@@ -131,10 +131,10 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 事件
 
-| 参数 | 说明 | 类型 | 默认值 |
-| ----- | ----- | ----- | ----- |
-| onClose | 信息窗口被关闭时触发此事件 | (event: { type: string, target: any, point: Point }) => void; | - |
-| onOpen | 信息窗口被打开时触发此事件 | (event: { type: string, target: any, point: Point }) => void; | - |
-| onMaximize | 信息窗口最大化后触发此事件 | (event: { type: string, target: any }) => void; | - |
-| onRestore | 信息窗口还原时触发此事件 | (event: { type: string, target: any }) => void; | - |
-| onClickclose | 点击信息窗口的关闭按钮时触发此事件 | (event: { type: string, target: any }) => void; | - |
+| 参数 | 说明 | 类型 |
+| ----- | ----- | ----- |
+| onClose | 信息窗口被关闭时触发此事件 | (event: { type: string, target: any, point: Point }) => void; |
+| onOpen | 信息窗口被打开时触发此事件 | (event: { type: string, target: any, point: Point }) => void; |
+| onMaximize | 信息窗口最大化后触发此事件 | (event: { type: string, target: any }) => void; |
+| onRestore | 信息窗口还原时触发此事件 | (event: { type: string, target: any }) => void; |
+| onClickclose | 点击信息窗口的关闭按钮时触发此事件 | (event: { type: string, target: any }) => void; |

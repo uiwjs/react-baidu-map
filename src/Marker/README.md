@@ -74,6 +74,41 @@ ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 
+### 添加事件
+
+<!--DemoStart,bgWhite-->
+```jsx
+const CustomIcon = () => {
+  const [count, setCount] = useState(0)
+  const [message, setMessage] = useState('请点击标注点，小箭头!')
+  const [addEvent, setAddEvent] = useState(false);
+  const icon = new BMap.Icon('http://developer.baidu.com/map/jsdemo/img/fox.gif', new BMap.Size(300, 157));
+  function clickHandle({ type, target}) {
+    console.log('~~~~~clickHandle~~~~~', type, target);
+    setMessage('啊哈哈！你真的点击了！');
+    setCount(count + 1);
+  }
+  return (
+    <>
+      <div>{message} {count}</div>
+      <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
+        <Marker onClick={clickHandle} position={{ lng: 121.466008, lat: 31.220001 }}  />
+      </Map>
+    </>
+  );
+}
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '350px' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <CustomIcon />
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
+```
+<!--End-->
+
 ### 可拖拽
 
 <!--DemoStart,bgWhite-->
@@ -82,14 +117,44 @@ import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const CustomIcon = () => {
   const [enableDragging, setEnableDragging] = useState(true);
-  const icon = new BMap.Icon('http://developer.baidu.com/map/jsdemo/img/fox.gif', new BMap.Size(300, 157));
+  const [postion, setPostion] = useState();
+  const [isAddEvent, setIsAddEvent] = useState(false);
+  const iconfox = new BMap.Icon('http://developer.baidu.com/map/jsdemo/img/fox.gif', new BMap.Size(300, 157));
+  const iconfox1 = new BMap.Icon('http://api0.map.bdimg.com/images/copyright_logo.png', new BMap.Size(300, 157));
+  const [icon, setIcon] = useState(iconfox);
+  function markerRef(props) {
+    if (props && props.marker && !isAddEvent) {
+      setIsAddEvent(true)
+      props.marker.removeEventListener('dragend', dragendHandle);
+      props.marker.addEventListener('dragend', dragendHandle);
+    }
+  }
+  function dragendHandle({ type, target, pixel, point }) {
+    console.log('dragendHandle', type, target, pixel, point);
+    setPostion(JSON.stringify(point));
+  }
   return (
     <>
       <button onClick={() => setEnableDragging(!enableDragging)}>{enableDragging ? '禁用拖拽' : '启用拖拽'}</button>
+      <button onClick={() => setIcon(iconfox1)}>设置icon</button>
+      <button onClick={() => setIcon(iconfox)}>设置icon</button>
+      {postion && <span>{postion}</span>}
       <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
-        <Marker title="title" enableDragging={enableDragging} position={{ lng: 121.466008, lat: 31.220001 }} icon={icon} type="loc_red" />
-        <Marker enableDragging={enableDragging} position={{ lng: 121.458534, lat: 31.224942}} type="start" />
-        <Marker enableDragging={enableDragging} position={{ lng: 121.434962, lat: 31.200729 }} type="end" />
+        <Marker
+          ref={markerRef}
+          enableDragging={enableDragging}
+          position={{ lng: 121.466008, lat: 31.220001 }} icon={icon}
+        />
+        <Marker
+          ref={markerRef}
+          enableDragging={enableDragging}
+          position={{ lng: 121.458534, lat: 31.224942}} type="start"
+        />
+        <Marker
+          ref={markerRef}
+          enableDragging={enableDragging}
+          position={{ lng: 121.434962, lat: 31.200729 }} type="end"
+        />
       </Map>
     </>
   );
@@ -227,6 +292,24 @@ ReactDOM.render(<Demo />, _mount_);
 | rotation | 是否响应点击事件 | `number` | - |
 | shadow | 阴影图标 | `Icon` | - |
 | title | 鼠标移到 marker 上的显示内容 | `string` | - |
+
+### 事件
+
+| 参数 | 说明 | 类型 | 默认值 |
+| ----- | ----- | ----- | ----- |
+| onClick | 点击标注图标后会触发此事件 | (event: { type: string, target: any }): void; | - |
+| onDblClick | 双击标注图标后会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; | - |
+| onMouseDown | 鼠标在标注图上按下触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; | - |
+| onMouseUp | 鼠标在标注图上释放触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; | - |
+| onMouseOut | 鼠标离开标注时触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; | - |
+| onMouseOver | 当鼠标进入标注图标区域时会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; | - |
+| onRemove | 移除标注时触发 | (event: { type: string, target: any }): void; | - |
+| onInfowindowClose | 信息窗在此标注上关闭时触发此事件 | (event: { type: string, target: any }): void; | - |
+| onInfowindowOpen | 信息窗在此标注上打开时触发此事件 | (event: { type: string, target: any }): void; | - |
+| onDragStart | 开始拖拽标注时触发此事件 | (event: { type: string, target: any }): void; | - |
+| onDragging | 拖拽标注过程中触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; | - |
+| onDragEnd | 拖拽结束时触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; | - |
+| onRightClick | 右键点击标注时触发此事件 | (event: { type: string, target: any }): void; | - |
 
 ### ShapeType
 

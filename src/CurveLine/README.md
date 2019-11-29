@@ -146,3 +146,16 @@ ReactDOM.render(<Demo />, _mount_);
 | enableEditing |  是否启用线编辑，默认为false | Boolean | - |
 | enableClicking |  是否响应点击事件，默认为true | Boolean | - |
 | icons | 配置贴合折线的图标 | IconSequence[] | - |
+
+### 事件
+
+| 参数 | 说明 | 类型 |
+| ----- | ----- | ----- |
+| onClick | 点击折线后会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onDblClick | 双击折线后会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onMouseDown | 鼠标在折线上按下触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onMouseUp | 鼠标在折线释放触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onMouseOut | 鼠标离开折线时触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onMouseOver | 当鼠标进入折线区域时会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onRemove | 移除折线时触发 | (event: { type: string, target: any }): void; |
+| onLineUpdate | 覆盖物的属性发生变化时触发 | (event: { type: string, target: any }): void; |

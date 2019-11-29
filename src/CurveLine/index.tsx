@@ -2,7 +2,7 @@ import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useCurveLine from './useCurveLine';
 
-export interface CurveLineProps extends BMapLib.CurveLineOptions, OverlayProps {
+export interface CurveLineProps extends BMapLib.CurveLineOptions, BMapLib.CurveLineEvents, OverlayProps {
   /**
    * 设置弧线的点数组
    */

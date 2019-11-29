@@ -1,8 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { InfoWindowProps } from './';
-import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
-
-const EVENTS = ['close', 'open', 'maximize', 'restore', 'clickclose'];
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseInfoWindow extends InfoWindowProps {}
 
@@ -14,12 +12,6 @@ export default (props = {} as UseInfoWindow) => {
     if (!infoWindow) {
       const win = new BMap.InfoWindow('', { ...opts })
       setInfoWindow(win);
-      EVENTS.forEach((evnetName) => {
-        const name = `on${evnetName.charAt(0).toUpperCase()}${evnetName.slice(1)}` as keyof BMap.InfoWindowEvent;
-        if (opts[name]) {
-          win.addEventListener(evnetName, (opts as any)[name]);
-        }
-      });
     }
   }, [map]);
 
@@ -36,6 +28,9 @@ export default (props = {} as UseInfoWindow) => {
   }, [isOpen, infoWindow]);
 
   useVisiable(infoWindow!, props);
+  useEventProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
+    'Close', 'Open', 'Maximize', 'Restore', 'ClickClose'
+  ]);
   useProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
     'Width', 'Height', 'Title', 'Content', 'MaxContent'
   ]);

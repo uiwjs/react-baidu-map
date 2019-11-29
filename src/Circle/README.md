@@ -152,3 +152,16 @@ ReactDOM.render(<Demo />, _mount_);
 | enableMassClear | 是否在调用 `map.clearOverlays` 清除此覆盖物。 | `Boolean` | `true` |
 | enableEditing | 是否启用线编辑。 | `Boolean` | `false` |
 | enableClicking | 是否响应点击事件。 | `Boolean` | `true` |
+
+### 事件
+
+| 参数 | 说明 | 类型 |
+| ----- | ----- | ----- |
+| onClick | 鼠标点击圆形后会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onDblClick | 鼠标双击圆形后会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onMouseDown | 鼠标在圆形上按下触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onMouseUp | 鼠标在圆形释放触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onMouseOut | 鼠标离开圆形时触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onMouseOver | 当鼠标进入圆形区域时会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }): void; |
+| onRemove | 移除圆形时触发此事件 | (event: { type: string, target: any }): void; |
+| onLineUpdate | 圆形覆盖物的属性发生变化时触发此事件 | (event: { type: string, target: any }): void; |

@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import defaultIconUrl from './markers.png';
 import { MarkerProps } from '.';
-import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseMarker extends MarkerProps{}
 
@@ -66,6 +66,7 @@ export default (props = {} as UseMarker) => {
     map, position, animation,
     offset, icon, enableMassClear, enableDragging, enableClicking, raiseOnDrag, draggingCursor, rotation, shadow, title,
   } = props;
+
   const [marker, setMarker] = useState<BMap.Marker>();
   const options = { offset, icon, enableMassClear, enableDragging, enableClicking, raiseOnDrag, draggingCursor, rotation, shadow, title };
   useMemo(() => {
@@ -91,6 +92,10 @@ export default (props = {} as UseMarker) => {
     }
   }, [type, marker]);
   useVisiable(marker!, props);
+  useEventProperties<BMap.Marker, UseMarker>(marker!, props, [
+    'Click', 'DblClick', 'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver', 'Remove',
+    'InfowindowClose', 'InfowindowOpen', 'DragStart', 'Dragging', 'DragEnd', 'RightClick',
+  ]);
   useEnableProperties<BMap.Marker, UseMarker>(marker!, props, ['Dragging', 'MassClear', 'Clicking']);
   useProperties<BMap.Marker, UseMarker>(marker!, props, ['Icon', 'Position', 'Animation', 'Offset', 'Label', 'Title', 'Top', 'ZIndex', 'Rotation', 'Shadow']);
 

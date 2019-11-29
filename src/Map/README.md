@@ -175,3 +175,41 @@ ReactDOM.render(<Demo />, _mount_);
 | enableContinuousZoom | 启用连续缩放效果，默认禁用 | boolean | - |
 | enablePinchToZoom | 启用双指操作缩放，默认启用 | boolean | `true` |
 | enableKeyboard | 启用键盘操作，默认禁用。键盘的上、下、左、右键可连续移动地图。同时按下其中两个键可使地图进行对角移动。PgUp、PgDn、Home和End键会使地图平移其1/2的大小。+、-键会使地图放大或缩小一级 | boolean | - |
+
+### 事件
+
+| 参数 | 说明 | 类型 |
+| ----- | ----- | ----- |
+| onClick | 左键单击地图时触发此事件。 当双击时，产生的事件序列为： click click dblclick | (event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void; |
+| onDblClick | 鼠标双击地图时会触发此事件 | (event: {type: string, target: any, pixel: Pixel, point: Point }): void; |
+| onRightClick | 右键单击地图时触发此事件。 当双击时，产生的事件序列为： rightclick rightclick rightdblclick | (event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void; |
+| onRightdblClick | 右键双击地图时触发此事件 | (event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void; |
+| onMapTypeChange | 地图类型发生变化时触发此事件 | (event: {type: string, target: any }): void; |
+| onMouseMove | 鼠标在地图区域移动过程中触发此事件 | (event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void; |
+| onMouseOver | 鼠标移入地图区域时触发此事件 | (event: {type: string, target: any }): void; |
+| onMouseOut | 鼠标移出地图区域时触发此事件 | (event: {type: string, target: any }): void; |
+| onMoveStart | 地图移动开始时触发此事件 | (event: {type: string, target: any }): void; |
+| onMoving | 地图移动过程中触发此事件 | (event: {type: string, target: any }): void; |
+| onMoveEnd | 地图移动结束时触发此事件 | (event: {type: string, target: any }): void; |
+| onZoomStart | 地图更改缩放级别开始时触发触发此事件 | (event: {type: string, target: any }): void; |
+| onZoomEnd | 地图更改缩放级别结束时触发触发此事件 | (event: {type: string, target: any }): void; |
+| onAddOverlay | 当使用 Map.addOverlay() 方法向地图中添加单个覆盖物时会触发此事件 | (event: {type: string, target: any }): void; |
+| onAddControl | 当使用 Map.addControl() 方法向地图中添加单个控件时会触发此事件 | (event: {type: string, target: any }): void; |
+| onRemoveControl | 当使用 Map.removeControl() 方法移除单个控件时会触发此事件 | (event: {type: string, target: any }): void; |
+| onRemoveOverlay | 当使用 Map.removeOverlay() 方法移除单个覆盖物时会触发此事件 | (event: {type: string, target: any }): void; |
+| onClearOverlays | 当使用 Map.clearOverlays() 方法一次性移除全部覆盖物时会触发此事件 | (event: {type: string, target: any }): void; |
+| onDragStart | 开始拖拽地图时触发 | (event: {type: string, target: any, pixel: Pixel, point: Point }): void; |
+| onDragging | 拖拽地图过程中触发 | (event: {type: string, target: any, pixel: Pixel, point: Point }): void; |
+| onDragEnd | 停止拖拽地图时触发 | (event: {type: string, target: any, pixel: Pixel, point: Point }): void; |
+| onAddTileLayer | 添加一个自定义地图图层时触发此事件 | (event: {type: string, target: any }): void; |
+| onRemoveTileLayer | 移除一个自定义地图图层时触发此事件 | (event: {type: string, target: any }): void; |
+| onLoad | 调用Map.centerAndZoom()方法时会触发此事件。这表示位置、缩放层级已经确定，但可能还在载入地图图块 | (event: {type: string, target: any, pixel: Pixel, point: Point, zoom: number }): void; |
+| onReSize | 地图可视区域大小发生变化时会触发此事件 | (event: {type: string, target: any, size: Size }): void; |
+| onHotspotClick | 点击热区时触发此事件 | (event: {type: string, target: any, spots: HotspotOptions }): void; |
+| onHotspotOver | 鼠标移至热区时触发此事件 | (event: {type: string, target: any, spots: HotspotOptions }): void; |
+| onHotspotOut | 鼠标移出热区时触发此事件 | (event: {type: string, target: any, spots: HotspotOptions }): void; |
+| onTilesLoaded | 当地图所有图块完成加载时触发此事件 | (event: {type: string, target: any }): void; |
+| onTouchStart | 触摸开始时触发此事件，仅适用移动设备 | (event: {type: string, target: any, point: Point, pixel}): void; |
+| onTouchMove | 触摸移动时触发此事件，仅适用移动设备 | (event: {type: string, target: any, point: Point, pixel}): void; |
+| onTouchEnd | 触摸结束时触发此事件，仅适用移动设备 | (event: {type: string, target: any, point: Point, pixel}): void; |
+| onLongPress | 长按事件，仅适用移动设备 | (event: {type: string, target: any, point: Point, pixel}): void; |

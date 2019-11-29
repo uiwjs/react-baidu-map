@@ -159,3 +159,16 @@ ReactDOM.render(<Demo />, _mount_);
 | enableMassClear |  是否在调用map.clearOverlays清除此覆盖物，默认为true | Boolean | - |
 | enableEditing |  是否启用线编辑，默认为false | Boolean | - |
 | enableClicking |  是否响应点击事件，默认为true | Boolean | - |
+
+### 事件
+
+| 参数 | 说明 | 类型 |
+| ----- | ----- | ----- |
+| onClick | 点击多边形后会触发此事件 | (event: { type: string, target: any }) => void |
+| onDoubleClick | 双击多边形后会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }) => void |
+| onMouseDown | 鼠标在多边形上按下触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }) => void |
+| onMouseUp | 鼠标在多边形释放触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }) => void |
+| onMouseOut | 鼠标离开多边形时触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }) => void |
+| onMouseOver | 当鼠标进入多边形区域时会触发此事件 | (event: { type: string, target: any, point: Point, pixel: Pixel }) => void |
+| onRemove | 移除多边形时触发 | (event: { type: string, target: any }) => void |
+| onLineUpdate | 覆盖物的属性发生变化时触发 | (event: { type: string, target: any }) => void |

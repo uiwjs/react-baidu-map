@@ -14,5 +14,6 @@ declare namespace BMapLib {
   }
   interface CurveLineOptions extends BMap.PolylineOptions {}
   interface CurveLine extends BMap.Polyline {}
+  interface CurveLineEvents extends BMap.PolylineEvents {}
 
 }

@@ -301,39 +301,138 @@ declare namespace BMap {
     removeEventListener(event: string, handler: Callback): void;
   }
   interface MapEvents {
-    onclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
-    ondblclick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onrightclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
-    onrightdblclick: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
-    onmaptypechange: (event: { type: string, target: any }) => void;
-    onmousemove: (event: { type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }) => void;
-    onmouseover: (event: { type: string, target: any }) => void;
-    onmouseout: (event: { type: string, target: any }) => void;
-    onmovestart: (event: { type: string, target: any }) => void;
-    onmoving: (event: { type: string, target: any }) => void;
-    onmoveend: (event: { type: string, target: any }) => void;
-    onzoomstart: (event: { type: string, target: any }) => void;
-    onzoomend: (event: { type: string, target: any }) => void;
-    onaddoverlay: (event: { type: string, target: any }) => void;
-    onaddcontrol: (event: { type: string, target: any }) => void;
-    onremovecontrol: (event: { type: string, target: any }) => void;
-    onremoveoverlay: (event: { type: string, target: any }) => void;
-    onclearoverlays: (event: { type: string, target: any }) => void;
-    ondragstart: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    ondragging: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    ondragend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onaddtilelayer: (event: { type: string, target: any }) => void;
-    onremovetilelayer: (event: { type: string, target: any }) => void;
-    onload: (event: { type: string, target: any, point: Point, pixel: Pixel, zoom: number }) => void;
-    onresize: (event: { type: string, target: any, size: Size }) => void;
-    onhotspotclick: (event: { type: string, target: any, spots: HotspotOptions }) => void;
-    onhotspotover: (event: { type: string, target: any, spots: HotspotOptions }) => void;
-    onhotspotout: (event: { type: string, target: any, spots: HotspotOptions }) => void;
-    ontilesloaded: (event: { type: string, target: any }) => void;
-    ontouchstart: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    ontouchmove: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    ontouchend: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
-    onlongpress: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    /**
+     * 左键单击地图时触发此事件。 当双击时，产生的事件序列为： click click dblclick
+     */
+    onClick(event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void;
+    /**
+     * 鼠标双击地图时会触发此事件
+     */
+    onDblClick(event: {type: string, target: any, pixel: Pixel, point: Point }): void;
+    /**
+     * 右键单击地图时触发此事件。 当双击时，产生的事件序列为： rightclick rightclick rightdblclick
+     */
+    onRightClick(event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void;
+    /**
+     * 右键双击地图时触发此事件
+     */
+    onRightdblClick(event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void;
+    /**
+     * 地图类型发生变化时触发此事件
+     */
+    onMapTypeChange(event: {type: string, target: any }): void;
+    /**
+     * 鼠标在地图区域移动过程中触发此事件
+     */
+    onMouseMove(event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void;
+    /**
+     * 鼠标移入地图区域时触发此事件
+     */
+    onMouseOver(event: {type: string, target: any }): void;
+    /**
+     * 鼠标移出地图区域时触发此事件
+     */
+    onMouseOut(event: {type: string, target: any }): void;
+    /**
+     * 地图移动开始时触发此事件
+     */
+    onMoveStart(event: {type: string, target: any }): void;
+    /**
+     * 地图移动过程中触发此事件
+     */
+    onMoving(event: {type: string, target: any }): void;
+    /**
+     * 地图移动结束时触发此事件
+     */
+    onMoveEnd(event: {type: string, target: any }): void;
+    /**
+     * 地图更改缩放级别开始时触发触发此事件
+     */
+    onZoomStart(event: {type: string, target: any }): void;
+    /**
+     * 地图更改缩放级别结束时触发触发此事件
+     */
+    onZoomEnd(event: {type: string, target: any }): void;
+    /**
+     * 当使用 Map.addOverlay() 方法向地图中添加单个覆盖物时会触发此事件
+     */
+    onAddOverlay(event: {type: string, target: any }): void;
+    /**
+     * 当使用 Map.addControl() 方法向地图中添加单个控件时会触发此事件
+     */
+    onAddControl(event: {type: string, target: any }): void;
+    /**
+     * 当使用 Map.removeControl() 方法移除单个控件时会触发此事件
+     */
+    onRemoveControl(event: {type: string, target: any }): void;
+    /**
+     * 当使用 Map.removeOverlay() 方法移除单个覆盖物时会触发此事件
+     */
+    onRemoveOverlay(event: {type: string, target: any }): void;
+    /**
+     * 当使用 Map.clearOverlays() 方法一次性移除全部覆盖物时会触发此事件
+     */
+    onClearOverlays(event: {type: string, target: any }): void;
+    /**
+     * 开始拖拽地图时触发
+     */
+    onDragStart(event: {type: string, target: any, pixel: Pixel, point: Point }): void;
+    /**
+     * 拖拽地图过程中触发
+     */
+    onDragging(event: {type: string, target: any, pixel: Pixel, point: Point }): void;
+    /**
+     * 停止拖拽地图时触发
+     */
+    onDragEnd(event: {type: string, target: any, pixel: Pixel, point: Point }): void;
+    /**
+     * 添加一个自定义地图图层时触发此事件
+     */
+    onAddTileLayer(event: {type: string, target: any }): void;
+    /**
+     * 移除一个自定义地图图层时触发此事件
+     */
+    onRemoveTileLayer(event: {type: string, target: any }): void;
+    /**
+     * 调用Map.centerAndZoom()方法时会触发此事件。这表示位置、缩放层级已经确定，但可能还在载入地图图块
+     */
+    onLoad(event: {type: string, target: any, pixel: Pixel, point: Point, zoom: number }): void;
+    /**
+     * 地图可视区域大小发生变化时会触发此事件
+     */
+    onReSize(event: {type: string, target: any, size: Size }): void;
+    /**
+     * 点击热区时触发此事件
+     */
+    onHotspotClick(event: {type: string, target: any, spots: HotspotOptions }): void;
+    /**
+     * 鼠标移至热区时触发此事件
+     */
+    onHotspotOver(event: {type: string, target: any, spots: HotspotOptions }): void;
+    /**
+     * 鼠标移出热区时触发此事件
+     */
+    onHotspotOut(event: {type: string, target: any, spots: HotspotOptions }): void;
+    /**
+     * 当地图所有图块完成加载时触发此事件
+     */
+    onTilesLoaded(event: {type: string, target: any }): void;
+    /**
+     * 触摸开始时触发此事件，仅适用移动设备
+     */
+    onTouchStart(event: {type: string, target: any, point: Point, pixel}): void;
+    /**
+     * 触摸移动时触发此事件，仅适用移动设备
+     */
+    onTouchMove(event: {type: string, target: any, point: Point, pixel}): void;
+    /**
+     * 触摸结束时触发此事件，仅适用移动设备
+     */
+    onTouchEnd(event: {type: string, target: any, point: Point, pixel}): void;
+    /**
+     * 长按事件，仅适用移动设备
+     */
+    onLongPress(event: {type: string, target: any, point: Point, pixel}): void;
   }
   /**
    * 此类是 `panBy` 和 `panTo` 方法的可选参数，没有构造函数，通过对象字面量形式表示。

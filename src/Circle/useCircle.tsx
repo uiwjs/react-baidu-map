@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { CircleProps } from './';
-import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseCircle extends CircleProps {}
 
@@ -25,8 +25,13 @@ export default (props = {} as UseCircle) => {
   }, [map, circle]);
 
   useVisiable(circle!, props);
-  useEnableProperties<BMap.Circle, CircleProps>(circle!, props, ['Editing', 'MassClear']);
-  useProperties<BMap.Circle, CircleProps>(circle!, props, ['Center', 'Radius', 'StrokeColor', 'FillColor', 'StrokeOpacity', 'FillOpacity', 'StrokeWeight', 'StrokeStyle']);
+  useEventProperties<BMap.Circle, UseCircle>(circle!, props, [
+    'Click', 'DblClick',
+    'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver',
+    'Remove', 'LineUpdate',
+  ]);
+  useEnableProperties<BMap.Circle, UseCircle>(circle!, props, ['Editing', 'MassClear']);
+  useProperties<BMap.Circle, UseCircle>(circle!, props, ['Center', 'Radius', 'StrokeColor', 'FillColor', 'StrokeOpacity', 'FillOpacity', 'StrokeWeight', 'StrokeStyle']);
 
   return {
     circle, setCircle,

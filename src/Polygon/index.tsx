@@ -2,7 +2,7 @@ import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import usePolygon from './usePolygon';
 
-export interface PolygonProps extends BMap.PolygonOptions, OverlayProps {
+export interface PolygonProps extends BMap.PolygonOptions, BMap.PolygonEvents, OverlayProps {
   /**
    * 设置折线的点数组
    */

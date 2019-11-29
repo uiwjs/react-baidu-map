@@ -1,8 +1,6 @@
 import { useMemo, useState } from 'react';
 import { LabelProps } from './';
-import { useEnableProperties, useProperties, useVisiable } from '../common/hooks';
-
-const EVENTS = ['onClick', 'onDblClick', 'onMouseDo', 'onMouseUp', 'onMouseOout', 'onMouseO', 'onRemove', 'onRightClick'];
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseLabel extends LabelProps {}
 
@@ -18,17 +16,13 @@ export default (props = {} as UseLabel) => {
       instance.setStyle({ ...style });
       map.addOverlay(instance);
       setLabel(instance);
-
-      EVENTS.forEach((evnetName) => {
-        if ((props as any)[evnetName]) {
-          const name = evnetName.replace(/^on/, '').toLowerCase();
-          instance.addEventListener(name, (props as any)[evnetName]);
-        }
-      });
     }
   }, [map]);
 
   useVisiable(label!, props);
+  useEventProperties<BMap.Label, UseLabel>(label!, props, [
+    'Click', 'DblClick', 'MouseDo', 'MouseUp', 'MouseOout', 'MouseO', 'Remove', 'RightClick'
+  ]);
   useProperties<BMap.Label, UseLabel>(label!, props, [
     'Style', 'Content', 'Position', 'Offset', 'Title', 'ZIndex'
   ]);

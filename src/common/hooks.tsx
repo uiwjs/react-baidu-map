@@ -91,3 +91,58 @@ export function useProperties<T, F>(instance: T, props: F, propsName: string[] =
     }, [instance, props[eName]]);
   });
 }
+
+export interface EventListener {
+  addEventListener(event: string, handler: any): void;
+  removeEventListener(event: string, handler: any): void;
+}
+
+/**
+ * 绑定事件
+ * @param instance 实例对象
+ * @param props 传递进来的 props
+ * @param eventName 事件的名字，如，我们使用 `onClick` 事件，最终被转换成，`click` 绑定到实例中，`onDblClick` => `dblclick`
+ * 
+ * @example
+ * ```js
+ * useEventProperties<BMap.Marker, UseMarker>(marker!, props, [
+ *   'Click', 'DblClick', 'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver'
+ * ]);
+ * ```
+ */
+export function useEventProperties<T extends EventListener, F>(instance: T, props = {} as F, eventName: string[] = []) {
+  eventName.forEach((name) => {
+    const eventName = `on${name}` as keyof F;
+    const eventHandle = props[eventName];
+    const prevEvent = usePrevious(eventHandle);
+    useEffect(() => {
+      if(!instance) return;
+      if (eventHandle && name) {
+        instance.removeEventListener(name.toLowerCase(), prevEvent);
+        instance.addEventListener(name.toLowerCase(), eventHandle);
+      }
+    }, [instance, props[eventName]]);
+  });
+
+}
+
+/**
+ * 获取上一轮的 props 或 state
+ * How to get the previous props or state?
+ * https://reactjs.org/docs/hooks-faq.html#how-to-get-the-previous-props-or-state
+ * @example
+ * ```js
+ * function Counter() {
+ *   const [count, setCount] = useState(0);
+ *   const prevCount = usePrevious(count);
+ *   return <h1>Now: {count}, before: {prevCount}</h1>;
+ * }
+ * ```
+ */
+export function usePrevious<T>(value: T) {
+  const ref = useRef<T>();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
