@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f7e59397d646b9f7e42766b0882b600b",
+    "revision": "e24c8d2ac977ba4b3ec69696c434070d",
     "url": "/react-baidu-map/index.html"
   },
   {
