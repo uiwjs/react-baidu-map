@@ -20,3 +20,4 @@ export { default as Polyline } from './Polyline';
 export { default as usePolyline } from './Polyline/usePolyline';
 export { default as Polygon } from './Polygon';
 export { default as usePolygon } from './Polygon/usePolygon';
+export { default as withMap } from './withMap';

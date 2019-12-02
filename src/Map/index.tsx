@@ -75,18 +75,20 @@ export interface MapProps extends BMap.MapOptions {
 
 export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps>(({ className, style, children, ...props }, ref) => {
   const elmRef = useRef<HTMLDivElement>(null);
-  const { setContainer, setCenter, setAutoLocalCity, map } = useMap({ container: elmRef.current as (string | HTMLDivElement), ...props });
+  const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({ container: elmRef.current as (string | HTMLDivElement), ...props });
   useEffect(() => setContainer(elmRef.current as string | HTMLDivElement | undefined), [elmRef.current]);
   useEffect(() => { props.center && setCenter(props.center) }, [props.center]);
   useEffect(() => setAutoLocalCity(props.autoLocalCity!), [props.autoLocalCity]);
   useImperativeHandle(ref, () => ({ ...props, map, BMap, container: elmRef }), [map]);
+  const childs = React.Children.toArray(children);
   return (
     <Fragment>
-      <div ref={elmRef} className={className} style={{ height: '100%', ...style}} />
-      {BMap && map && React.Children.toArray(children).map((child) => {
+      <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style}} />
+      {BMap && map && typeof children === 'function' && children({ BMap, map, container })}
+      {BMap && map && childs.map((child) => {
         if (!React.isValidElement(child)) return;
         return React.cloneElement(child, {
-          ...child.props, BMap, map,
+          ...child.props, BMap, map, container,
         });
       })}
     </Fragment>

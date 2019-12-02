@@ -22,6 +22,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/api-loader'), options),
   },
   {
+    path: "/with-map",
+    component: loadable(() => import('./pages/with-map'), options),
+  },
+  {
     path: "/map",
     component: loadable(() => import('./pages/map'), options),
   },
@@ -80,6 +84,10 @@ export const menus = [
   {
     label: 'Map 组件',
     path: '/map',
+  },
+  {
+    label: 'withMap',
+    path: '/with-map',
   },
   {
     divider: true,
