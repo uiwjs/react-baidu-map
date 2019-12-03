@@ -23,8 +23,5 @@
   "include": [
     "website",
     "src"
-  ],
-  "typeRoots": [
-    "node_modules/@types"
   ]
 }

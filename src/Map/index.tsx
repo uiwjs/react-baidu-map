@@ -1,3 +1,5 @@
+/// <reference types="../types" />
+
 import React, { useRef, useEffect, useImperativeHandle, Fragment } from 'react';
 import useMap from './useMap';
 

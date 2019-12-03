@@ -4,7 +4,9 @@ import { useProperties, useVisiable, useEventProperties } from '../common/hooks'
 
 const EVENTS = ['onClick', 'onMouseOver', 'onMouseOut'];
 
-export default (props = {} as PointCollectionProps) => {
+export interface UsePointCollection extends PointCollectionProps {}
+
+export default (props = {} as UsePointCollection) => {
   const { map, shape, color, size } = props;
   const [points, setPoints] = useState(props.points);
   const [pointCollection, setPointCollection] = useState<BMap.PointCollection>();
@@ -46,10 +48,10 @@ export default (props = {} as PointCollectionProps) => {
   }, [points, pointCollection]);
 
   useVisiable(pointCollection!, props);
-  useEventProperties<BMap.PointCollection, PointCollectionProps>(pointCollection!, props, [
+  useEventProperties<BMap.PointCollection, UsePointCollection>(pointCollection!, props, [
     'onClick', 'onMouseOver', 'onMouseOut'
   ]);
-  useProperties<BMap.PointCollection, PointCollectionProps>(pointCollection!, props, ['Styles']);
+  useProperties<BMap.PointCollection, UsePointCollection>(pointCollection!, props, ['Styles']);
   
   return {
     pointCollection, setPointCollection,

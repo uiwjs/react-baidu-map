@@ -7,7 +7,7 @@ withMap
 
 <!--DemoStart,bgWhite--> 
 ```jsx
-import { withMap } from '@uiw/react-baidu-map';
+import { withMap, APILoader } from '@uiw/react-baidu-map';
 
 class ExampleMap extends React.Component {
   componentDidMount() {

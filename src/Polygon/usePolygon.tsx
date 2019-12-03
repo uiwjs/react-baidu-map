@@ -2,7 +2,9 @@ import { useState, useEffect, useMemo } from 'react';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 import { PolygonProps } from './';
 
-export default (props = {} as PolygonProps) => {
+export interface UsePolygon extends PolygonProps {}
+
+export default (props = {} as UsePolygon) => {
   const { map, strokeColor, fillColor, strokeWeight, strokeOpacity, fillOpacity, strokeStyle, enableMassClear, enableEditing, enableClicking } = props;
   const [polygon, setPolygon] = useState<BMap.Polygon>();
   const [path, setPath] = useState(props.path || []);
@@ -25,12 +27,12 @@ export default (props = {} as PolygonProps) => {
   }, [polygon, path]);
 
   useVisiable(polygon!, props);
-  useEventProperties<BMap.Polygon, PolygonProps>(polygon!, props, [
+  useEventProperties<BMap.Polygon, UsePolygon>(polygon!, props, [
     'Click', 'DoubleClick',
     'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver',
     'Remove', 'LineUpdate',
   ]);
-  useEnableProperties<BMap.Polygon, PolygonProps>(polygon!, props, ['Editing', 'MassClear']);
+  useEnableProperties<BMap.Polygon, UsePolygon>(polygon!, props, ['Editing', 'MassClear']);
   // PositionAt
   useProperties<BMap.Polygon, PolygonProps>(polygon!, props, ['StrokeColor', 'StrokeOpacity', 'FillColor', 'FillOpacity', 'StrokeWeight', 'StrokeStyle']);
 
