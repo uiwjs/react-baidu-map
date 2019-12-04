@@ -46,7 +46,7 @@ const Demo = () => {
               自定义的覆盖物
             </div>
           </CustomOverlay>
-          <CustomOverlay position={{ lng: 121.500934, lat: 31.23088 }}>
+          <CustomOverlay visiable={false} position={{ lng: 121.500934, lat: 31.23088 }}>
             <div style={{ backgroundColor: '#fff', padding: 5, borderRadius: 10, whiteSpace: 'nowrap', border: '1px solid #333' }}>
               自定义的覆盖物，第二个
             </div>

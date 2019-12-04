@@ -41,6 +41,9 @@ function getCustomOverlay() {
       this.position = position;
       this.draw();
     }
+    public setVisiable = (visiable: boolean) => {
+      this.container.style.display = visiable ? 'block' : 'none';
+    }
 
     public getPosition = () => {
       return this.position;
