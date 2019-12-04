@@ -110,6 +110,10 @@ export const menus = [
     path: '/label',
   },
   {
+    label: 'PointCollection 加载海量点',
+    path: '/point-collection',
+  },
+  {
     label: 'Polyline 折线组件',
     path: '/polyline',
   },
