@@ -1,7 +1,7 @@
 CustomOverlay 自定义覆盖物
 ===
 
-表示地图上一个图像标注。
+用于渲染自定义的 DOM 对象
 
 ```jsx
 import { CustomOverlay, useCustomOverlay } from '@uiw/react-baidu-map';
