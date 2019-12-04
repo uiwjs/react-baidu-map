@@ -19,6 +19,13 @@ export interface CustomOverlayProps extends OverlayProps {
    * 低层为 `vertexPane`。可以通过Map实例的 `getPanes()` 方法，获取到8个层级的名称
    */
   paneName?: keyof BMap.MapPanes;
+  /**
+   * 覆盖物是否可见。
+   */
+  visiable?: boolean;
+  /**
+   * 自定义 DOM 元素。
+   */
   children?: React.ReactNode;
 }
 

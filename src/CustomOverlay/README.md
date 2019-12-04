@@ -130,12 +130,8 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
+| children | 自定义 DOM 元素。 | ReactNode | - |
+| position | **`必填`** 设置标注的地理坐标。[百度拾取坐标系统](http://api.map.baidu.com/lbsapi/getpoint/index.html) | `Point` | - |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
-| strokeColor |  折线颜色 | String | - |
-| strokeWeight |  折线的宽度，以像素为单位 | Number | - |
-| strokeOpacity |  折线的透明度，取值范围0 - 1 | Number | - |
-| strokeStyle |  折线的样式，solid或dashed | String | - |
-| enableMassClear |  是否在调用map.clearOverlays清除此覆盖物，默认为true | Boolean | - |
-| enableEditing |  是否启用线编辑，默认为false | Boolean | - |
-| enableClicking |  是否响应点击事件，默认为true | Boolean | - |
-| icons | 配置贴合折线的图标 | IconSequence[] | - |
+| zIndex | 对应 css z-index 属性，当添加了多个 CustomOverlay 时，可以用于设置层叠顺序 | `number` | - |
+| paneName | 自定义覆盖物插入的容器，[文档描述](https://github.com/uiwjs/react-baidu-map/blob/df20f20772a613770e7b2e8de319ff082fab06aa/src/types/overlay.d.ts#L1341-L1370) | `floatPane`, `markerMouseTarget`, `floatShadow`, `labelPane`, `markerPane`, `markerShadow`, `mapPane` | `markerPane` |

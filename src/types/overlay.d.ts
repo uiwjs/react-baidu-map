@@ -1289,27 +1289,27 @@ declare namespace BMap {
      */
     onLineUpdate(event: { type: string, target: any }): void;
   }
-	class Polyline {
-		constructor(points: Point[], opts?: PolylineOptions);
-	}
-	interface GroundOverlay extends Overlay {
-		setBounds(bounds: Bounds): void;
-		getBounds(): Bounds;
-		setOpacity(opcity: number): void;
-		getOpacity(): number;
-		setImageURL(url: string): void;
-		getImageURL(): string;
-		setDisplayOnMinLevel(level: number): void;
-		getDisplayOnMinLevel(): number;
-		setDispalyOnMaxLevel(level: number): void;
-		getDispalyOnMaxLevel(): number;
-		onclick: (event: { type: string, target: any }) => void;
-		ondblclick: (event: { type: string, target: any }) => void;
-	}
-	class GroundOverlay {
-		constructor(bounds: Bounds, opts?: GroundOverlayOptions);
-	}
-	interface HotspotOptions {
+  class Polyline {
+    constructor(points: Point[], opts?: PolylineOptions);
+  }
+  interface GroundOverlay extends Overlay {
+    setBounds(bounds: Bounds): void;
+    getBounds(): Bounds;
+    setOpacity(opcity: number): void;
+    getOpacity(): number;
+    setImageURL(url: string): void;
+    getImageURL(): string;
+    setDisplayOnMinLevel(level: number): void;
+    getDisplayOnMinLevel(): number;
+    setDispalyOnMaxLevel(level: number): void;
+    getDispalyOnMaxLevel(): number;
+    onclick: (event: { type: string, target: any }) => void;
+    ondblclick: (event: { type: string, target: any }) => void;
+  }
+  class GroundOverlay {
+    constructor(bounds: Bounds, opts?: GroundOverlayOptions);
+  }
+  interface HotspotOptions {
     /**
      * 当鼠标移至某一热区上时出现的文字提示
      */
@@ -1338,7 +1338,7 @@ declare namespace BMap {
    * 
    * API: https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html#a3b1
    */
-	interface MapPanes {
+  interface MapPanes {
     /**
      * 信息窗口所在的容器
      */
@@ -1366,8 +1366,8 @@ declare namespace BMap {
     /**
      * 折线、多边形等矢量图形所在的容器
      */
-		mapPane?: HTMLElement;
-	}
+    mapPane?: HTMLElement;
+  }
 }
 
 declare const BMap_Symbol_SHAPE_CIRCLE: BMap.SymbolShapeType;

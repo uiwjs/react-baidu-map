@@ -13,7 +13,7 @@ function getCustomOverlay() {
     constructor(elm: HTMLDivElement, position?: BMap.Point, paneName?: CustomOverlayProps['paneName']) {
       super();
       this.container = elm;
-      this.paneName = paneName || 'floatPane';
+      this.paneName = paneName || 'markerPane';
       this.position = position;
     }
     public initialize: (map: BMap.Map) => HTMLElement = (map) => {
@@ -83,7 +83,7 @@ export default (props = {} as UseCustomOverlay) => {
     }
   }, [children, customOverlay]);
 
-  useProperties<BMap.Overlay, UseCustomOverlay>(customOverlay!, props, ['ZIndex', 'Offset', 'Position']);
+  useProperties<BMap.Overlay, UseCustomOverlay>(customOverlay!, props, ['ZIndex', 'Offset', 'Position', 'Visiable']);
   return {
     portal, setPortal,
     customOverlay, setCustomOverlay
