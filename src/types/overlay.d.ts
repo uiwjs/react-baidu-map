@@ -2,6 +2,7 @@
 /// <reference path="./core.d.ts" />
 /// <reference path="./rightmenu.d.ts" />
 declare namespace BMap {
+  class Overlay {}
   interface Overlay {
     initialize?(map: Map): HTMLElement;
     isVisible?(): boolean;
@@ -879,7 +880,7 @@ declare namespace BMap {
      * 例：paneName: floatPane。JSAPI把地图覆盖物分为了8个层级，顶层为'floatPane'，
      * 低层为'vertexPane'。可以通过Map实例的getPanes()方法，获取到8个层级的名称
      */
-    paneName?: 'floatPane' | 'floatShadow' | 'labelPane' | 'mapPane' | 'markerMouseTarget' | 'markerPane' | 'markerShadow' | 'vertexPane';
+    paneName?: keyof BMap.MapPanes;
     /**
      * 具体的绘制逻辑。通过this.canvas获取当前的canvas对象
      */
@@ -1329,14 +1330,42 @@ declare namespace BMap {
      * 热区生效的最大级别
      */
     maxZoom: number;
-	}
+  }
+  /**
+   * 覆盖物层级
+   * JSAPI 把地图覆盖物分为了8个层级，顶层为 `floatPane`，
+   * 低层为 `vertexPane`。可以通过Map实例的 `getPanes()` 方法，获取到8个层级的名称
+   * 
+   * API: https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html#a3b1
+   */
 	interface MapPanes {
-		floatPane?: HTMLElement;
-		markerMouseTarget?: HTMLElement;
-		floatShadow?: HTMLElement;
-		labelPane?: HTMLElement;
-		markerPane?: HTMLElement;
-		markerShadow?: HTMLElement;
+    /**
+     * 信息窗口所在的容器
+     */
+    floatPane?: HTMLElement;
+    /**
+     * 标注点击区域所在的容器
+     */
+    markerMouseTarget?: HTMLElement;
+    /**
+     * 信息窗口阴影所在的容器
+     */
+    floatShadow?: HTMLElement;
+    /**
+     * 文本标注所在的容器
+     */
+    labelPane?: HTMLElement;
+    /**
+     * 标注图标所在的容器
+     */
+    markerPane?: HTMLElement;
+    /**
+     * 标注阴影所在的容器
+     */
+    markerShadow?: HTMLElement;
+    /**
+     * 折线、多边形等矢量图形所在的容器
+     */
 		mapPane?: HTMLElement;
 	}
 }

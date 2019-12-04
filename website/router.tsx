@@ -65,6 +65,10 @@ export const routes: Routes = [
     path: "/canvas-layer",
     component: loadable(() => import('./pages/canvas-layer'), options),
   },
+  {
+    path: "/custom-overlay",
+    component: loadable(() => import('./pages/custom-overlay'), options),
+  },
 ];
 
 
@@ -106,10 +110,6 @@ export const menus = [
     path: '/label',
   },
   {
-    label: 'PointCollection 海量点标注',
-    path: '/point-collection',
-  },
-  {
     label: 'Polyline 折线组件',
     path: '/polyline',
   },
@@ -124,6 +124,10 @@ export const menus = [
   {
     label: 'CanvasLayer 自定义Canvas',
     path: '/canvas-layer',
+  },
+  {
+    label: 'CustomOverlay 自定义覆盖物',
+    path: '/custom-overlay',
   },
   {
     divider: true,

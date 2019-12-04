@@ -46,7 +46,7 @@ export default (props: UseMap = {}) => {
       map.centerAndZoom(cent!, zoom!);
     }
   }, [center, map]);
-
+  
   const [autoLocalCity, setAutoLocalCity] = useState(props.autoLocalCity);
   /**
    * IP定位获取当前城市，进行自动定位
@@ -72,7 +72,7 @@ export default (props: UseMap = {}) => {
     'TilesLoaded', 'TouchStart', 'TouchMove', 'TouchEnd', 'LongPress',
   ]);
   // 'Center',
-  useProperties<BMap.Map, UseMap>(map!, props, ['DefaultCursor', 'DraggingCursor', 'MinZoom', 'MaxZoom', 'MapStyle', 'MapStyleV2', 'Panorama', 'CurrentCity', 'MapType', 'Viewport', 'Zoom',]);
+  useProperties<BMap.Map, UseMap>(map!, props, ['DefaultCursor', 'DraggingCursor', 'MinZoom', 'MaxZoom', 'MapStyle', 'MapStyleV2', 'Panorama', 'CurrentCity', 'MapType', 'Viewport', 'Zoom']);
   useEnableProperties<BMap.Map, UseMap>(map!, props, ['Dragging', 'ScrollWheelZoom', 'DoubleClickZoom', 'Keyboard', 'InertialDragging', 'ContinuousZoom', 'PinchToZoom', 'AutoResize']);
   return {
     map, setMap,
