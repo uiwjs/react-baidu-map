@@ -58,6 +58,22 @@ const Demo = () => (
             }
           },
           {
+            name: 'CopyrightControl',
+            control: (BMap, map) => {
+              // 设置版权控件位置
+              const cr = new BMap.CopyrightControl({ anchor: BMAP_ANCHOR_TOP_RIGHT });
+              // 返回地图可视区域
+              const bs = map.getBounds();
+              cr.removeCopyright(1);
+              cr.addCopyright({
+                id: 1,
+                content: "<a href='#' style='font-size:20px;background:yellow'>我是自定义版权控件呀</a>",
+                // bounds: bs,
+              });
+              return cr;
+            },
+          },
+          {
             name: 'NavigationControl',
             options: (BMap) => {
               return {
@@ -158,7 +174,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| widget | 百度地图上负责与地图交互的UI元素称为控件。[`百度控件文档`](http://lbsyun.baidu.com/index.php?title=jspopular3.0/guide/widget) | `string[]`/`object[]` | `[]` |
+| widget | 百度地图上负责与地图交互的UI元素称为控件，实例参考。[`百度控件文档`](http://lbsyun.baidu.com/index.php?title=jspopular3.0/guide/widget) | `string[]`/`object[]` | `[]` |
 | center | 定位, 可使用如 `上海市青浦区` 的地区字符串，也可以使用对象如 `{lng: 121.424333, lat: 31.228604}` 表示经纬度。[百度拾取坐标系统](http://api.map.baidu.com/lbsapi/getpoint/index.html) | Point,String | `上海市` |
 | autoLocalCity | 设为 `true`, IP定位获取当前城市，进行自动定位 | boolean | - |
 | zoom | 缩放等级，如果 `center` 类型为 `Point` 时，zoom必须赋值，范围 `3-19` 级， 若调用高清底图（针对移动端开发）时，zoom 可赋值范围为 `3-18` 级。 如果center类型为字符串时，比如“北京”，zoom可以忽略，地图将自动根据 `center` 适配最佳 `zoom` 级别 | number | - |

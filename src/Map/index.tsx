@@ -15,13 +15,11 @@ export interface Control {
 
 export type ControlOptions = {
   name: keyof Control;
-  options?: (map: typeof BMap) => void | Control[keyof Control] ;
+  options?: (bmap: typeof BMap, map: BMap.Map) => void | Control[keyof Control] ;
+  control?(bmap: typeof BMap, map: BMap.Map): BMap.Control;
 }
 
-export type ControlOptionsAll = keyof Control | {
-  name: keyof Control;
-  options?: Control[keyof Control] ;
-};
+export type ControlOptionsAll = keyof Control | ControlOptions;
 
 export interface MapProps extends BMap.MapOptions {
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
