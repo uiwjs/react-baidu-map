@@ -5,6 +5,7 @@ export const moduleScopePluginOpts = [
   path.resolve(process.cwd(), 'src'),
   path.resolve(process.cwd(), 'src/APILoader/README.md'),
   path.resolve(process.cwd(), 'src/Circle/README.md'),
+  path.resolve(process.cwd(), 'src/Control/README.md'),
   path.resolve(process.cwd(), 'src/CanvasLayer/README.md'),
   path.resolve(process.cwd(), 'src/CustomOverlay/README.md'),
   path.resolve(process.cwd(), 'src/InfoWindow/README.md'),

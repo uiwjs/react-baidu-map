@@ -26,6 +26,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/with-map'), options),
   },
   {
+    path: "/control",
+    component: loadable(() => import('./pages/control'), options),
+  },
+  {
     path: "/map",
     component: loadable(() => import('./pages/map'), options),
   },
@@ -92,6 +96,10 @@ export const menus = [
   {
     label: 'withMap',
     path: '/with-map',
+  },
+  {
+    label: 'Control',
+    path: '/control',
   },
   {
     divider: true,

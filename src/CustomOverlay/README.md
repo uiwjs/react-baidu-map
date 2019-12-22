@@ -11,6 +11,7 @@ import { CustomOverlay, useCustomOverlay } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite--> 
 ```jsx
+import React, { useState } from 'react';
 import { APILoader, Map, Marker, CustomOverlay } from '@uiw/react-baidu-map';
 
 const Demo = () => {
@@ -32,8 +33,12 @@ const Demo = () => {
           <Marker position={{ lng: 121.466008, lat: 31.220001 }} />
           <CustomOverlay
             ref={markerRef}
+            paneName="floatPane"
             position={{ lng: 121.466008, lat: 31.220001 }} 
-            style={{ whiteSpace: 'nowrap', transform: `translateX(-50%)` }}
+            style={{
+              whiteSpace: 'nowrap',
+              // transform: `translateX(-50%)`,
+            }}
           >
             <div
               style={{ backgroundColor: '#fff', padding: 5, whiteSpace: 'nowrap', transform: `translateX(-50%)` }}
@@ -46,7 +51,7 @@ const Demo = () => {
               自定义的覆盖物
             </div>
           </CustomOverlay>
-          <CustomOverlay visiable={false} position={{ lng: 121.500934, lat: 31.23088 }}>
+          <CustomOverlay position={{ lng: 121.500934, lat: 31.23088 }}>
             <div style={{ backgroundColor: '#fff', padding: 5, borderRadius: 10, whiteSpace: 'nowrap', border: '1px solid #333' }}>
               自定义的覆盖物，第二个
             </div>
@@ -68,14 +73,6 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useMarker, useCustomOverlay } from '@uiw/react-baidu-map';
-
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
 
 const Example = () => {
   const divElm = useRef();

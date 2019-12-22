@@ -1,7 +1,7 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import { CustomOverlayProps } from './';
-import { useEnableProperties, useProperties, useVisiable, useEventProperties, usePrevious } from '../common/hooks';
+import { useProperties, usePrevious } from '../common/hooks';
 
 function getCustomOverlay() {
   return class extends BMap.Overlay {

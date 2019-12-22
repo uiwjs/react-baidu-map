@@ -1,20 +1,54 @@
-
 /// <reference path="./base.d.ts" />
 
 declare namespace BMap {
   class Control {
     constructor();
+    /**
+     * 控件默认的停靠位置。自定义控件时需要提供此属性，作为控件的默认停靠位置
+     */
     defaultAnchor: ControlAnchor;
+    /**
+     * 控件默认的位置偏移值。自定义控件时需要提供此属性，作为控件的默认偏移位置
+     */
     defaultOffset: Size;
+    /**
+     * 抽象方法。调用Map.addControl()方法添加控件时将调用此方法，从而实现该控件的初始化。
+     * 自定义控件时需要实现此方法，并将元素的DOM元素在该方法中返回。
+     * DOM元素需要添加到地图的容器中，使用map.getContainer()方法可获得地图容器元素
+     * @param map Map
+     */
     initialize(map: Map): HTMLElement;
+    /**
+     * 设置控件停靠的位置
+     */
     setAnchor(anchor: ControlAnchor): void;
+    /**
+     * 返回控件停靠的位置
+     */
     getAnchor(): ControlAnchor;
+    /**
+     * 设置控件停靠的偏移量
+     */
     setOffset(offset: Size): void;
+    /**
+     * 返回控件停靠的偏移量
+     */
     getOffset(): Size;
+    /**
+     * 显示控件
+     */
     show(): void;
+    /**
+     * 隐藏控件
+     */
     hide(): void;
+    /**
+     * 判断控件的可见性
+     */
     isVisible(): boolean;
-    /** 自定义Control在add之后立马能读取到Container, 内置Control不能 */
+    /**
+     * 自定义 Control 在 add 之后立马能读取到 Container, 内置 Control 不能
+     */
     getContainer(): HTMLElement | undefined;
   }
   interface NavigationControlOptions {
