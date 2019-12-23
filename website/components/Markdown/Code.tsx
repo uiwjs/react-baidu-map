@@ -1,8 +1,7 @@
 import React from 'react';
 import CodePreview, { ICodePreviewProps } from '@uiw/react-code-preview';
-// import CodeView from '../CodeView';
 
-const regxOpts = /^;{{\/\*\*(.*).\*\*\/}};/g;
+const regxOpts = /^;\{\{\/\*\*(.+?)\*\*\/\}\};/g;
 
 export interface CodeProps {
   language: string;
@@ -16,6 +15,17 @@ export default function Code({ language, value, dependencies, ...other }: CodePr
     props.onlyEdit = true;
   }
   props.code = value.replace(regxOpts, '');
+  const propsStr = value.match(regxOpts);
+  if (propsStr && propsStr[0] && RegExp.$1) {
+    try {
+      const propsArr: ICodePreviewProps[] = JSON.parse(RegExp.$1);
+      propsArr.forEach((item) => {
+        Object.keys(item).forEach((keyName) => {
+          props[keyName as keyof ICodePreviewProps] = item[keyName as keyof ICodePreviewProps];
+        })
+      });
+    } catch (error) {}
+  }
   return (
     <CodePreview {...props} language={language} dependencies={dependencies} />
   );
