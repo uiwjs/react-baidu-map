@@ -36,3 +36,5 @@ export { default as OverviewMapControl } from './OverviewMapControl';
 export { default as useOverviewMapControl } from './OverviewMapControl/useOverviewMapControl';
 export { default as ScaleControl } from './ScaleControl';
 export { default as useScaleControl } from './ScaleControl/useScaleControl';
+export { default as MapTypeControl } from './MapTypeControl';
+export { default as useMapTypeControl } from './MapTypeControl/useMapTypeControl';

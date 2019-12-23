@@ -137,6 +137,24 @@ declare namespace BMap {
   class MapTypeControl extends Control {
     constructor(opts?: MapTypeControlOptions);
   }
+  interface MapTypeControlOptions {
+    /**
+     * 控件的停靠位置
+     */
+    anchor?: ControlAnchor;
+    /**
+     * 控件的水平偏移值
+     */
+    offset?: Size;
+    /**
+     * 控件样式
+     */
+    type?: MapTypeControlType;
+    /**
+     * 控件展示的地图类型，默认为普通图、卫星图、卫星加路网混合图和三维图。通过此属性可配置控件展示的地图类型
+     */
+    mapTypes?: MapType[];
+  }
   class NavigationControl extends Control {
     constructor(opts?: NavigationControlOptions);
     /**
@@ -184,10 +202,6 @@ declare namespace BMap {
      * 返回版权信息列表
      */
     getCopyrightCollection(): Copyright[];
-  }
-  interface MapTypeControlOptions {
-    type?: MapTypeControlType;
-    mapTypes?: MapType[];
   }
   type NavigationControlType = number;
   class ScaleControl extends Control {

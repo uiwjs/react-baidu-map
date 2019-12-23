@@ -10,6 +10,7 @@ export const moduleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/GeolocationControl/README.md'),
   path.resolve(process.cwd(), 'src/OverviewMapControl/README.md'),
   path.resolve(process.cwd(), 'src/ScaleControl/README.md'),
+  path.resolve(process.cwd(), 'src/MapTypeControl/README.md'),
   path.resolve(process.cwd(), 'src/CanvasLayer/README.md'),
   path.resolve(process.cwd(), 'src/CustomOverlay/README.md'),
   path.resolve(process.cwd(), 'src/InfoWindow/README.md'),

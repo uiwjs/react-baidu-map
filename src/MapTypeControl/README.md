@@ -1,10 +1,10 @@
-ScaleControl 比例尺控件
+MapTypeControl 地图类型控件
 ===
 
-比例尺控件。你也可以使用 `Map` 组件 `widget` 属性来设置控件更方便。
+地图类型控件。你也可以使用 `Map` 组件 `widget` 属性来设置控件更方便。
 
 ```jsx
-import { ScaleControl, useScaleControl } from '@uiw/react-baidu-map';
+import { MapTypeControl, useMapTypeControl } from '@uiw/react-baidu-map';
 ```
 
 ### 基本用法
@@ -12,7 +12,7 @@ import { ScaleControl, useScaleControl } from '@uiw/react-baidu-map';
 <!--DemoStart,bgWhite,noScroll--> 
 ```jsx
 import React, { useState, useRef } from 'react';
-import { Map, APILoader, ScaleControl } from '@uiw/react-baidu-map';
+import { Map, APILoader, MapTypeControl } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [show, setShow] = useState(true);
@@ -23,9 +23,9 @@ const Example = () => {
       </button>
       <Map zoom={13}>
         {show && (
-          <ScaleControl />
+          <MapTypeControl />
         )}
-        <ScaleControl visiable={show} offset={new BMap.Size(40, 40)} anchor={BMAP_ANCHOR_TOP_RIGHT} />
+        <MapTypeControl visiable={show} offset={new BMap.Size(40, 40)} anchor={BMAP_ANCHOR_TOP_RIGHT} />
       </Map>
     </>
   );
@@ -44,18 +44,18 @@ ReactDOM.render((
 
 ### 使用 hooks
 
-`scaleControl`, `setScaleControl`
+`mapTypeControl`, `setMapTypeControl`
 
 <!--DemoStart,bgWhite--> 
 ```jsx
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useScaleControl } from '@uiw/react-baidu-map';
+import { Map, APILoader, useMap, useMapTypeControl } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
   const [show, setShow] = useState(true);
   const { setContainer, map } = useMap();
-  const { scaleControl } = useScaleControl({
+  const { mapTypeControl } = useMapTypeControl({
     map, anchor: BMAP_NAVIGATION_CONTROL_LARGE, visiable: show,
   });
 
@@ -92,13 +92,15 @@ ReactDOM.render(<Demo />, _mount_);
 | visiable | 覆盖物是否可见。 | `boolean` | - |
 | anchor | 控件的位置偏移值。| `ControlAnchor` | `BMAP_ANCHOR_TOP_RIGHT` |
 | offset | 控件的水平偏移值。 | `BMap.Size` | - |
-| unit | 设置比例尺单位制 | `BMap.LengthUnit` | - |
+| type | 设置比例尺单位制 | `BMap.MapTypeControlType` | - |
+| mapTypes | 设置比例尺单位制 | `MapType[]` | - |
 
-### LengthUnit
+### BMap.MapTypeControlType
 
 常量表示长度单位制。
 
 | 常量 | 值 | 描述 |
 | ----- | ----- | ----- |
-| BMAP_UNIT_METRIC | `0` | 公制单位 |
-| BMAP_UNIT_IMPERIAL | `1` | 英制单位 |
+| BMAP_MAPTYPE_CONTROL_HORIZONTAL | `0` | 按钮水平方式展示，默认采用此类型展示 |
+| BMAP_MAPTYPE_CONTROL_DROPDOWN | `1` | 按钮呈下拉列表方式展示 |
+| BMAP_MAPTYPE_CONTROL_MAP | `2` | 以图片方式展示类型控件，设置该类型后无法指定maptypes属性 |
