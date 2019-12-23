@@ -1,7 +1,7 @@
 CopyrightControl 版权控件
 ===
 
-版权控件，您可以在地图上添加自己的版权信息。同时你可以使用 `Map` 组件 `widget` 属性来更方便，设置自带默认控件。
+版权控件，您可以在地图上添加自己的版权信息。你也可以使用 `Map` 组件 `widget` 属性来设置控件更方便。
 
 ```jsx
 import { CopyrightControl, useCopyrightControl } from '@uiw/react-baidu-map';
@@ -85,7 +85,6 @@ const Example = () => {
       copyrightControl.addCopyright({
         id: 111,
         content: `<a href='#' style='font-size:20px;background:yellow'>我是自定义版权控件呀${count}</a>`,
-        // content: <div>222</div>,
         bounds: new BMap.Bounds(new BMap.Point(121.412972,31.245691), new BMap.Point(121.53083,31.185407)),
       });
     }
@@ -93,7 +92,7 @@ const Example = () => {
   return (
     <>
       <button onClick={() => setCount(count + 1)}>
-        放大2级 {count}
+        更改版权信息 {count}
       </button>
       <div ref={divElm} style={{ height: '100%' }} />
       {portal}
@@ -118,7 +117,7 @@ ReactDOM.render(<Demo />, _mount_);
 | ----- | ----- | ----- | ----- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
 | anchor | 控件的位置偏移值。| `ControlAnchor` | `BMAP_ANCHOR_TOP_RIGHT` |
-| offset | 覆盖物是否可见。 | `BMap.Size` | - |
+| offset | 控件的水平偏移值。 | `BMap.Size` | - |
 
 ### CopyrightControl.Item
 

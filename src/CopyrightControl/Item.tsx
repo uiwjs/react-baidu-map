@@ -1,7 +1,7 @@
 import React, { useImperativeHandle } from 'react';
 import { useEffect, useState } from 'react';
 import { usePrevious } from '../common/hooks';
-import useCreatePortal from './useCreatePortal';
+import useCreatePortal from '../common/useCreatePortal';
 
 let uid: number = 1
 

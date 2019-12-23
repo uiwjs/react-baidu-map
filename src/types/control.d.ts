@@ -53,6 +53,10 @@ declare namespace BMap {
   }
   interface NavigationControlOptions {
     /**
+     * 控件的停靠位置
+     */
+    anchor?: ControlAnchor;
+    /**
      * 控件的水平偏移值
      */
     offset?: Size;

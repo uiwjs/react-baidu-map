@@ -13,6 +13,7 @@ export const moduleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/Label/README.md'),
   path.resolve(process.cwd(), 'src/Map/README.md'),
   path.resolve(process.cwd(), 'src/Marker/README.md'),
+  path.resolve(process.cwd(), 'src/NavigationControl/README.md'),
   path.resolve(process.cwd(), 'src/PointCollection/README.md'),
   path.resolve(process.cwd(), 'src/Polyline/README.md'),
   path.resolve(process.cwd(), 'src/CurveLine/README.md'),

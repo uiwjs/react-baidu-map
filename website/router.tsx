@@ -42,6 +42,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/marker'), options),
   },
   {
+    path: "/navigation-control",
+    component: loadable(() => import('./pages/navigation-control'), options),
+  },
+  {
     path: "/info-window",
     component: loadable(() => import('./pages/info-window'), options),
   },
@@ -112,6 +116,10 @@ export const menus = [
   {
     label: 'CopyrightControl 版权控件',
     path: '/copyright-control',
+  },
+  {
+    label: 'NavigationControl 平移缩放控件',
+    path: '/navigation-control',
   },
   {
     divider: true,
