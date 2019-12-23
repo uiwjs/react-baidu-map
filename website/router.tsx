@@ -30,6 +30,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/control'), options),
   },
   {
+    path: "/copyright-control",
+    component: loadable(() => import('./pages/copyright-control'), options),
+  },
+  {
     path: "/map",
     component: loadable(() => import('./pages/map'), options),
   },
@@ -98,8 +102,16 @@ export const menus = [
     path: '/with-map',
   },
   {
-    label: 'Control',
+    divider: true,
+    label: '控件',
+  },
+  {
+    label: 'Control 自定义控件',
     path: '/control',
+  },
+  {
+    label: 'CopyrightControl 版权控件',
+    path: '/copyright-control',
   },
   {
     divider: true,
