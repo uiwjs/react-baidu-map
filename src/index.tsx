@@ -34,3 +34,5 @@ export { default as GeolocationControl } from './GeolocationControl';
 export { default as useGeolocationControl } from './GeolocationControl/useGeolocationControl';
 export { default as OverviewMapControl } from './OverviewMapControl';
 export { default as useOverviewMapControl } from './OverviewMapControl/useOverviewMapControl';
+export { default as ScaleControl } from './ScaleControl';
+export { default as useScaleControl } from './ScaleControl/useScaleControl';

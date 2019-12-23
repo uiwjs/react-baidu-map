@@ -54,6 +54,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/overview-map-control'), options),
   },
   {
+    path: "/scale-control",
+    component: loadable(() => import('./pages/scale-control'), options),
+  },
+  {
     path: "/info-window",
     component: loadable(() => import('./pages/info-window'), options),
   },
@@ -134,8 +138,12 @@ export const menus = [
     path: '/geolocation-control',
   },
   {
-    label: 'OverviewMapControl 定位控件',
+    label: 'OverviewMapControl 缩略地图',
     path: '/overview-map-control',
+  },
+  {
+    label: 'ScaleControl 比例尺控件',
+    path: '/scale-control',
   },
   {
     divider: true,

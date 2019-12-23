@@ -1,10 +1,10 @@
-OverviewMapControl 缩略地图控件
+ScaleControl 比例尺控件
 ===
 
-缩略地图控件。你也可以使用 `Map` 组件 `widget` 属性来设置控件更方便。
+比例尺控件。你也可以使用 `Map` 组件 `widget` 属性来设置控件更方便。
 
 ```jsx
-import { OverviewMapControl, useOverviewMapControl } from '@uiw/react-baidu-map';
+import { ScaleControl, useScaleControl } from '@uiw/react-baidu-map';
 ```
 
 ### 基本用法
@@ -12,7 +12,7 @@ import { OverviewMapControl, useOverviewMapControl } from '@uiw/react-baidu-map'
 <!--DemoStart,bgWhite,noScroll--> 
 ```jsx
 import React, { useState, useRef } from 'react';
-import { Map, APILoader, OverviewMapControl } from '@uiw/react-baidu-map';
+import { Map, APILoader, ScaleControl } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [show, setShow] = useState(true);
@@ -23,16 +23,12 @@ const Example = () => {
       </button>
       <Map zoom={13}>
         {show && (
-          <OverviewMapControl isOpen />
+          <ScaleControl />
         )}
-        <OverviewMapControl
-          isOpen
+        <ScaleControl
           visiable={show}
           offset={new BMap.Size(40, 40)}
           anchor={BMAP_ANCHOR_TOP_RIGHT}
-          onViewChanged={() => {
-            console.log('onViewChanged ..')
-          }}
         />
       </Map>
     </>
@@ -52,19 +48,19 @@ ReactDOM.render((
 
 ### 使用 hooks
 
-`overviewMapControl`, `setGeolocationControl`
+`scaleControl`, `setScaleControl`
 
 <!--DemoStart,bgWhite--> 
 ```jsx
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useOverviewMapControl } from '@uiw/react-baidu-map';
+import { Map, APILoader, useMap, useScaleControl } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
   const [show, setShow] = useState(true);
   const { setContainer, map } = useMap();
-  const { overviewMapControl } = useOverviewMapControl({
-    map, anchor: BMAP_NAVIGATION_CONTROL_LARGE, visiable: show, isOpen: true,
+  const { scaleControl } = useScaleControl({
+    map, anchor: BMAP_NAVIGATION_CONTROL_LARGE, visiable: show,
   });
 
   useEffect(() => {
@@ -100,12 +96,4 @@ ReactDOM.render(<Demo />, _mount_);
 | visiable | 覆盖物是否可见。 | `boolean` | - |
 | anchor | 控件的位置偏移值。| `ControlAnchor` | `BMAP_ANCHOR_TOP_RIGHT` |
 | offset | 控件的水平偏移值。 | `BMap.Size` | - |
-| size | 缩略地图控件的大小 | `BMap.Size` | - |
-| isOpen | 缩略地图添加到地图后的开合状态，默认为关闭。 | `boolean` | - |
-
-### 事件
-
-| 参数 | 说明 | 类型 |
-| ----- | ----- | ----- |
-| onViewChanged | 缩略地图开合状态发生变化后触发此事件 | (event: { type: any, target: any, isOpen: boolean }) => void; |
-| onViewChanging | 缩略地图开合状态发生变化过程中触发此事件 | (event: { type: any, target: any }) => void; |
+| unit | 设置比例尺单位制 | `BMap.LengthUnit` | - |
