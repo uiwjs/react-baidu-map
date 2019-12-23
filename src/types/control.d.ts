@@ -103,6 +103,8 @@ declare namespace BMap {
    */
   class OverviewMapControl extends Control {
     constructor(opts: OverviewMapControlOptions);
+  }
+  interface OverviewMapControl {
     /**
      * 切换缩略地图控件的开合状态
      */
@@ -116,13 +118,17 @@ declare namespace BMap {
      */
     getSize?: () => Size;
     /**
-     * 缩略地图开合状态发生变化后触发此事件
+     * 添加事件监听函数
+     * @param event 
+     * @param handler 
      */
-    onviewchanged: (event: { type: string, target: any, isOpen: boolean }) => void;
+    addEventListener(event: string, handler: Callback): void;
     /**
-     * 缩略地图开合状态发生变化过程中触发此事件
+     * 移除事件监听函数
+     * @param event 
+     * @param handler 
      */
-    onviewchanging: (event: { type: string, target: any }) => void;
+    removeEventListener(event: string, handler: Callback): void;
   }
   type LengthUnit = string;
   /**
@@ -143,9 +149,21 @@ declare namespace BMap {
     setType: (type: NavigationControlType) => void;
   }
   interface OverviewMapControlOptions {
+    /**
+     * 控件的停靠位置
+     */
     anchor?: ControlAnchor;
+    /**
+     * 控件的偏移值
+     */
     offset?: Size;
+    /**
+     * 缩略地图控件的大小
+     */
     size?: Size;
+    /**
+     * 缩略地图添加到地图后的开合状态，默认为关闭
+     */
     isOpen?: boolean;
   }
   class CopyrightControl extends Control {

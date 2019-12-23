@@ -123,8 +123,8 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 |
 | ----- | ----- | ----- |
-| onLocationSuccess | 定位成功后触发此事件 | (event: { type: string, target: any, point: Point }) => void; |
-| locationError | 信息窗口被打开时触发此事件 | (event: { type: string, target: any, point: Point }) => void; |
+| onLocationSuccess | 定位成功后触发此事件 | (event: { point: BMap.Point, addressComponent: BMap.AddressComponent }) => void; |
+| onLocationError | 定位失败后触发此事件 | (event: { statusCode: BMap.StatusCode }) => void; |
 
 ### NavigationControlType
 

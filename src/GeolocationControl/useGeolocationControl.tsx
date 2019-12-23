@@ -27,7 +27,7 @@ export default function(props = {} as UseGeolocationControl) {
     'LocationSuccess', 'LocationError',
   ], 'CamelCase');
   useProperties<BMap.GeolocationControl, UseGeolocationControl>(geolocationControl!, props, [
-    'Anchor', 'Offset', 'Type'
+    'Anchor', 'Offset'
   ]);
   return {
     geolocationControl, setGeolocationControl,

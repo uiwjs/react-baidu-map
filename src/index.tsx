@@ -32,3 +32,5 @@ export { default as NavigationControl } from './NavigationControl';
 export { default as useNavigationControl } from './NavigationControl/useNavigationControl';
 export { default as GeolocationControl } from './GeolocationControl';
 export { default as useGeolocationControl } from './GeolocationControl/useGeolocationControl';
+export { default as OverviewMapControl } from './OverviewMapControl';
+export { default as useOverviewMapControl } from './OverviewMapControl/useOverviewMapControl';
