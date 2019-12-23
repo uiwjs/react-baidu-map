@@ -12,7 +12,7 @@ import { NavigationControl, useNavigationControl } from '@uiw/react-baidu-map';
 <!--DemoStart,bgWhite--> 
 ```jsx
 import React, { useState, useRef } from 'react';
-import { Map, APILoader, CopyrightControl } from '@uiw/react-baidu-map';
+import { Map, APILoader, NavigationControl } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [show, setShow] = useState(true);

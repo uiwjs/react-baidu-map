@@ -196,6 +196,20 @@ declare namespace BMap {
   class GeolocationControl extends Control {
     constructor(opts?: GeolocationControlOptions);
   }
+  interface GeolocationControl {
+    /**
+     * 添加事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    addEventListener(event: string, handler: Callback): void;
+    /**
+     * 移除事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    removeEventListener(event: string, handler: Callback): void;
+  }
   interface GeolocationControlOptions {
     /**
      * 控件的停靠位置

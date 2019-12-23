@@ -46,6 +46,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/navigation-control'), options),
   },
   {
+    path: "/geolocation-control",
+    component: loadable(() => import('./pages/geolocation-control'), options),
+  },
+  {
     path: "/info-window",
     component: loadable(() => import('./pages/info-window'), options),
   },
@@ -120,6 +124,10 @@ export const menus = [
   {
     label: 'NavigationControl 平移缩放控件',
     path: '/navigation-control',
+  },
+  {
+    label: 'GeolocationControl 定位控件',
+    path: '/geolocation-control',
   },
   {
     divider: true,

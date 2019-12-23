@@ -93,9 +93,21 @@ export function useProperties<T, F>(instance: T, props: F, propsName: string[] =
 }
 
 export interface EventListener {
+  /**
+   * 添加事件监听函数
+   * @param event 
+   * @param handler 
+   */
   addEventListener(event: string, handler: any): void;
+  /**
+   * 移除事件监听函数
+   * @param event 
+   * @param handler 
+   */
   removeEventListener(event: string, handler: any): void;
 }
+
+export type EventNameType = 'CamelCase' | 'PascalCase' | 'LowerCase';
 
 /**
  * 绑定事件
@@ -110,16 +122,23 @@ export interface EventListener {
  * ]);
  * ```
  */
-export function useEventProperties<T extends EventListener, F>(instance: T, props = {} as F, eventName: string[] = []) {
+export function useEventProperties<T extends EventListener, F>(instance: T, props = {} as F, eventName: string[] = [], type?: EventNameType) {
   eventName.forEach((name) => {
     const eventName = `on${name}` as keyof F;
     const eventHandle = props[eventName];
-    const prevEvent = usePrevious(eventHandle);
     useEffect(() => {
       if(!instance) return;
       if (eventHandle && name) {
-        instance.removeEventListener(name.toLowerCase(), prevEvent);
-        instance.addEventListener(name.toLowerCase(), eventHandle);
+        let eName = name;
+        if (type === 'CamelCase') {
+          eName = name.replace(name[0],name[0].toLowerCase())
+        } else {
+          eName = name.toLowerCase();
+        }
+        instance.addEventListener(eName, eventHandle);
+        return () => {
+          instance.removeEventListener(eName, eventHandle);
+        }
       }
     }, [instance, props[eventName]]);
   });
