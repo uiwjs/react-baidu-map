@@ -62,6 +62,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/map-type-control'), options),
   },
   {
+    path: "/panorama-control",
+    component: loadable(() => import('./pages/panorama-control'), options),
+  },
+  {
     path: "/info-window",
     component: loadable(() => import('./pages/info-window'), options),
   },
@@ -152,6 +156,10 @@ export const menus = [
   {
     label: 'MapTypeControl 地图类型控件',
     path: '/map-type-control',
+  },
+  {
+    label: 'PanoramaControl 全景地图控件',
+    path: '/panorama-control',
   },
   {
     divider: true,

@@ -38,3 +38,5 @@ export { default as ScaleControl } from './ScaleControl';
 export { default as useScaleControl } from './ScaleControl/useScaleControl';
 export { default as MapTypeControl } from './MapTypeControl';
 export { default as useMapTypeControl } from './MapTypeControl/useMapTypeControl';
+export { default as PanoramaControl } from './PanoramaControl';
+export { default as usePanoramaControl } from './PanoramaControl/usePanoramaControl';
