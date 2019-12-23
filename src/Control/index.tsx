@@ -7,11 +7,11 @@ export interface ControlProps extends OverlayProps {
   /**
    * 控件默认的停靠位置。自定义控件时需要提供此属性，作为控件的默认停靠位置
    */
-  defaultAnchor?: BMap.ControlAnchor;
+  anchor?: BMap.ControlAnchor;
   /**
    * 控件默认的位置偏移值。自定义控件时需要提供此属性，作为控件的默认偏移位置
    */
-  defaultOffset?: BMap.Size;
+  offset?: BMap.Size;
   /**
    * 自定义 DOM 元素。
    */
