@@ -10,6 +10,8 @@ react-baidu-map
 
 这是一个基于 React 封装的百度地图组件，帮助你轻松的接入地图到 React 项目中，[Gitee 镜像仓库](https://gitee.com/uiw/react-baidu-map)。
 
+![](https://user-images.githubusercontent.com/1680273/71525077-35126b00-290b-11ea-9a11-ffd8b30dc9b8.png)
+
 文档实例预览: [Github](https://uiwjs.github.io/react-baidu-map/) | [Gitee](https://uiw.gitee.io/react-baidu-map/)
 
 ### 特性
