@@ -174,13 +174,20 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| widget | 百度地图上负责与地图交互的UI元素称为控件，实例参考。[`百度控件文档`](http://lbsyun.baidu.com/index.php?title=jspopular3.0/guide/widget) | `string[]`/`object[]` | `[]` |
+| widget | 百度地图上负责与地图交互的UI元素称为控件，实例参考。[百度控件文档](http://lbsyun.baidu.com/index.php?title=jspopular3.0/guide/widget) | `string[]`/`object[]` | `[]` |
 | center | 定位, 可使用如 `上海市青浦区` 的地区字符串，也可以使用对象如 `{lng: 121.424333, lat: 31.228604}` 表示经纬度。[百度拾取坐标系统](http://api.map.baidu.com/lbsapi/getpoint/index.html) | Point,String | `上海市` |
 | autoLocalCity | 设为 `true`, IP定位获取当前城市，进行自动定位 | boolean | - |
-| zoom | 缩放等级，如果 `center` 类型为 `Point` 时，zoom必须赋值，范围 `3-19` 级， 若调用高清底图（针对移动端开发）时，zoom 可赋值范围为 `3-18` 级。 如果center类型为字符串时，比如“北京”，zoom可以忽略，地图将自动根据 `center` 适配最佳 `zoom` 级别 | number | - |
-| minZoom | 地图允许展示的最小级别 | number | - |
-| maxZoom | 地图允许展示的最大级别 | number | - |
+| zoom | 缩放等级，如果 `center` 类型为 `Point` 时，zoom必须赋值，范围 `3-19` 级， 若调用高清底图（针对移动端开发）时，zoom 可赋值范围为 `3-18` 级。 如果center类型为字符串时，比如“北京”，zoom可以忽略，地图将自动根据 `center` 适配最佳 `zoom` 级别 | `number` | - |
+| minZoom | 地图允许展示的最小级别 | `number` | - |
+| maxZoom | 地图允许展示的最大级别 | `number` | - |
 | mapType | 地图类型 | MapType | `BMAP_NORMAL_MAP` |
+| mapStyle | 设置地图样式 | `MapStyle` | - |
+| defaultCursor | 设置地图默认的鼠标指针样式。参数 `cursor` 应符合 CSS 的 `cursor` 属性规范 | `string` | - |
+| draggingCursor | 设置拖拽地图时的鼠标指针样式。参数 `cursor` 应符合 CSS 的 `cursor` 属性规范 | `string` | - |
+| panorama | 将全景实例与Map类进行绑定 | `Panorama` | - |
+| currentCity | 设置地图城市，注意当地图初始化时的类型设置为 `BMAP_NORMAL_MAP` 时，需要在调用 `centerAndZoom` 之前调用此方法设置地图所在城市。例如： `var map = new BMap.Map(“container”, {mapType: BMAP_NORMAL_MAP}); map.setCurrentCity(“北京市”); map.centerAndZoom(new BMap.Point(116.404, 39.915), 18);` 注意：初始化的坐标应与您设置的城市对应，否则地图将无法正常显示。 | string | - |
+| viewport | 根据提供的地理区域或坐标设置地图视野，调整后的视野会保证包含提供的地理区域或坐标 | `(view: Array<Point> | Viewport, viewportOptions: ViewportOptions)` | - |
+| mapStyleV2 | 设置地图样式的个性化地图服务V2，使用对象字面量形式表示，样式Json，通过[编辑器生成](http://lbsyun.baidu.com/apiconsole/custommap)。(支持Canvas) | `{ styleJson: MapStyleItem[] }` / `{styleId: string}` | - |
 | enableHighResolution | 是否启用使用高分辨率地图。在iPhone4及其后续设备上，可以通过开启此选项获取更高分辨率的底图，v1.2,v1.3版本默认不开启，v1.4 默认为开启状态 | boolean | - |
 | enableAutoResize | 地图允许展示的最大级别 | boolean | `true` |
 | enableMapClick | 是否开启底图可点功能 | boolean | `true` |

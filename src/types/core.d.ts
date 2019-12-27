@@ -98,7 +98,7 @@ declare namespace BMap {
     /**
      * 设置地图样式，样式包括地图底图颜色和地图要素是否展示两部分
      */
-    setMapStyle(): void;
+    setMapStyle(style: MapStyle): void;
     /**
      * 设置地图个性化样式V2版本，仅支持现代浏览器（支持Canvas）
      */
@@ -516,11 +516,11 @@ declare namespace BMap {
     /**
      * 设置地图底图样式，目前支持normal（默认样式）,dark（深色样式）,light（浅色样式）三种
      */
-    style: string;
+    style: 'normal' | 'dark' | 'light';
   }
   /**
    * 该类用于设置地图样式的个性化地图服务V2，使用对象字面量形式表示，不可实例化。
-   * 样式Json，通过[`编辑器生成`](http://lbsyun.baidu.com/customv2/index.html)
+   * 样式Json，通过[`编辑器生成`](http://lbsyun.baidu.com/apiconsole/custommap)
    */
   type MapStyleV2 = { styleJson: MapStyleItem[] } | { styleId: string };
 }
