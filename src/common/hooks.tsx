@@ -65,8 +65,7 @@ export function useProperties<T, F>(instance: T, props: F, propsName: string[] =
     const eName = `${name.charAt(0).toLowerCase()}${name.slice(1)}` as keyof F;
     const [state, setState] = useState(props[eName]);
     useEffect(() => {
-      if (!instance) return;
-      if (instance[`set${name}` as keyof T] && props[eName] !== undefined) {
+      if (instance && instance[`set${name}` as keyof T] && props[eName] !== undefined) {
         /**
          * 坐标点的参数设置，比对, 坐标点的参数设置
          */
@@ -85,7 +84,13 @@ export function useProperties<T, F>(instance: T, props: F, propsName: string[] =
         (instance[`set${name}` as keyof T] as any)(data);
         // 属性发生变化缓存
         if (state !== props[eName]) {
-          setState(props[eName]);
+          if (eName === 'bounds') {
+            if (state && props[eName] && !(state as any).equals(props[eName])) {
+              setState(props[eName]);
+            }
+          } else {
+            setState(props[eName]);
+          }
         }
       }
     }, [instance, props[eName]]);

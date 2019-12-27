@@ -11,12 +11,6 @@ declare namespace BMap {
     hide?(): void;
   }
   type SymbolShapeType = number;
-  interface GroundOverlayOptions {
-    opacity?: number;
-    imageURL?: string;
-    displayOnMinLevel?: number;
-    displayOnMaxLevel?: number;
-  }
   /**
    * 此类表示地图上一个图像标注。
    */
@@ -1259,55 +1253,123 @@ declare namespace BMap {
     /**
      * 点击折线后会触发此事件
      */
-    onClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 双击折线后会触发此事件
      */
-    onDblClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDblClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标在折线上按下触发此事件
      */
-    onMouseDown(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseDown?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标在折线释放触发此事件
      */
-    onMouseUp(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseUp?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标离开折线时触发此事件
      */
-    onMouseOut(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOut?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 当鼠标进入折线区域时会触发此事件
      */
-    onMouseOver(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOver?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 移除折线时触发
      */
-    onRemove(event: { type: string, target: any }): void;
+    onRemove?(event: { type: string, target: any }): void;
     /**
      * 覆盖物的属性发生变化时触发
      */
-    onLineUpdate(event: { type: string, target: any }): void;
+    onLineUpdate?(event: { type: string, target: any }): void;
   }
   class Polyline {
     constructor(points: Point[], opts?: PolylineOptions);
   }
   interface GroundOverlay extends Overlay {
-    setBounds(bounds: Bounds): void;
+    /**
+     * 设置图层显示的矩形区域
+     */
+    setBounds(bounds: Bounds): none;
+    /**
+     * 返回图层显示的矩形区域
+     */
     getBounds(): Bounds;
-    setOpacity(opcity: number): void;
+    /**
+     * 设置图层的透明度
+     */
+    setOpacity(opcity: number): none;
+    /**
+     * 返回图层的透明度
+     */
     getOpacity(): number;
-    setImageURL(url: string): void;
+    /**
+     * 返回图层地址
+     */
+    setImageURL(url: string): none;
+    /**
+     * 返回图层地址
+     */
     getImageURL(): string;
-    setDisplayOnMinLevel(level: number): void;
+    /**
+     * 设置图层显示的最小级别
+     */
+    setDisplayOnMinLevel(level: number): none;
+    /**
+     * 返回图层显示的最小级别
+     */
     getDisplayOnMinLevel(): number;
-    setDispalyOnMaxLevel(level: number): void;
+    /**
+     * 设置图层显示的最大级别
+     */
+    setDispalyOnMaxLevel(level: number): none;
+    /**
+     * 返回图层显示的最大级别
+     */
     getDispalyOnMaxLevel(): number;
-    onclick: (event: { type: string, target: any }) => void;
-    ondblclick: (event: { type: string, target: any }) => void;
+    /**
+     * 添加事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    addEventListener(event: string, handler: Callback): void;
+    /**
+     * 移除事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    removeEventListener(event: string, handler: Callback): void;
+  }
+  interface GroundOverlayEvents {
+    /**
+     * 鼠标点击图层后会触发此事件
+     */
+    onClick?(event: { type: string, target: any }): void;
+    /**
+     * 鼠标双击图层后会触发此事件
+     */
+    onDblClick?(event: { type: string, target: any }): void;
   }
   class GroundOverlay {
     constructor(bounds: Bounds, opts?: GroundOverlayOptions);
+  }
+  interface GroundOverlayOptions {
+    /**
+     * 图层透明度
+     */
+    opacity?: number;
+    /**
+     * 图层地址
+     */
+    imageURL?: string;
+    /**
+     * 图层显示的最小级别
+     */
+    displayOnMinLevel?: number;
+    /**
+     * 图层显示的最大级别
+     */
+    displayOnMaxLevel?: number;
   }
   interface HotspotOptions {
     /**

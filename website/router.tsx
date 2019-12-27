@@ -50,6 +50,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/geolocation-control'), options),
   },
   {
+    path: "/ground-overlay",
+    component: loadable(() => import('./pages/ground-overlay'), options),
+  },
+  {
     path: "/overview-map-control",
     component: loadable(() => import('./pages/overview-map-control'), options),
   },
@@ -192,6 +196,10 @@ export const menus = [
   {
     label: 'Circle 圆',
     path: '/circle',
+  },
+  {
+    label: 'GroundOverlay 地面叠加层',
+    path: '/ground-overlay',
   },
   {
     label: 'CanvasLayer 自定义Canvas',

@@ -40,3 +40,5 @@ export { default as MapTypeControl } from './MapTypeControl';
 export { default as useMapTypeControl } from './MapTypeControl/useMapTypeControl';
 export { default as PanoramaControl } from './PanoramaControl';
 export { default as usePanoramaControl } from './PanoramaControl/usePanoramaControl';
+export { default as GroundOverlay } from './GroundOverlay';
+export { default as useGroundOverlay } from './GroundOverlay/useGroundOverlay';

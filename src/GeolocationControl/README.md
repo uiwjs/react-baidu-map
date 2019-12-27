@@ -118,7 +118,6 @@ ReactDOM.render(<Demo />, _mount_);
 | enableAutoLocation | 添加控件时是否进行定位。默认添加控件时不进行定位。 | `boolean` | - |
 | locationIcon | 可自定义定位中心点的 `Icon` 样式。 | `Icon` | - |
 
-
 ### 事件
 
 | 参数 | 说明 | 类型 |
