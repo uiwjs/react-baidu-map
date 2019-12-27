@@ -21,7 +21,7 @@ export type ControlOptions = {
 
 export type ControlOptionsAll = keyof Control | ControlOptions;
 
-export interface MapProps extends BMap.MapOptions {
+export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
   /**
