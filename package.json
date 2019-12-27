@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map",
-  "version": "1.14.0",
+  "version": "1.14.1",
   "description": "Baidu Map Components for React.",
   "author": "kenny wong <wowohoo@qq.com>",
   "main": "lib/cjs/index.js",
@@ -33,7 +33,10 @@
     "react-baidu-map",
     "baidu-map",
     "baidu",
-    "map"
+    "map",
+    "react-bmap",
+    "bmap",
+    "bdmap"
   ],
   "license": "MIT",
   "peerDependencies": {
