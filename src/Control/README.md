@@ -27,7 +27,7 @@ const Example = () => {
         }}
       >
         <div
-          style={{ background: 'gray', padding: '10px' }}
+          style={{ background: 'gray', padding: '10px', fontSize: 12 }}
           onClick={() => setCount(count + 1)}
         >
           Current Count: {count}
@@ -35,7 +35,7 @@ const Example = () => {
       </Control>
       <Control anchor={BMAP_ANCHOR_TOP_RIGHT}>
         <div
-          style={{ background: 'gray', padding: '10px', display: 'inline-block' }}
+          style={{ background: 'gray', padding: '10px', fontSize: 12, display: 'inline-block' }}
           onClick={() => {
             const instanceMap = map.current.map
             if (instanceMap) {
@@ -46,7 +46,7 @@ const Example = () => {
           放大2级
         </div>
         <div
-          style={{ background: 'gray', padding: '10px', display: 'inline-block', color: '#fff' }}
+          style={{ background: 'gray', padding: '10px', fontSize: 12, display: 'inline-block', color: '#fff' }}
           onClick={() => {
             const instanceMap = map.current.map
             if (instanceMap) {
