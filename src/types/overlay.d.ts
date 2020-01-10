@@ -183,55 +183,55 @@ declare namespace BMap {
     /**
      * 点击标注图标后会触发此事件
      */
-    onClick(event: { type: string, target: any }): void;
+    onClick?(event: { type: string, target: any }): void;
     /**
      * 双击标注图标后会触发此事件
      */
-    onDblClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDblClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标在标注图上按下触发此事件
      */
-    onMouseDown(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseDown?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标在标注图上释放触发此事件
      */
-    onMouseUp(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseUp?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标离开标注时触发此事件
      */
-    onMouseOut(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOut?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 当鼠标进入标注图标区域时会触发此事件
      */
-    onMouseOver(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOver?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 移除标注时触发
      */
-    onRemove(event: { type: string, target: any }): void;
+    onRemove?(event: { type: string, target: any }): void;
     /**
      * 信息窗在此标注上关闭时触发此事件
      */
-    onInfowindowClose(event: { type: string, target: any }): void;
+    onInfowindowClose?(event: { type: string, target: any }): void;
     /**
      * 信息窗在此标注上打开时触发此事件
      */
-    onInfowindowOpen(event: { type: string, target: any }): void;
+    onInfowindowOpen?(event: { type: string, target: any }): void;
     /**
      * 开始拖拽标注时触发此事件
      */
-    onDragStart(event: { type: string, target: any }): void;
+    onDragStart?(event: { type: string, target: any }): void;
     /**
      * 拖拽标注过程中触发此事件
      */
-    onDragging(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDragging?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 拖拽结束时触发此事件
      */
-    onDragEnd(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDragEnd?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 右键点击标注时触发此事件
      */
-    onRightClick(event: { type: string, target: any }): void;
+    onRightClick?(event: { type: string, target: any }): void;
   }
   interface SymbolOptions {
     anchor?: Size;
@@ -326,23 +326,23 @@ declare namespace BMap {
     /**
      * 信息窗口被关闭时触发此事件
      */
-    onClose: (event: { type: string, target: any, point: Point }) => void;
+    onClose?: (event: { type: string, target: any, point: Point }) => void;
     /**
      * 信息窗口被打开时触发此事件
      */
-    onOpen: (event: { type: string, target: any, point: Point }) => void;
+    onOpen?: (event: { type: string, target: any, point: Point }) => void;
     /**
      * 信息窗口最大化后触发此事件
      */
-    onMaximize: (event: { type: string, target: any }) => void;
+    onMaximize?: (event: { type: string, target: any }) => void;
     /**
      * 信息窗口还原时触发此事件
      */
-    onRestore: (event: { type: string, target: any }) => void;
+    onRestore?: (event: { type: string, target: any }) => void;
     /**
      * 点击信息窗口的关闭按钮时触发此事件
      */
-    onClickclose: (event: { type: string, target: any }) => void;
+    onClickclose?: (event: { type: string, target: any }) => void;
   }
   interface InfoWindow extends Overlay {
     /**
@@ -645,35 +645,35 @@ declare namespace BMap {
     /**
      * 点击多边形后会触发此事件
      */
-    onClick: (event: { type: string, target: any }) => void;
+    onClick?: (event: { type: string, target: any }) => void;
     /**
      * 双击多边形后会触发此事件
      */
-    onDoubleClick: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onDoubleClick?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
     /**
      * 鼠标在多边形上按下触发此事件
      */
-    onMouseDown: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseDown?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
     /**
      * 鼠标在多边形释放触发此事件
      */
-    onMouseUp: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseUp?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
     /**
      * 鼠标离开多边形时触发此事件
      */
-    onMouseOut: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseOut?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
     /**
      * 当鼠标进入多边形区域时会触发此事件
      */
-    onMouseOver: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseOver?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
     /**
      * 移除多边形时触发
      */
-    onRemove: (event: { type: string, target: any }) => void;
+    onRemove?: (event: { type: string, target: any }) => void;
     /**
      * 覆盖物的属性发生变化时触发
      */
-    onLineUpdate: (event: { type: string, target: any }) => void;
+    onLineUpdate?: (event: { type: string, target: any }) => void;
   }
   /**
    * 此常量表示标注的动画效果。
@@ -817,35 +817,35 @@ declare namespace BMap {
     /**
      * 点击文本标注后会触发此事件
      */
-    onClick: (event: { type: string, target: any }) => void;
+    onClick?: (event: { type: string, target: any }) => void;
     /**
      * 双击文本标注后会触发此事件
      */
-    onDblClick: (event: { type: string, target: any }) => void;
+    onDblClick?: (event: { type: string, target: any }) => void;
     /**
      * 鼠标在文本标注上按下触发此事件
      */
-    onMouseDown: (event: { type: string, target: any }) => void;
+    onMouseDown?: (event: { type: string, target: any }) => void;
     /**
      * 鼠标在文本标注释放触发此事件
      */
-    onMouseUp: (event: { type: string, target: any }) => void;
+    onMouseUp?: (event: { type: string, target: any }) => void;
     /**
      * 鼠标离开文本标注时触发此事件
      */
-    onMouseOout: (event: { type: string, target: any }) => void;
+    onMouseOout?: (event: { type: string, target: any }) => void;
     /**
      * 当鼠标进入文本标注区域时会触发此事件
      */
-    onMouseOver: (event: { type: string, target: any }) => void;
+    onMouseOver?: (event: { type: string, target: any }) => void;
     /**
      * 移除文本标注时触发
      */
-    onRemove: (event: { type: string, target: any }) => void;
+    onRemove?: (event: { type: string, target: any }) => void;
     /**
      * 右键点击标注时触发此事件
      */
-    onRightClick: (event: { type: string, target: any }) => void;
+    onRightClick?: (event: { type: string, target: any }) => void;
   }
   /**
    * 此类表示地图上的文本标注。
@@ -1023,35 +1023,35 @@ declare namespace BMap {
     /**
      * 鼠标点击圆形后会触发此事件
      */
-    onClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标双击圆形后会触发此事件
      */
-    onDblClick(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDblClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标在圆形上按下触发此事件
      */
-    onMouseDown(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseDown?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标在圆形释放触发此事件
      */
-    onMouseUp(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseUp?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 鼠标离开圆形时触发此事件
      */
-    onMouseOut(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOut?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 当鼠标进入圆形区域时会触发此事件
      */
-    onMouseOver(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOver?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
     /**
      * 移除圆形时触发此事件
      */
-    onRemove(event: { type: string, target: any }): void;
+    onRemove?(event: { type: string, target: any }): void;
     /**
      * 圆形覆盖物的属性发生变化时触发此事件
      */
-    onLineUpdate(event: { type: string, target: any }): void;
+    onLineUpdate?(event: { type: string, target: any }): void;
   }
   type SizeType = number;
   interface IconOptions {

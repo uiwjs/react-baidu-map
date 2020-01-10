@@ -2,7 +2,7 @@ import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useCircle from './useCircle';
 
-export interface CircleProps extends BMap.CircleOptions, BMap.CircleEvents, OverlayProps {
+export interface CircleProps extends OverlayProps, BMap.CircleOptions, BMap.CircleEvents {
   /**
    * 设置折线的点数组
    */
