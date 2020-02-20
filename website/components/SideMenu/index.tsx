@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { menus } from '../../router';
 import styles from './index.module.less';
 
 export default function SideMenu() {
-  let { pathname } = useLocation();
   return (
     <div className={styles.side}>
       <div className={styles.logo}>
