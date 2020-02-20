@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  HashRouter,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import GitHubCorners from '@uiw/react-github-corners';
 import { routes } from '../../router';
 import SideMenu from '../../components/SideMenu';
