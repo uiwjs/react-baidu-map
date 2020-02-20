@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "29d1dc44dfe593c5ca16874d845fb642",
+    "revision": "a0ec42e1123579a30f23924601c3377d",
     "url": "/react-baidu-map/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/css/0.507a7b65.chunk.css"
   },
   {
-    "revision": "001dd582231dba81f82a",
+    "revision": "51350e1d31a26b2f9fad",
     "url": "/react-baidu-map/static/css/1.53558320.chunk.css"
   },
   {
-    "revision": "d06bc4ece8547cc886e1",
+    "revision": "0ceaef2ff0c10be4139a",
     "url": "/react-baidu-map/static/css/10.c60a68b6.chunk.css"
   },
   {
-    "revision": "a9922f2de872a220c05b",
+    "revision": "150f792245cc5ec0a8f4",
     "url": "/react-baidu-map/static/css/main.302a08a6.chunk.css"
   },
   {
@@ -28,16 +28,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/0.845c1788.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "001dd582231dba81f82a",
-    "url": "/react-baidu-map/static/js/1.220fe771.chunk.js"
+    "revision": "51350e1d31a26b2f9fad",
+    "url": "/react-baidu-map/static/js/1.d4bc23f4.chunk.js"
   },
   {
-    "revision": "d06bc4ece8547cc886e1",
-    "url": "/react-baidu-map/static/js/10.1eed8ec4.chunk.js"
+    "revision": "0ceaef2ff0c10be4139a",
+    "url": "/react-baidu-map/static/js/10.057b82d8.chunk.js"
   },
   {
     "revision": "03bcdd43784406779a21ee22fcb0305d",
-    "url": "/react-baidu-map/static/js/10.1eed8ec4.chunk.js.LICENSE.txt"
+    "url": "/react-baidu-map/static/js/10.057b82d8.chunk.js.LICENSE.txt"
   },
   {
     "revision": "d909bbda550b44de746e",
@@ -704,12 +704,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/99.2a17fcd0.chunk.js"
   },
   {
-    "revision": "a9922f2de872a220c05b",
-    "url": "/react-baidu-map/static/js/main.65aefe3a.chunk.js"
+    "revision": "150f792245cc5ec0a8f4",
+    "url": "/react-baidu-map/static/js/main.80104870.chunk.js"
   },
   {
-    "revision": "18b805b7c02c52e05c15",
-    "url": "/react-baidu-map/static/js/runtime-main.06d58912.js"
+    "revision": "41e079e9a89c101b4ff1",
+    "url": "/react-baidu-map/static/js/runtime-main.1a0cbafb.js"
   },
   {
     "revision": "fbb9e99f420769ece2aaf13517430834",
