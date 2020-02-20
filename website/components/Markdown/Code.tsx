@@ -21,6 +21,9 @@ export default function Code({ language, value, dependencies, ...other }: CodePr
       const propsArr: ICodePreviewProps[] = JSON.parse(RegExp.$1);
       propsArr.forEach((item) => {
         Object.keys(item).forEach((keyName) => {
+          if (keyName === 'codePen') {
+            return;
+          }
           props[keyName as keyof ICodePreviewProps] = item[keyName as keyof ICodePreviewProps];
         })
       });
