@@ -71,6 +71,29 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
    * PgUp、PgDn、Home和End键会使地图平移其1/2的大小。+、-键会使地图放大或缩小一级
    */
   enableKeyboard?: boolean;
+  /**
+   * 设置地图个性化样式V2版本，仅支持现代浏览器（支持Canvas）
+   */
+  mapStyleV2?: BMap.MapStyleV2;
+  /**
+   * 设置地图城市，注意当地图初始化时的类型设置为 `BMAP_NORMAL_MAP` 时，
+   * 需要在调用 `centerAndZoom` 之前调用此方法设置地图所在城市。
+   * 例如： 
+   * @example
+   * 
+   * ```js
+   * var map = new BMap.Map(“container”, { mapType: BMAP_NORMAL_MAP });
+   * map.setCurrentCity(“北京市”);
+   * map.centerAndZoom(new BMap.Point(116.404, 39.915), 18);
+   * ```
+   * 
+   * 注意：初始化的坐标应与您设置的城市对应，否则地图将无法正常显示。
+   */
+  currentCity?: string;
+  /**
+   * 将全景实例与Map类进行绑定
+   */
+  panorama?: BMap.Panorama;
 }
 
 export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps>(({ className, style, children, ...props }, ref) => {
