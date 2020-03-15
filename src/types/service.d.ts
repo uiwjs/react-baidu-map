@@ -143,10 +143,25 @@ declare namespace BMap {
   }
   type DrivingPolicy = number;
   interface AddressComponent {
+    /**
+     * 门牌号码
+     */
     streetNumber: string;
+    /**
+     * 街道名称
+     */
     street: string;
+    /**
+     * 区县名称
+     */
     district: string;
+    /**
+     * 城市名称
+     */
     city: string;
+    /**
+     * 省份名称
+     */
     province: string;
   }
   interface BusLine {
@@ -369,8 +384,18 @@ declare namespace BMap {
     getDistance(format?: boolean): string | number;
   }
   interface GeolocationResult {
+    /**
+     * 定位坐标点
+     */
     point: Point;
+    /**
+     * 定位坐标点
+     */
     accuracy: number;
+    /**
+     * 根据定位坐标点解析出的地址信息，可能为空（3.0新增）
+     */
+    address: AddressComponent;
   }
   class Boundary {
     constructor();
