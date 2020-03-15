@@ -265,15 +265,59 @@ declare namespace BMap {
   }
   class Autocomplete {
     constructor(opts?: AutocompleteOptions);
+    /**
+     * 显示提示列表
+     */
     show(): void;
+    /**
+     * 显示提示列表
+     */
     hide(): void;
+    /**
+     * 修改请求数据类型。types定义方法详见AutocompleteOptions
+     */
     setTypes(types: string[]): void;
+    /**
+     * 设置检索区域
+     */
     setLocation(location: string | Map | Point): void;
+    /**
+     * 发起某个关键字的提示请求，会引起onSearchComplete的回调
+     */
     search(keywords: string): void;
+    /**
+     * 获取结果列表
+     */
     getResults(): AutocompleteResult;
+    /**
+     * 设置绑定的input控件的值，且不会出现下拉列表
+     */
     setInputValue(keyword: string): void;
+    /**
+     * 设置绑定的input控件的值，且不会出现下拉列表
+     */
     dispose(): void;
+    /**
+     * 回车选中某条记录后触发 item : 
+     * { 
+     *  index : 1 `高亮的记录，所属返回结果的index` ,
+     *  value : {} `结果数据，见AutocompleteResultPoi`
+     * }
+     */
     onconfirm: (event: { type: string, target: any, item: any }) => void;
+    /**
+     * 键盘或者鼠标移动，某条记录高亮之后，触发
+     * fromitem:
+     * {
+     *  `上一条记录的信息`
+     *  index : 2
+     *  `高亮的记录，所属返回结果的index`,
+     *  value : {}
+     *  `结果数据，见AutocompleteResultPoi`
+     * },
+     * toitem: {`当前记录的信息，与fromitem结构一致`}
+     * AutocompleteOptions
+     */
     onhighlight: (event: { type: string, target: any, fromitem: any, toitem: any }) => void;
   }
   class TransitRoute {
