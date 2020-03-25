@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-baidu-map/precache-manifest.60ff2a517cf1cc7042e8707aae06093d.js"
+  "/react-baidu-map/precache-manifest.46deb353c08b70790a5adb83573a4c36.js"
 );
 
 self.addEventListener('message', (event) => {
