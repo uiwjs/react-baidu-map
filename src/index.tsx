@@ -12,6 +12,8 @@ export { default as Marker } from './Marker';
 export { default as useMarker } from './Marker/useMarker';
 export { default as Label } from './Label';
 export { default as useLabel } from './Label/useLabel';
+export { default as TileLayer } from './TileLayer';
+export { default as useTileLayer } from './TileLayer/useTileLayer';
 export { default as InfoWindow } from './InfoWindow';
 export { default as useInfoWindow } from './InfoWindow/useInfoWindow';
 export { default as PointCollection } from './PointCollection';

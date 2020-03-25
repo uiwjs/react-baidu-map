@@ -105,6 +105,10 @@ export const routes: Routes = [
     path: "/custom-overlay",
     component: loadable(() => import('./pages/custom-overlay'), options),
   },
+  {
+    path: "/tile-layer",
+    component: loadable(() => import('./pages/tile-layer'), options),
+  },
 ];
 
 
@@ -208,6 +212,10 @@ export const menus = [
   {
     label: 'CustomOverlay 自定义覆盖物',
     path: '/custom-overlay',
+  },
+  {
+    label: 'TileLayer 地图图层',
+    path: '/tile-layer',
   },
   {
     divider: true,
