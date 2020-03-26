@@ -9,6 +9,8 @@ import { Label, useLabel } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
+官方原生 JS 实例：https://lbsyun.baidu.com/jsdemo.htm#c1_14
+
 <!--DemoStart,bgWhite--> 
 ```jsx
 import React, { useState } from 'react';

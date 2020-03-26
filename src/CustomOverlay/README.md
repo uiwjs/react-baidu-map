@@ -1,13 +1,15 @@
 CustomOverlay 自定义覆盖物
 ===
 
-用于渲染自定义的 DOM 对象
+用于渲染自定义的 DOM 对象。
 
 ```jsx
 import { CustomOverlay, useCustomOverlay } from '@uiw/react-baidu-map';
 ```
 
 ### 基本用法
+
+官方原生 JS 实例：https://lbsyun.baidu.com/jsdemo.htm#c1_11
 
 <!--DemoStart,bgWhite--> 
 ```jsx
