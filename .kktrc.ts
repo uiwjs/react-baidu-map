@@ -1,4 +1,6 @@
 import path from 'path';
+import webpack from 'webpack';
+import { OptionConf, Webpack } from 'kkt';
 
 export const moduleScopePluginOpts = [
   path.resolve(process.cwd(), 'README.md'),
@@ -33,9 +35,9 @@ export const loaderOneOf = [
   [require.resolve('@kkt/loader-less'), {}],
 ]
 
-export default (conf, opts, webpack) => {
+export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack) => {
   const pkg = require(path.resolve(process.cwd(), 'package.json'));
-  conf.module.rules.map((item) => {
+  conf.module!.rules.map((item) => {
     if (item.oneOf) {
       item.oneOf.unshift({
         test: /\.md$/,
@@ -45,7 +47,7 @@ export default (conf, opts, webpack) => {
     return item;
   });
   // 获取版本
-  conf.plugins.push(
+  conf.plugins!.push(
     new webpack.DefinePlugin({
       VERSION: JSON.stringify(pkg.version),
     })
