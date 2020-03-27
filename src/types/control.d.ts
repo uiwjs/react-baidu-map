@@ -268,6 +268,12 @@ declare namespace BMap {
   class PanoramaControl extends Control {
     constructor();
   }
+
+  /**
+   * 绘制模式
+   */
+  type DrawingType = string;
+
 }
 
 /**
@@ -312,6 +318,20 @@ declare const BMAP_NAVIGATION_CONTROL_ZOOM: BMap.NavigationControlType;
 declare const BMAP_MAPTYPE_CONTROL_HORIZONTAL: BMap.MapTypeControlType;
 declare const BMAP_MAPTYPE_CONTROL_DROPDOWN: BMap.MapTypeControlType;
 declare const BMAP_MAPTYPE_CONTROL_MAP: BMap.MapTypeControlType;
+
+/**
+ * 设置当前的绘制模式
+ * - `BMAP_DRAWING_MARKER` 画点
+ * - `BMAP_DRAWING_CIRCLE` 画圆
+ * - `BMAP_DRAWING_POLYLINE` 画线
+ * - `BMAP_DRAWING_POLYGON` 画多边形
+ * - `BMAP_DRAWING_RECTANGLE` 画矩形
+ */
+declare const BMAP_DRAWING_MARKER: BMap.DrawingType;
+declare const BMAP_DRAWING_CIRCLE: BMap.DrawingType;
+declare const BMAP_DRAWING_POLYLINE: BMap.DrawingType;
+declare const BMAP_DRAWING_POLYGON: BMap.DrawingType;
+declare const BMAP_DRAWING_RECTANGLE: BMap.DrawingType;
 
 /**
  * 此常量用于描述对象当前状态。

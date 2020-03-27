@@ -14,12 +14,34 @@ export default (props = {} as UseCurveLine) => {
   const [loadMapLib, setLoadBMapLib] = useState(false || !!libSDK);
   const opts = { strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableClicking, icons, }
   useMemo(() => {
+    // 如果第一次加载，会执行下面的
     if (map && bMapLib && !curveLine) {
-      const points = (props.path || []).map((item) => new BMap.Point(item.lng, item.lat));
-      const instance = new BMapLib.CurveLine(points, opts);
-      map.addOverlay(instance);
-      setCurveLine(instance);
+      if(bMapLib.CurveLine) {
+        const points = (props.path || []).map((item) => new BMap.Point(item.lng, item.lat));
+        const instance = new BMapLib.CurveLine(points, opts);
+        map.addOverlay(instance);
+        setCurveLine(instance);
+      }
     }
+
+    // 如果 bMapLib 已经加载过，会执行下面的
+    if(map && bMapLib && !bMapLib.CurveLine) {
+      requireScript('//api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js').then(() => {
+        if (window.BMapLib) {
+          const newMapLib = Object.assign(window.BMapLib, bMapLib)
+          setBMapLib(newMapLib)
+
+          const points = (props.path || []).map((item) => new BMap.Point(item.lng, item.lat));
+          const instance = new BMapLib.CurveLine(points, opts);
+          map.addOverlay(instance);
+          setCurveLine(instance);
+        }
+      }).catch(() => {
+
+      });
+    }
+
+    // 如果第一次加载，会执行下面的
     if (!bMapLib && !loadMapLib) {
       setLoadBMapLib(true);
       requireScript('//api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js').then(() => {
