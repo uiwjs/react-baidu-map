@@ -73,11 +73,11 @@
     "react-router-dom": "^5.1.2",
     "react-test-renderer": "^16.8.6",
     "tsbb": "^1.5.2",
+    "typescript": "^3.8.3",
     "uiw": "^3.10.6"
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.4",
-    "typescript": "^3.8.3"
+    "@babel/runtime": "^7.8.4"
   },
   "eslintConfig": {
     "extends": "react-app",
