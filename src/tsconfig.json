@@ -20,8 +20,5 @@
     "baseUrl": ".",
     "jsx": "react"
   },
-  "include": ["../src"],
-  "typeRoots": [
-    "types"
-  ]
+  "include": ["../src"]
 }
