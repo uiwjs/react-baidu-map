@@ -20,8 +20,5 @@
     "baseUrl": "website",
     "jsx": "react"
   },
-  "include": [
-    "website",
-    "src"
-  ]
+  "include": ["website"]
 }
