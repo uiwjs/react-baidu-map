@@ -1,8 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
-import { OptionConf, Webpack } from 'kkt';
+import { OptionConf, Webpack, ModuleScopePluginOpts, LoaderOneOf } from 'kkt';
 
-export const moduleScopePluginOpts = [
+export const moduleScopePluginOpts: ModuleScopePluginOpts = [
   path.resolve(process.cwd(), 'README.md'),
   path.resolve(process.cwd(), 'src'),
   path.resolve(process.cwd(), 'src/APILoader/README.md'),
@@ -31,7 +31,7 @@ export const moduleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/withMap/README.md'),
 ];
 
-export const loaderOneOf = [
+export const loaderOneOf: LoaderOneOf = [
   [require.resolve('@kkt/loader-less'), {}],
 ]
 
