@@ -20,6 +20,8 @@ export { default as PointCollection } from './PointCollection';
 export { default as usePointCollection } from './PointCollection/usePointCollection';
 export { default as CurveLine } from './CurveLine';
 export { default as useCurveLine } from './CurveLine/useCurveLine';
+export { default as DrawingManager } from './DrawingManager';
+export { default as useDrawingManager } from './DrawingManager/useDrawingManager';
 export { default as Polyline } from './Polyline';
 export { default as usePolyline } from './Polyline/usePolyline';
 export { default as Polygon } from './Polygon';

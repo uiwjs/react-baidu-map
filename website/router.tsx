@@ -90,6 +90,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/curve-line'), options),
   },
   {
+    path: "/drawing-manager",
+    component: loadable(() => import('./pages/drawing-manager'), options),
+  },
+  {
     path: "/polygon",
     component: loadable(() => import('./pages/polygon'), options),
   },
@@ -224,6 +228,10 @@ export const menus = [
   {
     label: 'CurveLine 弧线组件',
     path: '/curve-line',
+  },
+  {
+    label: 'DrawingManager 鼠标绘制工具条库',
+    path: '/drawing-manager',
   },
   {
     divider: true,

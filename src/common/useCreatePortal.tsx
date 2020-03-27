@@ -11,7 +11,7 @@ export interface UseCreatePortal {
 
 export default (props = {} as UseCreatePortal) => {
   const [div, setDiv] = useState<HTMLDivElement>(document.createElement('div'));
-  const [portal, setPortal] = useState();
+  const [portal, setPortal] = useState<React.ReactPortal>();
   const [count, setCount] = useState(0);
   const [children, setChildren] = useState(props.children);
   useMemo(() => {

@@ -61,7 +61,7 @@ export default (props = {} as UseCustomOverlay) => {
   const { map, children, paneName, position } = props;
   const [customOverlay, setCustomOverlay] = useState<BMap.Overlay>();
   const [div, setDiv] = useState<HTMLDivElement>();
-  const [portal, setPortal] = useState();
+  const [portal, setPortal] = useState<React.ReactPortal>();
   const [count, setCount] = useState(0);
   useMemo(() => {
     if (map && !portal) {
