@@ -230,7 +230,7 @@ export const menus = [
     path: '/curve-line',
   },
   {
-    label: 'DrawingManager 鼠标绘制工具条库',
+    label: 'DrawingManager 鼠标绘制工具',
     path: '/drawing-manager',
   },
   {
