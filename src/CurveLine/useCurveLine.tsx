@@ -7,12 +7,12 @@ export interface UseCurveLine extends CurveLineProps {
 }
 
 export default (props = {} as UseCurveLine) => {
-  const { map,  strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableEditing, enableClicking, icons, } = props;
+  const { map,  strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableEditing = false, enableClicking, icons, } = props;
   const [curveLine, setCurveLine] = useState<BMapLib.CurveLine>();
   const libSDK = window.BMapLib;
   const [bMapLib, setBMapLib] = useState<typeof BMapLib>(libSDK);
   const [loadMapLib, setLoadBMapLib] = useState(false || !!libSDK);
-  const opts = { strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableClicking, icons, }
+  const opts = { strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableEditing, enableClicking, icons, }
   useMemo(() => {
     // 如果第一次加载，会执行下面的
     if (map && bMapLib && !curveLine) {
@@ -52,7 +52,7 @@ export default (props = {} as UseCurveLine) => {
 
       });
     }
-  }, [map, loadMapLib, bMapLib, curveLine]);
+  }, [map, bMapLib, curveLine, loadMapLib, props.path, opts]);
 
   const [path, setPath] = useState(props.path || []);
   useEffect(() => {
@@ -60,7 +60,7 @@ export default (props = {} as UseCurveLine) => {
       const points = path.map((item) => new BMap.Point(item.lng, item.lat));
       curveLine.setPath(points);
     }
-  }, [curveLine, props.path]);
+  }, [curveLine, path, props.path]);
 
   useVisiable(curveLine!, props);
   useEventProperties<BMap.Polyline, UseCurveLine>(curveLine!, props, [

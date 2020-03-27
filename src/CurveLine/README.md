@@ -15,7 +15,7 @@ import React, { useState } from 'react';
 import { Map, CurveLine, APILoader } from '@uiw/react-baidu-map';
 
 const Example = () => {
-  const [enableEditing, setEnableEditing] = useState(true);
+  const [enableEditing, setEnableEditing] = useState(false);
   const [strokeOpacity, setStrokeOpacity] = useState(0.5);
   function curveLineRef(props) {
     if (props && props.curveLine) {
@@ -66,7 +66,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useCurveLine } from '@uiw/react-baidu-map';
 
 const Example = () => {
-  const [enableEditing, setEnableEditing] = useState(true);
+  const [enableEditing, setEnableEditing] = useState(false);
   const [strokeOpacity, setStrokeOpacity] = useState(0.9);
   const divElm = useRef(null);
   const { setContainer, map } = useMap({
@@ -143,7 +143,7 @@ ReactDOM.render(<Demo />, _mount_);
 | strokeOpacity |  折线的透明度，取值范围0 - 1 | Number | - |
 | strokeStyle |  折线的样式，solid或dashed | String | - |
 | enableMassClear |  是否在调用map.clearOverlays清除此覆盖物，默认为true | Boolean | - |
-| enableEditing |  是否启用线编辑，默认为false | Boolean | - |
+| enableEditing |  是否启用线编辑，默认为false | Boolean | `false` |
 | enableClicking |  是否响应点击事件，默认为true | Boolean | - |
 | icons | 配置贴合折线的图标 | IconSequence[] | - |
 
