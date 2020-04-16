@@ -72,7 +72,7 @@
     "react-markdown": "4.3.1",
     "react-router-dom": "5.1.2",
     "react-test-renderer": "16.13.1",
-    "tsbb": "1.7.0",
+    "tsbb": "1.7.1",
     "uiw": "3.10.9"
   },
   "dependencies": {
