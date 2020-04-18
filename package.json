@@ -64,7 +64,7 @@
     "classnames": "2.2.6",
     "compile-less-cli": "1.4.0",
     "cross-env": "7.0.2",
-    "kkt": "5.6.4",
+    "kkt": "5.8.0",
     "prismjs": "1.20.0",
     "raw-loader": "4.0.1",
     "react": "16.13.1",
