@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import ReactMarkdown from 'react-markdown';
+import MarkdownPreview, { MarkdownAbstractSyntaxTree, NodeType } from '@uiw/react-markdown-preview';
 import Code from './Code';
-import './styles/default.module.less';
-import './styles/index.module.less';
 
 interface MarkdownProps { }
 interface MarkdownState {
@@ -51,29 +49,30 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
   }
   render() {
     return (
-      <ReactMarkdown
+      <MarkdownPreview
+        style={{ padding: '20px 26px' }}
         source={this.state.mdStr}
         className="markdown"
         escapeHtml={false}
-        allowNode={(node: ReactMarkdown.MarkdownAbstractSyntaxTree, index: number, parent: ReactMarkdown.NodeType) => {
+        allowNode={(node: MarkdownAbstractSyntaxTree, index: number, parent: NodeType) => {
           if(node.type === 'code') {
             const preIdx = index - 1;
             const nextIdx = index + 1;
-            const childs: ReactMarkdown.MarkdownAbstractSyntaxTree[] = (parent as any).children;
+            const childs: MarkdownAbstractSyntaxTree[] = (parent as any).children;
             /**
              * 将参数放入代码的前面注释
              */
             if (
               childs && childs.length > 0
               && childs[preIdx] && childs[preIdx].type === 'html'
-              && /^\<\!\-\-DemoStart\s?(.*)-->/.test(childs[preIdx] && childs[preIdx].value || '')
+              && /^<!--DemoStart\s?(.*)-->/.test((childs[preIdx] && childs[preIdx].value) || '')
               && childs[nextIdx] && childs[nextIdx].type === 'html'
               && childs[nextIdx] && childs[nextIdx].value === '<!--End-->'
             ) {
-              const preValue = childs[preIdx] && childs[preIdx].value || '';
+              const preValue = (childs[preIdx] && childs[preIdx].value) || '';
               let options = {} as OptionsMarkdown;
               preValue.replace(/<!--\s?DemoStart\s?(.*)-->/g, (match: string, parame: any, code: any, offset: any) => {
-                options = parame.replace(/^(\,)/, '').split(',').map((val: string) => {
+                options = parame.replace(/^(,)/, '').split(',').map((val: string) => {
                   if (val && val.includes('=') && val.split('=').length === 2) {
                     return {
                       [`${val.split('=')[0]}`]: val.split('=')[1],
