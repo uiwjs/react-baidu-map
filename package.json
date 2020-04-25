@@ -73,7 +73,7 @@
     "react-router-dom": "5.1.2",
     "react-test-renderer": "16.13.1",
     "tsbb": "1.7.1",
-    "uiw": "3.10.9"
+    "uiw": "3.10.12"
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4"
