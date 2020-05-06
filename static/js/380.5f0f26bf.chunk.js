@@ -1,2 +1,0 @@
-(this["webpackJsonp@uiw/react-baidu-map"]=this["webpackJsonp@uiw/react-baidu-map"]||[]).push([[380],{639:function(a,i){Prism.languages["t4-vb"]=Prism.languages["t4-templating"].createT4("visual-basic")}}]);
-//# sourceMappingURL=380.5f0f26bf.chunk.js.map
