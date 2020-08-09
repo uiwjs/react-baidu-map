@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8204ce29ea5a5fa11c6e7bb25c0b3568",
+    "revision": "d0e0ccc0711d795041a1f5453cd238d8",
     "url": "/react-baidu-map/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/css/0.f955771e.chunk.css"
   },
   {
-    "revision": "35eef0b5e14109cc398e",
-    "url": "/react-baidu-map/static/css/429.8bdbf55a.chunk.css"
+    "revision": "04846498a59115d6b104",
+    "url": "/react-baidu-map/static/css/429.656312a9.chunk.css"
   },
   {
     "revision": "6a4e2e87400ed1b0e099",
@@ -1480,7 +1480,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-baidu-map/static/js/426.3ff7516e.chunk.js"
   },
   {
-    "revision": "35eef0b5e14109cc398e",
+    "revision": "04846498a59115d6b104",
     "url": "/react-baidu-map/static/js/429.5cab1519.chunk.js"
   },
   {
