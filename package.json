@@ -65,7 +65,7 @@
     "classnames": "2.2.6",
     "compile-less-cli": "1.4.0",
     "cross-env": "7.0.2",
-    "kkt": "5.9.0",
+    "kkt": "5.10.3",
     "raw-loader": "4.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
