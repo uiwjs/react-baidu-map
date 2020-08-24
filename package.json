@@ -50,7 +50,6 @@
   "devDependencies": {
     "@kkt/loader-less": "5.9.0",
     "@loadable/component": "5.12.0",
-    "@types/classnames": "2.2.10",
     "@types/jest": "25.2.1",
     "@types/loadable__component": "5.10.0",
     "@types/node": "12.12.36",
@@ -62,7 +61,6 @@
     "@uiw/react-github-corners": "1.2.0",
     "@uiw/react-markdown-preview": "1.0.9",
     "@uiw/reset.css": "1.0.4",
-    "classnames": "2.2.6",
     "compile-less-cli": "1.4.0",
     "cross-env": "7.0.2",
     "kkt": "5.9.0",

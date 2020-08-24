@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import CodePreview, { ICodePreviewProps } from '@uiw/react-code-preview';
 
 const regxOpts = /^;\{\{\/\*\*(.+?)\*\*\/\}\};/g;
@@ -32,10 +31,12 @@ export default function Code({ language, value, dependencies, ...other }: CodePr
     } catch (error) {}
   }
   if (onlyRead) {
-    const className = classnames({ [`language-${language}`]: language })
+    const cls = [
+      language ? `language-${language}` : null
+    ].filter(item => item).join(' ').trim();
     return (
-      <pre className={className}>
-        <code className={className}>
+      <pre className={cls}>
+        <code className={cls}>
           {value}
         </code>
       </pre>
