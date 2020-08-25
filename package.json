@@ -61,7 +61,7 @@
     "@uiw/react-github-corners": "1.2.0",
     "@uiw/react-markdown-preview": "1.0.9",
     "@uiw/reset.css": "1.0.4",
-    "compile-less-cli": "1.4.0",
+    "compile-less-cli": "1.5.1",
     "cross-env": "7.0.2",
     "kkt": "5.9.0",
     "raw-loader": "4.0.1",
