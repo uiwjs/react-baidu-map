@@ -262,4 +262,18 @@ export const menus = [
     target: '__blank',
     path: 'https://gitee.com/uiw/react-baidu-map',
   },
+  {
+    label: '国内镜像 🇨🇳',
+    target: '__blank',
+    path: 'https://uiw.gitee.io/react-baidu-map',
+  },
+  {
+    divider: true,
+    label: '相关连接',
+  },
+  {
+    label: '高德地图 React 组件',
+    target: '__blank',
+    path: 'https://uiwjs.github.io/react-amap/',
+  },
 ]
