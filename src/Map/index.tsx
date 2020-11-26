@@ -15,8 +15,10 @@ export interface Control {
 
 export type ControlOptions = {
   name: keyof Control;
-  options?: (bmap: typeof BMap, map: BMap.Map) => void | Control[keyof Control] ;
+  options?: (bmap: typeof BMap, map: BMap.Map) => void ;
   control?(bmap: typeof BMap, map: BMap.Map): BMap.Control;
+} | {
+  options?: Control[keyof Control] ;
 }
 
 export type ControlOptionsAll = keyof Control | ControlOptions;
@@ -96,7 +98,11 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
   panorama?: BMap.Panorama;
 }
 
-export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps>(({ className, style, children, ...props }, ref) => {
+type RenderProps =
+  | { children?: (data: { BMap: typeof BMap, map: BMap.Map, container?: string | HTMLDivElement | null }) => void }
+  | { children?: React.ReactNode };
+
+export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & RenderProps>(({ className, style, children, ...props }, ref) => {
   const elmRef = useRef<HTMLDivElement>(null);
   const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({ container: elmRef.current as (string | HTMLDivElement), ...props });
   useEffect(() => setContainer(elmRef.current as string | HTMLDivElement | undefined), [elmRef.current]);
