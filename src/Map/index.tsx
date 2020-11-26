@@ -18,7 +18,9 @@ export type ControlOptions = {
   options?: (bmap: typeof BMap, map: BMap.Map) => void ;
   control?(bmap: typeof BMap, map: BMap.Map): BMap.Control;
 } | {
+  name: keyof Control;
   options?: Control[keyof Control] ;
+  control?(bmap: typeof BMap, map: BMap.Map): BMap.Control;
 }
 
 export type ControlOptionsAll = keyof Control | ControlOptions;
