@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@kkt/loader-less": "5.10.3",
-    "@kkt/loader-raw": "5.10.3",
+    "@kkt/loader-raw": "5.11.1",
     "@loadable/component": "5.13.2",
     "@types/jest": "25.2.1",
     "@types/loadable__component": "5.13.0",
