@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import DomainVerify from '@uiw/react-domain-verify';
 import { menus } from '../../router';
 import styles from './index.module.less';
 
@@ -17,7 +18,15 @@ export default function SideMenu() {
           if(divider) {
             return <div key={idx} className={styles.divider}>{label}</div>;
           }
-          if (path && /^http/.test(path)) {
+          if (path && /^https?:\/\//.test(path)) {
+            // 只有在 github web 的时候显示
+            if(/^https?:\/\/uiw.gitee.io/.test(path)) {
+              return (
+                <DomainVerify href="uiwjs.github.io">
+                  <a key={idx} href={path} {...otherItem}>{label}</a>
+                </DomainVerify>
+              )
+            }
             return <a key={idx} href={path} {...otherItem}>{label}</a>;
           }
           return (
