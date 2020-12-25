@@ -18,7 +18,9 @@
     "isolatedModules": true,
     "declaration": true,
     "baseUrl": ".",
-    "jsx": "react"
+    "jsx": "react",
+    "noFallthroughCasesInSwitch": true,
+    "noEmit": true
   },
   "include": ["../src"]
 }

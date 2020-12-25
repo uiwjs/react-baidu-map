@@ -22,8 +22,8 @@ export default function SideMenu() {
             // 只有在 github web 的时候显示
             if(/^https?:\/\/uiw.gitee.io/.test(path)) {
               return (
-                <DomainVerify href="uiwjs.github.io">
-                  <a key={idx} href={path} {...otherItem}>{label}</a>
+                <DomainVerify key={idx} href="uiwjs.github.io">
+                  <a href={path} {...otherItem}>{label}</a>
                 </DomainVerify>
               )
             }
