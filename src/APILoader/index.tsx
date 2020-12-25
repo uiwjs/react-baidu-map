@@ -35,6 +35,7 @@ export default class APILoader extends React.Component<APILoaderProps> {
     hostAndPath: 'api.map.baidu.com/api',
     version: '3.0',
     callbackName: 'load_bmap_sdk',
+    type: '',
   }
 
   /**
@@ -92,7 +93,11 @@ export default class APILoader extends React.Component<APILoaderProps> {
     if (protocol!.indexOf(':') === -1) {
       protocol += ':';
     }
-    return `${protocol}//${cfg.hostAndPath}?v=${cfg.version}&ak=${cfg.akay}&callback=${cfg.callbackName}`;
+    const args = [`v=${cfg.version}`, `ak=${cfg.akay}`, `callback=${cfg.callbackName}`]; 
+    if (cfg.type) {
+      args.push('type=webgl');
+    }
+    return `${protocol}//${cfg.hostAndPath}?${args.join('&')}`;
   }
   /**
    * load BaiduMap in script tag
