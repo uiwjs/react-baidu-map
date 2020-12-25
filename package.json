@@ -5,6 +5,7 @@
   "author": "kenny wong <wowohoo@qq.com>",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
+  "typings": "lib/cjs/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
     "released": "npm run build && npm run doc",

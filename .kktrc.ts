@@ -19,6 +19,7 @@ export default (conf: Configuration, env: string, options: LoaderConfOptions) =>
       path.resolve(process.cwd(), 'src/CopyrightControl/README.md'),
       path.resolve(process.cwd(), 'src/GeolocationControl/README.md'),
       path.resolve(process.cwd(), 'src/OverviewMapControl/README.md'),
+      path.resolve(process.cwd(), 'src/RequireScript/README.md'),
       path.resolve(process.cwd(), 'src/ScaleControl/README.md'),
       path.resolve(process.cwd(), 'src/MapTypeControl/README.md'),
       path.resolve(process.cwd(), 'src/PanoramaControl/README.md'),
