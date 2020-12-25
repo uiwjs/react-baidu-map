@@ -13,3 +13,4 @@
 /// <reference path="./service.d.ts" />
 /// <reference path="./tools.d.ts" />
 /// <reference path="./bmaplib.d.ts" />
+/// <reference path="./bmapgl.d.ts" />

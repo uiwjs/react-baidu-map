@@ -26,6 +26,11 @@ export interface Config {
    * JSONP 回调函数
    */
   callbackName?: string;
+  /**
+   * 百度地图JavaScript API GL v1.0是一套由JavaScript语言编写的应用程序接口，可帮助您在网站中构建功能丰富、交互性强的地图应用，支持PC端和移动端基于浏览器的地图应用开发，且支持HTML5特性的地图开发。
+   * JavaScript API GL使用了WebGL对地图、覆盖物等进行渲染，支持3D视角展示地图。 GL版本接口基本向下兼容，迁移成本低。目前v1.0版本支持了基本的3D地图展示、基本地图控件和覆盖物。
+   */
+  type?: 'webgl';
 }
 
 /**

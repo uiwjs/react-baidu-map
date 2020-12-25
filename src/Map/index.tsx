@@ -100,11 +100,12 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
   panorama?: BMap.Panorama;
 }
 
-type RenderProps =
+export type MapChildRenderProps =
   | { children?: (data: { BMap: typeof BMap, map: BMap.Map, container?: string | HTMLDivElement | null }) => void }
   | { children?: React.ReactNode };
 
-export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & RenderProps>(({ className, style, children, ...props }, ref) => {
+export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & MapChildRenderProps>(({ className, style, children, ...props }, ref) => {
+  window.BMap = window.BMap || window.BMapGL;
   const elmRef = useRef<HTMLDivElement>(null);
   const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({ container: elmRef.current as (string | HTMLDivElement), ...props });
   useEffect(() => setContainer(elmRef.current as string | HTMLDivElement | undefined), [elmRef.current]);

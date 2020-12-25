@@ -27,6 +27,7 @@ export { default as usePolyline } from './Polyline/usePolyline';
 export { default as Polygon } from './Polygon';
 export { default as usePolygon } from './Polygon/usePolygon';
 export { default as withMap } from './withMap';
+export { default as RequireScript } from './RequireScript';
 
 export { default as Control } from './Control';
 export { default as useControl } from './Control/useControl';

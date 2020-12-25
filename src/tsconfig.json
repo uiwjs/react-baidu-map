@@ -19,8 +19,7 @@
     "declaration": true,
     "baseUrl": ".",
     "jsx": "react",
-    "noFallthroughCasesInSwitch": true,
-    "noEmit": true
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["../src"]
 }

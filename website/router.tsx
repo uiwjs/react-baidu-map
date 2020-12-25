@@ -110,6 +110,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/custom-overlay'), options),
   },
   {
+    path: "/require-script",
+    component: loadable(() => import('./pages/require-script'), options),
+  },
+  {
     path: "/tile-layer",
     component: loadable(() => import('./pages/tile-layer'), options),
   },
@@ -224,6 +228,10 @@ export const menus = [
   {
     divider: true,
     label: '第三方组件',
+  },
+  {
+    label: 'RequireScript 加载第三方包',
+    path: '/require-script',
   },
   {
     label: 'CurveLine 弧线组件',
