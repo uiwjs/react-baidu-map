@@ -1,14 +1,35 @@
-react-baidu-map
-===
+<p align="center">
+  <a href="https://github.com/uiwjs/react-baidu-map">
+    <img src="https://uiwjs.github.io/react-baidu-map/logo.svg" height="80px" alt="百度地图 LOGO" />
+  </a>
+</p>
+<h3 align="center">百度地图 React 组件</h3>
 
-[![](https://img.shields.io/github/issues/uiwjs/react-baidu-map.svg)](https://github.com/uiwjs/react-baidu-map/issues)
-[![](https://img.shields.io/github/forks/uiwjs/react-baidu-map.svg)](https://github.com/uiwjs/react-baidu-map/network)
-[![](https://img.shields.io/github/stars/uiwjs/react-baidu-map.svg)](https://github.com/uiwjs/react-baidu-map/stargazers)
-[![](https://img.shields.io/github/release/uiwjs/react-baidu-map)](https://github.com/uiwjs/react-baidu-map/releases)
-[![](https://img.shields.io/npm/v/@uiw/react-baidu-map.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map)
-[![](https://jaywcjlove.github.io/sb/ico/gitee.svg)](https://gitee.com/uiw/react-baidu-map)
+<p align="center">
+  <a href="https://github.com/uiwjs/react-baidu-map/actions">
+    <img src="https://github.com/uiwjs/react-baidu-map/workflows/Build%20&%20Deploy/badge.svg" alt="Build & Deploy">
+  </a>
+  <a href="https://github.com/uiwjs/react-baidu-map/issues">
+    <img src="https://img.shields.io/github/issues/uiwjs/react-baidu-map.svg" alt="Issues">
+  </a>
+  <a href="https://github.com/uiwjs/react-baidu-map/network">
+    <img src="https://img.shields.io/github/forks/uiwjs/react-baidu-map.svg" alt="Forks">
+  </a>
+  <a href="https://github.com/uiwjs/react-baidu-map/stargazers">
+    <img src="https://img.shields.io/github/stars/uiwjs/react-baidu-map.svg" alt="Stars">
+  </a>
+  <a href="https://github.com/uiwjs/react-baidu-map/releases">
+    <img src="https://img.shields.io/github/release/uiwjs/react-baidu-map.svg" alt="Releases">
+  </a>
+  <a href="https://www.npmjs.com/package/@uiw/react-baidu-map">
+    <img src="https://img.shields.io/npm/v/@uiw/react-baidu-map.svg" alt="npm version">
+  </a>
+  <a href="https://gitee.com/uiw/react-baidu-map">
+    <img src="https://jaywcjlove.github.io/sb/ico/gitee.svg" alt="Gitee Repo">
+  </a>
+</p>
 
-这是一个基于 React 封装的百度地图组件，帮助你轻松的接入地图到 React 项目中，[Gitee 镜像仓库](https://gitee.com/uiw/react-baidu-map)。
+这是一个基于 React 封装的百度地图组件，帮助你轻松的接入地图到 React 项目中。除了必须引用的 APILoader/Map 组件外，我们目前提供了最常用的地图组件，能满足大部分简单的业务场景；如果你有更复杂的需求，或者觉得默认提供的组件功能不够，可以使用 Map 组件返回的地图实例，完全自定义一个地图组件，然后根据百度地图原生 API 做百度地图允许你做的一切事情。
 
 ![](https://user-images.githubusercontent.com/1680273/71525077-35126b00-290b-11ea-9a11-ffd8b30dc9b8.png)
 
@@ -54,3 +75,10 @@ npm install # 安装依赖
 npm run watch # 监听编译输出 js 文件, 监听编译输出 .d.ts 类型文件
 npm run start # 文档网站运行
 ```
+
+## 相关连接
+
+- [@uiw/react-amap](https://github.com/uiwjs/react-amap) 高德地图 React 组件
+- [百度拾取坐标系统](https://api.map.baidu.com/lbsapi/getpoint/index.html) 
+- [百度地图官方 Demo 示例](https://lbsyun.baidu.com/jsdemo.htm) 
+- [百度地图 API v3.0](https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html) 
