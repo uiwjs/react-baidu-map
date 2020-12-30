@@ -59,7 +59,7 @@
     "@types/node": "12.12.62",
     "@types/react": "16.9.49",
     "@types/react-dom": "16.9.8",
-    "@types/react-router-dom": "5.1.5",
+    "@types/react-router-dom": "5.1.7",
     "@types/react-test-renderer": "16.9.3",
     "@uiw/react-code-preview": "1.11.8",
     "@uiw/react-github-corners": "1.2.0",
