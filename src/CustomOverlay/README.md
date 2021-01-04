@@ -11,7 +11,7 @@ import { CustomOverlay, useCustomOverlay } from '@uiw/react-baidu-map';
 
 官方原生 JS 实例：https://lbsyun.baidu.com/jsdemo.htm#c1_11
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState } from 'react';
 import { APILoader, Map, Marker, CustomOverlay } from '@uiw/react-baidu-map';
@@ -71,7 +71,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `portal`, `setPortal`, `customOverlay`, `setCustomOverlay`
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useMarker, useCustomOverlay } from '@uiw/react-baidu-map';

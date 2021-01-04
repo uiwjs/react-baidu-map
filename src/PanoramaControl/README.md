@@ -9,7 +9,7 @@ import { PanoramaControl, usePanoramaControl } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, PanoramaControl } from '@uiw/react-baidu-map';
@@ -46,7 +46,7 @@ ReactDOM.render((
 
 `panoramaControl`, `setPanoramaControl`
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, usePanoramaControl } from '@uiw/react-baidu-map';

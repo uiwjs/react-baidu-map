@@ -9,7 +9,7 @@ import { OverviewMapControl, useOverviewMapControl } from '@uiw/react-baidu-map'
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, OverviewMapControl } from '@uiw/react-baidu-map';
@@ -54,7 +54,7 @@ ReactDOM.render((
 
 `overviewMapControl`, `setGeolocationControl`
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useOverviewMapControl } from '@uiw/react-baidu-map';

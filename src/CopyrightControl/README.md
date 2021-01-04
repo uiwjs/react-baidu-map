@@ -9,7 +9,7 @@ import { CopyrightControl, useCopyrightControl } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, CopyrightControl } from '@uiw/react-baidu-map';
@@ -62,7 +62,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `portal`, `setPortal`, `copyrightControl`, `setCopyrightControl`
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useCopyrightControl } from '@uiw/react-baidu-map';

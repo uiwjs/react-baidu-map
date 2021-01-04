@@ -52,7 +52,7 @@ npm install @uiw/react-baidu-map --save
 
 ## 使用
 
-<!--DemoStart,bgWhite,codePen--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { Map, APILoader } from '@uiw/react-baidu-map';
 

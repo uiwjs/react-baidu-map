@@ -9,7 +9,7 @@ import { Control, useControl } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite-->
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, Control, APILoader } from '@uiw/react-baidu-map';
@@ -76,7 +76,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `portal`, `setPortal`, `control`, `setControl`
 
-<!--DemoStart,bgWhite-->
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useControl } from '@uiw/react-baidu-map';

@@ -9,7 +9,7 @@ import { CurveLine, useCurveLine } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState } from 'react';
 import { Map, CurveLine, APILoader } from '@uiw/react-baidu-map';
@@ -60,7 +60,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `curveLine`, `setCurveLine`, `path`, `setPath`, `BMapLib`
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useCurveLine } from '@uiw/react-baidu-map';

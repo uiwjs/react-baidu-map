@@ -11,7 +11,7 @@ import { PointCollection, usePointCollection } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite-->
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, PointCollection, APILoader, requireScript } from '@uiw/react-baidu-map';
@@ -73,7 +73,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 > 下面实例[`来源官方网站实例`](http://lbsyun.baidu.com/jsdemo.htm#c1_19)。
 
-<!--DemoStart,bgWhite-->
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, usePointCollection } from '@uiw/react-baidu-map';

@@ -9,7 +9,7 @@ import { NavigationControl, useNavigationControl } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, NavigationControl } from '@uiw/react-baidu-map';
@@ -66,7 +66,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `navigationControl`, `setNavigationControl`
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useNavigationControl } from '@uiw/react-baidu-map';

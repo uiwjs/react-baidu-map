@@ -11,7 +11,7 @@ import { APILoader } from '@uiw/react-baidu-map';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--DemoStart,bgWhite,codePen--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { Map, APILoader } from '@uiw/react-baidu-map';
 

@@ -16,7 +16,7 @@ import { Map, useMap, APILoader } from '@uiw/react-baidu-map';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
@@ -35,7 +35,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 百度地图上负责与地图交互的UI元素称为控件。百度地图API中提供了丰富的控件，您还可以通过 Control 类来实现自定义控件，[`百度控件文档`](http://lbsyun.baidu.com/index.php?title=jspopular3.0/guide/widget)。
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
@@ -94,7 +94,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 可控属性
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
@@ -120,7 +120,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `map`, `setMap`, `container`, `setContainer`, `zoom`, `setZoom`, `setCenter`, `autoLocalCity`, `setAutoLocalCity`,
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap } from '@uiw/react-baidu-map';

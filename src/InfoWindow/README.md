@@ -9,7 +9,7 @@ import { InfoWindow, useInfoWindow } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,codePen--> 
+<!--DemoStart,bgWhite,codePen,codePen,codeSandbox-->
 ```jsx
 import React, { useState } from 'react';
 import { Map, InfoWindow, APILoader } from '@uiw/react-baidu-map';

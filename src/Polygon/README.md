@@ -9,7 +9,7 @@ import { Polygon, usePolygon } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState } from 'react';
 import { Map, Polygon, APILoader } from '@uiw/react-baidu-map';
@@ -63,7 +63,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `polygon`, `setPolygon`, `path`, `setPath`
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, usePolygon } from '@uiw/react-baidu-map';

@@ -9,7 +9,7 @@ import { TileLayer, useTileLayer } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, TileLayer } from '@uiw/react-baidu-map';
@@ -50,7 +50,7 @@ ReactDOM.render((
 
 `tileLayer`, `setTileLayer`, `visiable`, `setVisiable`
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useTileLayer } from '@uiw/react-baidu-map';

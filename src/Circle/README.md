@@ -9,7 +9,7 @@ import { Circle, useCircle } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState } from 'react';
 import { Map, Circle, APILoader } from '@uiw/react-baidu-map';

@@ -5,7 +5,7 @@ withMap
 
 ### 基本用法
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import { withMap, APILoader } from '@uiw/react-baidu-map';
 
