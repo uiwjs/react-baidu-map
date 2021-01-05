@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - master
-    tags:
-      - v*
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
