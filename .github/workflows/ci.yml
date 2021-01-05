@@ -28,6 +28,15 @@ jobs:
     - run: npm run build
     - run: npm run doc
 
+    - name: Generate changelog
+      id: changelog
+      uses: jaywcjlove/changelog-generator@main
+      with:
+        myToken: ${{ secrets.GITHUB_TOKEN }}
+        filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
+        filter: (^[\s]+?[R|r]elease)|(^[R|r]elease)
+
+
     - name: Build and Deploy
       uses: peaceiris/actions-gh-pages@v2.5.0
       env:
