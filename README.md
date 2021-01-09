@@ -72,7 +72,8 @@ ReactDOM.render(<Demo />, _mount_);
 ```bash
 npm install # 安装依赖
 
-npm run watch # 监听编译输出 js 文件, 监听编译输出 .d.ts 类型文件
+npm run build # 编译输出组件 js 文件, .d.ts 类型文件
+npm run watch # 监听编译输出 js 文件, .d.ts 类型文件
 npm run start # 文档网站运行
 ```
 
