@@ -26,9 +26,9 @@ jobs:
         # test: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
         package-path: ./package.json
 
-    - name: Generate changelog
+    - name: Generate Changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.2.3
+      uses: jaywcjlove/changelog-generator@v1.3.9
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         head-ref: ${{steps.create_tag.outputs.version}}
