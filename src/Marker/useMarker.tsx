@@ -1,7 +1,8 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import defaultIconUrl from './markers.png';
 import { MarkerProps } from '.';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
+import { noop } from "../utils/noop";
 
 export interface UseMarker extends MarkerProps{}
 
@@ -68,17 +69,44 @@ export default (props = {} as UseMarker) => {
   } = props;
 
   const [marker, setMarker] = useState<BMap.Marker>();
-  const options = { offset, icon, enableMassClear, enableDragging, enableClicking, raiseOnDrag, draggingCursor, rotation, shadow, title };
-  useMemo(() => {
-    if (!BMap || !map) return;
-    if (!marker) {
-      const point = new BMap.Point(position.lng, position.lat);
-      const marker = new BMap.Marker(point, options);
-      map.addOverlay(marker);
-      marker.setAnimation(animation);
-      setMarker(marker);
-    }
-  }, [map, marker]);
+
+  useEffect(() => {
+    if (!BMap || !map) return noop;
+    const options = {
+      offset,
+      icon,
+      enableMassClear,
+      enableDragging,
+      enableClicking,
+      raiseOnDrag,
+      draggingCursor,
+      rotation,
+      shadow,
+      title,
+    };
+    const point = new BMap.Point(position.lng, position.lat);
+    const newMarker = new BMap.Marker(point, options);
+    map.addOverlay(newMarker);
+    newMarker.setAnimation(animation);
+    setMarker(newMarker);
+    return () => {
+      map.removeOverlay(newMarker);
+    };
+  }, [
+    map,
+    position.lng,
+    position.lat,
+    offset,
+    icon,
+    enableMassClear,
+    enableDragging,
+    enableClicking,
+    raiseOnDrag,
+    draggingCursor,
+    rotation,
+    shadow,
+    title,
+  ]);
 
   const [type, setType] = useState(props.type || 'loc_blue');
   /**
