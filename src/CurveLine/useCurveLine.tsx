@@ -1,23 +1,48 @@
 import { useState, useEffect, useMemo } from 'react';
-import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
+import {
+  useEnableProperties,
+  useProperties,
+  useVisiable,
+  useEventProperties,
+} from '../common/hooks';
 import { CurveLineProps } from '.';
 import { requireScript } from '../utils/requireScript';
 
-export interface UseCurveLine extends CurveLineProps {
-}
+export interface UseCurveLine extends CurveLineProps {}
 
 export default (props = {} as UseCurveLine) => {
-  const { map,  strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableEditing = false, enableClicking, icons, } = props;
+  const {
+    map,
+    strokeColor,
+    strokeWeight,
+    strokeOpacity,
+    strokeStyle,
+    enableMassClear,
+    enableEditing = false,
+    enableClicking,
+    icons,
+  } = props;
   const [curveLine, setCurveLine] = useState<BMapLib.CurveLine>();
   const libSDK = window.BMapLib;
   const [bMapLib, setBMapLib] = useState<typeof BMapLib>(libSDK);
   const [loadMapLib, setLoadBMapLib] = useState(false || !!libSDK);
-  const opts = { strokeColor, strokeWeight, strokeOpacity, strokeStyle, enableMassClear, enableEditing, enableClicking, icons, }
+  const opts = {
+    strokeColor,
+    strokeWeight,
+    strokeOpacity,
+    strokeStyle,
+    enableMassClear,
+    enableEditing,
+    enableClicking,
+    icons,
+  };
   useMemo(() => {
     // 如果第一次加载，会执行下面的
     if (map && bMapLib && !curveLine) {
-      if(bMapLib.CurveLine) {
-        const points = (props.path || []).map((item) => new BMap.Point(item.lng, item.lat));
+      if (bMapLib.CurveLine) {
+        const points = (props.path || []).map(
+          (item) => new BMap.Point(item.lng, item.lat),
+        );
         const instance = new BMapLib.CurveLine(points, opts);
         map.addOverlay(instance);
         setCurveLine(instance);
@@ -25,38 +50,49 @@ export default (props = {} as UseCurveLine) => {
     }
 
     // 如果 bMapLib 已经加载过，会执行下面的
-    if(map && bMapLib && !bMapLib.CurveLine) {
-      requireScript('//api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js').then(() => {
-        if (window.BMapLib) {
-          const newMapLib = Object.assign(window.BMapLib, bMapLib)
-          setBMapLib(newMapLib)
+    if (map && bMapLib && !bMapLib.CurveLine) {
+      requireScript(
+        '//api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js',
+      )
+        .then(() => {
+          if (window.BMapLib) {
+            const newMapLib = Object.assign(window.BMapLib, bMapLib);
+            setBMapLib(newMapLib);
 
-          const points = (props.path || []).map((item) => new BMap.Point(item.lng, item.lat));
-          const instance = new BMapLib.CurveLine(points, opts);
-          map.addOverlay(instance);
-          setCurveLine(instance);
-        }
-      }).catch(() => {
-
-      });
+            const points = (props.path || []).map(
+              (item) => new BMap.Point(item.lng, item.lat),
+            );
+            const instance = new BMapLib.CurveLine(points, opts);
+            map.addOverlay(instance);
+            setCurveLine(instance);
+          }
+        })
+        .catch(() => {});
     }
 
     // 如果第一次加载，会执行下面的
     if (!bMapLib && !loadMapLib) {
       setLoadBMapLib(true);
-      requireScript('//api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js').then(() => {
-        if (window.BMapLib) {
-          setBMapLib(window.BMapLib);
-        }
-      }).catch(() => {
-
-      });
+      requireScript(
+        '//api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js',
+      )
+        .then(() => {
+          if (window.BMapLib) {
+            setBMapLib(window.BMapLib);
+          }
+        })
+        .catch(() => {});
     }
   }, [map, bMapLib, curveLine, loadMapLib, props.path, opts]);
 
   const [path, setPath] = useState(props.path || []);
   useEffect(() => {
-    if (curveLine && props.path && path && JSON.stringify(path) !== JSON.stringify(props.path)) {
+    if (
+      curveLine &&
+      props.path &&
+      path &&
+      JSON.stringify(path) !== JSON.stringify(props.path)
+    ) {
       const points = path.map((item) => new BMap.Point(item.lng, item.lat));
       curveLine.setPath(points);
     }
@@ -64,20 +100,32 @@ export default (props = {} as UseCurveLine) => {
 
   useVisiable(curveLine!, props);
   useEventProperties<BMap.Polyline, UseCurveLine>(curveLine!, props, [
-    'Click', 'DblClick',
-    'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver',
-    'Remove', 'LineUpdate',
+    'Click',
+    'DblClick',
+    'MouseDown',
+    'MouseUp',
+    'MouseOut',
+    'MouseOver',
+    'Remove',
+    'LineUpdate',
   ]);
-  useEnableProperties<BMapLib.CurveLine, UseCurveLine>(curveLine!, props, [ 'Editing', 'MassClear']);
+  useEnableProperties<BMapLib.CurveLine, UseCurveLine>(curveLine!, props, [
+    'Editing',
+    'MassClear',
+  ]);
   // PositionAt
   useProperties<BMapLib.CurveLine, UseCurveLine>(curveLine!, props, [
-    'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'StrokeStyle'
+    'StrokeColor',
+    'StrokeOpacity',
+    'StrokeWeight',
+    'StrokeStyle',
   ]);
 
   return {
-    curveLine, setCurveLine,
+    curveLine,
+    setCurveLine,
     BMapLib: bMapLib,
-    path, setPath
-  }
-}
-
+    path,
+    setPath,
+  };
+};

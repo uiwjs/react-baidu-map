@@ -2,19 +2,29 @@ import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useGeolocationControl from './useGeolocationControl';
 
-export interface GeolocationControlProps extends OverlayProps, BMap.GeolocationControlOptions {
+export interface GeolocationControlProps
+  extends OverlayProps,
+    BMap.GeolocationControlOptions {
   /**
    * 定位成功后触发此事件
    */
-  onLocationSuccess?(result: { point: BMap.Point, addressComponent: BMap.AddressComponent }): void;
+  onLocationSuccess?(result: {
+    point: BMap.Point;
+    addressComponent: BMap.AddressComponent;
+  }): void;
   /**
    * 定位失败后触发此事件
    */
   onLocationError?(error: { statusCode: BMap.StatusCode }): void;
 }
 
-export default React.forwardRef<GeolocationControlProps, GeolocationControlProps>((props, ref) => {
+export default React.forwardRef<
+  GeolocationControlProps,
+  GeolocationControlProps
+>((props, ref) => {
   const { geolocationControl } = useGeolocationControl(props);
-  useImperativeHandle(ref, () => ({ ...props, geolocationControl }), [geolocationControl]);
+  useImperativeHandle(ref, () => ({ ...props, geolocationControl }), [
+    geolocationControl,
+  ]);
   return null;
 });

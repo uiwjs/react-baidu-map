@@ -21,7 +21,7 @@ export default (props = {} as UseCanvasLayer) => {
       const update = function (this: CanvasLayerResult) {
         const self = this;
         props.update && props.update({ ...self, BMap, map });
-      }
+      };
       const instance = new BMap.CanvasLayer({ zIndex, paneName, update });
       map.addOverlay(instance);
       setCanvasLayer(instance);
@@ -31,7 +31,7 @@ export default (props = {} as UseCanvasLayer) => {
   useVisiable(canvasLayer!, props);
 
   return {
-    canvasLayer, setCanvasLayer,
-  }
-}
-
+    canvasLayer,
+    setCanvasLayer,
+  };
+};

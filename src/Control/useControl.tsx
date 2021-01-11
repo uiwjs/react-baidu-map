@@ -9,7 +9,7 @@ export interface UseControl extends ControlProps {}
 
 export default (props = {} as UseControl) => {
   const { portal, div, children, setPortal, setChildren } = useCreatePortal({
-    children: props.children
+    children: props.children,
   });
   const [control, setControl] = useState<BMap.Control>();
   const { map, offset, anchor } = props;
@@ -38,10 +38,13 @@ export default (props = {} as UseControl) => {
 
   useVisiable(control!, props);
   useProperties<BMap.Control, UseControl>(control!, props, [
-    'Anchor', 'Offset',
+    'Anchor',
+    'Offset',
   ]);
   return {
-    portal, setPortal,
-    control, setControl
+    portal,
+    setPortal,
+    control,
+    setControl,
   };
-}
+};

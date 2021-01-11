@@ -1,6 +1,11 @@
 import { useState, useEffect, useMemo } from 'react';
 import { InfoWindowProps } from './';
-import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
+import {
+  useEnableProperties,
+  useProperties,
+  useVisiable,
+  useEventProperties,
+} from '../common/hooks';
 
 export interface UseInfoWindow extends InfoWindowProps {}
 
@@ -10,15 +15,17 @@ export default (props = {} as UseInfoWindow) => {
   useMemo(() => {
     if (!BMap || !map) return;
     if (!infoWindow) {
-      const win = new BMap.InfoWindow('', { ...opts })
+      const win = new BMap.InfoWindow('', { ...opts });
       setInfoWindow(win);
     }
   }, [map]);
 
-  const [isOpen, setIsOpen] = useState(opts.isOpen === undefined ? true : opts.isOpen);
+  const [isOpen, setIsOpen] = useState(
+    opts.isOpen === undefined ? true : opts.isOpen,
+  );
   useEffect(() => {
     if (map && BMap && infoWindow) {
-      if(!isOpen) {
+      if (!isOpen) {
         map.closeInfoWindow();
       } else if (position) {
         const point = new BMap.Point(position.lng, position.lat);
@@ -29,12 +36,24 @@ export default (props = {} as UseInfoWindow) => {
 
   useVisiable(infoWindow!, props);
   useEventProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
-    'Close', 'Open', 'Maximize', 'Restore', 'ClickClose'
+    'Close',
+    'Open',
+    'Maximize',
+    'Restore',
+    'ClickClose',
   ]);
   useProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
-    'Width', 'Height', 'Title', 'Content', 'MaxContent'
+    'Width',
+    'Height',
+    'Title',
+    'Content',
+    'MaxContent',
   ]);
-  useEnableProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, ['CloseOnClick', 'Maximize', 'AutoPan']);
+  useEnableProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
+    'CloseOnClick',
+    'Maximize',
+    'AutoPan',
+  ]);
 
   return {
     /**
@@ -44,6 +63,8 @@ export default (props = {} as UseInfoWindow) => {
     /**
      * 更新 信息窗口实例对象
      */
-    setInfoWindow, isOpen, setIsOpen
-  }
-}
+    setInfoWindow,
+    isOpen,
+    setIsOpen,
+  };
+};

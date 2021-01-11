@@ -1,12 +1,16 @@
 import path from 'path';
-import webpack, {Configuration} from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import { LoaderConfOptions } from 'kkt';
 import lessModules from '@kkt/less-modules';
 import rawModules from '@kkt/raw-modules';
 import scopePluginOptions from '@kkt/scope-plugin-options';
 import pkg from './package.json';
 
-export default (conf: Configuration, env: string, options: LoaderConfOptions) => {
+export default (
+  conf: Configuration,
+  env: string,
+  options: LoaderConfOptions,
+) => {
   conf = rawModules(conf, env, { ...options });
   conf = scopePluginOptions(conf, env, {
     ...options,
@@ -38,13 +42,15 @@ export default (conf: Configuration, env: string, options: LoaderConfOptions) =>
       path.resolve(process.cwd(), 'src/DrawingManager/README.md'),
       path.resolve(process.cwd(), 'src/Polygon/README.md'),
       path.resolve(process.cwd(), 'src/withMap/README.md'),
-    ]
+    ],
   });
   conf = lessModules(conf, env, options);
   // Get the project version.
-  conf.plugins!.push(new webpack.DefinePlugin({
-    VERSION: JSON.stringify(pkg.version),
-  }));
+  conf.plugins!.push(
+    new webpack.DefinePlugin({
+      VERSION: JSON.stringify(pkg.version),
+    }),
+  );
 
   conf.optimization = {
     ...conf.optimization,
@@ -161,9 +167,9 @@ export default (conf: Configuration, env: string, options: LoaderConfOptions) =>
           test: /[\\/]node_modules[\\/](@babel\/traverse)[\\/]/,
           priority: -5,
         },
-      }
-    }
+      },
+    },
   };
 
   return conf;
-}
+};

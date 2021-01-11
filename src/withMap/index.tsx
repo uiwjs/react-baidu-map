@@ -11,8 +11,8 @@ export default function withMap(Comp: React.ComponentClass<WithMapProps>) {
   return React.forwardRef((props: MapProps, ref?: React.Ref<any>) => (
     <Map {...props}>
       {(mapProps: WithMapProps) => {
-        return <Comp ref={ref} {...props} {...mapProps} />
+        return <Comp ref={ref} {...props} {...mapProps} />;
       }}
     </Map>
-  ))
+  ));
 }

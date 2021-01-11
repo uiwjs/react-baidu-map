@@ -1,7 +1,6 @@
 /// <reference path="./base.d.ts" />
 /// <reference path="./control.d.ts" />
 declare namespace BMap {
-
   /**
    * 在给定的结点中创建全景
    * 此类用来展示某位置的全景视图，可以单独放置在一个div容器中，也可以放在Map类的容器中。
@@ -171,7 +170,11 @@ declare namespace BMap {
      * 根据坐标及半径返回该范围内的全景数据；
      * 不设置半径参数时，默认半径为50米；当获取不到数据时，回调函数参数为null
      */
-    getPanoramaByLocation(point: Point, radius?: number, callback?: (data: PanoramaData) => void): void;
+    getPanoramaByLocation(
+      point: Point,
+      radius?: number,
+      callback?: (data: PanoramaData) => void,
+    ): void;
   }
   interface PanoramaData {
     id: string;
@@ -191,53 +194,53 @@ declare namespace BMap {
   class PanoramaLabel {
     constructor(content: string, opts?: PanoramaLabelOptions);
     /**
-    * 设置标签的经纬度坐标
-    */
+     * 设置标签的经纬度坐标
+     */
     setPosition?: (position: Point) => void;
     /**
-      * 获取标签的经纬度坐标
-      */
+     * 获取标签的经纬度坐标
+     */
     getPosition?: () => Point;
     /**
-      * 获取标签与全景中心点的视角
-      */
+     * 获取标签与全景中心点的视角
+     */
     getPov?: () => PanoramaPov;
     /**
-      * 设置标签显示内容
-      */
+     * 设置标签显示内容
+     */
     setContent?: (content: String) => void;
     /**
-      * 获取标签的显示内容
-      */
+     * 获取标签的显示内容
+     */
     getContent?: () => string;
     /**
-      * 设置标签可见
-      */
+     * 设置标签可见
+     */
     show?: () => void;
     /**
-      * 设置标签不可见
-      */
+     * 设置标签不可见
+     */
     hide?: () => void;
     /**
-      * 设置标签距离地面的高度
-      */
+     * 设置标签距离地面的高度
+     */
     setAltitude?: (altitude: number) => void;
     /**
-      * 获取标签距离地面的高度
-      */
+     * 获取标签距离地面的高度
+     */
     getAltitude?: () => number;
     /**
-      * 注册事件
-      */
+     * 注册事件
+     */
     addEventListener?: () => void;
     /**
-      * 移除事件
-      */
-    removeEventListener?: () => void; 
-    onclick: (event: { type: string, target: any }) => void;
-    onmouseover: (event: { type: string, target: any }) => void;
-    onmouseout: (event: { type: string, target: any }) => void;
-    onremove: (event: { type: string, target: any }) => void;
+     * 移除事件
+     */
+    removeEventListener?: () => void;
+    onclick: (event: { type: string; target: any }) => void;
+    onmouseover: (event: { type: string; target: any }) => void;
+    onmouseout: (event: { type: string; target: any }) => void;
+    onremove: (event: { type: string; target: any }) => void;
   }
   interface PanoramaLabelOptions {
     /**

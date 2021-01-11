@@ -1,10 +1,12 @@
-
-
 export default function getCustomOverlay() {
   return class extends BMap.Control {
     public container: HTMLDivElement;
     public map!: BMap.Map;
-    constructor(elm: HTMLDivElement, defaultAnchor?: BMap.ControlAnchor, defaultOffset?: BMap.Size) {
+    constructor(
+      elm: HTMLDivElement,
+      defaultAnchor?: BMap.ControlAnchor,
+      defaultOffset?: BMap.Size,
+    ) {
       super();
       this.container = elm;
       this.defaultAnchor = defaultAnchor || BMAP_ANCHOR_TOP_LEFT;
@@ -15,7 +17,7 @@ export default function getCustomOverlay() {
       // 添加DOM元素到地图中
       map.getContainer().appendChild(this.container);
       return this.container;
-    }
-    public draw = () => {}
-  }
+    };
+    public draw = () => {};
+  };
 }

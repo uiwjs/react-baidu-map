@@ -1,11 +1,9 @@
 declare global {
   interface Window {
-    BMapGL: typeof BMapGL
+    BMapGL: typeof BMapGL;
   }
 }
 
 declare namespace BMapGL {
-  class Map extends BMap.Map {
-
-  }
+  class Map extends BMap.Map {}
 }

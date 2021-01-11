@@ -5,11 +5,15 @@ declare namespace BMap {
   class MapType {
     /**
      * 创建 MapType 对象实例
-     * @param name 
-     * @param layers 
-     * @param opts 
+     * @param name
+     * @param layers
+     * @param opts
      */
-    constructor(name: string, layers: TileLayer | TileLayer[], opts?: MapTypeOptions);
+    constructor(
+      name: string,
+      layers: TileLayer | TileLayer[],
+      opts?: MapTypeOptions,
+    );
     /**
      * 返回地图类型名称
      */
@@ -67,12 +71,12 @@ declare namespace BMap {
   interface Projection {
     /**
      * 抽象，根据球面坐标获得平面坐标
-     * @param lngLat 
+     * @param lngLat
      */
     lngLatToPoint(lngLat: Point): Pixel;
     /**
      * 抽象，根据平面坐标获得球面坐标
-     * @param point 
+     * @param point
      */
     pointToLngLat(point: Pixel): Point;
   }

@@ -2,7 +2,6 @@ import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useCustomOverlay from './useCustomOverlay';
 
-
 export interface CustomOverlayProps extends OverlayProps {
   /**
    * 设置标注的地理坐标。
@@ -13,7 +12,7 @@ export interface CustomOverlayProps extends OverlayProps {
    */
   zIndex?: number;
   /**
-   * 
+   *
    * 覆盖物层级
    * JSAPI 把地图覆盖物分为了8个层级，顶层为 `floatPane`，
    * 低层为 `vertexPane`。可以通过Map实例的 `getPanes()` 方法，获取到8个层级的名称
@@ -29,11 +28,15 @@ export interface CustomOverlayProps extends OverlayProps {
   children?: React.ReactNode;
 }
 
-export default React.forwardRef<CustomOverlayProps, CustomOverlayProps>((props, ref) => {
-  const { customOverlay, portal } = useCustomOverlay(props);
-  useImperativeHandle(ref, () => ({ ...props, customOverlay }), [customOverlay]);
-  if (portal) {
-    return portal;
-  }
-  return null;
-})
+export default React.forwardRef<CustomOverlayProps, CustomOverlayProps>(
+  (props, ref) => {
+    const { customOverlay, portal } = useCustomOverlay(props);
+    useImperativeHandle(ref, () => ({ ...props, customOverlay }), [
+      customOverlay,
+    ]);
+    if (portal) {
+      return portal;
+    }
+    return null;
+  },
+);

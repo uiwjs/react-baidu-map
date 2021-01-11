@@ -144,9 +144,9 @@ declare namespace BMap {
      * 设初始化地图。 如果center类型为Point时，zoom必须赋值，范围3-19级，
      * 若调用高清底图（针对移动端开发）时，zoom可赋值范围为3-18级。
      * 如果center类型为字符串时，比如“北京”，zoom可以忽略，地图将自动根据 center 适配最佳 zoom 级别
-     * 
+     *
      * @param zoom 如果center类型为Point时，zoom必须赋值，范围3-19级
-     * @param center 
+     * @param center
      */
     centerAndZoom(center: string | Point, zoom: number): void;
     /**
@@ -169,15 +169,15 @@ declare namespace BMap {
     /**
      * 设置地图城市，注意当地图初始化时的类型设置为 `BMAP_NORMAL_MAP` 时，
      * 需要在调用 `centerAndZoom` 之前调用此方法设置地图所在城市。
-     * 例如： 
+     * 例如：
      * @example
-     * 
+     *
      * ```js
      * var map = new BMap.Map(“container”, { mapType: BMAP_NORMAL_MAP });
      * map.setCurrentCity(“北京市”);
      * map.centerAndZoom(new BMap.Point(116.404, 39.915), 18);
      * ```
-     * 
+     *
      * 注意：初始化的坐标应与您设置的城市对应，否则地图将无法正常显示。
      */
     setCurrentCity(city: string): void;
@@ -188,7 +188,10 @@ declare namespace BMap {
     /**
      * 根据提供的地理区域或坐标设置地图视野，调整后的视野会保证包含提供的地理区域或坐标
      */
-    setViewport(view: Array<Point> | Viewport, viewportOptions: ViewportOptions): void;
+    setViewport(
+      view: Array<Point> | Viewport,
+      viewportOptions: ViewportOptions,
+    ): void;
     /**
      * 将视图切换到指定的缩放等级，中心点坐标不变。注意：当有信息窗口在地图上打开时，地图缩放将保证信息窗口所在的坐标位置不动
      */
@@ -232,15 +235,15 @@ declare namespace BMap {
     /**
      * 添加右键菜单
      */
-    addContextMenu(menu: ContextMenu)   : void;
+    addContextMenu(menu: ContextMenu): void;
     /**
      * 移除右键菜单
      */
-    removeContextMenu(menu: ContextMenu)    : void;
+    removeContextMenu(menu: ContextMenu): void;
     /**
      * 将覆盖物添加到地图中，一个覆盖物实例只能向地图中添加一次
      */
-    addOverlay(overlay: Overlay)    : void;
+    addOverlay(overlay: Overlay): void;
     /**
      * 从地图中移除覆盖物。如果覆盖物从未被添加到地图中，则该移除不起任何作用
      */
@@ -252,7 +255,7 @@ declare namespace BMap {
     /**
      * 在地图上打开信息窗口
      */
-    openInfoWindow(infoWnd?: InfoWindow, point?: Point)   : void;
+    openInfoWindow(infoWnd?: InfoWindow, point?: Point): void;
     /**
      * 关闭在地图上打开的信息窗口。在标注上打开的信息窗口也可通过此方法进行关闭
      */
@@ -264,7 +267,7 @@ declare namespace BMap {
     /**
      * 根据覆盖物容器的坐标获取对应的地理坐标
      */
-    overlayPixelToPoint(pixel: Pixel): Point;   
+    overlayPixelToPoint(pixel: Pixel): Point;
     /**
      * 返回地图上处于打开状态的信息窗的实例。当地图没有打开的信息窗口时，此方法返回null
      */
@@ -304,135 +307,217 @@ declare namespace BMap {
     /**
      * 左键单击地图时触发此事件。 当双击时，产生的事件序列为： click click dblclick
      */
-    onClick?(event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void;
+    onClick?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+      overlay: Overlay;
+    }): void;
     /**
      * 鼠标双击地图时会触发此事件
      */
-    onDblClick?(event: {type: string, target: any, pixel: Pixel, point: Point }): void;
+    onDblClick?(event: {
+      type: string;
+      target: any;
+      pixel: Pixel;
+      point: Point;
+    }): void;
     /**
      * 右键单击地图时触发此事件。 当双击时，产生的事件序列为： rightclick rightclick rightdblclick
      */
-    onRightClick?(event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void;
+    onRightClick?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+      overlay: Overlay;
+    }): void;
     /**
      * 右键双击地图时触发此事件
      */
-    onRightdblClick?(event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void;
+    onRightdblClick?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+      overlay: Overlay;
+    }): void;
     /**
      * 地图类型发生变化时触发此事件
      */
-    onMapTypeChange?(event: {type: string, target: any }): void;
+    onMapTypeChange?(event: { type: string; target: any }): void;
     /**
      * 鼠标在地图区域移动过程中触发此事件
      */
-    onMouseMove?(event: {type: string, target: any, point: Point, pixel: Pixel, overlay: Overlay }): void;
+    onMouseMove?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+      overlay: Overlay;
+    }): void;
     /**
      * 鼠标移入地图区域时触发此事件
      */
-    onMouseOver?(event: {type: string, target: any }): void;
+    onMouseOver?(event: { type: string; target: any }): void;
     /**
      * 鼠标移出地图区域时触发此事件
      */
-    onMouseOut?(event: {type: string, target: any }): void;
+    onMouseOut?(event: { type: string; target: any }): void;
     /**
      * 地图移动开始时触发此事件
      */
-    onMoveStart?(event: {type: string, target: any }): void;
+    onMoveStart?(event: { type: string; target: any }): void;
     /**
      * 地图移动过程中触发此事件
      */
-    onMoving?(event: {type: string, target: any }): void;
+    onMoving?(event: { type: string; target: any }): void;
     /**
      * 地图移动结束时触发此事件
      */
-    onMoveEnd?(event: {type: string, target: any }): void;
+    onMoveEnd?(event: { type: string; target: any }): void;
     /**
      * 地图更改缩放级别开始时触发触发此事件
      */
-    onZoomStart?(event: {type: string, target: any }): void;
+    onZoomStart?(event: { type: string; target: any }): void;
     /**
      * 地图更改缩放级别结束时触发触发此事件
      */
-    onZoomEnd?(event: {type: string, target: any }): void;
+    onZoomEnd?(event: { type: string; target: any }): void;
     /**
      * 当使用 Map.addOverlay() 方法向地图中添加单个覆盖物时会触发此事件
      */
-    onAddOverlay?(event: {type: string, target: any }): void;
+    onAddOverlay?(event: { type: string; target: any }): void;
     /**
      * 当使用 Map.addControl() 方法向地图中添加单个控件时会触发此事件
      */
-    onAddControl?(event: {type: string, target: any }): void;
+    onAddControl?(event: { type: string; target: any }): void;
     /**
      * 当使用 Map.removeControl() 方法移除单个控件时会触发此事件
      */
-    onRemoveControl?(event: {type: string, target: any }): void;
+    onRemoveControl?(event: { type: string; target: any }): void;
     /**
      * 当使用 Map.removeOverlay() 方法移除单个覆盖物时会触发此事件
      */
-    onRemoveOverlay?(event: {type: string, target: any }): void;
+    onRemoveOverlay?(event: { type: string; target: any }): void;
     /**
      * 当使用 Map.clearOverlays() 方法一次性移除全部覆盖物时会触发此事件
      */
-    onClearOverlays?(event: {type: string, target: any }): void;
+    onClearOverlays?(event: { type: string; target: any }): void;
     /**
      * 开始拖拽地图时触发
      */
-    onDragStart?(event: {type: string, target: any, pixel: Pixel, point: Point }): void;
+    onDragStart?(event: {
+      type: string;
+      target: any;
+      pixel: Pixel;
+      point: Point;
+    }): void;
     /**
      * 拖拽地图过程中触发
      */
-    onDragging?(event: {type: string, target: any, pixel: Pixel, point: Point }): void;
+    onDragging?(event: {
+      type: string;
+      target: any;
+      pixel: Pixel;
+      point: Point;
+    }): void;
     /**
      * 停止拖拽地图时触发
      */
-    onDragEnd?(event: {type: string, target: any, pixel: Pixel, point: Point }): void;
+    onDragEnd?(event: {
+      type: string;
+      target: any;
+      pixel: Pixel;
+      point: Point;
+    }): void;
     /**
      * 添加一个自定义地图图层时触发此事件
      */
-    onAddTileLayer?(event: {type: string, target: any }): void;
+    onAddTileLayer?(event: { type: string; target: any }): void;
     /**
      * 移除一个自定义地图图层时触发此事件
      */
-    onRemoveTileLayer?(event: {type: string, target: any }): void;
+    onRemoveTileLayer?(event: { type: string; target: any }): void;
     /**
      * 调用Map.centerAndZoom()方法时会触发此事件。这表示位置、缩放层级已经确定，但可能还在载入地图图块
      */
-    onLoad?(event: {type: string, target: any, pixel: Pixel, point: Point, zoom: number }): void;
+    onLoad?(event: {
+      type: string;
+      target: any;
+      pixel: Pixel;
+      point: Point;
+      zoom: number;
+    }): void;
     /**
      * 地图可视区域大小发生变化时会触发此事件
      */
-    onReSize?(event: {type: string, target: any, size: Size }): void;
+    onReSize?(event: { type: string; target: any; size: Size }): void;
     /**
      * 点击热区时触发此事件
      */
-    onHotspotClick?(event: {type: string, target: any, spots: HotspotOptions }): void;
+    onHotspotClick?(event: {
+      type: string;
+      target: any;
+      spots: HotspotOptions;
+    }): void;
     /**
      * 鼠标移至热区时触发此事件
      */
-    onHotspotOver?(event: {type: string, target: any, spots: HotspotOptions }): void;
+    onHotspotOver?(event: {
+      type: string;
+      target: any;
+      spots: HotspotOptions;
+    }): void;
     /**
      * 鼠标移出热区时触发此事件
      */
-    onHotspotOut?(event: {type: string, target: any, spots: HotspotOptions }): void;
+    onHotspotOut?(event: {
+      type: string;
+      target: any;
+      spots: HotspotOptions;
+    }): void;
     /**
      * 当地图所有图块完成加载时触发此事件
      */
-    onTilesLoaded?(event: {type: string, target: any }): void;
+    onTilesLoaded?(event: { type: string; target: any }): void;
     /**
      * 触摸开始时触发此事件，仅适用移动设备
      */
-    onTouchStart?(event: {type: string, target: any, point: Point, pixel}): void;
+    onTouchStart?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel;
+    }): void;
     /**
      * 触摸移动时触发此事件，仅适用移动设备
      */
-    onTouchMove?(event: {type: string, target: any, point: Point, pixel}): void;
+    onTouchMove?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel;
+    }): void;
     /**
      * 触摸结束时触发此事件，仅适用移动设备
      */
-    onTouchEnd?(event: {type: string, target: any, point: Point, pixel}): void;
+    onTouchEnd?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel;
+    }): void;
     /**
      * 长按事件，仅适用移动设备
      */
-    onLongPress?(event: {type: string, target: any, point: Point, pixel}): void;
+    onLongPress?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel;
+    }): void;
   }
   /**
    * 此类是 `panBy` 和 `panTo` 方法的可选参数，没有构造函数，通过对象字面量形式表示。

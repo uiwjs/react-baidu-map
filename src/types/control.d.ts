@@ -119,14 +119,14 @@ declare namespace BMap {
     getSize?: () => Size;
     /**
      * 添加事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     addEventListener(event: string, handler: Callback): void;
     /**
      * 移除事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     removeEventListener(event: string, handler: Callback): void;
   }
@@ -231,14 +231,14 @@ declare namespace BMap {
   interface GeolocationControl {
     /**
      * 添加事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     addEventListener(event: string, handler: Callback): void;
     /**
      * 移除事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     removeEventListener(event: string, handler: Callback): void;
   }
@@ -273,7 +273,6 @@ declare namespace BMap {
    * 绘制模式
    */
   type DrawingType = string;
-
 }
 
 /**

@@ -17,8 +17,8 @@ declare namespace BMap {
   class Marker {
     /**
      * 创建一个图像标注实例。point参数指定了图像标注所在的地理位置
-     * @param point 
-     * @param opts 
+     * @param point
+     * @param opts
      */
     constructor(point: Point, opts?: MarkerOptions);
   }
@@ -68,7 +68,7 @@ declare namespace BMap {
     /**
      * 打开信息窗
      */
-    openInfoWindow(infoWnd: InfoWindow): void;  
+    openInfoWindow(infoWnd: InfoWindow): void;
     /**
      * 关闭信息窗
      */
@@ -80,11 +80,11 @@ declare namespace BMap {
     /**
      * 返回标注所用的图标对象
      */
-    getIcon():Icon;
+    getIcon(): Icon;
     /**
      * 设置标注的地理坐标
      */
-    setPosition(position: Point):void;
+    setPosition(position: Point): void;
     /**
      * 返回标注的地理坐标
      */
@@ -177,61 +177,96 @@ declare namespace BMap {
     /**
      * 移除事件监听函数
      */
-    removeEventListener(event: string, handler: Function) : void;
+    removeEventListener(event: string, handler: Function): void;
   }
   interface MarkerEvents {
     /**
      * 点击标注图标后会触发此事件
      */
-    onClick?(event: { type: string, target: any }): void;
+    onClick?(event: { type: string; target: any }): void;
     /**
      * 双击标注图标后会触发此事件
      */
-    onDblClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDblClick?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标在标注图上按下触发此事件
      */
-    onMouseDown?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseDown?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标在标注图上释放触发此事件
      */
-    onMouseUp?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseUp?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标离开标注时触发此事件
      */
-    onMouseOut?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOut?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 当鼠标进入标注图标区域时会触发此事件
      */
-    onMouseOver?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOver?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 移除标注时触发
      */
-    onRemove?(event: { type: string, target: any }): void;
+    onRemove?(event: { type: string; target: any }): void;
     /**
      * 信息窗在此标注上关闭时触发此事件
      */
-    onInfowindowClose?(event: { type: string, target: any }): void;
+    onInfowindowClose?(event: { type: string; target: any }): void;
     /**
      * 信息窗在此标注上打开时触发此事件
      */
-    onInfowindowOpen?(event: { type: string, target: any }): void;
+    onInfowindowOpen?(event: { type: string; target: any }): void;
     /**
      * 开始拖拽标注时触发此事件
      */
-    onDragStart?(event: { type: string, target: any }): void;
+    onDragStart?(event: { type: string; target: any }): void;
     /**
      * 拖拽标注过程中触发此事件
      */
-    onDragging?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDragging?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 拖拽结束时触发此事件
      */
-    onDragEnd?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDragEnd?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 右键点击标注时触发此事件
      */
-    onRightClick?(event: { type: string, target: any }): void;
+    onRightClick?(event: { type: string; target: any }): void;
   }
   interface SymbolOptions {
     anchor?: Size;
@@ -244,12 +279,17 @@ declare namespace BMap {
     strokeWeight?: number;
   }
   class IconSequence {
-    constructor(symbol: symbol, offset?: string, repeat?: string, fixedRotation?: boolean);
+    constructor(
+      symbol: symbol,
+      offset?: string,
+      repeat?: string,
+      fixedRotation?: boolean,
+    );
   }
   interface PointCollection extends Overlay {
     /**
      * 设置要在地图上展示的点坐标集合
-     * @param points 
+     * @param points
      */
     setPoints(points: Point[]): void;
     /**
@@ -264,14 +304,14 @@ declare namespace BMap {
     clear(): void;
     /**
      * 添加事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     addEventListener(event: string, handler: Callback): void;
     /**
      * 移除事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     removeEventListener(event: string, handler: Callback): void;
   }
@@ -281,8 +321,8 @@ declare namespace BMap {
   class PointCollection {
     /**
      * 创建海量点类。points为点的坐标集合，opts为点的绘制样式
-     * @param points 
-     * @param opts 
+     * @param points
+     * @param opts
      */
     constructor(points: Point[], opts?: PointCollectionOption);
   }
@@ -290,15 +330,15 @@ declare namespace BMap {
     /**
      * 鼠标点击点时会触发此事件
      */
-    onClick?: (event: { type: string, target: any, point: Point }) => void;
+    onClick?: (event: { type: string; target: any; point: Point }) => void;
     /**
      * 鼠标移入点时会触发该事件
      */
-    onMouseOver?: (event: { type: string, target: any, point: Point }) => void;
+    onMouseOver?: (event: { type: string; target: any; point: Point }) => void;
     /**
      * 鼠标移出点时会触发该事件
      */
-    onMouseOut?: (event: { type: string, target: any, point: Point }) => void;
+    onMouseOut?: (event: { type: string; target: any; point: Point }) => void;
   }
   interface PointCollectionOption {
     /**
@@ -326,23 +366,23 @@ declare namespace BMap {
     /**
      * 信息窗口被关闭时触发此事件
      */
-    onClose?: (event: { type: string, target: any, point: Point }) => void;
+    onClose?: (event: { type: string; target: any; point: Point }) => void;
     /**
      * 信息窗口被打开时触发此事件
      */
-    onOpen?: (event: { type: string, target: any, point: Point }) => void;
+    onOpen?: (event: { type: string; target: any; point: Point }) => void;
     /**
      * 信息窗口最大化后触发此事件
      */
-    onMaximize?: (event: { type: string, target: any }) => void;
+    onMaximize?: (event: { type: string; target: any }) => void;
     /**
      * 信息窗口还原时触发此事件
      */
-    onRestore?: (event: { type: string, target: any }) => void;
+    onRestore?: (event: { type: string; target: any }) => void;
     /**
      * 点击信息窗口的关闭按钮时触发此事件
      */
-    onClickclose?: (event: { type: string, target: any }) => void;
+    onClickclose?: (event: { type: string; target: any }) => void;
   }
   interface InfoWindow extends Overlay {
     /**
@@ -367,7 +407,7 @@ declare namespace BMap {
     getTitle(): string | HTMLElement;
     /**
      * 设置信息窗口内容。支持HTML内容。1.2版本开始content参数支持传入DOM结点
-     * @param content 
+     * @param content
      */
     setContent(content: string | HTMLElement): void;
     /**
@@ -392,7 +432,7 @@ declare namespace BMap {
     isOpen(): boolean;
     /**
      * 信息窗口最大化时所显示内容，支持HTML内容
-     * @param content 
+     * @param content
      */
     setMaxContent(content: string): void;
     /**
@@ -421,14 +461,14 @@ declare namespace BMap {
     disableCloseOnClick(): void;
     /**
      * 添加事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     addEventListener(event: string, handler: Callback): void;
     /**
      * 移除事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     removeEventListener(event: string, handler: Callback): void;
   }
@@ -439,8 +479,8 @@ declare namespace BMap {
     /**
      * 创建一个信息窗实例，其中 content 支持HTML内容。
      * 1.2 版本开始content参数支持传入DOM结点
-     * @param content 
-     * @param opts 
+     * @param content
+     * @param opts
      */
     constructor(content: string | HTMLElement, opts?: InfoWindowOptions);
   }
@@ -492,8 +532,8 @@ declare namespace BMap {
   class Polygon {
     /**
      * 创建多边形覆盖物
-     * @param points 
-     * @param opts 
+     * @param points
+     * @param opts
      */
     constructor(points: Point[], opts?: PolygonOptions);
   }
@@ -538,7 +578,7 @@ declare namespace BMap {
   interface Polygon extends Overlay {
     /**
      * 设置多边型的点数组
-     * @param path 
+     * @param path
      */
     setPath(path: Point[]): void;
     /**
@@ -547,7 +587,7 @@ declare namespace BMap {
     getPath(): Point[];
     /**
      * 设置多边型的边线颜色，参数为合法的CSS颜色值
-     * @param color 
+     * @param color
      */
     setStrokeColor(color: string): void;
     /**
@@ -556,7 +596,7 @@ declare namespace BMap {
     getStrokeColor(): string;
     /**
      * 设置多边形的填充颜色，参数为合法的CSS颜色值。当参数为空字符串时，折线覆盖物将没有填充效果
-     * @param color 
+     * @param color
      */
     setFillColor(color: string): void;
     /**
@@ -565,7 +605,7 @@ declare namespace BMap {
     getFillColor(): string;
     /**
      * 设置多边形的边线透明度，取值范围0 - 1
-     * @param opacity 
+     * @param opacity
      */
     setStrokeOpacity(opacity: number): void;
     /**
@@ -574,7 +614,7 @@ declare namespace BMap {
     getStrokeOpacity(): number;
     /**
      * 设置多边形的填充透明度，取值范围0 - 1
-     * @param opacity 
+     * @param opacity
      */
     setFillOpacity(opacity: number): void;
     /**
@@ -591,7 +631,7 @@ declare namespace BMap {
     getStrokeWeight(): number;
     /**
      * 设置多边形边线样式为实线或虚线，取值solid或dashed
-     * @param style 
+     * @param style
      */
     setStrokeStyle(style: string): void;
     /**
@@ -620,8 +660,8 @@ declare namespace BMap {
     disableMassClear(): void;
     /**
      * 修改指定位置的坐标。索引index从0开始计数。例如setPositionAt(2, point)代表将折线的第3个点的坐标设为point
-     * @param index 
-     * @param point 
+     * @param index
+     * @param point
      */
     setPositionAt(index: number, point: Point): void;
     /**
@@ -630,14 +670,14 @@ declare namespace BMap {
     getMap(): Map;
     /**
      * 添加事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     addEventListener(event: string, handler: Callback): void;
     /**
      * 移除事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     removeEventListener(event: string, handler: Callback): void;
   }
@@ -645,35 +685,60 @@ declare namespace BMap {
     /**
      * 点击多边形后会触发此事件
      */
-    onClick?: (event: { type: string, target: any }) => void;
+    onClick?: (event: { type: string; target: any }) => void;
     /**
      * 双击多边形后会触发此事件
      */
-    onDoubleClick?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onDoubleClick?: (event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }) => void;
     /**
      * 鼠标在多边形上按下触发此事件
      */
-    onMouseDown?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseDown?: (event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }) => void;
     /**
      * 鼠标在多边形释放触发此事件
      */
-    onMouseUp?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseUp?: (event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }) => void;
     /**
      * 鼠标离开多边形时触发此事件
      */
-    onMouseOut?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseOut?: (event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }) => void;
     /**
      * 当鼠标进入多边形区域时会触发此事件
      */
-    onMouseOver?: (event: { type: string, target: any, point: Point, pixel: Pixel }) => void;
+    onMouseOver?: (event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }) => void;
     /**
      * 移除多边形时触发
      */
-    onRemove?: (event: { type: string, target: any }) => void;
+    onRemove?: (event: { type: string; target: any }) => void;
     /**
      * 覆盖物的属性发生变化时触发
      */
-    onLineUpdate?: (event: { type: string, target: any }) => void;
+    onLineUpdate?: (event: { type: string; target: any }) => void;
   }
   /**
    * 此常量表示标注的动画效果。
@@ -761,7 +826,7 @@ declare namespace BMap {
     /**
      *   设置文本标注的偏移值
      */
-    setOffset(offset: Size) : void;
+    setOffset(offset: Size): void;
     /**
      * 返回文本标注的偏移值
      */
@@ -817,35 +882,35 @@ declare namespace BMap {
     /**
      * 点击文本标注后会触发此事件
      */
-    onClick?: (event: { type: string, target: any }) => void;
+    onClick?: (event: { type: string; target: any }) => void;
     /**
      * 双击文本标注后会触发此事件
      */
-    onDblClick?: (event: { type: string, target: any }) => void;
+    onDblClick?: (event: { type: string; target: any }) => void;
     /**
      * 鼠标在文本标注上按下触发此事件
      */
-    onMouseDown?: (event: { type: string, target: any }) => void;
+    onMouseDown?: (event: { type: string; target: any }) => void;
     /**
      * 鼠标在文本标注释放触发此事件
      */
-    onMouseUp?: (event: { type: string, target: any }) => void;
+    onMouseUp?: (event: { type: string; target: any }) => void;
     /**
      * 鼠标离开文本标注时触发此事件
      */
-    onMouseOout?: (event: { type: string, target: any }) => void;
+    onMouseOout?: (event: { type: string; target: any }) => void;
     /**
      * 当鼠标进入文本标注区域时会触发此事件
      */
-    onMouseOver?: (event: { type: string, target: any }) => void;
+    onMouseOver?: (event: { type: string; target: any }) => void;
     /**
      * 移除文本标注时触发
      */
-    onRemove?: (event: { type: string, target: any }) => void;
+    onRemove?: (event: { type: string; target: any }) => void;
     /**
      * 右键点击标注时触发此事件
      */
-    onRightClick?: (event: { type: string, target: any }) => void;
+    onRightClick?: (event: { type: string; target: any }) => void;
   }
   /**
    * 此类表示地图上的文本标注。
@@ -895,7 +960,7 @@ declare namespace BMap {
     /**
      * 圆形边线的宽度，以像素为单位
      */
-    strokeWeight?:  number;
+    strokeWeight?: number;
     /**
      * 圆形边线透明度，取值范围0 - 1
      */
@@ -1023,35 +1088,65 @@ declare namespace BMap {
     /**
      * 鼠标点击圆形后会触发此事件
      */
-    onClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onClick?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标双击圆形后会触发此事件
      */
-    onDblClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDblClick?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标在圆形上按下触发此事件
      */
-    onMouseDown?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseDown?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标在圆形释放触发此事件
      */
-    onMouseUp?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseUp?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标离开圆形时触发此事件
      */
-    onMouseOut?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOut?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 当鼠标进入圆形区域时会触发此事件
      */
-    onMouseOver?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOver?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 移除圆形时触发此事件
      */
-    onRemove?(event: { type: string, target: any }): void;
+    onRemove?(event: { type: string; target: any }): void;
     /**
      * 圆形覆盖物的属性发生变化时触发此事件
      */
-    onLineUpdate?(event: { type: string, target: any }): void;
+    onLineUpdate?(event: { type: string; target: any }): void;
   }
   type SizeType = number;
   interface IconOptions {
@@ -1097,7 +1192,7 @@ declare namespace BMap {
     /**
      * 设置热区对应的用户数据
      */
-    setUserData(data: Mix): void;  
+    setUserData(data: Mix): void;
   }
   /**
    * 此类表示地图上的一个热区。
@@ -1105,8 +1200,8 @@ declare namespace BMap {
   class Hotspot {
     /**
      * 创建Hotspot对象实例
-     * @param position 
-     * @param opts 
+     * @param position
+     * @param opts
      */
     constructor(position: Point, opts?: HotspotOptions);
   }
@@ -1161,7 +1256,7 @@ declare namespace BMap {
   interface Polyline extends Overlay {
     /**
      * 设置折线的点数组
-     * @param path 
+     * @param path
      */
     setPath(path: Point[]): void;
     /**
@@ -1170,7 +1265,7 @@ declare namespace BMap {
     getPath(): Point[];
     /**
      * 设置折线的颜色
-     * @param color 
+     * @param color
      */
     setStrokeColor(color: string): void;
     /**
@@ -1179,7 +1274,7 @@ declare namespace BMap {
     getStrokeColor(): string;
     /**
      * 设置透明度，取值范围0 - 1
-     * @param opacity 
+     * @param opacity
      */
     setStrokeOpacity(opacity: number): void;
     /**
@@ -1188,7 +1283,7 @@ declare namespace BMap {
     getStrokeOpacity(): number;
     /**
      * 设置线的宽度，范围为大于等于1的整数
-     * @param weight 
+     * @param weight
      */
     setStrokeWeight(weight: number): void;
     /**
@@ -1197,7 +1292,7 @@ declare namespace BMap {
     getStrokeWeight(): number;
     /**
      * 设置是为实线或虚线，solid 或 dashed
-     * @param style 
+     * @param style
      */
     setStrokeStyle(style: 'solid' | 'dashed'): void;
     /**
@@ -1228,8 +1323,8 @@ declare namespace BMap {
      * 修改指定位置的坐标。
      * 索引index从0开始计数。
      * 例如 setPointAt(2, point) 代表将折线的第3个点的坐标设为point
-     * @param index 
-     * @param point 
+     * @param index
+     * @param point
      */
     setPositionAt(index: number, point: Point): void;
     /**
@@ -1238,14 +1333,14 @@ declare namespace BMap {
     getMap(): Map;
     /**
      * 添加事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     addEventListener(event: string, handler: Callback): void;
     /**
      * 移除事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     removeEventListener(event: string, handler: Callback): void;
   }
@@ -1253,35 +1348,65 @@ declare namespace BMap {
     /**
      * 点击折线后会触发此事件
      */
-    onClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onClick?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 双击折线后会触发此事件
      */
-    onDblClick?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onDblClick?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标在折线上按下触发此事件
      */
-    onMouseDown?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseDown?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标在折线释放触发此事件
      */
-    onMouseUp?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseUp?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 鼠标离开折线时触发此事件
      */
-    onMouseOut?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOut?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 当鼠标进入折线区域时会触发此事件
      */
-    onMouseOver?(event: { type: string, target: any, point: Point, pixel: Pixel }): void;
+    onMouseOver?(event: {
+      type: string;
+      target: any;
+      point: Point;
+      pixel: Pixel;
+    }): void;
     /**
      * 移除折线时触发
      */
-    onRemove?(event: { type: string, target: any }): void;
+    onRemove?(event: { type: string; target: any }): void;
     /**
      * 覆盖物的属性发生变化时触发
      */
-    onLineUpdate?(event: { type: string, target: any }): void;
+    onLineUpdate?(event: { type: string; target: any }): void;
   }
   class Polyline {
     constructor(points: Point[], opts?: PolylineOptions);
@@ -1329,14 +1454,14 @@ declare namespace BMap {
     getDispalyOnMaxLevel(): number;
     /**
      * 添加事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     addEventListener(event: string, handler: Callback): void;
     /**
      * 移除事件监听函数
-     * @param event 
-     * @param handler 
+     * @param event
+     * @param handler
      */
     removeEventListener(event: string, handler: Callback): void;
   }
@@ -1344,11 +1469,11 @@ declare namespace BMap {
     /**
      * 鼠标点击图层后会触发此事件
      */
-    onClick?(event: { type: string, target: any }): void;
+    onClick?(event: { type: string; target: any }): void;
     /**
      * 鼠标双击图层后会触发此事件
      */
-    onDblClick?(event: { type: string, target: any }): void;
+    onDblClick?(event: { type: string; target: any }): void;
   }
   class GroundOverlay {
     constructor(bounds: Bounds, opts?: GroundOverlayOptions);
@@ -1397,7 +1522,7 @@ declare namespace BMap {
    * 覆盖物层级
    * JSAPI 把地图覆盖物分为了8个层级，顶层为 `floatPane`，
    * 低层为 `vertexPane`。可以通过Map实例的 `getPanes()` 方法，获取到8个层级的名称
-   * 
+   *
    * API: https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html#a3b1
    */
   interface MapPanes {

@@ -4,8 +4,12 @@ import usePanoramaControl from './usePanoramaControl';
 
 export interface PanoramaControlProps extends OverlayProps {}
 
-export default React.forwardRef<PanoramaControlProps, PanoramaControlProps>((props, ref) => {
-  const { panoramaControl } = usePanoramaControl(props);
-  useImperativeHandle(ref, () => ({ ...props, panoramaControl }), [panoramaControl]);
-  return null;
-});
+export default React.forwardRef<PanoramaControlProps, PanoramaControlProps>(
+  (props, ref) => {
+    const { panoramaControl } = usePanoramaControl(props);
+    useImperativeHandle(ref, () => ({ ...props, panoramaControl }), [
+      panoramaControl,
+    ]);
+    return null;
+  },
+);

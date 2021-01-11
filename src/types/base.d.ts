@@ -1,4 +1,3 @@
-
 declare global {
   interface Window {
     BMap: typeof BMap;
@@ -21,7 +20,7 @@ declare namespace BMap {
     lat: number;
     /**
      * 判断坐标点是否相等，当且仅当两点的经度和纬度均相等时返回true
-     * @param other 
+     * @param other
      */
     equals?(other: Point): boolean;
   }
@@ -47,8 +46,8 @@ declare namespace BMap {
   class Size {
     /**
      * 以指定的宽度和高度创建一个矩形区域大小对象
-     * @param width 
-     * @param height 
+     * @param width
+     * @param height
      */
     constructor(width: number, height: number);
     /**
@@ -77,7 +76,7 @@ declare namespace BMap {
     /**
      * 传入的矩形区域完全包含于此矩形区域中，则返回true
      */
-    containsBounds?(bounds: Bounds) : Boolean;
+    containsBounds?(bounds: Bounds): Boolean;
     /**
      * 计算与另一矩形的交集区域
      */
@@ -85,7 +84,7 @@ declare namespace BMap {
     /**
      * 放大此矩形，使其包含给定的点
      */
-    extend?(point: Point): void;  
+    extend?(point: Point): void;
     /**
      * 返回矩形的中心点
      */

@@ -5,14 +5,23 @@ export interface UseTileLayer extends TileLayerProps {}
 /**
  * https://lbsyun.baidu.com/jsdemo.htm#g0_2
  */
-export default function(props = {} as UseTileLayer) {
+export default function (props = {} as UseTileLayer) {
   const [tileLayer, setTileLayer] = useState<BMap.TileLayer>();
-  const { map, transparentPng = true, tileUrlTemplate, copyright, zIndex } = props;
+  const {
+    map,
+    transparentPng = true,
+    tileUrlTemplate,
+    copyright,
+    zIndex,
+  } = props;
 
   useEffect(() => {
     if (map && !tileLayer) {
       const instance = new BMap.TileLayer({
-        transparentPng, tileUrlTemplate, copyright, zIndex
+        transparentPng,
+        tileUrlTemplate,
+        copyright,
+        zIndex,
       });
       if (!!props.getTilesUrl) {
         instance.getTilesUrl = props.getTilesUrl;
@@ -26,10 +35,9 @@ export default function(props = {} as UseTileLayer) {
         if (instance) {
           map.removeTileLayer(instance);
         }
-      }
+      };
     }
   }, [map]);
-
 
   const [visiable, setVisiable] = useState(props.visiable);
   useEffect(() => {
@@ -37,10 +45,11 @@ export default function(props = {} as UseTileLayer) {
       visiable ? map.addTileLayer(tileLayer) : map.removeTileLayer(tileLayer);
     }
   }, [visiable, map]);
-  
 
   return {
-    tileLayer, setTileLayer,
-    visiable, setVisiable,
+    tileLayer,
+    setTileLayer,
+    visiable,
+    setVisiable,
   };
 }

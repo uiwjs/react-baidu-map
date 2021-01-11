@@ -5,26 +5,25 @@ import React from 'react';
 import { Config } from '../common/map';
 import { requireScript } from '../utils/requireScript';
 
-
 export function delay(time: number): Promise<undefined> {
   return new Promise((resolve, reject) => {
-    window.setTimeout(resolve, time)
-  })
+    window.setTimeout(resolve, time);
+  });
 }
 
 export interface APILoaderProps extends Config {
   /**
    * 用于展示加载中或错误状态
    */
-  fallback?: (error?: Error) => React.ReactNode
+  fallback?: (error?: Error) => React.ReactNode;
 }
 
 interface State {
-  loaded: boolean
-  error?: Error
+  loaded: boolean;
+  error?: Error;
 }
 
-const DEFAULT_RETRY_TIME = 3
+const DEFAULT_RETRY_TIME = 3;
 
 /**
  * APILoader 用于加载百度地图依赖
@@ -36,32 +35,32 @@ export default class APILoader extends React.Component<APILoaderProps> {
     version: '3.0',
     callbackName: 'load_bmap_sdk',
     type: '',
-  }
+  };
 
   /**
    * 全局可能存在多个Loader同时渲染, 但是只能由一个负责加载
    */
-  private static waitQueue: Array<[Function, Function]> = []
+  private static waitQueue: Array<[Function, Function]> = [];
   /**
    * 等待BMap就绪
    */
   public static async ready() {
     if (window.BMap) {
-      return
+      return;
     }
     return new Promise((res, rej) => {
-      APILoader.waitQueue.push([res, rej])
-    })
+      APILoader.waitQueue.push([res, rej]);
+    });
   }
 
   public state: State = {
     loaded: !!window.BMap,
-  }
+  };
 
   public constructor(props: APILoaderProps) {
-    super(props)
+    super(props);
     if (this.props.akay == null) {
-      throw new TypeError('BaiDuMap: akay is required')
+      throw new TypeError('BaiDuMap: akay is required');
     }
   }
 
@@ -69,8 +68,8 @@ export default class APILoader extends React.Component<APILoaderProps> {
     const { callbackName } = this.props;
     if (window.BMap == null) {
       if (window[callbackName as any]) {
-        APILoader.waitQueue.push([this.finish, this.handleError])
-        return
+        APILoader.waitQueue.push([this.finish, this.handleError]);
+        return;
       }
 
       this.loadMap();
@@ -84,16 +83,21 @@ export default class APILoader extends React.Component<APILoaderProps> {
       this.props.fallback(this.state.error)
     ) : this.state.error ? (
       <div style={{ color: 'red' }}>{this.state.error.message}</div>
-    ) : null
+    ) : null;
   }
 
   private getScriptSrc() {
     const cfg = this.props;
-    let protocol = (cfg.protocol || window.location.protocol) as Config['protocol'];
+    let protocol = (cfg.protocol ||
+      window.location.protocol) as Config['protocol'];
     if (protocol!.indexOf(':') === -1) {
       protocol += ':';
     }
-    const args = [`v=${cfg.version}`, `ak=${cfg.akay}`, `callback=${cfg.callbackName}`]; 
+    const args = [
+      `v=${cfg.version}`,
+      `ak=${cfg.akay}`,
+      `callback=${cfg.callbackName}`,
+    ];
     if (cfg.type) {
       args.push('type=webgl');
     }
@@ -107,38 +111,38 @@ export default class APILoader extends React.Component<APILoaderProps> {
     const src = this.getScriptSrc();
     (window as any)[callbackName as any] = () => {
       // flush queue
-      const queue = APILoader.waitQueue
-      APILoader.waitQueue = []
-      queue.forEach(task => task[0]())
-      this.finish()
-    }
+      const queue = APILoader.waitQueue;
+      APILoader.waitQueue = [];
+      queue.forEach((task) => task[0]());
+      this.finish();
+    };
 
     for (let i = 0; i < DEFAULT_RETRY_TIME; i++) {
       try {
         await requireScript(src);
-        break
+        break;
       } catch (error) {
         if (i === DEFAULT_RETRY_TIME - 1) {
-          const err = new Error(`Failed to load Baidu Map: ${error.message}`)
+          const err = new Error(`Failed to load Baidu Map: ${error.message}`);
           // flush queue
-          const queue = APILoader.waitQueue
-          APILoader.waitQueue = []
-          queue.forEach(task => task[1](err))
-          this.handleError(err)
-          return
+          const queue = APILoader.waitQueue;
+          APILoader.waitQueue = [];
+          queue.forEach((task) => task[1](err));
+          this.handleError(err);
+          return;
         }
-        await delay(i * 1000)
+        await delay(i * 1000);
       }
     }
   }
 
   private handleError = (error: Error) => {
-    this.setState({ error })
-  }
+    this.setState({ error });
+  };
 
   private finish = () => {
     this.setState({
       loaded: true,
-    })
-  }
+    });
+  };
 }

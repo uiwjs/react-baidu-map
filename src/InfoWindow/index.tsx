@@ -2,7 +2,10 @@ import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useInfoWindow from './useInfoWindow';
 
-export interface InfoWindowProps extends OverlayProps, BMap.InfoWindowOptions, BMap.InfoWindowEvent {
+export interface InfoWindowProps
+  extends OverlayProps,
+    BMap.InfoWindowOptions,
+    BMap.InfoWindowEvent {
   /**
    * 窗口是否打开
    * @default true
@@ -22,7 +25,10 @@ export interface InfoWindowProps extends OverlayProps, BMap.InfoWindowOptions, B
   maxContent?: string;
 }
 
-export default React.forwardRef<InfoWindowProps & { infoWindow?: BMap.InfoWindow }, InfoWindowProps>((props, ref) => {
+export default React.forwardRef<
+  InfoWindowProps & { infoWindow?: BMap.InfoWindow },
+  InfoWindowProps
+>((props, ref) => {
   const { infoWindow, setIsOpen } = useInfoWindow(props);
   useEffect(() => setIsOpen(props.isOpen!), [props.isOpen]);
   useImperativeHandle(ref, () => ({ ...props, infoWindow }));

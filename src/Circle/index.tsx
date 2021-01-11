@@ -2,7 +2,10 @@ import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useCircle from './useCircle';
 
-export interface CircleProps extends OverlayProps, BMap.CircleOptions, BMap.CircleEvents {
+export interface CircleProps
+  extends OverlayProps,
+    BMap.CircleOptions,
+    BMap.CircleEvents {
   /**
    * 设置折线的点数组
    */
@@ -13,7 +16,10 @@ export interface CircleProps extends OverlayProps, BMap.CircleOptions, BMap.Circ
   radius: number;
 }
 
-export default React.forwardRef<CircleProps & { circle?: BMap.Circle }, CircleProps>((props, ref) => {
+export default React.forwardRef<
+  CircleProps & { circle?: BMap.Circle },
+  CircleProps
+>((props, ref) => {
   const { circle } = useCircle(props);
   useImperativeHandle(ref, () => ({ ...props, circle }));
   return null;

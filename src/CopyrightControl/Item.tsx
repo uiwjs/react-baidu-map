@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { usePrevious } from '../common/hooks';
 import useCreatePortal from '../common/useCreatePortal';
 
-let uid: number = 1
+let uid: number = 1;
 
 export interface Item {
   /**
@@ -34,7 +34,9 @@ export default (props: Item = {}) => {
   useEffect(() => {
     if (portal && control) {
       control.addCopyright({
-        id, bounds, content: div!.innerHTML,
+        id,
+        bounds,
+        content: div!.innerHTML,
       });
     }
     return function () {
@@ -44,4 +46,4 @@ export default (props: Item = {}) => {
     };
   }, [children, portal]);
   return portal || null;
-}
+};

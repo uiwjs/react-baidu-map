@@ -32,8 +32,11 @@ export default (props = {} as UseCreatePortal) => {
   }, [children, div, portal]);
 
   return {
-    div, setDiv,
-    portal, setPortal,
-    children, setChildren,
+    div,
+    setDiv,
+    portal,
+    setPortal,
+    children,
+    setChildren,
   };
-}
+};

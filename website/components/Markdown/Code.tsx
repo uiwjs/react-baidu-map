@@ -9,10 +9,15 @@ export interface CodeProps {
   dependencies: any;
 }
 
-export default function Code({ language, value, dependencies, ...other }: CodeProps) {
+export default function Code({
+  language,
+  value,
+  dependencies,
+  ...other
+}: CodeProps) {
   const props: CodePreviewProps = {};
   let onlyRead: boolean = false;
-  if(/\^(js|jsx)/.test(language) || !regxOpts.test(value)) {
+  if (/\^(js|jsx)/.test(language) || !regxOpts.test(value)) {
     onlyRead = true;
   }
   props.code = value.replace(regxOpts, '');
@@ -75,28 +80,28 @@ export default function Code({ language, value, dependencies, ...other }: CodePr
                   },
                 },
               },
-            }
+            };
             return;
           }
           if (keyName === 'codePen') {
             return;
           }
-          props[keyName as keyof CodePreviewProps] = item[keyName as keyof CodePreviewProps];
-        })
+          props[keyName as keyof CodePreviewProps] =
+            item[keyName as keyof CodePreviewProps];
+        });
       });
     } catch (error) {}
   }
   if (onlyRead) {
-    const cls = [
-      language ? `language-${language}` : null
-    ].filter(item => item).join(' ').trim();
+    const cls = [language ? `language-${language}` : null]
+      .filter((item) => item)
+      .join(' ')
+      .trim();
     return (
       <pre className={cls}>
-        <code className={cls}>
-          {value}
-        </code>
+        <code className={cls}>{value}</code>
       </pre>
-    )
+    );
   }
   return (
     <CodePreview {...props} language={language} dependencies={dependencies} />

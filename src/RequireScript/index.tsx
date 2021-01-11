@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState,useRef } from 'react';
+import React, { Fragment, useEffect, useState, useRef } from 'react';
 import { requireScript } from '../utils/requireScript';
 import { MapChildRenderProps } from '../Map';
 
@@ -10,17 +10,25 @@ export type RequireScriptProps = {
   onFailed?: (error: any) => void;
 } & MapChildRenderProps;
 
-export default React.forwardRef<RequireScriptProps, RequireScriptProps & { map: BMap.Map, container?: string | HTMLDivElement | null }>((props, ref) => {
+export default React.forwardRef<
+  RequireScriptProps,
+  RequireScriptProps & {
+    map: BMap.Map;
+    container?: string | HTMLDivElement | null;
+  }
+>((props, ref) => {
   const { children, map, container } = props || {};
   const [completed, setCompleted] = useState(false);
   useEffect(() => {
     if (props.src) {
-      requireScript(props.src).then(() => {
-        setCompleted(true);
-        props.onCompleted && props.onCompleted()
-      }).catch((err) => {
-        props.onFailed && props.onFailed(err)
-      });
+      requireScript(props.src)
+        .then(() => {
+          setCompleted(true);
+          props.onCompleted && props.onCompleted();
+        })
+        .catch((err) => {
+          props.onFailed && props.onFailed(err);
+        });
     }
   }, []);
   const childs = React.Children.toArray(children);
@@ -29,14 +37,17 @@ export default React.forwardRef<RequireScriptProps, RequireScriptProps & { map: 
       <Fragment>
         {typeof children === 'function' && children({ BMap, map, container })}
         {childs.map((child) => {
-        if (!React.isValidElement(child)) return;
-        return React.cloneElement(child, {
-          ...child.props, BMap, map, container,
-        });
-      })}
+          if (!React.isValidElement(child)) return;
+          return React.cloneElement(child, {
+            ...child.props,
+            BMap,
+            map,
+            container,
+          });
+        })}
       </Fragment>
-    )
+    );
   }
 
   return null;
-})
+});

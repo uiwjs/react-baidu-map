@@ -13,15 +13,17 @@ export interface Control {
   GeolocationControl: BMap.GeolocationControlOptions;
 }
 
-export type ControlOptions = {
-  name: keyof Control;
-  options?: (bmap: typeof BMap, map: BMap.Map) => void ;
-  control?(bmap: typeof BMap, map: BMap.Map): BMap.Control;
-} | {
-  name: keyof Control;
-  options?: Control[keyof Control] ;
-  control?(bmap: typeof BMap, map: BMap.Map): BMap.Control;
-}
+export type ControlOptions =
+  | {
+      name: keyof Control;
+      options?: (bmap: typeof BMap, map: BMap.Map) => void;
+      control?(bmap: typeof BMap, map: BMap.Map): BMap.Control;
+    }
+  | {
+      name: keyof Control;
+      options?: Control[keyof Control];
+      control?(bmap: typeof BMap, map: BMap.Map): BMap.Control;
+    };
 
 export type ControlOptionsAll = keyof Control | ControlOptions;
 
@@ -82,15 +84,15 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
   /**
    * 设置地图城市，注意当地图初始化时的类型设置为 `BMAP_NORMAL_MAP` 时，
    * 需要在调用 `centerAndZoom` 之前调用此方法设置地图所在城市。
-   * 例如： 
+   * 例如：
    * @example
-   * 
+   *
    * ```js
    * var map = new BMap.Map(“container”, { mapType: BMAP_NORMAL_MAP });
    * map.setCurrentCity(“北京市”);
    * map.centerAndZoom(new BMap.Point(116.404, 39.915), 18);
    * ```
-   * 
+   *
    * 注意：初始化的坐标应与您设置的城市对应，否则地图将无法正常显示。
    */
   currentCity?: string;
@@ -101,28 +103,61 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
 }
 
 export type MapChildRenderProps =
-  | { children?: (data: { BMap: typeof BMap, map: BMap.Map, container?: string | HTMLDivElement | null }) => void }
+  | {
+      children?: (data: {
+        BMap: typeof BMap;
+        map: BMap.Map;
+        container?: string | HTMLDivElement | null;
+      }) => void;
+    }
   | { children?: React.ReactNode };
 
-export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & MapChildRenderProps>(({ className, style, children, ...props }, ref) => {
+export default React.forwardRef<
+  MapProps & { map?: BMap.Map },
+  MapProps & MapChildRenderProps
+>(({ className, style, children, ...props }, ref) => {
   window.BMap = window.BMap || window.BMapGL;
   const elmRef = useRef<HTMLDivElement>(null);
-  const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({ container: elmRef.current as (string | HTMLDivElement), ...props });
-  useEffect(() => setContainer(elmRef.current as string | HTMLDivElement | undefined), [elmRef.current]);
-  useEffect(() => { props.center && setCenter(props.center) }, [props.center]);
-  useEffect(() => setAutoLocalCity(props.autoLocalCity!), [props.autoLocalCity]);
-  useImperativeHandle(ref, () => ({ ...props, map, BMap, container: elmRef }), [map]);
+  const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({
+    container: elmRef.current as string | HTMLDivElement,
+    ...props,
+  });
+  useEffect(
+    () => setContainer(elmRef.current as string | HTMLDivElement | undefined),
+    [elmRef.current],
+  );
+  useEffect(() => {
+    props.center && setCenter(props.center);
+  }, [props.center]);
+  useEffect(() => setAutoLocalCity(props.autoLocalCity!), [
+    props.autoLocalCity,
+  ]);
+  useImperativeHandle(ref, () => ({ ...props, map, BMap, container: elmRef }), [
+    map,
+  ]);
   const childs = React.Children.toArray(children);
   return (
     <Fragment>
-      <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style}} />
-      {BMap && map && typeof children === 'function' && children({ BMap, map, container })}
-      {BMap && map && childs.map((child) => {
-        if (!React.isValidElement(child)) return;
-        return React.cloneElement(child, {
-          ...child.props, BMap, map, container,
-        });
-      })}
+      <div
+        ref={elmRef}
+        className={className}
+        style={{ fontSize: 1, height: '100%', ...style }}
+      />
+      {BMap &&
+        map &&
+        typeof children === 'function' &&
+        children({ BMap, map, container })}
+      {BMap &&
+        map &&
+        childs.map((child) => {
+          if (!React.isValidElement(child)) return;
+          return React.cloneElement(child, {
+            ...child.props,
+            BMap,
+            map,
+            container,
+          });
+        })}
     </Fragment>
   );
 });

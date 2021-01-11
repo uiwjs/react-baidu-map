@@ -2,7 +2,6 @@ import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useControl from './useControl';
 
-
 export interface ControlProps extends OverlayProps {
   /**
    * 控件默认的停靠位置。自定义控件时需要提供此属性，作为控件的默认停靠位置
@@ -18,11 +17,14 @@ export interface ControlProps extends OverlayProps {
   children?: React.ReactNode;
 }
 
-export default React.forwardRef<ControlProps & { control?: BMap.Control }, ControlProps>((props, ref) => {
+export default React.forwardRef<
+  ControlProps & { control?: BMap.Control },
+  ControlProps
+>((props, ref) => {
   const { control, portal } = useControl(props);
   useImperativeHandle(ref, () => ({ ...props, control }), [control]);
   if (portal) {
     return portal;
   }
   return null;
-})
+});

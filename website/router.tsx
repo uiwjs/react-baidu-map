@@ -1,124 +1,123 @@
 import React from 'react';
-import loadable from "@loadable/component";
+import loadable from '@loadable/component';
 
 const options = {
-  fallback: <div>loading</div>
-}
+  fallback: <div>loading</div>,
+};
 
 export type Routes = {
   path: string;
   exact?: boolean;
   component: React.ReactNode;
-}[]
+}[];
 
 export const routes: Routes = [
   {
-    path: "/",
+    path: '/',
     exact: true,
     component: loadable(() => import('./pages/home'), options),
   },
   {
-    path: "/api-loader",
+    path: '/api-loader',
     component: loadable(() => import('./pages/api-loader'), options),
   },
   {
-    path: "/with-map",
+    path: '/with-map',
     component: loadable(() => import('./pages/with-map'), options),
   },
   {
-    path: "/control",
+    path: '/control',
     component: loadable(() => import('./pages/control'), options),
   },
   {
-    path: "/copyright-control",
+    path: '/copyright-control',
     component: loadable(() => import('./pages/copyright-control'), options),
   },
   {
-    path: "/map",
+    path: '/map',
     component: loadable(() => import('./pages/map'), options),
   },
   {
-    path: "/marker",
+    path: '/marker',
     component: loadable(() => import('./pages/marker'), options),
   },
   {
-    path: "/navigation-control",
+    path: '/navigation-control',
     component: loadable(() => import('./pages/navigation-control'), options),
   },
   {
-    path: "/geolocation-control",
+    path: '/geolocation-control',
     component: loadable(() => import('./pages/geolocation-control'), options),
   },
   {
-    path: "/ground-overlay",
+    path: '/ground-overlay',
     component: loadable(() => import('./pages/ground-overlay'), options),
   },
   {
-    path: "/overview-map-control",
+    path: '/overview-map-control',
     component: loadable(() => import('./pages/overview-map-control'), options),
   },
   {
-    path: "/scale-control",
+    path: '/scale-control',
     component: loadable(() => import('./pages/scale-control'), options),
   },
   {
-    path: "/map-type-control",
+    path: '/map-type-control',
     component: loadable(() => import('./pages/map-type-control'), options),
   },
   {
-    path: "/panorama-control",
+    path: '/panorama-control',
     component: loadable(() => import('./pages/panorama-control'), options),
   },
   {
-    path: "/info-window",
+    path: '/info-window',
     component: loadable(() => import('./pages/info-window'), options),
   },
   {
-    path: "/label",
+    path: '/label',
     component: loadable(() => import('./pages/label'), options),
   },
   {
-    path: "/point-collection",
+    path: '/point-collection',
     component: loadable(() => import('./pages/point-collection'), options),
   },
   {
-    path: "/polyline",
+    path: '/polyline',
     component: loadable(() => import('./pages/polyline'), options),
   },
   {
-    path: "/curve-line",
+    path: '/curve-line',
     component: loadable(() => import('./pages/curve-line'), options),
   },
   {
-    path: "/drawing-manager",
+    path: '/drawing-manager',
     component: loadable(() => import('./pages/drawing-manager'), options),
   },
   {
-    path: "/polygon",
+    path: '/polygon',
     component: loadable(() => import('./pages/polygon'), options),
   },
   {
-    path: "/circle",
+    path: '/circle',
     component: loadable(() => import('./pages/circle'), options),
   },
   {
-    path: "/canvas-layer",
+    path: '/canvas-layer',
     component: loadable(() => import('./pages/canvas-layer'), options),
   },
   {
-    path: "/custom-overlay",
+    path: '/custom-overlay',
     component: loadable(() => import('./pages/custom-overlay'), options),
   },
   {
-    path: "/require-script",
+    path: '/require-script',
     component: loadable(() => import('./pages/require-script'), options),
   },
   {
-    path: "/tile-layer",
+    path: '/tile-layer',
     component: loadable(() => import('./pages/tile-layer'), options),
   },
 ];
-
 
 export const menus = [
   {
@@ -258,7 +257,8 @@ export const menus = [
   {
     label: '百度地图 API v3.0',
     target: '__blank',
-    path: 'https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html',
+    path:
+      'https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html',
   },
   {
     label: '源码 Github 仓库',
@@ -284,4 +284,4 @@ export const menus = [
     target: '__blank',
     path: 'https://uiwjs.github.io/react-amap/',
   },
-]
+];
