@@ -4,6 +4,20 @@ on:
     branches:
       - master
 jobs:
+  windows:
+    runs-on: windows-2019
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - run: npm install
+      - run: npm run build
+      - run: npm run doc
+
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
