@@ -1,11 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { MapChildProps } from '../common/map';
 import { MapProps } from './';
-import {
-  useEnableProperties,
-  useProperties,
-  useEventProperties,
-} from '../common/hooks';
+import { useEnableProperties, useProperties, useEventProperties } from '../common/hooks';
 
 export interface UseMap extends MapProps, MapChildProps {
   /**
@@ -15,15 +11,7 @@ export interface UseMap extends MapProps, MapChildProps {
 }
 
 export default (props: UseMap = {}) => {
-  const {
-    widget,
-    minZoom,
-    maxZoom,
-    mapType,
-    enableHighResolution,
-    enableAutoResize,
-    enableMapClick,
-  } = props;
+  const { widget, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick } = props;
   const [map, setMap] = useState<BMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);
   const [container, setContainer] = useState(props.container);
@@ -44,17 +32,10 @@ export default (props: UseMap = {}) => {
         widget.forEach((item) => {
           if (typeof item === 'string') {
             instance.addControl(new (BMap[item] as any)());
-          } else if (
-            typeof item === 'object' &&
-            item.control &&
-            typeof item.control === 'function'
-          ) {
+          } else if (typeof item === 'object' && item.control && typeof item.control === 'function') {
             instance.addControl(item.control(BMap, instance));
           } else if (typeof item === 'object' && item.name) {
-            const options =
-              typeof item.options === 'function'
-                ? item.options(BMap, instance)
-                : item.options;
+            const options = typeof item.options === 'function' ? item.options(BMap, instance) : item.options;
             instance.addControl(new (BMap[item.name] as any)(options));
           }
         });
@@ -70,10 +51,7 @@ export default (props: UseMap = {}) => {
     if (map && center) {
       let cent = center;
       if (center && (center as BMap.Point).lng && (center as BMap.Point).lat) {
-        cent = new BMap.Point(
-          (center as BMap.Point).lng,
-          (center as BMap.Point).lat,
-        );
+        cent = new BMap.Point((center as BMap.Point).lng, (center as BMap.Point).lat);
       }
       map.centerAndZoom(cent!, zoom!);
     }

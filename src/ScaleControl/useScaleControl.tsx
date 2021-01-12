@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ScaleControlProps } from './';
-import {
-  useProperties,
-  useVisiable,
-  useEventProperties,
-} from '../common/hooks';
+import { useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseScaleControl extends ScaleControlProps {}
 
@@ -26,11 +22,7 @@ export default function (props = {} as UseScaleControl) {
   }, [map]);
 
   useVisiable(scaleControl!, props);
-  useProperties<BMap.ScaleControl, UseScaleControl>(scaleControl!, props, [
-    'Anchor',
-    'Offset',
-    'Unit',
-  ]);
+  useProperties<BMap.ScaleControl, UseScaleControl>(scaleControl!, props, ['Anchor', 'Offset', 'Unit']);
   return {
     scaleControl,
     setScaleControl,

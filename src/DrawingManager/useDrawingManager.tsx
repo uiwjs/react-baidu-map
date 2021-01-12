@@ -19,10 +19,7 @@ export default (props = {} as UseDrawingManager) => {
     rectangleOptions,
   } = props;
 
-  const [
-    drawingManager,
-    setDrawingManager,
-  ] = useState<BMapLib.DrawingManager>();
+  const [drawingManager, setDrawingManager] = useState<BMapLib.DrawingManager>();
   const libSDK = window.BMapLib;
   const [bMapLib, setBMapLib] = useState<typeof BMapLib>(libSDK);
   const [loadMapLib, setLoadBMapLib] = useState(false || !!libSDK);
@@ -50,13 +47,9 @@ export default (props = {} as UseDrawingManager) => {
 
     // 如果 bMapLib 已经加载过，会执行下面的
     if (map && bMapLib && !bMapLib.DrawingManager) {
-      requireCss(
-        '//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css',
-      ).then(() => {});
+      requireCss('//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css').then(() => {});
 
-      requireScript(
-        '//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js',
-      )
+      requireScript('//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js')
         .then(() => {
           if (window.BMapLib) {
             const newMapLib = Object.assign(window.BMapLib, bMapLib);
@@ -72,12 +65,8 @@ export default (props = {} as UseDrawingManager) => {
     // 如果第一次加载，会执行下面的
     if (!bMapLib && !loadMapLib) {
       setLoadBMapLib(true);
-      requireCss(
-        '//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css',
-      ).then(() => {});
-      requireScript(
-        '//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js',
-      )
+      requireCss('//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css').then(() => {});
+      requireScript('//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js')
         .then(() => {
           if (window.BMapLib) {
             setBMapLib(window.BMapLib);

@@ -16,18 +16,12 @@ import React, { useEffect, useState, useRef } from 'react';
  * @param props
  * @param propsName
  */
-export function useEnableProperties<T = {}, F = {}>(
-  instance: T,
-  props = {} as F,
-  propsName: string[] = [],
-) {
+export function useEnableProperties<T = {}, F = {}>(instance: T, props = {} as F, propsName: string[] = []) {
   propsName.forEach((name) => {
     const eName = `enable${name}` as keyof F;
     const [state, setState] = useState(props[eName]);
     useEffect(() => {
-      const funName = (props[eName]
-        ? `enable${name}`
-        : `disable${name}`) as keyof T;
+      const funName = (props[eName] ? `enable${name}` : `disable${name}`) as keyof T;
       if (instance && props[eName] !== undefined) {
         instance[funName] && (instance[funName] as any)();
         if (props[eName] !== state) {
@@ -42,10 +36,7 @@ export function useEnableProperties<T = {}, F = {}>(
  * 针对 Overlay 类型的组件，有公共的是否显示 对象处理
  * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
  */
-export function useVisiable<
-  T extends BMap.Overlay,
-  F extends { visiable?: boolean }
->(instance: T, props = {} as F) {
+export function useVisiable<T extends BMap.Overlay, F extends { visiable?: boolean }>(instance: T, props = {} as F) {
   const visiable = (props as any).visiable;
   const [state, setState] = useState(visiable);
   useEffect(() => {
@@ -69,20 +60,12 @@ export function useVisiable<
  * @param props
  * @param propsName
  */
-export function useProperties<T, F>(
-  instance: T,
-  props: F,
-  propsName: string[] = [],
-) {
+export function useProperties<T, F>(instance: T, props: F, propsName: string[] = []) {
   propsName.forEach((name) => {
     const eName = `${name.charAt(0).toLowerCase()}${name.slice(1)}` as keyof F;
     const [state, setState] = useState(props[eName]);
     useEffect(() => {
-      if (
-        instance &&
-        instance[`set${name}` as keyof T] &&
-        props[eName] !== undefined
-      ) {
+      if (instance && instance[`set${name}` as keyof T] && props[eName] !== undefined) {
         /**
          * 坐标点的参数设置，比对, 坐标点的参数设置
          */

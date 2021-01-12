@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
 import defaultIconUrl from './markers.png';
 import { MarkerProps } from '.';
-import {
-  useEnableProperties,
-  useProperties,
-  useVisiable,
-  useEventProperties,
-} from '../common/hooks';
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 import { noop } from '../utils/noop';
 
 export interface UseMarker extends MarkerProps {}
@@ -52,25 +47,17 @@ const getIcons = (name: string) => {
   };
 
   for (var i = 1; i <= 10; i++) {
-    (icons as any)['red' + i] = new BMap.Icon(
-      defaultIconUrl,
-      new BMap.Size(42 / 2, 66 / 2),
-      {
-        imageOffset: new BMap.Size(0 - (42 / 2) * (i - 1), 0),
-        anchor: new BMap.Size(42 / 2 / 2, 66 / 2),
-      },
-    );
+    (icons as any)['red' + i] = new BMap.Icon(defaultIconUrl, new BMap.Size(42 / 2, 66 / 2), {
+      imageOffset: new BMap.Size(0 - (42 / 2) * (i - 1), 0),
+      anchor: new BMap.Size(42 / 2 / 2, 66 / 2),
+    });
   }
 
   for (var i = 1; i <= 10; i++) {
-    (icons as any)['blue' + i] = new BMap.Icon(
-      defaultIconUrl,
-      new BMap.Size(42 / 2, 66 / 2),
-      {
-        imageOffset: new BMap.Size(0 - (42 / 2) * (i - 1), -132 / 2),
-        anchor: new BMap.Size(42 / 2 / 2, 66 / 2),
-      },
-    );
+    (icons as any)['blue' + i] = new BMap.Icon(defaultIconUrl, new BMap.Size(42 / 2, 66 / 2), {
+      imageOffset: new BMap.Size(0 - (42 / 2) * (i - 1), -132 / 2),
+      anchor: new BMap.Size(42 / 2 / 2, 66 / 2),
+    });
   }
   return icons[name as keyof typeof icons];
 };
@@ -159,11 +146,7 @@ export default (props = {} as UseMarker) => {
     'DragEnd',
     'RightClick',
   ]);
-  useEnableProperties<BMap.Marker, UseMarker>(marker!, props, [
-    'Dragging',
-    'MassClear',
-    'Clicking',
-  ]);
+  useEnableProperties<BMap.Marker, UseMarker>(marker!, props, ['Dragging', 'MassClear', 'Clicking']);
   useProperties<BMap.Marker, UseMarker>(marker!, props, [
     'Icon',
     'Position',

@@ -17,11 +17,7 @@ declare namespace BMap {
     iconUrl: string | ContextMenuIcon;
   }
   class MenuItem {
-    constructor(
-      text: string,
-      callback: (point: Point) => void,
-      opts?: MenuItemOptions,
-    );
+    constructor(text: string, callback: (point: Point) => void, opts?: MenuItemOptions);
     /**
      * 设置菜单项显示的文本
      */
@@ -65,18 +61,8 @@ declare namespace BMap {
      * 移除指定索引位置的分隔符，第一个分隔符的索引为0
      */
     removeSeparator: (index: number) => void;
-    onopen: (event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }) => void;
-    onclose: (event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }) => void;
+    onopen: (event: { type: string; target: any; point: Point; pixel: Pixel }) => void;
+    onclose: (event: { type: string; target: any; point: Point; pixel: Pixel }) => void;
   }
 }
 declare const BMAP_CONTEXT_MENU_ICON_ZOOMIN: string;

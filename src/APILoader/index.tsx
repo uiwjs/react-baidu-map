@@ -88,16 +88,11 @@ export default class APILoader extends React.Component<APILoaderProps> {
 
   private getScriptSrc() {
     const cfg = this.props;
-    let protocol = (cfg.protocol ||
-      window.location.protocol) as Config['protocol'];
+    let protocol = (cfg.protocol || window.location.protocol) as Config['protocol'];
     if (protocol!.indexOf(':') === -1) {
       protocol += ':';
     }
-    const args = [
-      `v=${cfg.version}`,
-      `ak=${cfg.akay}`,
-      `callback=${cfg.callbackName}`,
-    ];
+    const args = [`v=${cfg.version}`, `ak=${cfg.akay}`, `callback=${cfg.callbackName}`];
     if (cfg.type) {
       args.push('type=webgl');
     }

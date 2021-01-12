@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import MarkdownPreview, {
-  MarkdownAbstractSyntaxTree,
-  NodeType,
-} from '@uiw/react-markdown-preview';
+import MarkdownPreview, { MarkdownAbstractSyntaxTree, NodeType } from '@uiw/react-markdown-preview';
 import Code from './Code';
 
 interface MarkdownProps {}
@@ -57,16 +54,11 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
         source={this.state.mdStr}
         className="markdown"
         escapeHtml={false}
-        allowNode={(
-          node: MarkdownAbstractSyntaxTree,
-          index: number,
-          parent: NodeType,
-        ) => {
+        allowNode={(node: MarkdownAbstractSyntaxTree, index: number, parent: NodeType) => {
           if (node.type === 'code') {
             const preIdx = index - 1;
             const nextIdx = index + 1;
-            const childs: MarkdownAbstractSyntaxTree[] = (parent as any)
-              .children;
+            const childs: MarkdownAbstractSyntaxTree[] = (parent as any).children;
             /**
              * 将参数放入代码的前面注释
              */
@@ -75,9 +67,7 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
               childs.length > 0 &&
               childs[preIdx] &&
               childs[preIdx].type === 'html' &&
-              /^<!--DemoStart\s?(.*)-->/.test(
-                (childs[preIdx] && childs[preIdx].value) || '',
-              ) &&
+              /^<!--DemoStart\s?(.*)-->/.test((childs[preIdx] && childs[preIdx].value) || '') &&
               childs[nextIdx] &&
               childs[nextIdx].type === 'html' &&
               childs[nextIdx] &&
@@ -85,30 +75,21 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
             ) {
               const preValue = (childs[preIdx] && childs[preIdx].value) || '';
               let options = {} as OptionsMarkdown;
-              preValue.replace(
-                /<!--\s?DemoStart\s?(.*)-->/g,
-                (match: string, parame: any, code: any, offset: any) => {
-                  options = parame
-                    .replace(/^(,)/, '')
-                    .split(',')
-                    .map((val: string) => {
-                      if (
-                        val &&
-                        val.includes('=') &&
-                        val.split('=').length === 2
-                      ) {
-                        return {
-                          [`${val.split('=')[0]}`]: val.split('=')[1],
-                        };
-                      }
-                      return { [`${val}`]: true };
-                    });
-                  return '';
-                },
-              );
-              node.value = `;{{/**${JSON.stringify(options)}**/}};${
-                node.value
-              }`;
+              preValue.replace(/<!--\s?DemoStart\s?(.*)-->/g, (match: string, parame: any, code: any, offset: any) => {
+                options = parame
+                  .replace(/^(,)/, '')
+                  .split(',')
+                  .map((val: string) => {
+                    if (val && val.includes('=') && val.split('=').length === 2) {
+                      return {
+                        [`${val.split('=')[0]}`]: val.split('=')[1],
+                      };
+                    }
+                    return { [`${val}`]: true };
+                  });
+                return '';
+              });
+              node.value = `;{{/**${JSON.stringify(options)}**/}};${node.value}`;
             }
           }
           return true;

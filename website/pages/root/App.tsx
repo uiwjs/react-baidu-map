@@ -9,13 +9,7 @@ export default function App() {
   return (
     <HashRouter>
       <div className={styles.warpper}>
-        <GitHubCorners
-          fixed
-          zIndex={99}
-          size={60}
-          target="__blank"
-          href="https://github.com/uiwjs/react-baidu-map"
-        />
+        <GitHubCorners fixed zIndex={99} size={60} target="__blank" href="https://github.com/uiwjs/react-baidu-map" />
         <SideMenu />
         <div className={styles.content}>
           <Switch>

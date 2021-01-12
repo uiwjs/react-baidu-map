@@ -1,11 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { CircleProps } from './';
-import {
-  useEnableProperties,
-  useProperties,
-  useVisiable,
-  useEventProperties,
-} from '../common/hooks';
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseCircle extends CircleProps {}
 
@@ -60,10 +55,7 @@ export default (props = {} as UseCircle) => {
     'Remove',
     'LineUpdate',
   ]);
-  useEnableProperties<BMap.Circle, UseCircle>(circle!, props, [
-    'Editing',
-    'MassClear',
-  ]);
+  useEnableProperties<BMap.Circle, UseCircle>(circle!, props, ['Editing', 'MassClear']);
   useProperties<BMap.Circle, UseCircle>(circle!, props, [
     'Center',
     'Radius',

@@ -1,11 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { PolylineProps } from './';
-import {
-  useEnableProperties,
-  useProperties,
-  useVisiable,
-  useEventProperties,
-} from '../common/hooks';
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UsePolyline extends PolylineProps {}
 
@@ -36,9 +31,7 @@ export default (props = {} as UsePolyline) => {
   };
   useMemo(() => {
     if (map && !polyline) {
-      const points = (props.path || []).map(
-        (item) => new BMap.Point(item.lng, item.lat),
-      );
+      const points = (props.path || []).map((item) => new BMap.Point(item.lng, item.lat));
       const instance = new BMap.Polyline(points, opts);
       map.addOverlay(instance);
       setPolyline(instance);
@@ -63,10 +56,7 @@ export default (props = {} as UsePolyline) => {
     'Remove',
     'LineUpdate',
   ]);
-  useEnableProperties<BMap.Polyline, UsePolyline>(polyline!, props, [
-    'Editing',
-    'MassClear',
-  ]);
+  useEnableProperties<BMap.Polyline, UsePolyline>(polyline!, props, ['Editing', 'MassClear']);
   // PositionAt
   useProperties<BMap.Polyline, UsePolyline>(polyline!, props, [
     'StrokeColor',

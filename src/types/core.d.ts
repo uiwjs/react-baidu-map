@@ -188,10 +188,7 @@ declare namespace BMap {
     /**
      * 根据提供的地理区域或坐标设置地图视野，调整后的视野会保证包含提供的地理区域或坐标
      */
-    setViewport(
-      view: Array<Point> | Viewport,
-      viewportOptions: ViewportOptions,
-    ): void;
+    setViewport(view: Array<Point> | Viewport, viewportOptions: ViewportOptions): void;
     /**
      * 将视图切换到指定的缩放等级，中心点坐标不变。注意：当有信息窗口在地图上打开时，地图缩放将保证信息窗口所在的坐标位置不动
      */
@@ -307,42 +304,19 @@ declare namespace BMap {
     /**
      * 左键单击地图时触发此事件。 当双击时，产生的事件序列为： click click dblclick
      */
-    onClick?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-      overlay: Overlay;
-    }): void;
+    onClick?(event: { type: string; target: any; point: Point; pixel: Pixel; overlay: Overlay }): void;
     /**
      * 鼠标双击地图时会触发此事件
      */
-    onDblClick?(event: {
-      type: string;
-      target: any;
-      pixel: Pixel;
-      point: Point;
-    }): void;
+    onDblClick?(event: { type: string; target: any; pixel: Pixel; point: Point }): void;
     /**
      * 右键单击地图时触发此事件。 当双击时，产生的事件序列为： rightclick rightclick rightdblclick
      */
-    onRightClick?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-      overlay: Overlay;
-    }): void;
+    onRightClick?(event: { type: string; target: any; point: Point; pixel: Pixel; overlay: Overlay }): void;
     /**
      * 右键双击地图时触发此事件
      */
-    onRightdblClick?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-      overlay: Overlay;
-    }): void;
+    onRightdblClick?(event: { type: string; target: any; point: Point; pixel: Pixel; overlay: Overlay }): void;
     /**
      * 地图类型发生变化时触发此事件
      */
@@ -350,13 +324,7 @@ declare namespace BMap {
     /**
      * 鼠标在地图区域移动过程中触发此事件
      */
-    onMouseMove?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-      overlay: Overlay;
-    }): void;
+    onMouseMove?(event: { type: string; target: any; point: Point; pixel: Pixel; overlay: Overlay }): void;
     /**
      * 鼠标移入地图区域时触发此事件
      */
@@ -408,30 +376,15 @@ declare namespace BMap {
     /**
      * 开始拖拽地图时触发
      */
-    onDragStart?(event: {
-      type: string;
-      target: any;
-      pixel: Pixel;
-      point: Point;
-    }): void;
+    onDragStart?(event: { type: string; target: any; pixel: Pixel; point: Point }): void;
     /**
      * 拖拽地图过程中触发
      */
-    onDragging?(event: {
-      type: string;
-      target: any;
-      pixel: Pixel;
-      point: Point;
-    }): void;
+    onDragging?(event: { type: string; target: any; pixel: Pixel; point: Point }): void;
     /**
      * 停止拖拽地图时触发
      */
-    onDragEnd?(event: {
-      type: string;
-      target: any;
-      pixel: Pixel;
-      point: Point;
-    }): void;
+    onDragEnd?(event: { type: string; target: any; pixel: Pixel; point: Point }): void;
     /**
      * 添加一个自定义地图图层时触发此事件
      */
@@ -443,13 +396,7 @@ declare namespace BMap {
     /**
      * 调用Map.centerAndZoom()方法时会触发此事件。这表示位置、缩放层级已经确定，但可能还在载入地图图块
      */
-    onLoad?(event: {
-      type: string;
-      target: any;
-      pixel: Pixel;
-      point: Point;
-      zoom: number;
-    }): void;
+    onLoad?(event: { type: string; target: any; pixel: Pixel; point: Point; zoom: number }): void;
     /**
      * 地图可视区域大小发生变化时会触发此事件
      */
@@ -457,27 +404,15 @@ declare namespace BMap {
     /**
      * 点击热区时触发此事件
      */
-    onHotspotClick?(event: {
-      type: string;
-      target: any;
-      spots: HotspotOptions;
-    }): void;
+    onHotspotClick?(event: { type: string; target: any; spots: HotspotOptions }): void;
     /**
      * 鼠标移至热区时触发此事件
      */
-    onHotspotOver?(event: {
-      type: string;
-      target: any;
-      spots: HotspotOptions;
-    }): void;
+    onHotspotOver?(event: { type: string; target: any; spots: HotspotOptions }): void;
     /**
      * 鼠标移出热区时触发此事件
      */
-    onHotspotOut?(event: {
-      type: string;
-      target: any;
-      spots: HotspotOptions;
-    }): void;
+    onHotspotOut?(event: { type: string; target: any; spots: HotspotOptions }): void;
     /**
      * 当地图所有图块完成加载时触发此事件
      */
@@ -485,39 +420,19 @@ declare namespace BMap {
     /**
      * 触摸开始时触发此事件，仅适用移动设备
      */
-    onTouchStart?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel;
-    }): void;
+    onTouchStart?(event: { type: string; target: any; point: Point; pixel }): void;
     /**
      * 触摸移动时触发此事件，仅适用移动设备
      */
-    onTouchMove?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel;
-    }): void;
+    onTouchMove?(event: { type: string; target: any; point: Point; pixel }): void;
     /**
      * 触摸结束时触发此事件，仅适用移动设备
      */
-    onTouchEnd?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel;
-    }): void;
+    onTouchEnd?(event: { type: string; target: any; point: Point; pixel }): void;
     /**
      * 长按事件，仅适用移动设备
      */
-    onLongPress?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel;
-    }): void;
+    onLongPress?(event: { type: string; target: any; point: Point; pixel }): void;
   }
   /**
    * 此类是 `panBy` 和 `panTo` 方法的可选参数，没有构造函数，通过对象字面量形式表示。

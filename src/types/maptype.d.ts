@@ -9,11 +9,7 @@ declare namespace BMap {
      * @param layers
      * @param opts
      */
-    constructor(
-      name: string,
-      layers: TileLayer | TileLayer[],
-      opts?: MapTypeOptions,
-    );
+    constructor(name: string, layers: TileLayer | TileLayer[], opts?: MapTypeOptions);
     /**
      * 返回地图类型名称
      */

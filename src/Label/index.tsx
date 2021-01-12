@@ -2,10 +2,7 @@ import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useLabel from './useLabel';
 
-export interface LabelProps
-  extends OverlayProps,
-    BMap.LabelOptions,
-    BMap.LabelEvents {
+export interface LabelProps extends OverlayProps, BMap.LabelOptions, BMap.LabelEvents {
   /**
    * 文本标注内容
    */
@@ -19,10 +16,7 @@ export interface LabelProps
   style?: HTMLDivElement['style'];
 }
 
-export default React.forwardRef<
-  LabelProps & { label?: BMap.Label },
-  LabelProps
->((props, ref) => {
+export default React.forwardRef<LabelProps & { label?: BMap.Label }, LabelProps>((props, ref) => {
   const { label } = useLabel(props);
   useImperativeHandle(ref, () => ({ ...props, label }), [label]);
   return null;

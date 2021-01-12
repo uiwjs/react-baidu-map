@@ -170,11 +170,7 @@ declare namespace BMap {
      * 根据坐标及半径返回该范围内的全景数据；
      * 不设置半径参数时，默认半径为50米；当获取不到数据时，回调函数参数为null
      */
-    getPanoramaByLocation(
-      point: Point,
-      radius?: number,
-      callback?: (data: PanoramaData) => void,
-    ): void;
+    getPanoramaByLocation(point: Point, radius?: number, callback?: (data: PanoramaData) => void): void;
   }
   interface PanoramaData {
     id: string;

@@ -37,10 +37,7 @@ export default (props = {} as UseControl) => {
   }, [props.children]);
 
   useVisiable(control!, props);
-  useProperties<BMap.Control, UseControl>(control!, props, [
-    'Anchor',
-    'Offset',
-  ]);
+  useProperties<BMap.Control, UseControl>(control!, props, ['Anchor', 'Offset']);
   return {
     portal,
     setPortal,

@@ -1,11 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { InfoWindowProps } from './';
-import {
-  useEnableProperties,
-  useProperties,
-  useVisiable,
-  useEventProperties,
-} from '../common/hooks';
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseInfoWindow extends InfoWindowProps {}
 
@@ -20,9 +15,7 @@ export default (props = {} as UseInfoWindow) => {
     }
   }, [map]);
 
-  const [isOpen, setIsOpen] = useState(
-    opts.isOpen === undefined ? true : opts.isOpen,
-  );
+  const [isOpen, setIsOpen] = useState(opts.isOpen === undefined ? true : opts.isOpen);
   useEffect(() => {
     if (map && BMap && infoWindow) {
       if (!isOpen) {
@@ -49,11 +42,7 @@ export default (props = {} as UseInfoWindow) => {
     'Content',
     'MaxContent',
   ]);
-  useEnableProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
-    'CloseOnClick',
-    'Maximize',
-    'AutoPan',
-  ]);
+  useEnableProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, ['CloseOnClick', 'Maximize', 'AutoPan']);
 
   return {
     /**

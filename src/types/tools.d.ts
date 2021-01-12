@@ -24,13 +24,7 @@ declare namespace BMap {
     open(): boolean;
     close(): void;
     toString(): string;
-    ondrawend: (event: {
-      type: string;
-      target: any;
-      points: Point[];
-      polylines: Polyline[];
-      distance: number;
-    }) => void;
+    ondrawend: (event: { type: string; target: any; points: Point[]; polylines: Polyline[]; distance: number }) => void;
   }
   class DragAndZoomTool {
     constructor(map: Map, opts?: DragAndZoomToolOptions);

@@ -4,17 +4,14 @@ import useCanvasLayer, { CanvasLayerResult } from './useCanvasLayer';
 
 export interface Argument extends CanvasLayerResult {}
 
-export interface CanvasLayerProps
-  extends Omit<BMap.CanvasLayerOptions, 'update'>,
-    OverlayProps {
+export interface CanvasLayerProps extends Omit<BMap.CanvasLayerOptions, 'update'>, OverlayProps {
   update?(argument: Argument): void;
 }
 
-export default React.forwardRef<
-  CanvasLayerProps & { canvasLayer?: BMap.CanvasLayer },
-  CanvasLayerProps
->((props, ref) => {
-  const { canvasLayer } = useCanvasLayer(props);
-  useImperativeHandle(ref, () => ({ ...props, canvasLayer }));
-  return null;
-});
+export default React.forwardRef<CanvasLayerProps & { canvasLayer?: BMap.CanvasLayer }, CanvasLayerProps>(
+  (props, ref) => {
+    const { canvasLayer } = useCanvasLayer(props);
+    useImperativeHandle(ref, () => ({ ...props, canvasLayer }));
+    return null;
+  },
+);

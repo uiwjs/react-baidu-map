@@ -7,13 +7,7 @@ export interface UseTileLayer extends TileLayerProps {}
  */
 export default function (props = {} as UseTileLayer) {
   const [tileLayer, setTileLayer] = useState<BMap.TileLayer>();
-  const {
-    map,
-    transparentPng = true,
-    tileUrlTemplate,
-    copyright,
-    zIndex,
-  } = props;
+  const { map, transparentPng = true, tileUrlTemplate, copyright, zIndex } = props;
 
   useEffect(() => {
     if (map && !tileLayer) {

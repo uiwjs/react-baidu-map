@@ -257,8 +257,7 @@ export const menus = [
   {
     label: '百度地图 API v3.0',
     target: '__blank',
-    path:
-      'https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html',
+    path: 'https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html',
   },
   {
     label: '源码 Github 仓库',

@@ -28,15 +28,11 @@ export interface CustomOverlayProps extends OverlayProps {
   children?: React.ReactNode;
 }
 
-export default React.forwardRef<CustomOverlayProps, CustomOverlayProps>(
-  (props, ref) => {
-    const { customOverlay, portal } = useCustomOverlay(props);
-    useImperativeHandle(ref, () => ({ ...props, customOverlay }), [
-      customOverlay,
-    ]);
-    if (portal) {
-      return portal;
-    }
-    return null;
-  },
-);
+export default React.forwardRef<CustomOverlayProps, CustomOverlayProps>((props, ref) => {
+  const { customOverlay, portal } = useCustomOverlay(props);
+  useImperativeHandle(ref, () => ({ ...props, customOverlay }), [customOverlay]);
+  if (portal) {
+    return portal;
+  }
+  return null;
+});

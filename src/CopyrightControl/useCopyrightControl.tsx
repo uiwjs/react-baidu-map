@@ -7,10 +7,7 @@ export interface UseCopyrightControl extends CopyrightControlProps {}
 
 export default function (props = {} as UseCopyrightControl) {
   const { portal, setPortal } = useCreatePortal({ children: props.children });
-  const [
-    copyrightControl,
-    setCopyrightControl,
-  ] = useState<BMap.CopyrightControl>();
+  const [copyrightControl, setCopyrightControl] = useState<BMap.CopyrightControl>();
   const { map, anchor, offset } = props;
   useMemo(() => {
     if (map && !copyrightControl) {
@@ -24,11 +21,7 @@ export default function (props = {} as UseCopyrightControl) {
   }, [map, copyrightControl]);
 
   useVisiable(copyrightControl!, props);
-  useProperties<BMap.CopyrightControl, UseCopyrightControl>(
-    copyrightControl!,
-    props,
-    ['Anchor', 'Offset'],
-  );
+  useProperties<BMap.CopyrightControl, UseCopyrightControl>(copyrightControl!, props, ['Anchor', 'Offset']);
 
   return {
     portal,

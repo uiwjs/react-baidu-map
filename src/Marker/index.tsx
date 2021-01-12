@@ -44,10 +44,7 @@ export interface MarkerProps extends OverlayProps, BMap.MarkerOptions {
     | 'blue9';
 }
 
-export default React.forwardRef<
-  MarkerProps & { marker?: BMap.Marker },
-  MarkerProps
->((props, ref) => {
+export default React.forwardRef<MarkerProps & { marker?: BMap.Marker }, MarkerProps>((props, ref) => {
   const { marker, setType } = useMarker(props);
   useEffect(() => props.type && setType(props.type), [props.type]);
   useImperativeHandle(ref, () => ({ ...props, marker }));

@@ -1,11 +1,6 @@
 import { useMemo, useState } from 'react';
 import { LabelProps } from './';
-import {
-  useEnableProperties,
-  useProperties,
-  useVisiable,
-  useEventProperties,
-} from '../common/hooks';
+import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseLabel extends LabelProps {}
 
@@ -35,14 +30,7 @@ export default (props = {} as UseLabel) => {
     'Remove',
     'RightClick',
   ]);
-  useProperties<BMap.Label, UseLabel>(label!, props, [
-    'Style',
-    'Content',
-    'Position',
-    'Offset',
-    'Title',
-    'ZIndex',
-  ]);
+  useProperties<BMap.Label, UseLabel>(label!, props, ['Style', 'Content', 'Position', 'Offset', 'Title', 'ZIndex']);
   useEnableProperties<BMap.Label, UseLabel>(label!, props, ['MassClear']);
 
   return {

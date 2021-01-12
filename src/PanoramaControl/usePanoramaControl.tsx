@@ -1,18 +1,11 @@
 import { useEffect, useState } from 'react';
 import { PanoramaControlProps } from './';
-import {
-  useProperties,
-  useVisiable,
-  useEventProperties,
-} from '../common/hooks';
+import { useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UsePanoramaControl extends PanoramaControlProps {}
 
 export default function (props = {} as UsePanoramaControl) {
-  const [
-    panoramaControl,
-    setPanoramaControl,
-  ] = useState<BMap.PanoramaControl>();
+  const [panoramaControl, setPanoramaControl] = useState<BMap.PanoramaControl>();
   const { map } = props;
   useEffect(() => {
     if (map && !panoramaControl) {

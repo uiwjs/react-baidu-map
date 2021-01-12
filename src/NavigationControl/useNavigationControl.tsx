@@ -5,10 +5,7 @@ import { useProperties, useVisiable } from '../common/hooks';
 export interface UseNavigationControl extends NavigationControlProps {}
 
 export default function (props = {} as UseNavigationControl) {
-  const [
-    navigationControl,
-    setNavigationControl,
-  ] = useState<BMap.NavigationControl>();
+  const [navigationControl, setNavigationControl] = useState<BMap.NavigationControl>();
   const { map, anchor, offset, type, showZoomInfo, enableGeolocation } = props;
   useEffect(() => {
     if (map && !navigationControl) {
@@ -30,11 +27,7 @@ export default function (props = {} as UseNavigationControl) {
   }, [map]);
 
   useVisiable(navigationControl!, props);
-  useProperties<BMap.NavigationControl, UseNavigationControl>(
-    navigationControl!,
-    props,
-    ['Anchor', 'Offset', 'Type'],
-  );
+  useProperties<BMap.NavigationControl, UseNavigationControl>(navigationControl!, props, ['Anchor', 'Offset', 'Type']);
   return {
     navigationControl,
     setNavigationControl,

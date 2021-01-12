@@ -187,48 +187,23 @@ declare namespace BMap {
     /**
      * 双击标注图标后会触发此事件
      */
-    onDblClick?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onDblClick?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标在标注图上按下触发此事件
      */
-    onMouseDown?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseDown?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标在标注图上释放触发此事件
      */
-    onMouseUp?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseUp?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标离开标注时触发此事件
      */
-    onMouseOut?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseOut?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 当鼠标进入标注图标区域时会触发此事件
      */
-    onMouseOver?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseOver?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 移除标注时触发
      */
@@ -248,21 +223,11 @@ declare namespace BMap {
     /**
      * 拖拽标注过程中触发此事件
      */
-    onDragging?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onDragging?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 拖拽结束时触发此事件
      */
-    onDragEnd?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onDragEnd?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 右键点击标注时触发此事件
      */
@@ -279,12 +244,7 @@ declare namespace BMap {
     strokeWeight?: number;
   }
   class IconSequence {
-    constructor(
-      symbol: symbol,
-      offset?: string,
-      repeat?: string,
-      fixedRotation?: boolean,
-    );
+    constructor(symbol: symbol, offset?: string, repeat?: string, fixedRotation?: boolean);
   }
   interface PointCollection extends Overlay {
     /**
@@ -689,48 +649,23 @@ declare namespace BMap {
     /**
      * 双击多边形后会触发此事件
      */
-    onDoubleClick?: (event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }) => void;
+    onDoubleClick?: (event: { type: string; target: any; point: Point; pixel: Pixel }) => void;
     /**
      * 鼠标在多边形上按下触发此事件
      */
-    onMouseDown?: (event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }) => void;
+    onMouseDown?: (event: { type: string; target: any; point: Point; pixel: Pixel }) => void;
     /**
      * 鼠标在多边形释放触发此事件
      */
-    onMouseUp?: (event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }) => void;
+    onMouseUp?: (event: { type: string; target: any; point: Point; pixel: Pixel }) => void;
     /**
      * 鼠标离开多边形时触发此事件
      */
-    onMouseOut?: (event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }) => void;
+    onMouseOut?: (event: { type: string; target: any; point: Point; pixel: Pixel }) => void;
     /**
      * 当鼠标进入多边形区域时会触发此事件
      */
-    onMouseOver?: (event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }) => void;
+    onMouseOver?: (event: { type: string; target: any; point: Point; pixel: Pixel }) => void;
     /**
      * 移除多边形时触发
      */
@@ -1088,57 +1023,27 @@ declare namespace BMap {
     /**
      * 鼠标点击圆形后会触发此事件
      */
-    onClick?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onClick?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标双击圆形后会触发此事件
      */
-    onDblClick?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onDblClick?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标在圆形上按下触发此事件
      */
-    onMouseDown?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseDown?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标在圆形释放触发此事件
      */
-    onMouseUp?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseUp?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标离开圆形时触发此事件
      */
-    onMouseOut?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseOut?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 当鼠标进入圆形区域时会触发此事件
      */
-    onMouseOver?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseOver?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 移除圆形时触发此事件
      */
@@ -1348,57 +1253,27 @@ declare namespace BMap {
     /**
      * 点击折线后会触发此事件
      */
-    onClick?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onClick?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 双击折线后会触发此事件
      */
-    onDblClick?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onDblClick?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标在折线上按下触发此事件
      */
-    onMouseDown?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseDown?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标在折线释放触发此事件
      */
-    onMouseUp?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseUp?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 鼠标离开折线时触发此事件
      */
-    onMouseOut?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseOut?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 当鼠标进入折线区域时会触发此事件
      */
-    onMouseOver?(event: {
-      type: string;
-      target: any;
-      point: Point;
-      pixel: Pixel;
-    }): void;
+    onMouseOver?(event: { type: string; target: any; point: Point; pixel: Pixel }): void;
     /**
      * 移除折线时触发
      */

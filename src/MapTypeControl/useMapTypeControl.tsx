@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
 import { MapTypeControlProps } from './';
-import {
-  useProperties,
-  useVisiable,
-  useEventProperties,
-} from '../common/hooks';
+import { useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseMapTypeControl extends MapTypeControlProps {}
 
@@ -28,11 +24,7 @@ export default function (props = {} as UseMapTypeControl) {
   }, [map]);
 
   useVisiable(mapTypeControl!, props);
-  useProperties<BMap.MapTypeControl, UseMapTypeControl>(
-    mapTypeControl!,
-    props,
-    ['Anchor', 'Offset', 'Unit'],
-  );
+  useProperties<BMap.MapTypeControl, UseMapTypeControl>(mapTypeControl!, props, ['Anchor', 'Offset', 'Unit']);
   return {
     mapTypeControl,
     setMapTypeControl,

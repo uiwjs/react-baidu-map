@@ -1,12 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import Markdown from '../../components/Markdown';
-import {
-  APILoader,
-  Map,
-  useMap,
-  DrawingManager,
-  useDrawingManager,
-} from '../../../';
+import { APILoader, Map, useMap, DrawingManager, useDrawingManager } from '../../../';
 
 export default class Page extends Markdown {
   dependencies = {

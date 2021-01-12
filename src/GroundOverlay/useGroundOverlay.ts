@@ -1,23 +1,12 @@
 import { useEffect, useState } from 'react';
 import { GroundOverlayProps } from './';
-import {
-  useProperties,
-  useVisiable,
-  useEventProperties,
-} from '../common/hooks';
+import { useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseGroundOverlay extends GroundOverlayProps {}
 
 export default (props = {} as UseGroundOverlay) => {
   const [groundOverlay, setGroundOverlay] = useState<BMap.GroundOverlay>();
-  const {
-    map,
-    bounds,
-    opacity,
-    imageURL,
-    displayOnMinLevel,
-    displayOnMaxLevel,
-  } = props;
+  const { map, bounds, opacity, imageURL, displayOnMinLevel, displayOnMaxLevel } = props;
   useEffect(() => {
     if (!groundOverlay && bounds && map) {
       const instance = new BMap.GroundOverlay(bounds, {
@@ -37,11 +26,7 @@ export default (props = {} as UseGroundOverlay) => {
   }, [map]);
 
   useVisiable(groundOverlay!, props);
-  useEventProperties<BMap.GroundOverlay, UseGroundOverlay>(
-    groundOverlay!,
-    props,
-    ['Click', 'DblClick'],
-  );
+  useEventProperties<BMap.GroundOverlay, UseGroundOverlay>(groundOverlay!, props, ['Click', 'DblClick']);
   useProperties<BMap.GroundOverlay, UseGroundOverlay>(groundOverlay!, props, [
     'Bounds',
     'Opacity',

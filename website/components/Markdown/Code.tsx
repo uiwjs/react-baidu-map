@@ -9,12 +9,7 @@ export interface CodeProps {
   dependencies: any;
 }
 
-export default function Code({
-  language,
-  value,
-  dependencies,
-  ...other
-}: CodeProps) {
+export default function Code({ language, value, dependencies, ...other }: CodeProps) {
   const props: CodePreviewProps = {};
   let onlyRead: boolean = false;
   if (/\^(js|jsx)/.test(language) || !regxOpts.test(value)) {
@@ -43,10 +38,7 @@ export default function Code({
                   content: `<div id="container"></div>`,
                 },
                 'src/index.js': {
-                  content: props.code!.replace(
-                    '_mount_',
-                    'document.getElementById("container")',
-                  ),
+                  content: props.code!.replace('_mount_', 'document.getElementById("container")'),
                 },
                 '.kktrc.js': {
                   content: `import webpack from "webpack";\nimport lessModules from "@kkt/less-modules";\nexport default (conf, env, options) => {\nconf = lessModules(conf, env, options);\nreturn conf;\n};`,
@@ -71,12 +63,7 @@ export default function Code({
                       build: 'kkt build',
                       test: 'kkt test --env=jsdom',
                     },
-                    browserslist: [
-                      '>0.2%',
-                      'not dead',
-                      'not ie <= 11',
-                      'not op_mini all',
-                    ],
+                    browserslist: ['>0.2%', 'not dead', 'not ie <= 11', 'not op_mini all'],
                   },
                 },
               },
@@ -86,8 +73,7 @@ export default function Code({
           if (keyName === 'codePen') {
             return;
           }
-          props[keyName as keyof CodePreviewProps] =
-            item[keyName as keyof CodePreviewProps];
+          props[keyName as keyof CodePreviewProps] = item[keyName as keyof CodePreviewProps];
         });
       });
     } catch (error) {}
@@ -103,7 +89,5 @@ export default function Code({
       </pre>
     );
   }
-  return (
-    <CodePreview {...props} language={language} dependencies={dependencies} />
-  );
+  return <CodePreview {...props} language={language} dependencies={dependencies} />;
 }
