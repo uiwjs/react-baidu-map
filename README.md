@@ -18,8 +18,8 @@
   <a href="https://github.com/uiwjs/react-baidu-map/stargazers">
     <img src="https://img.shields.io/github/stars/uiwjs/react-baidu-map.svg" alt="Stars">
   </a>
-  <a href="https://github.com/uiwjs/react-baidu-map/releases">
-    <img src="https://img.shields.io/github/release/uiwjs/react-baidu-map.svg" alt="Releases">
+  <a href="https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-baidu-map/file/README.md">
+    <img src="https://img.shields.io/badge/Open%20in-unpkg-blue" alt="Open in unpkg">
   </a>
   <a href="https://www.npmjs.com/package/@uiw/react-baidu-map">
     <img src="https://img.shields.io/npm/v/@uiw/react-baidu-map.svg" alt="npm version">
