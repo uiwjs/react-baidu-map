@@ -63,7 +63,7 @@
   "devDependencies": {
     "@kkt/less-modules": "6.0.12",
     "@kkt/raw-modules": "6.0.12",
-    "@kkt/scope-plugin-options": "6.0.12",
+    "@kkt/scope-plugin-options": "6.6.2",
     "@loadable/component": "5.13.2",
     "@types/jest": "25.2.1",
     "@types/loadable__component": "5.13.0",
