@@ -83,10 +83,10 @@
     "kkt": "6.0.12",
     "lint-staged": "10.5.3",
     "prettier": "2.2.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-router-dom": "5.2.0",
-    "react-test-renderer": "16.13.1",
+    "react-test-renderer": "16.14.0",
     "tsbb": "1.7.8"
   },
   "dependencies": {
