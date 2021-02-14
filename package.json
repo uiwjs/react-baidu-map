@@ -21,7 +21,8 @@
     "css:watch": "compile-less -d src -o lib/esm --watch",
     "ts:watch": "tsbb watch --env-name esm:dev --env-name cjs --target react",
     "ts:build": "tsbb build --target react",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'"
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "map": "source-map-explorer build/static/js/*.js --html build/website-result.html"
   },
   "homepage": "https://uiwjs.github.io/react-baidu-map",
   "repository": {
@@ -87,6 +88,7 @@
     "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
     "react-test-renderer": "16.13.1",
+    "source-map-explorer": "2.5.2",
     "tsbb": "1.7.8"
   },
   "dependencies": {
