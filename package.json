@@ -89,7 +89,7 @@
     "react-router-dom": "5.2.0",
     "react-test-renderer": "16.13.1",
     "source-map-explorer": "2.5.2",
-    "tsbb": "1.7.8"
+    "tsbb": "1.7.9"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5"
