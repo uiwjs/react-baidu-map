@@ -9,7 +9,7 @@
   "scripts": {
     "prepare": "npm run build",
     "released": "npm run build && npm run doc",
-    "doc": "kkt build --app-src ./website",
+    "doc": "kkt build --app-src ./website && npm run map",
     "start": "kkt start --app-src ./website",
     "build": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build",
     "watch": "npm run ts:watch & npm run types:watch & npm run css:watch",
