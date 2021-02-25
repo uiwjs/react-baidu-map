@@ -62,9 +62,9 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.6.2",
-    "@kkt/raw-modules": "6.6.2",
-    "@kkt/scope-plugin-options": "6.6.2",
+    "@kkt/less-modules": "6.6.3",
+    "@kkt/raw-modules": "6.6.3",
+    "@kkt/scope-plugin-options": "6.6.3",
     "@loadable/component": "5.13.2",
     "@types/jest": "25.2.1",
     "@types/loadable__component": "5.13.0",
@@ -81,7 +81,7 @@
     "compile-less-cli": "1.6.0",
     "cross-env": "7.0.3",
     "husky": "4.3.7",
-    "kkt": "6.6.2",
+    "kkt": "6.6.3",
     "lint-staged": "10.5.3",
     "prettier": "2.2.1",
     "react": "16.13.1",
@@ -89,7 +89,7 @@
     "react-router-dom": "5.2.0",
     "react-test-renderer": "16.13.1",
     "source-map-explorer": "2.5.2",
-    "tsbb": "1.7.8"
+    "tsbb": "2.0.7"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5"
