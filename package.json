@@ -91,7 +91,7 @@
     "react-router-dom": "5.2.0",
     "react-test-renderer": "16.13.1",
     "source-map-explorer": "2.5.2",
-    "tsbb": "2.0.11"
+    "tsbb": "2.0.10"
   },
   "eslintConfig": {
     "extends": [
