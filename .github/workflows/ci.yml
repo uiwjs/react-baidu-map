@@ -30,6 +30,7 @@ jobs:
 
     - run: npm install
     - run: npm run build
+    - run: npm ls @babel/core
     - run: npm run doc
 
     - name: Create Tag
