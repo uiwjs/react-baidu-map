@@ -63,6 +63,7 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
+    "@babel/core": "7.12.17",
     "@babel/runtime": "7.13.7",
     "@kkt/less-modules": "6.7.1",
     "@kkt/raw-modules": "6.7.1",
