@@ -28,7 +28,7 @@ const DEFAULT_RETRY_TIME = 3;
 /**
  * APILoader 用于加载百度地图依赖
  */
-export default class APILoader extends React.Component<APILoaderProps> {
+export default class APILoader extends React.Component<APILoaderProps, State> {
   public static defaultProps = {
     akay: '',
     hostAndPath: 'api.map.baidu.com/api',
@@ -48,17 +48,18 @@ export default class APILoader extends React.Component<APILoaderProps> {
     if (window.BMap) {
       return;
     }
+    if (window.BMapGL) {
+      return;
+    }
     return new Promise((res, rej) => {
       APILoader.waitQueue.push([res, rej]);
     });
   }
-
-  public state: State = {
-    loaded: !!window.BMap,
-  };
-
   public constructor(props: APILoaderProps) {
     super(props);
+    this.state = {
+      loaded: props.type === 'webgl' ? !!window.BMapGL : !!window.BMap,
+    };
     if (this.props.akay == null) {
       throw new TypeError('BaiDuMap: akay is required');
     }
@@ -66,7 +67,7 @@ export default class APILoader extends React.Component<APILoaderProps> {
 
   public componentDidMount() {
     const { callbackName } = this.props;
-    if (window.BMap == null) {
+    if ((this.props.type === 'webgl' && !window.BMapGL) || !window.BMap) {
       if (window[callbackName as any]) {
         APILoader.waitQueue.push([this.finish, this.handleError]);
         return;
@@ -94,7 +95,7 @@ export default class APILoader extends React.Component<APILoaderProps> {
     }
     const args = [`v=${cfg.version}`, `ak=${cfg.akay}`, `callback=${cfg.callbackName}`];
     if (cfg.type) {
-      args.push('type=webgl');
+      args.push(`type=${cfg.type}`);
     }
     return `${protocol}//${cfg.hostAndPath}?${args.join('&')}`;
   }
@@ -136,6 +137,9 @@ export default class APILoader extends React.Component<APILoaderProps> {
   };
 
   private finish = () => {
+    if (this.props.type === 'webgl') {
+      window.BMap = window.BMapGL as any;
+    }
     this.setState({
       loaded: true,
     });

@@ -7,6 +7,27 @@ MapTypeControl 地图类型控件
 import { MapTypeControl, useMapTypeControl } from '@uiw/react-baidu-map';
 ```
 
+⚠️ 这个类型空间是属于来的地图空间，加载新的 3D地图控件[实例](http://lbsyun.baidu.com/jsdemo.htm#webgl2_1)，需要设置参数 `type=webgl&v=1.0` 并且需要自己实现。
+
+```js
+// <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=您的密钥"></script>
+// GL版命名空间为 BMapGL
+// 按住鼠标右键，修改倾斜角和角度
+var map = new BMapGL.Map("allmap");    // 创建Map实例
+map.centerAndZoom(new BMapGL.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+var navi3DCtrl = new BMapGL.NavigationControl3D();  // 添加3D控件
+map.addControl(navi3DCtrl);
+```
+
+在组件上传递参数 `type="webgl"`，此时 `window.BMap` 对象为 `undefined`，在组件中做了自动处理 `window.BMap = window.BMapGL`。
+
+```jsx
+<APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f" type="webgl" version="1.0">
+  <Example />
+</APILoader>
+```
+
 ### 基本用法
 
 <!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
@@ -34,7 +55,7 @@ const Example = () => {
 
 ReactDOM.render((
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f" type="webgl" version="1.0">
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>
   </div>
