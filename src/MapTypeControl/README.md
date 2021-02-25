@@ -11,6 +11,7 @@ import { MapTypeControl, useMapTypeControl } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, MapTypeControl } from '@uiw/react-baidu-map';
 
@@ -33,7 +34,7 @@ const Example = () => {
 
 ReactDOM.render((
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f" type="webgl" version="1.0">
       <Example />
     </APILoader>
   </div>

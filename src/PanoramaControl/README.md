@@ -11,7 +11,8 @@ import { PanoramaControl, usePanoramaControl } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
-import React, { useState, useRef } from 'react';
+import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import { Map, APILoader, PanoramaControl } from '@uiw/react-baidu-map';
 
 const Example = () => {

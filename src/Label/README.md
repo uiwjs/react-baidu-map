@@ -13,6 +13,7 @@ import { Label, useLabel } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, Label, APILoader } from '@uiw/react-baidu-map';
 
@@ -59,6 +60,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useLabel } from '@uiw/react-baidu-map';
 

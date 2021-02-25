@@ -13,18 +13,19 @@ import { PointCollection, usePointCollection } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
-import { useRef, useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
+import { useEffect, useState } from 'react';
 import { Map, PointCollection, APILoader, requireScript } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [visiable, setVisiable] = useState(true);
-  const [points, usePoints] = useState([]);
-  const [position, usePositon] = useState('');
+  const [points, setPoints] = useState([]);
+  const [position, setPositon] = useState('');
   useEffect(() => {
     if(points.length === 0) {
       requireScript('https://lbsyun.baidu.com/jsdemo/data/points-sample-data.js').then(() => {
         if(window.data && window.data.data) {
-          usePoints(window.data.data);
+          setPoints(window.data.data);
         }
       });
     }
@@ -43,7 +44,7 @@ const Example = () => {
           ref={compRef}
           visiable={visiable}
           onClick={(e) => {
-            usePositon(JSON.stringify(e.point))
+            setPositon(JSON.stringify(e.point))
           }}
           styles={{ shape: 1 }}
           points={[
@@ -75,6 +76,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, usePointCollection } from '@uiw/react-baidu-map';
 

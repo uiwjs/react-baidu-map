@@ -11,6 +11,7 @@ import { CurveLine, useCurveLine } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, CurveLine, APILoader } from '@uiw/react-baidu-map';
 

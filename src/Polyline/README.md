@@ -11,6 +11,7 @@ import { Polyline, usePolyline } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, Polyline, APILoader } from '@uiw/react-baidu-map';
 

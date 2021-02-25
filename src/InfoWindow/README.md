@@ -11,6 +11,7 @@ import { InfoWindow, useInfoWindow } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, InfoWindow, APILoader } from '@uiw/react-baidu-map';
 
@@ -63,8 +64,9 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen--> 
 ```jsx
-import React, { useState, useEffect } from 'react';
-import { Map, InfoWindow, useInfoWindow, APILoader } from '@uiw/react-baidu-map';
+import ReactDOM from 'react-dom';
+import React, { useRef, useState, useEffect } from 'react';
+import { Map, useMap, InfoWindow, useInfoWindow, APILoader } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);

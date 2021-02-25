@@ -11,6 +11,7 @@ import { Circle, useCircle } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, Circle, APILoader } from '@uiw/react-baidu-map';
 
@@ -69,6 +70,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite--> 
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useCircle } from '@uiw/react-baidu-map';
 

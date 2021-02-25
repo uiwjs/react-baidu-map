@@ -13,6 +13,7 @@ import { RequireScript, requireScript } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef } from 'react';
 import { Map, APILoader, RequireScript } from '@uiw/react-baidu-map';
 

@@ -11,6 +11,7 @@ import { Marker, useMarker } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => {
@@ -50,6 +51,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 const CustomIcon = () => {
   const [position, setPosition] = useState({ lng: 121.466008, lat: 31.220001 });
   const icon = new BMap.Icon('http://developer.baidu.com/map/jsdemo/img/fox.gif', new BMap.Size(300, 157));
@@ -78,6 +80,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 const CustomIcon = () => {
   const [count, setCount] = useState(0)
   const [message, setMessage] = useState('请点击标注点，小箭头!')
@@ -113,6 +116,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const CustomIcon = () => {
@@ -178,6 +182,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const CustomIcon = () => {
@@ -238,6 +243,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMarker } from '@uiw/react-baidu-map';
 

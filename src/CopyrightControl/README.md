@@ -11,6 +11,7 @@ import { CopyrightControl, useCopyrightControl } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, CopyrightControl } from '@uiw/react-baidu-map';
 

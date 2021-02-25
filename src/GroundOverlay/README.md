@@ -11,6 +11,7 @@ import { GroundOverlay, useGroundOverlay } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, GroundOverlay, APILoader } from '@uiw/react-baidu-map';
 
@@ -63,6 +64,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useGroundOverlay } from '@uiw/react-baidu-map';
 

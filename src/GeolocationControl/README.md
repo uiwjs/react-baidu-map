@@ -12,6 +12,7 @@ import { GeolocationControl, useGeolocationControl } from '@uiw/react-baidu-map'
 
 <!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, GeolocationControl } from '@uiw/react-baidu-map';
 

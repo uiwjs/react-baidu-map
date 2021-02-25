@@ -14,6 +14,7 @@ import { DrawingManager, useDrawingManager } from '@uiw/react-baidu-map'
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState } from 'react'
 import { Map, DrawingManager, APILoader } from '@uiw/react-baidu-map'
 

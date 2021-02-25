@@ -11,6 +11,7 @@ import { Polygon, usePolygon } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, Polygon, APILoader } from '@uiw/react-baidu-map';
 

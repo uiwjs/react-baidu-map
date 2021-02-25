@@ -11,6 +11,7 @@ import { NavigationControl, useNavigationControl } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, NavigationControl } from '@uiw/react-baidu-map';
 
@@ -68,6 +69,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useNavigationControl } from '@uiw/react-baidu-map';
 

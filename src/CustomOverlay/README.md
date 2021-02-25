@@ -13,6 +13,7 @@ import { CustomOverlay, useCustomOverlay } from '@uiw/react-baidu-map';
 
 <!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { APILoader, Map, Marker, CustomOverlay } from '@uiw/react-baidu-map';
 
