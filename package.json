@@ -63,7 +63,6 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@babel/core": "7.12.17",
     "@babel/runtime": "7.13.7",
     "@kkt/less-modules": "6.7.1",
     "@kkt/raw-modules": "6.7.1",
@@ -92,7 +91,7 @@
     "react-router-dom": "5.2.0",
     "react-test-renderer": "16.13.1",
     "source-map-explorer": "2.5.2",
-    "tsbb": "2.0.9"
+    "tsbb": "2.0.10"
   },
   "eslintConfig": {
     "extends": [
