@@ -7,7 +7,7 @@ MapTypeControl 地图类型控件
 import { MapTypeControl, useMapTypeControl } from '@uiw/react-baidu-map';
 ```
 
-⚠️ 这个类型空间是属于来的地图空间，加载新的 3D地图控件[实例](http://lbsyun.baidu.com/jsdemo.htm#webgl2_1)，需要设置参数 `type=webgl&v=1.0` 并且需要自己实现。
+⚠️ 这个类型控件是属于老的地图控件，加载新的 3D 地图控件[实例](http://lbsyun.baidu.com/jsdemo.htm#webgl2_1)，需要设置参数 `type=webgl&v=1.0` 并且需要自己实现。
 
 ```js
 // <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=您的密钥"></script>
@@ -23,8 +23,12 @@ map.addControl(navi3DCtrl);
 在组件上传递参数 `type="webgl"`，此时 `window.BMap` 对象为 `undefined`，在组件中做了自动处理 `window.BMap = window.BMapGL`。
 
 ```jsx
-<APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f" type="webgl" version="1.0">
-  <Example />
+<APILoader
+  akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f"
+  type="webgl"
+  version="1.0"
+>
+  <Map />
 </APILoader>
 ```
 
