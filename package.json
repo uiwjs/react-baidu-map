@@ -63,7 +63,7 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@babel/runtime": "7.13.7",
+    "@babel/runtime": "7.13.10",
     "@kkt/less-modules": "6.7.2",
     "@kkt/raw-modules": "6.7.2",
     "@kkt/scope-plugin-options": "6.7.2",
