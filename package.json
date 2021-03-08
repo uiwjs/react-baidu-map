@@ -77,7 +77,7 @@
     "@types/react-test-renderer": "16.9.3",
     "@uiw/react-code-preview": "1.11.11",
     "@uiw/react-github-corners": "1.2.0",
-    "@uiw/react-markdown-preview": "1.0.9",
+    "@uiw/react-markdown-preview": "2.1.1",
     "@uiw/react-domain-verify": "1.0.2",
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.6.0",
