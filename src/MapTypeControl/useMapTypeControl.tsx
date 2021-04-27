@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { MapTypeControlProps } from './';
-import { useProperties, useVisiable, useEventProperties } from '../common/hooks';
+import { useProperties, useVisiable } from '../common/hooks';
 
 export interface UseMapTypeControl extends MapTypeControlProps {}
 
-export default function (props = {} as UseMapTypeControl) {
+export default function useMapTypeControl(props = {} as UseMapTypeControl) {
   const [mapTypeControl, setMapTypeControl] = useState<BMap.MapTypeControl>();
   const { map, anchor, offset, type, mapTypes } = props;
   useEffect(() => {

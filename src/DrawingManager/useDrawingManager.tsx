@@ -4,7 +4,7 @@ import { requireScript, requireCss } from '../utils/requireScript';
 
 export interface UseDrawingManager extends DrawingManagerProps {}
 
-export default (props = {} as UseDrawingManager) => {
+export default function useDrawingManager(props = {} as UseDrawingManager) {
   const {
     map,
     isOpen,
@@ -81,4 +81,4 @@ export default (props = {} as UseDrawingManager) => {
     setDrawingManager,
     BMapLib: bMapLib,
   };
-};
+}

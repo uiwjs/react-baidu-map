@@ -62,7 +62,7 @@ const getIcons = (name: string) => {
   return icons[name as keyof typeof icons];
 };
 
-export default (props = {} as UseMarker) => {
+export default function useMarker(props = {} as UseMarker) {
   const {
     map,
     position,
@@ -117,6 +117,7 @@ export default (props = {} as UseMarker) => {
     rotation,
     shadow,
     title,
+    animation,
   ]);
 
   const [type, setType] = useState(props.type || 'loc_blue');
@@ -166,4 +167,4 @@ export default (props = {} as UseMarker) => {
     type,
     setType,
   };
-};
+}

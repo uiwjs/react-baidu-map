@@ -4,8 +4,7 @@ import { useEnableProperties, useProperties, useVisiable, useEventProperties } f
 
 export interface UsePolyline extends PolylineProps {}
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default (props = {} as UsePolyline) => {
+export default function usePolyline(props = {} as UsePolyline) {
   const {
     map,
     strokeColor,
@@ -80,4 +79,4 @@ export default (props = {} as UsePolyline) => {
     path,
     setPath,
   };
-};
+}

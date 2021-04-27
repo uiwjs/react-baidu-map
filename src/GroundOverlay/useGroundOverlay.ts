@@ -4,7 +4,7 @@ import { useProperties, useVisiable, useEventProperties } from '../common/hooks'
 
 export interface UseGroundOverlay extends GroundOverlayProps {}
 
-export default (props = {} as UseGroundOverlay) => {
+export default function useGroundOverlay(props = {} as UseGroundOverlay) {
   const [groundOverlay, setGroundOverlay] = useState<BMap.GroundOverlay>();
   const { map, bounds, opacity, imageURL, displayOnMinLevel, displayOnMaxLevel } = props;
   useEffect(() => {
@@ -39,4 +39,4 @@ export default (props = {} as UseGroundOverlay) => {
     groundOverlay,
     setGroundOverlay,
   };
-};
+}

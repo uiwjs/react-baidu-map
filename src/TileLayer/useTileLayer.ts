@@ -5,7 +5,7 @@ export interface UseTileLayer extends TileLayerProps {}
 /**
  * https://lbsyun.baidu.com/jsdemo.htm#g0_2
  */
-export default function (props = {} as UseTileLayer) {
+export default function useTileLayer(props = {} as UseTileLayer) {
   const [tileLayer, setTileLayer] = useState<BMap.TileLayer>();
   const { map, transparentPng = true, tileUrlTemplate, copyright, zIndex } = props;
 

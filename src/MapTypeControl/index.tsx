@@ -6,6 +6,6 @@ export interface MapTypeControlProps extends OverlayProps, BMap.MapTypeControlOp
 
 export default React.forwardRef<MapTypeControlProps, MapTypeControlProps>((props, ref) => {
   const { mapTypeControl } = useMapTypeControl(props);
-  useImperativeHandle(ref, () => ({ ...props, mapTypeControl }), [mapTypeControl]);
+  useImperativeHandle(ref, () => ({ ...props, mapTypeControl }), [mapTypeControl, props]);
   return null;
 });

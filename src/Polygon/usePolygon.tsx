@@ -4,7 +4,7 @@ import { PolygonProps } from './';
 
 export interface UsePolygon extends PolygonProps {}
 
-export default (props = {} as UsePolygon) => {
+export default function usePolygon(props = {} as UsePolygon) {
   const {
     map,
     strokeColor,
@@ -75,4 +75,4 @@ export default (props = {} as UsePolygon) => {
     path,
     setPath,
   };
-};
+}

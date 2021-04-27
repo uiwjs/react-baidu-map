@@ -7,7 +7,7 @@ import getControl from './getControl';
 
 export interface UseControl extends ControlProps {}
 
-export default (props = {} as UseControl) => {
+export default function useControl(props = {} as UseControl) {
   const { portal, div, children, setPortal, setChildren } = useCreatePortal({
     children: props.children,
   });
@@ -24,7 +24,7 @@ export default (props = {} as UseControl) => {
       map.addOverlay(instance);
       setChildren(props.children);
     }
-  }, [map, control, div]);
+  }, [map, control, div, anchor, offset, count, setChildren, props.children]);
 
   const prevCount = usePrevious(count);
   useMemo(() => {
@@ -34,7 +34,7 @@ export default (props = {} as UseControl) => {
       setPortal(portalInstance);
       setChildren(props.children);
     }
-  }, [props.children]);
+  }, [children, control, count, div, map, prevCount, props.children, setChildren, setPortal]);
 
   useVisiable(control!, props);
   useProperties<BMap.Control, UseControl>(control!, props, ['Anchor', 'Offset']);
@@ -44,4 +44,4 @@ export default (props = {} as UseControl) => {
     control,
     setControl,
   };
-};
+}

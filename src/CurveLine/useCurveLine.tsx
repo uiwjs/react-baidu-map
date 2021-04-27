@@ -5,7 +5,7 @@ import { requireScript } from '../utils/requireScript';
 
 export interface UseCurveLine extends CurveLineProps {}
 
-export default (props = {} as UseCurveLine) => {
+export default function useCurveLine(props = {} as UseCurveLine) {
   const {
     map,
     strokeColor,
@@ -21,6 +21,7 @@ export default (props = {} as UseCurveLine) => {
   const libSDK = window.BMapLib;
   const [bMapLib, setBMapLib] = useState<typeof BMapLib>(libSDK);
   const [loadMapLib, setLoadBMapLib] = useState(false || !!libSDK);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const opts = {
     strokeColor,
     strokeWeight,
@@ -107,4 +108,4 @@ export default (props = {} as UseCurveLine) => {
     path,
     setPath,
   };
-};
+}

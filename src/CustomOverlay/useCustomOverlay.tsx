@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { CustomOverlayProps } from './';
 import { useProperties, usePrevious } from '../common/hooks';
@@ -57,12 +57,19 @@ function getCustomOverlay() {
 
 export interface UseCustomOverlay extends CustomOverlayProps {}
 
-export default (props = {} as UseCustomOverlay) => {
+export default function useCustomOverlay(props = {} as UseCustomOverlay) {
   const { map, children, paneName, position } = props;
   const [customOverlay, setCustomOverlay] = useState<BMap.Overlay>();
   const [div, setDiv] = useState<HTMLDivElement>();
   const [portal, setPortal] = useState<React.ReactPortal>();
   const [count, setCount] = useState(0);
+  useEffect(() => {
+    return () => {
+      if (map && customOverlay) {
+        map.removeOverlay(customOverlay);
+      }
+    };
+  }, [customOverlay, map]);
   useMemo(() => {
     if (map && !portal) {
       const elm = document.createElement('div');
@@ -75,7 +82,7 @@ export default (props = {} as UseCustomOverlay) => {
       setPortal(portalInstance);
       setCustomOverlay(CompOverlay);
     }
-  }, [map, portal]);
+  }, [children, count, map, paneName, portal, position]);
 
   const prevCount = usePrevious(count);
   useMemo(() => {
@@ -93,4 +100,4 @@ export default (props = {} as UseCustomOverlay) => {
     customOverlay,
     setCustomOverlay,
   };
-};
+}

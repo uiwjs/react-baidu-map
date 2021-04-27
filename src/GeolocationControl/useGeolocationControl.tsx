@@ -4,7 +4,7 @@ import { useProperties, useVisiable, useEventProperties } from '../common/hooks'
 
 export interface UseGeolocationControl extends GeolocationControlProps {}
 
-export default function (props = {} as UseGeolocationControl) {
+export default function useGeolocationControl(props = {} as UseGeolocationControl) {
   const [geolocationControl, setGeolocationControl] = useState<BMap.GeolocationControl>();
   const { map, anchor, offset, showAddressBar, enableAutoLocation, locationIcon, onLocationSuccess } = props;
   useEffect(() => {

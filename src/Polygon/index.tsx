@@ -12,6 +12,6 @@ export interface PolygonProps extends BMap.PolygonOptions, BMap.PolygonEvents, O
 export default React.forwardRef<PolygonProps & { polygon?: BMap.Polygon }, PolygonProps>((props, ref) => {
   const { polygon, setPath } = usePolygon(props);
   useEffect(() => setPath(props.path), [props.path]);
-  useImperativeHandle(ref, () => ({ ...props, polygon }), [polygon]);
+  useImperativeHandle(ref, () => ({ ...props, polygon }), [polygon, props]);
   return null;
 });

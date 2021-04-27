@@ -1,10 +1,10 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { CircleProps } from './';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseCircle extends CircleProps {}
 
-export default (props = {} as UseCircle) => {
+export default function useCircle(props = {} as UseCircle) {
   const {
     map,
     center,
@@ -71,4 +71,4 @@ export default (props = {} as UseCircle) => {
     circle,
     setCircle,
   };
-};
+}

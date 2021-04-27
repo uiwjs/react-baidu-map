@@ -10,7 +10,7 @@ export interface UseMap extends MapProps, MapChildProps {
   container?: string | HTMLDivElement;
 }
 
-export default (props: UseMap = {}) => {
+export default function useMap(props: UseMap = {}) {
   const { widget, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick } = props;
   const [map, setMap] = useState<BMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);
@@ -141,4 +141,4 @@ export default (props: UseMap = {}) => {
     autoLocalCity,
     setAutoLocalCity,
   };
-};
+}

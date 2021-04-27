@@ -6,7 +6,7 @@ const EVENTS = ['onClick', 'onMouseOver', 'onMouseOut'];
 
 export interface UsePointCollection extends PointCollectionProps {}
 
-export default (props = {} as UsePointCollection) => {
+export default function usePointCollection(props = {} as UsePointCollection) {
   const { map, shape, color, size } = props;
   const [points, setPoints] = useState(props.points);
   const [pointCollection, setPointCollection] = useState<BMap.PointCollection>();
@@ -61,4 +61,4 @@ export default (props = {} as UsePointCollection) => {
     points,
     setPoints,
   };
-};
+}

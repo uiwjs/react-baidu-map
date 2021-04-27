@@ -4,7 +4,7 @@ import { useEnableProperties, useProperties, useVisiable, useEventProperties } f
 
 export interface UseInfoWindow extends InfoWindowProps {}
 
-export default (props = {} as UseInfoWindow) => {
+export default function useInfoWindow(props = {} as UseInfoWindow) {
   const { map, position, ...opts } = props;
   const [infoWindow, setInfoWindow] = useState<BMap.InfoWindow>();
   useMemo(() => {
@@ -56,4 +56,4 @@ export default (props = {} as UseInfoWindow) => {
     isOpen,
     setIsOpen,
   };
-};
+}

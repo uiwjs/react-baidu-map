@@ -13,7 +13,7 @@ export interface CanvasLayerResult {
   BMap: UseCanvasLayer['BMap'];
 }
 
-export default (props = {} as UseCanvasLayer) => {
+export default function useCanvasLayer(props = {} as UseCanvasLayer) {
   const { map, zIndex, paneName } = props;
   const [canvasLayer, setCanvasLayer] = useState<BMap.CanvasLayer>();
   useMemo(() => {
@@ -34,4 +34,4 @@ export default (props = {} as UseCanvasLayer) => {
     canvasLayer,
     setCanvasLayer,
   };
-};
+}

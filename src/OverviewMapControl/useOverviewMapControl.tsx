@@ -4,7 +4,7 @@ import { useProperties, useVisiable, useEventProperties } from '../common/hooks'
 
 export interface UseOverviewMapControl extends OverviewMapControlProps {}
 
-export default function (props = {} as UseOverviewMapControl) {
+export default function useOverviewMapControl(props = {} as UseOverviewMapControl) {
   const [overviewMapControl, setOverviewMapControl] = useState<BMap.OverviewMapControl>();
   const { map, anchor, offset, size, isOpen } = props;
   useEffect(() => {
