@@ -4,6 +4,7 @@ import { useEnableProperties, useProperties, useVisiable, useEventProperties } f
 
 export interface UsePolyline extends PolylineProps {}
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (props = {} as UsePolyline) => {
   const {
     map,
@@ -19,6 +20,7 @@ export default (props = {} as UsePolyline) => {
   const [polyline, setPolyline] = useState<BMap.Polyline>();
   const [path, setPath] = useState(props.path || []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const opts = {
     strokeColor,
     strokeWeight,
@@ -29,6 +31,13 @@ export default (props = {} as UsePolyline) => {
     enableClicking,
     icons,
   };
+  useEffect(() => {
+    return () => {
+      if (polyline && map) {
+        map.removeOverlay(polyline);
+      }
+    };
+  }, [map, polyline]);
   useMemo(() => {
     if (map && !polyline) {
       const points = (props.path || []).map((item) => new BMap.Point(item.lng, item.lat));
@@ -36,7 +45,7 @@ export default (props = {} as UsePolyline) => {
       map.addOverlay(instance);
       setPolyline(instance);
     }
-  }, [map, polyline]);
+  }, [map, opts, polyline, props.path]);
 
   useEffect(() => {
     if (path && polyline) {
