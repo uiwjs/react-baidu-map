@@ -1,14 +1,14 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LabelProps } from './';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UseLabel extends LabelProps {}
 
-export default (props = {} as UseLabel) => {
+export default function useLabel(props = {} as UseLabel) {
   const [label, setLabel] = useState<BMap.Label>();
   const { map, offset, style, content, position, enableMassClear } = props;
 
-  useMemo(() => {
+  useEffect(() => {
     if (!BMap || !map) return;
     if (!label) {
       const opts = { offset, position, enableMassClear };
@@ -17,7 +17,12 @@ export default (props = {} as UseLabel) => {
       map.addOverlay(instance);
       setLabel(instance);
     }
-  }, [map]);
+    return () => {
+      if (map && label) {
+        map.removeOverlay(label);
+      }
+    };
+  }, [content, enableMassClear, label, map, offset, position, style]);
 
   useVisiable(label!, props);
   useEventProperties<BMap.Label, UseLabel>(label!, props, [
@@ -37,4 +42,4 @@ export default (props = {} as UseLabel) => {
     label,
     setLabel,
   };
-};
+}

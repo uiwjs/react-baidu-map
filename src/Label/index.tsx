@@ -18,6 +18,6 @@ export interface LabelProps extends OverlayProps, BMap.LabelOptions, BMap.LabelE
 
 export default React.forwardRef<LabelProps & { label?: BMap.Label }, LabelProps>((props, ref) => {
   const { label } = useLabel(props);
-  useImperativeHandle(ref, () => ({ ...props, label }), [label]);
+  useImperativeHandle(ref, () => ({ ...props, label }), [label, props]);
   return null;
 });
