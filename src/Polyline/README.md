@@ -16,34 +16,40 @@ import React, { useState } from 'react';
 import { Map, Polyline, APILoader } from '@uiw/react-baidu-map';
 
 const Example = () => {
+  const [isHiden, setIsHiden] = useState(true);
   const [enableEditing, setEnableEditing] = useState(false);
   const [strokeOpacity, setStrokeOpacity] = useState(0.9);
   return (
     <>
+      <button onClick={() => setIsHiden(!isHiden)}>{isHiden ? "隐藏" : "显示"}</button>
       <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '编辑'}</button>
       <button onClick={() => setStrokeOpacity(0.7)}>透明度0.7</button>
       <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
       <Map zoom={13} center="北京" widget={['NavigationControl']}>
-        <Polyline
-          enableEditing={enableEditing}
-          strokeOpacity={strokeOpacity}
-          path={[
-            { lng: 116.399, lat: 39.910 },
-            { lng: 116.405, lat: 39.920 },
-            { lng: 116.423493, lat: 39.907445 },
-          ]}
-        />
-        <Polyline
-          enableEditing={enableEditing}
-          strokeOpacity={strokeOpacity}
-          path={[
-            { lng: 116.399, lat: 39.920977 },
-            { lng: 116.385243, lat: 39.913063 },
-            { lng: 116.394226, lat: 39.917988 },
-            { lng: 116.401772, lat: 39.921364 },
-            { lng: 116.41248, lat: 39.927893 },
-          ]}
-        />
+        {isHiden && (
+          <Polyline
+            enableEditing={enableEditing}
+            strokeOpacity={strokeOpacity}
+            path={[
+              { lng: 116.399, lat: 39.910 },
+              { lng: 116.405, lat: 39.920 },
+              { lng: 116.423493, lat: 39.907445 },
+            ]}
+          />
+        )}
+        {isHiden && (
+          <Polyline
+            enableEditing={enableEditing}
+            strokeOpacity={strokeOpacity}
+            path={[
+              { lng: 116.399, lat: 39.920977 },
+              { lng: 116.385243, lat: 39.913063 },
+              { lng: 116.394226, lat: 39.917988 },
+              { lng: 116.401772, lat: 39.921364 },
+              { lng: 116.41248, lat: 39.927893 },
+            ]}
+          />
+        )}
       </Map>
     </>
   );

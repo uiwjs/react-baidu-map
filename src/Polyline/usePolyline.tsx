@@ -36,7 +36,8 @@ export default function usePolyline(props = {} as UsePolyline) {
         map.removeOverlay(polyline);
       }
     };
-  }, [map, polyline]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map]);
   useMemo(() => {
     if (map && !polyline) {
       const points = (props.path || []).map((item) => new BMap.Point(item.lng, item.lat));
