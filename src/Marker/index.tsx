@@ -2,7 +2,7 @@ import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
 import useMarker from './useMarker';
 
-export interface MarkerProps extends OverlayProps, BMap.MarkerOptions {
+export interface MarkerProps extends OverlayProps, BMap.MarkerEvents, BMap.MarkerOptions {
   /**
    * **`必填`** 设置标注的地理坐标。
    */
