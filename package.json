@@ -68,7 +68,7 @@
     "@kkt/raw-modules": "6.8.2",
     "@kkt/scope-plugin-options": "6.8.2",
     "@loadable/component": "5.14.1",
-    "@types/jest": "26.0.22",
+    "@types/jest": "26.0.23",
     "@types/loadable__component": "5.13.3",
     "@types/node": "14.14.37",
     "@types/react": "17.0.3",
