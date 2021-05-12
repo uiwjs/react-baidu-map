@@ -1,7 +1,4 @@
-const headElement = (() => {
-  if (!document) return;
-  return document.head || document.getElementsByTagName('head')[0];
-})();
+const headElement = document && (document.head || document.getElementsByTagName('head')[0]);
 const _importedScript: { [src: string]: true } = {};
 
 /**
@@ -9,7 +6,7 @@ const _importedScript: { [src: string]: true } = {};
  */
 export function requireCss(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    if (src in _importedScript || !document) {
+    if (!document || src in _importedScript) {
       resolve();
       return;
     }
@@ -34,7 +31,7 @@ export function requireCss(src: string): Promise<void> {
  */
 export function requireScript(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    if (src in _importedScript || !document) {
+    if (!document || src in _importedScript) {
       resolve();
       return;
     }
