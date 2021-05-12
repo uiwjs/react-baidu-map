@@ -1,4 +1,7 @@
-const headElement = document.head || document.getElementsByTagName('head')[0];
+const headElement = (() => {
+  if (!document) return;
+  return document.head || document.getElementsByTagName('head')[0];
+})();
 const _importedScript: { [src: string]: true } = {};
 
 /**
@@ -6,7 +9,7 @@ const _importedScript: { [src: string]: true } = {};
  */
 export function requireCss(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    if (src in _importedScript) {
+    if (src in _importedScript || !document) {
       resolve();
       return;
     }
@@ -15,14 +18,14 @@ export function requireCss(src: string): Promise<void> {
     script.rel = 'stylesheet';
     script.href = src;
     script.onerror = (err) => {
-      headElement.removeChild(script);
+      headElement!.removeChild(script);
       reject(new URIError(`The css ${src} is no accessible.`));
     };
     script.onload = () => {
       _importedScript[src] = true;
       resolve();
     };
-    headElement.appendChild(script);
+    headElement!.appendChild(script);
   });
 }
 
@@ -31,7 +34,7 @@ export function requireCss(src: string): Promise<void> {
  */
 export function requireScript(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    if (src in _importedScript) {
+    if (src in _importedScript || !document) {
       resolve();
       return;
     }
@@ -40,13 +43,13 @@ export function requireScript(src: string): Promise<void> {
     script.id = '_react_baidu_map';
     script.src = src;
     script.onerror = (err) => {
-      headElement.removeChild(script);
+      headElement!.removeChild(script);
       reject(new URIError(`The Script ${src} is no accessible.`));
     };
     script.onload = () => {
       _importedScript[src] = true;
       resolve();
     };
-    headElement.appendChild(script);
+    headElement!.appendChild(script);
   });
 }

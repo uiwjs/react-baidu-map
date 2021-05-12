@@ -71,7 +71,7 @@ export default function useCustomOverlay(props = {} as UseCustomOverlay) {
     };
   }, [customOverlay, map]);
   useMemo(() => {
-    if (map && !portal) {
+    if (map && !portal && document) {
       const elm = document.createElement('div');
       const CustomOverlay = getCustomOverlay();
       const portalInstance = ReactDOM.createPortal(children, elm);
@@ -91,6 +91,7 @@ export default function useCustomOverlay(props = {} as UseCustomOverlay) {
       setPortal(portalInstance);
       setCount(count + 1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [children, customOverlay]);
 
   useProperties<BMap.Overlay, UseCustomOverlay>(customOverlay!, props, ['ZIndex', 'Offset', 'Position', 'Visiable']);

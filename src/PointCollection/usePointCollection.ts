@@ -21,7 +21,7 @@ export default function usePointCollection(props = {} as UsePointCollection) {
   useEffect(() => {
     if (!BMap || !map) return;
     // 判断当前浏览器是否支持绘制海量点
-    if (!document.createElement('canvas').getContext) return;
+    if (document && !document.createElement('canvas').getContext) return;
     const opts = { shape, color, size };
     if (!pointCollection) {
       if (!opts.size) opts.size = BMAP_POINT_SIZE_SMALL;
@@ -38,6 +38,7 @@ export default function usePointCollection(props = {} as UsePointCollection) {
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
   useEffect(() => {
