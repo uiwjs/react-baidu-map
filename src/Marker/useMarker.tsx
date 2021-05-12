@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import defaultIconUrl from './markers.png';
+// import defaultIconUrl from './markers.png';
+import defaultIconUrl from 'https://raw.githubusercontent.com/uiwjs/react-baidu-map/master/src/Marker/markers.png';
 import { MarkerProps } from '.';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 import { noop } from '../utils/noop';
