@@ -11,7 +11,7 @@ import { DrawingManager, useDrawingManager } from '@uiw/react-baidu-map'
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 
 ```jsx
 import ReactDOM from 'react-dom';
@@ -62,7 +62,7 @@ ReactDOM.render(<Demo />, _mount_)
 
 ### 使用 hooks
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 
 ```jsx
 import { useRef, useEffect, useState } from 'react'

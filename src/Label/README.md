@@ -11,7 +11,7 @@ import { Label, useLabel } from '@uiw/react-baidu-map';
 
 官方原生 JS 实例：https://lbsyun.baidu.com/jsdemo.htm#c1_14
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
@@ -58,7 +58,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `label`, `setLabel`
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';

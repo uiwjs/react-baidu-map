@@ -9,7 +9,7 @@ import { ScaleControl, useScaleControl } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, ScaleControl } from '@uiw/react-baidu-map';
@@ -46,7 +46,7 @@ ReactDOM.render((
 
 `scaleControl`, `setScaleControl`
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useScaleControl } from '@uiw/react-baidu-map';

@@ -9,7 +9,7 @@ import { GroundOverlay, useGroundOverlay } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
@@ -62,7 +62,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 > ⚠️ 不知为何 `show` 和 `hide` 方法存在但不起作用，理论上是继承 [`Overlay`](https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html#a3b0) 类就会有 `show()` 和 `hide()` 方法。
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';

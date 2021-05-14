@@ -11,7 +11,7 @@ import { RequireScript, requireScript } from '@uiw/react-baidu-map';
 
 下面实例来自高德官方： https://lbsyun.baidu.com/jsdemo.htm#gl_tool_1
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { useRef } from 'react';

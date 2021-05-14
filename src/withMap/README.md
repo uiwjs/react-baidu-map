@@ -5,7 +5,7 @@ withMap
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { withMap, APILoader } from '@uiw/react-baidu-map';

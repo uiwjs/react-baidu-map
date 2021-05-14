@@ -9,7 +9,7 @@ import { InfoWindow, useInfoWindow } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,codePen,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
@@ -62,7 +62,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `infoWindow`, `setInfoWindow`, `isOpen`, `setIsOpen`
 
-<!--DemoStart,bgWhite,codePen--> 
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useRef, useState, useEffect } from 'react';

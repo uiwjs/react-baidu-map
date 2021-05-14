@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
-import MarkdownPreview, { MarkdownAbstractSyntaxTree, NodeType } from '@uiw/react-markdown-preview';
-import Code from './Code';
+import MarkdownPreview from '@uiw/react-markdown-preview';
+import rehypeAttr from 'rehype-attr';
+import Code, { CodeProps } from './Code';
+import styles from './index.module.less';
 
 interface MarkdownProps {}
 interface MarkdownState {
   mdStr: string;
 }
 
+const getCodeStr = (data: any[] = [], code: string = '') => {
+  data.forEach((node) => {
+    if (node.type === 'text') {
+      code += node.value;
+    } else if (node.children && Array.isArray(node.children)) {
+      code += getCodeStr(node.children);
+    }
+  });
+  return code;
+};
+
 /**
  * 代码注释参数
  *
  * ```md
- * <!--DemoStart,bgWhite,noCode,noPreview,noScroll,codePen-->
+ * <!--rehype:bgWhite=true&codeSandbox=true&noScroll=true&codePen=true-->
  * ```
  * 参数用英文逗号隔开
  *
@@ -52,51 +65,32 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
       <MarkdownPreview
         style={{ padding: '20px 26px' }}
         source={this.state.mdStr}
-        className="markdown"
-        escapeHtml={false}
-        allowNode={(node: MarkdownAbstractSyntaxTree, index: number, parent: NodeType) => {
-          if (node.type === 'code') {
-            const preIdx = index - 1;
-            const nextIdx = index + 1;
-            const childs: MarkdownAbstractSyntaxTree[] = (parent as any).children;
-            /**
-             * 将参数放入代码的前面注释
-             */
-            if (
-              childs &&
-              childs.length > 0 &&
-              childs[preIdx] &&
-              childs[preIdx].type === 'html' &&
-              /^<!--DemoStart\s?(.*)-->/.test((childs[preIdx] && childs[preIdx].value) || '') &&
-              childs[nextIdx] &&
-              childs[nextIdx].type === 'html' &&
-              childs[nextIdx] &&
-              childs[nextIdx].value === '<!--End-->'
-            ) {
-              const preValue = (childs[preIdx] && childs[preIdx].value) || '';
-              let options = {} as OptionsMarkdown;
-              preValue.replace(/<!--\s?DemoStart\s?(.*)-->/g, (match: string, parame: any, code: any, offset: any) => {
-                options = parame
-                  .replace(/^(,)/, '')
-                  .split(',')
-                  .map((val: string) => {
-                    if (val && val.includes('=') && val.split('=').length === 2) {
-                      return {
-                        [`${val.split('=')[0]}`]: val.split('=')[1],
-                      };
-                    }
-                    return { [`${val}`]: true };
-                  });
-                return '';
-              });
-              node.value = `;{{/**${JSON.stringify(options)}**/}};${node.value}`;
+        className={styles.markdown}
+        rehypePlugins={[rehypeAttr]}
+        components={{
+          /**
+           * bgWhite 设置代码预览背景白色，否则为格子背景。
+           * noCode 不显示代码编辑器。
+           * noPreview 不显示代码预览效果。
+           * noScroll 预览区域不显示滚动条。
+           * codePen 显示 Codepen 按钮，要特别注意 包导入的问题，实例中的 import 主要用于 Codepen 使用。
+           */
+          code: ({ 'data-config': config, inline, node, ...props }) => {
+            if (inline) {
+              return <code {...props} />;
             }
-          }
-          return true;
-        }}
-        renderers={{
-          code: (props) => {
-            return <Code {...props} dependencies={this.dependencies} />;
+            if (config) {
+              const { noPreview, noScroll, bgWhite, noCode, codePen } = config as CodeProps;
+              return (
+                <Code
+                  code={getCodeStr(node.children)}
+                  dependencies={this.dependencies}
+                  language={(props.className || '').replace(/^language-/, '')}
+                  {...{ noPreview, noScroll, bgWhite, noCode, codePen }}
+                />
+              );
+            }
+            return <code {...props} />;
           },
         }}
       />

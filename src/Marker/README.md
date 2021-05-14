@@ -9,7 +9,7 @@ import { Marker, useMarker } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
@@ -49,7 +49,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 自定义标点
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 const CustomIcon = () => {
@@ -78,7 +78,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 添加事件
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 const CustomIcon = () => {
@@ -114,7 +114,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 可拖拽
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
@@ -180,7 +180,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 百度地图[官方实例](http://lbsyun.baidu.com/jsdemo.htm#c1_20)。
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
@@ -241,7 +241,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `marker`, `setMarker`, `type`, `setType`
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';

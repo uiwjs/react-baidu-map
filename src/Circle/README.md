@@ -9,7 +9,7 @@ import { Circle, useCircle } from '@uiw/react-baidu-map';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
@@ -68,7 +68,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 `circle`, `setCircle`
 
-<!--DemoStart,bgWhite--> 
+<!--rehype:bgWhite=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
