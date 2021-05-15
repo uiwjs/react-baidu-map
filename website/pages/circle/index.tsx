@@ -3,6 +3,8 @@ import Markdown from '../../components/Markdown';
 import { APILoader, Map, useMap, Circle, useCircle } from '../../../';
 
 export default class Page extends Markdown {
+  editorUrl = '/src/Circle/README.md';
+  getMdStr = () => import('../../../src/Circle/README.md');
   dependencies = {
     APILoader,
     Map,
@@ -13,5 +15,4 @@ export default class Page extends Markdown {
     useEffect,
     useState,
   };
-  getMdStr = () => import('../../../src/Circle/README.md');
 }

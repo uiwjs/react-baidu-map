@@ -3,6 +3,7 @@ import Markdown from '../../components/Markdown';
 import { APILoader, Map, useMap, GeolocationControl, useGeolocationControl } from '../../../';
 
 export default class Page extends Markdown {
+  editorUrl = '/src/GeolocationControl/README.md';
   dependencies = {
     APILoader,
     Map,

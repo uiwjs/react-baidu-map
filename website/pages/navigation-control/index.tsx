@@ -3,6 +3,7 @@ import Markdown from '../../components/Markdown';
 import { APILoader, Map, useMap, NavigationControl, useNavigationControl } from '../../../';
 
 export default class Page extends Markdown {
+  editorUrl = '/src/NavigationControl/README.md';
   dependencies = {
     APILoader,
     Map,

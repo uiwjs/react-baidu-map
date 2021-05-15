@@ -3,6 +3,7 @@ import Markdown from '../../components/Markdown';
 import { APILoader, Map, useMap, RequireScript } from '../../../';
 
 export default class Page extends Markdown {
+  editorUrl = '/src/RequireScript/README.md';
   dependencies = {
     APILoader,
     Map,

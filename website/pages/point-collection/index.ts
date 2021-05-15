@@ -3,6 +3,7 @@ import Markdown from '../../components/Markdown';
 import { requireScript, APILoader, Map, PointCollection, useMap, usePointCollection } from '../../../';
 
 export default class Page extends Markdown {
+  editorUrl = '/src/PointCollection/README.md';
   dependencies = {
     requireScript,
     APILoader,

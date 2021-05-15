@@ -3,6 +3,7 @@ import Markdown from '../../components/Markdown';
 import { APILoader, Map, useMap, CanvasLayer, useCanvasLayer } from '../../../';
 
 export default class Page extends Markdown {
+  editorUrl = '/src/CanvasLayer/README.md';
   dependencies = {
     APILoader,
     Map,

@@ -3,6 +3,7 @@ import Markdown from '../../components/Markdown';
 import { APILoader, Map, useMap, TileLayer, useTileLayer } from '../../../';
 
 export default class Page extends Markdown {
+  editorUrl = '/src/TileLayer/README.md';
   dependencies = {
     APILoader,
     Map,
