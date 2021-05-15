@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import rehypeAttr from 'rehype-attr';
 import Code, { CodeProps } from './Code';
+import Footer from '../Footer';
 import styles from './index.module.less';
 
 interface MarkdownProps {}
@@ -93,6 +94,7 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
             },
           }}
         />
+        <Footer editorUrl={this.editorUrl} />
         <div style={{ padding: '10px 0 30px 25px' }}>
           {this.editorUrl && (
             <Fragment>
