@@ -95,22 +95,6 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
           }}
         />
         <Footer editorUrl={this.editorUrl} />
-        <div style={{ padding: '10px 0 30px 25px' }}>
-          {this.editorUrl && (
-            <Fragment>
-              <a
-                href={`https://github.com/uiwjs/react-baidu-map/edit/master${this.editorUrl}`}
-                title="Editor Current Page"
-              >
-                编辑当前页面
-              </a>
-              &nbsp;|&nbsp;
-            </Fragment>
-          )}
-          <a href="https://github.com/uiwjs/react-baidu-map" title="Github Repo">
-            Github
-          </a>
-        </div>
       </Fragment>
     );
   }
