@@ -7,7 +7,7 @@ import { requireScript } from '../utils/requireScript';
 
 export function delay(time: number): Promise<undefined> {
   return new Promise((resolve, reject) => {
-    window.setTimeout(resolve, time);
+    window && window.setTimeout(resolve, time);
   });
 }
 
@@ -45,10 +45,10 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
    * 等待BMap就绪
    */
   public static async ready() {
-    if (window.BMap) {
+    if (window && window.BMap) {
       return;
     }
-    if (window.BMapGL) {
+    if (window && window.BMapGL) {
       return;
     }
     return new Promise((res, rej) => {
@@ -58,7 +58,7 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
   public constructor(props: APILoaderProps) {
     super(props);
     this.state = {
-      loaded: props.type === 'webgl' ? !!window.BMapGL : !!window.BMap,
+      loaded: props.type === 'webgl' ? window && !!window.BMapGL : window && !!window.BMap,
     };
     if (this.props.akay == null) {
       throw new TypeError('BaiDuMap: akay is required');
@@ -67,8 +67,11 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
 
   public componentDidMount() {
     const { callbackName } = this.props;
-    if ((this.props.type === 'webgl' && !window.BMapGL) || !window.BMap) {
-      if (window[callbackName as any]) {
+    if (!window) {
+      return;
+    }
+    if ((this.props.type === 'webgl' && window && !window.BMapGL) || (window && !window.BMap)) {
+      if (window && window[callbackName as any]) {
         APILoader.waitQueue.push([this.finish, this.handleError]);
         return;
       }
@@ -104,6 +107,9 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
    */
   private async loadMap() {
     const { callbackName } = this.props;
+    if (!window) {
+      return;
+    }
     const src = this.getScriptSrc();
     (window as any)[callbackName as any] = () => {
       // flush queue
@@ -137,7 +143,7 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
   };
 
   private finish = () => {
-    if (this.props.type === 'webgl') {
+    if (window && this.props.type === 'webgl') {
       window.BMap = window.BMapGL as any;
     }
     this.setState({
