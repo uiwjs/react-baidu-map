@@ -52,8 +52,10 @@ export default function useMap(props: UseMap = {}) {
       let cent = center;
       if (center && (center as BMap.Point).lng && (center as BMap.Point).lat) {
         cent = new BMap.Point((center as BMap.Point).lng, (center as BMap.Point).lat);
+        map.centerAndZoom(cent!, zoom!);
+      } else if (typeof center === 'string') {
+        map.centerAndZoom(center, zoom!);
       }
-      map.centerAndZoom(cent!, zoom!);
     }
   }, [center, map]);
 
