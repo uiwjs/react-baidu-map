@@ -1,6 +1,6 @@
 /// <reference types="../types" />
 
-import React, { useRef, useEffect, useImperativeHandle, Fragment } from 'react';
+import React, { useRef, useEffect, useImperativeHandle, Fragment, useMemo } from 'react';
 import useMap from './useMap';
 
 export interface Control {
@@ -117,9 +117,7 @@ export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & MapChi
       ...props,
     });
     useEffect(() => setContainer(elmRef.current as string | HTMLDivElement | undefined), [elmRef.current]);
-    useEffect(() => {
-      props.center && setCenter(props.center);
-    }, [props.center]);
+    useMemo(() => props.center && setCenter(props.center!), [props.center]);
     useEffect(() => setAutoLocalCity(props.autoLocalCity!), [props.autoLocalCity]);
     useImperativeHandle(ref, () => ({ ...props, map, BMap, container: elmRef }), [map]);
     const childs = React.Children.toArray(children);
