@@ -62,7 +62,6 @@ const Demo = () => {
 };
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 
 高阶组件 `withMap` 可以作为 `Map` 组件来使用，继承 `Map` 可以默认传递 `Map` 的属性，相关属性参考 [`<Map>`](#/map)。

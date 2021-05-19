@@ -70,7 +70,6 @@ ReactDOM.render((
   </div>
 ), _mount_);
 ```
-<!--End-->
 
 ### Props
 

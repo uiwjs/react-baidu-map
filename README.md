@@ -60,13 +60,12 @@ import { Map, APILoader } from '@uiw/react-baidu-map';
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Map />
+      <Map center="杭州"/>
     </APILoader>
   </div>
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ## 开发
 

@@ -58,7 +58,6 @@ const Demo = () => (
 ReactDOM.render(<Demo />, _mount_)
 ```
 
-<!--End-->
 
 ### 使用 hooks
 
@@ -124,7 +123,6 @@ const Demo = () => (
 ReactDOM.render(<Demo />, _mount_)
 ```
 
-<!--End-->
 
 ### Props
 

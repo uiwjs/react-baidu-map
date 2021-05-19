@@ -45,7 +45,6 @@ const Demo = () => {
 };
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ### 自定义标点
 
@@ -74,7 +73,6 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ### 添加事件
 
@@ -110,7 +108,6 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ### 可拖拽
 
@@ -173,7 +170,6 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 
 ### 矢量图标
@@ -235,7 +231,6 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ### 使用 hooks
 
@@ -277,7 +272,6 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ### Props
 

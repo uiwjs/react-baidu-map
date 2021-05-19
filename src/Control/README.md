@@ -1,4 +1,4 @@
-Control 自定义控件
+sControl 自定义控件
 ===
 
 您可以通过此组件来实现自定义控件。同时你可以使用 `Map` 组件 `widget` 属性来更方便，设置自带默认控件。
@@ -71,7 +71,6 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ### 使用 hooks
 
@@ -121,7 +120,6 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ### Props
 
