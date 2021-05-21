@@ -70,7 +70,7 @@
     "@loadable/component": "5.15.0",
     "@types/jest": "26.0.23",
     "@types/loadable__component": "5.13.3",
-    "@types/node": "15.0.2",
+    "@types/node": "15.6.0",
     "@types/react": "17.0.6",
     "@types/react-dom": "17.0.5",
     "@types/react-router-dom": "5.1.7",
