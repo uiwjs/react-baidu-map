@@ -101,7 +101,7 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
    */
   panorama?: BMap.Panorama;
   
-  viewport?:(view: Array<BMap.Point> | BMap.Viewport, viewportOptions: BMap.ViewportOptions)=>undefined;
+  viewport?:(view: Array<BMap.Point> | BMap.Viewport, viewportOptions: BMap.ViewportOptions)=>void;
 }
 
 export type MapChildRenderProps =
