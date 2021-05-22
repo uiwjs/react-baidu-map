@@ -21,12 +21,10 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
-
-    - name: Setup Node
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
       with:
-        node-version: '10.x'
+        node-version: '14'
 
     - run: npm install
     - run: npm run build
@@ -35,7 +33,7 @@ jobs:
 
     - name: Create Tag
       id: create_tag
-      uses: jaywcjlove/create-tag-action@v1.1.1
+      uses: jaywcjlove/create-tag-action@v1.1.8
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         # test: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
