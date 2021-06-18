@@ -12,15 +12,6 @@
   <a href="https://www.npmjs.com/package/@uiw/react-baidu-map">
     <img src="https://img.shields.io/npm/dm/@uiw/react-baidu-map.svg?style=flat" alt="Downloads">
   </a>
-  <a href="https://github.com/uiwjs/react-baidu-map/issues">
-    <img src="https://img.shields.io/github/issues/uiwjs/react-baidu-map.svg" alt="Issues">
-  </a>
-  <a href="https://github.com/uiwjs/react-baidu-map/network">
-    <img src="https://img.shields.io/github/forks/uiwjs/react-baidu-map.svg" alt="Forks">
-  </a>
-  <a href="https://github.com/uiwjs/react-baidu-map/stargazers">
-    <img src="https://img.shields.io/github/stars/uiwjs/react-baidu-map.svg" alt="Stars">
-  </a>
   <a href="https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-baidu-map/file/README.md">
     <img src="https://img.shields.io/badge/Open%20in-unpkg-blue" alt="Open in unpkg">
   </a>
