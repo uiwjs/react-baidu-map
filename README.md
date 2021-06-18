@@ -9,6 +9,9 @@
   <a href="https://github.com/uiwjs/react-baidu-map/actions">
     <img src="https://github.com/uiwjs/react-baidu-map/workflows/Build%20&%20Deploy/badge.svg" alt="Build & Deploy">
   </a>
+  <a href="https://www.npmjs.com/package/@uiw/react-baidu-map">
+    <img src="https://img.shields.io/npm/dm/@uiw/react-baidu-map.svg?style=flat" alt="Downloads">
+  </a>
   <a href="https://github.com/uiwjs/react-baidu-map/issues">
     <img src="https://img.shields.io/github/issues/uiwjs/react-baidu-map.svg" alt="Issues">
   </a>
