@@ -33,7 +33,7 @@ export default function usePolygon(props = {} as UsePolygon) {
     enableClicking,
   };
 
-  useEffect(function () {
+  useEffect(() => {
     if (!BMap || !map) return noop;
     const points = (path || []).map((item) => new BMap.Point(item.lng, item.lat));
     const instance = new BMap.Polygon(points, opts);
@@ -42,6 +42,7 @@ export default function usePolygon(props = {} as UsePolygon) {
     return function () {
       map.removeOverlay(instance);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, props.path]);
 
   useEffect(() => {

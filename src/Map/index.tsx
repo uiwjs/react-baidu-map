@@ -100,8 +100,8 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
    * 将全景实例与Map类进行绑定
    */
   panorama?: BMap.Panorama;
-  
-  viewport?:(view: Array<BMap.Point> | BMap.Viewport, viewportOptions: BMap.ViewportOptions)=>void;
+
+  viewport?: (view: Array<BMap.Point> | BMap.Viewport, viewportOptions: BMap.ViewportOptions) => void;
 }
 
 export type MapChildRenderProps =
