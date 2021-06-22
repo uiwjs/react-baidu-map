@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '../common/hooks';
 import { PolygonProps } from './';
+import { noop } from '../utils/noop';
 
 export interface UsePolygon extends PolygonProps {}
 
@@ -31,14 +32,17 @@ export default function usePolygon(props = {} as UsePolygon) {
     enableEditing,
     enableClicking,
   };
-  useMemo(() => {
-    if (map && !polygon) {
-      const points = (path || []).map((item) => new BMap.Point(item.lng, item.lat));
-      const instance = new BMap.Polygon(points, opts);
-      map.addOverlay(instance);
-      setPolygon(instance);
-    }
-  }, [map, props.path, polygon]);
+
+  useEffect(function () {
+    if (!BMap || !map) return noop;
+    const points = (path || []).map((item) => new BMap.Point(item.lng, item.lat));
+    const instance = new BMap.Polygon(points, opts);
+    map.addOverlay(instance);
+    setPolygon(instance);
+    return function () {
+      map.removeOverlay(instance);
+    };
+  }, [map, props.path]);
 
   useEffect(() => {
     if (path && polygon) {
