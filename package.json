@@ -47,11 +47,6 @@
     "百度地图"
   ],
   "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,less,md,json}": [
       "prettier --write"
