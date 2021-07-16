@@ -21,6 +21,7 @@ export default function useOverviewMapControl(props = {} as UseOverviewMapContro
         map.removeControl(instance);
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
   useVisiable(overviewMapControl!, props);

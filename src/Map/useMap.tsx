@@ -41,6 +41,7 @@ export default function useMap(props: UseMap = {}) {
         });
       setMap(instance);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [container, map]);
 
   const [center, setCenter] = useState(props.center || '上海');
@@ -56,6 +57,7 @@ export default function useMap(props: UseMap = {}) {
       }
       map.centerAndZoom(center, zoom!);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [center, map]);
 
   const [autoLocalCity, setAutoLocalCity] = useState(props.autoLocalCity);

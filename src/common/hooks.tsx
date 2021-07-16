@@ -41,7 +41,9 @@ export function useVisiable<T extends BMap.Overlay, F extends { visiable?: boole
   const [state, setState] = useState(visiable);
   useEffect(() => {
     if (instance && visiable !== undefined) {
+      console.log('visiable', visiable);
       if (visiable) {
+        console.log('visiable', instance);
         instance.show && instance.show();
       } else {
         instance.hide && instance.hide();

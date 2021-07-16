@@ -102,25 +102,11 @@ export default function useMarker(props = {} as UseMarker) {
     newMarker.setAnimation(animation);
     setMarker(newMarker);
     return () => {
+      console.log('>>>');
       map.removeOverlay(newMarker);
     };
-  }, [
-    map,
-    position.lng,
-    position.lat,
-    offset,
-    icon,
-    enableMassClear,
-    enableDragging,
-    enableClicking,
-    raiseOnDrag,
-    draggingCursor,
-    rotation,
-    shadow,
-    title,
-    animation,
-  ]);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map]);
   const [type, setType] = useState(props.type || 'loc_blue');
   /**
    * 设置标注点 `图标`

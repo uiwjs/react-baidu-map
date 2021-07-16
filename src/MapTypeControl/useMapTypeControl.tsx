@@ -21,6 +21,7 @@ export default function useMapTypeControl(props = {} as UseMapTypeControl) {
         map.removeControl(instance);
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
   useVisiable(mapTypeControl!, props);

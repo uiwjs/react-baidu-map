@@ -22,7 +22,8 @@ export default function useLabel(props = {} as UseLabel) {
         map.removeOverlay(label);
       }
     };
-  }, [content, enableMassClear, label, map, offset, position, style]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map]);
 
   useVisiable(label!, props);
   useEventProperties<BMap.Label, UseLabel>(label!, props, [
