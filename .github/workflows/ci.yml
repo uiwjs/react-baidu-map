@@ -17,7 +17,7 @@ jobs:
       - run: npm run doc
 
   build-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
@@ -63,6 +63,7 @@ jobs:
         tag: ${{ steps.create_tag.outputs.version }}
         body: |
           [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-baidu-map@${{steps.create_tag.outputs.versionNumber}}/file/README.md) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-baidu-map)](https://bundlephobia.com/result?p=@uiw/react-baidu-map@${{steps.create_tag.outputs.versionNumber}})
+          
           ```bash
           npm i @uiw/react-baidu-map@${{steps.create_tag.outputs.versionNumber}}
           ```
