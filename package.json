@@ -61,7 +61,7 @@
     "@babel/runtime": "7.14.6",
     "@kkt/less-modules": "6.10.4",
     "@kkt/raw-modules": "6.10.4",
-    "@kkt/scope-plugin-options": "6.10.4",
+    "@kkt/scope-plugin-options": "6.11.0",
     "@loadable/component": "5.15.0",
     "@types/jest": "26.0.23",
     "@types/loadable__component": "5.13.3",
