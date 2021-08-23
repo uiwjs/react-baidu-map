@@ -2,11 +2,12 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "strict": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -15,8 +16,8 @@
     "declaration": true,
     "baseUrl": "website",
     "jsx": "react-jsx",
-    "noFallthroughCasesInSwitch": true,
+    "types": ["jest", "node"],
     "noEmit": true
   },
-  "include": ["website", ".kktrc.ts"]
+  "include": [".kktrc.ts", "website", "react-app-env.d.ts"]
 }
