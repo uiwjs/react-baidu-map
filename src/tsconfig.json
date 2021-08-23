@@ -3,6 +3,7 @@
   "compilerOptions": {
     "noEmit": false,
     "baseUrl": ".",
+    "outDir": "../cjs",
     "jsx": "react"
   },
   "include": ["../src"]

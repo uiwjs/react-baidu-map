@@ -3,7 +3,7 @@
   "version": "1.18.17",
   "description": "Baidu Map Components for React.",
   "author": "kenny wong <wowohoo@qq.com>",
-  "main": "lib/index.js",
+  "main": "cjs/index.js",
   "module": "esm/index.js",
   "scripts": {
     "prepare": "husky install && npm run build",
@@ -11,11 +11,11 @@
     "doc": "kkt build --app-src ./website && npm run map",
     "start": "kkt start --app-src ./website",
     "watch": "tsbb watch & npm run css:watch",
-    "build": "tsbb build",
+    "build": "tsbb build && npm run css:build",
     "test": "tsbb test",
     "coverage": "tsbb test --coverage",
-    "css:build": "compile-less -d src -o lib/esm",
-    "css:watch": "compile-less -d src -o lib/esm --watch",
+    "css:build": "compile-less -d src -o esm",
+    "css:watch": "compile-less -d src -o esm --watch",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "map": "source-map-explorer build/static/js/*.js --html build/website-result.html"
   },
