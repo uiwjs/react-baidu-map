@@ -10,10 +10,10 @@
     "released": "npm run build && npm run doc",
     "doc": "kkt build --app-src ./website && npm run map",
     "start": "kkt start --app-src ./website",
+    "watch": "tsbb watch & npm run css:watch",
     "build": "tsbb build",
     "test": "tsbb test",
     "coverage": "tsbb test --coverage",
-    "watch": "tsbb watch & npm run css:watch",
     "css:build": "compile-less -d src -o lib/esm",
     "css:watch": "compile-less -d src -o lib/esm --watch",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
@@ -61,7 +61,6 @@
     "@kkt/scope-plugin-options": "6.11.0",
     "@loadable/component": "5.15.0",
     "@types/loadable__component": "5.13.4",
-    "@types/node": "16.7.1",
     "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9",
     "@types/react-router-dom": "5.1.8",
@@ -84,7 +83,7 @@
     "react-router-dom": "5.2.0",
     "react-test-renderer": "17.0.2",
     "source-map-explorer": "2.5.2",
-    "tsbb": "3.0.0-rc.3"
+    "tsbb": "3.0.0-rc.5"
   },
   "eslintConfig": {
     "extends": [
