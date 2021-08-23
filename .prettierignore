@@ -8,4 +8,5 @@ node_modules
 dist
 build
 lib
+esm
 test
