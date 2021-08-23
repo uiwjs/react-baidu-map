@@ -1,8 +1,11 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { Map } from '../src';
 
-describe('<Button />', () => {
+describe('<Map />', () => {
   it('Should output a Button', () => {
     const component = TestRenderer.create(
       <Map />
