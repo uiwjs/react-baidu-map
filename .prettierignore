@@ -5,8 +5,9 @@
 **/*.yml
 package.json
 node_modules
-dist
 build
-lib
+coverage
+dist
 esm
+lib
 test
