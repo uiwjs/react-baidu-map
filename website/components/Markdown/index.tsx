@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import { Component, Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import rehypeAttr from 'rehype-attr';
 import Code, { CodeProps } from './Code';
@@ -78,7 +78,8 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
              * noScroll 预览区域不显示滚动条。
              * codePen 显示 Codepen 按钮，要特别注意 包导入的问题，实例中的 import 主要用于 Codepen 使用。
              */
-            code: ({ 'data-config': config, inline, node, ...props }) => {
+            code: ({ inline, node, ...props }) => {
+              const config = (props as any)['data-config'];
               if (config) {
                 const { noPreview, noScroll, bgWhite, noCode, codePen } = config as CodeProps;
                 return (
