@@ -1,8 +1,9 @@
 import React from 'react';
 import loadable from '@loadable/component';
+import Loader from '@uiw/react-loader';
 
 const options = {
-  fallback: <div>loading</div>,
+  fallback: <Loader tip="加载中..." style={{ margin: 30 }} />,
 };
 
 export type Routes = {
