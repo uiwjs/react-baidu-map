@@ -102,7 +102,6 @@ export default function useMarker(props = {} as UseMarker) {
     newMarker.setAnimation(animation);
     setMarker(newMarker);
     return () => {
-      console.log('>>>');
       map.removeOverlay(newMarker);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

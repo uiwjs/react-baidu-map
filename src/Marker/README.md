@@ -21,7 +21,7 @@ const Demo = () => {
     }
   }
   return (
-    <div style={{ width: '100%', height: '350px' }}>
+    <div style={{ width: '100%', height: 350 }}>
       <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
         <Map widget={['NavigationControl']} zoom={13}>
           <Marker ref={markerRef} animation={2} position={{ lng: 121.411535, lat: 31.222965 }} />
@@ -57,7 +57,7 @@ const CustomIcon = () => {
   return (
     <>
       <button onClick={() => setPosition({lng: 121.545202, lat: 31.246679})}>设置 position</button>
-      <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
+      <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }} style={{ height: 350 }}>
         <Marker position={position} icon={icon} animation={2} />
       </Map>
     </>
@@ -65,7 +65,7 @@ const CustomIcon = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <CustomIcon />
     </APILoader>
