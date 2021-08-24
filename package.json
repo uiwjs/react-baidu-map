@@ -26,6 +26,7 @@
   },
   "files": [
     "esm",
+    "cjs",
     "lib",
     "src"
   ],
@@ -84,7 +85,7 @@
     "react-router-dom": "5.2.0",
     "react-test-renderer": "17.0.2",
     "source-map-explorer": "2.5.2",
-    "tsbb": "3.0.0-rc.6"
+    "tsbb": "3.0.0-rc.7"
   },
   "eslintConfig": {
     "extends": [
