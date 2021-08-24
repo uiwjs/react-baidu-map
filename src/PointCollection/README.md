@@ -39,7 +39,7 @@ const Example = () => {
     <>
       <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
       {position && <span>标注点经纬度：{position}</span>}
-      <Map widget={['NavigationControl']} zoom={5}>
+      <Map widget={['NavigationControl']} zoom={5} style={{ height: 350 }}>
         <PointCollection
           ref={compRef}
           visiable={visiable}
@@ -57,7 +57,7 @@ const Example = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

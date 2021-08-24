@@ -31,7 +31,7 @@ const Demo = () => {
         <input type="button" value="开启测距" onClick={openHandle} />
         <input type="button" value="关闭测距" onClick={closeHandle} />
       </div>
-      <Map mapClick={false}>
+      <Map mapClick={false} style={{ height: 350 }}>
         <RequireScript src="//mapopen.cdn.bcebos.com/github/BMapGLLib/DistanceTool/src/DistanceTool.min.js">
           {({ map }) => {
             myDis.current = new BMapGLLib.DistanceTool(map);
@@ -63,7 +63,7 @@ const Demo = () => {
   );
 };
 ReactDOM.render((
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader type="webgl" akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Demo />
     </APILoader>

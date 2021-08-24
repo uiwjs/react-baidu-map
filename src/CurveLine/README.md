@@ -28,7 +28,7 @@ const Example = () => {
       <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '编辑'}</button>
       <button onClick={() => setStrokeOpacity(0.7)}>透明度0.7</button>
       <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
-      <Map zoom={4} center="武汉" widget={['NavigationControl']}>
+      <Map zoom={4} center="武汉" widget={['NavigationControl']} style={{ height: 350 }}>
         <CurveLine
           ref={curveLineRef}
           enableEditing={enableEditing}
@@ -47,7 +47,7 @@ const Example = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>
@@ -117,13 +117,13 @@ const Example = () => {
       <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '编辑'}</button>
       <button onClick={() => setStrokeOpacity(0.7)}>透明度0.7</button>
       <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
-      <div ref={divElm} style={{ height: '100%' }} />
+      <div ref={divElm} style={{ height: 350 }} />
     </>
   )
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

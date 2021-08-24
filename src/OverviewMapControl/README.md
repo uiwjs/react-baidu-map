@@ -18,11 +18,11 @@ import { Map, APILoader, OverviewMapControl } from '@uiw/react-baidu-map';
 const Example = () => {
   const [show, setShow] = useState(true);
   return (
-    <>
+    <div>
       <button onClick={() => setShow(!show)}>
         {show ? '关闭' : '开启'}
       </button>
-      <Map zoom={13}>
+      <Map zoom={13} style={{ height: 300 }}>
         {show && (
           <OverviewMapControl isOpen />
         )}
@@ -36,12 +36,12 @@ const Example = () => {
           }}
         />
       </Map>
-    </>
+    </div>
   );
 }
 
 ReactDOM.render((
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

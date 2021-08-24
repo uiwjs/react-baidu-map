@@ -17,9 +17,9 @@ import ReactDOM from 'react-dom';
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Map autoLocalCity />
+      <Map autoLocalCity style={{ height: 350 }} />
     </APILoader>
   </div>
 );

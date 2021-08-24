@@ -93,14 +93,14 @@ const Example = () => {
     <>
       <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? '显示' : '隐藏'}</button>
       <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      <div ref={divElm} style={{ height: '100%' }} />
+      <div ref={divElm} style={{ height: 350 }} />
     </>
   )
 }
 
 const Demo = () => {
   return (
-    <div style={{ width: '100%', height: '350px' }}>
+    <div style={{ width: '100%' }}>
       <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
         <Example />
       </APILoader>

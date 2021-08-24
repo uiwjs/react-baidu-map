@@ -29,7 +29,7 @@ const Example = () => {
     <>
       <input value={content} onChange={(e) => setContent(e.target.value)} />
       <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
-      <Map zoom={13} widget={['NavigationControl']}>
+      <Map zoom={13} widget={['NavigationControl']} style={{ height: 350 }} />
         <Label visiable={visiable} content={content} position={{ lng: 121.436256, lat: 31.246926 }}/>
         <Label
           ref={labelRef}
@@ -44,7 +44,7 @@ const Example = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>
@@ -88,13 +88,13 @@ const Example = () => {
       <button onClick={() => setZoom(counts-1)}>-</button>
       <span>{zoom || 15}</span>
       <button onClick={() => setZoom(counts+1)}>+</button>
-      <div ref={divElm} style={{ height: '100%' }} />
+      <div ref={divElm} style={{ height: 350 }} />
     </>
   )
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

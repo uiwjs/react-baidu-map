@@ -22,7 +22,7 @@ const Example = () => {
       <button onClick={() => setShow(!show)}>
         {show ? '关闭' : '开启'}
       </button>
-      <Map widget={['NavigationControl']} zoom={16} center={{ lng: 116.332782, lat: 40.007978 }}>
+      <Map widget={['NavigationControl']} zoom={16} center={{ lng: 116.332782, lat: 40.007978 }} style={{ height: 350 }}>
           <TileLayer
             visiable={show}
             getTilesUrl={(tileCoord, zoom) => {
@@ -37,7 +37,7 @@ const Example = () => {
 }
 
 ReactDOM.render((
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

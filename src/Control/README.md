@@ -19,7 +19,7 @@ const Example = () => {
   const [count, setCount] = useState(0);
   const map = useRef(null);
   return (
-    <Map zoom={13} ref={map}>
+    <Map zoom={13} ref={map} style={{ height: 350 }}>
       <Control
         ref={(instance) => {
           if (instance && instance.control) {
@@ -63,7 +63,7 @@ const Example = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>
@@ -105,14 +105,14 @@ const Example = () => {
   const { portal } = useControl({ map, children, anchor: BMAP_ANCHOR_TOP_RIGHT });
   return (
     <>
-      <div ref={divElm} style={{ height: '100%' }} />
+      <div ref={divElm} style={{ height: 350 }} />
       {portal}
     </>
   )
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

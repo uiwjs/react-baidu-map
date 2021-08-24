@@ -35,7 +35,7 @@ const Example = () => {
       <button onClick={() => setType(BMAP_NAVIGATION_CONTROL_LARGE)}>
         恢复默认
       </button>
-      <Map zoom={13}>
+      <Map zoom={13} style={{ height: 350 }}>
         {show && (
           <NavigationControl type={type} enableGeolocation showZoomInfo />
         )}
@@ -53,7 +53,7 @@ const Example = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>
@@ -90,13 +90,13 @@ const Example = () => {
       <button onClick={() => navigationControl.setType(BMAP_NAVIGATION_CONTROL_LARGE)}>
         平移、缩放按钮和滑块
       </button>
-      <div ref={divElm} style={{ height: '100%' }} />
+      <div ref={divElm} style={{ height: 350 }} />
     </>
   );
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

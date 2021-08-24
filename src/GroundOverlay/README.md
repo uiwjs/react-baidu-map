@@ -29,7 +29,7 @@ const Example = () => {
   return (
     <>
       <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
-      <Map center="北京" zoom={11} widget={['NavigationControl']}>
+      <Map center="北京" zoom={11} widget={['NavigationControl']} style={{ height: 350 }}>
         {visiable && (
           <GroundOverlay
             ref={groundRef}
@@ -46,7 +46,7 @@ const Example = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

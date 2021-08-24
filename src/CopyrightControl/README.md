@@ -25,7 +25,7 @@ const Example = () => {
       <button onClick={() => setShow(!show)}>
         {show ? '关闭' : '开启'}
       </button>
-      <Map zoom={13} ref={map} widget={['NavigationControl']}>
+      <Map zoom={13} ref={map} widget={['NavigationControl']} style={{ height: 350 }}>
         <CopyrightControl offset={new BMap.Size(10, 30)} anchor={BMAP_ANCHOR_TOP_RIGHT}>
           <CopyrightControl.Item bounds={bounds}>
             <span style={{ color: 'red', backgroundColor: '#fff', padding: 3 }}>自定义版权只在上海地区可见</span>
@@ -48,7 +48,7 @@ const Example = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

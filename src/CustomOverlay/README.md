@@ -30,9 +30,9 @@ const Demo = () => {
     setCount(count + 1);
   }
   return (
-    <div style={{ width: '100%', height: '350px' }}>
+    <div style={{ width: '100%' }}>
       <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-        <Map widget={['NavigationControl']} zoom={13}>
+        <Map widget={['NavigationControl']} zoom={13} style={{ height: 350 }}>
           <Marker position={{ lng: 121.466008, lat: 31.220001 }} />
           <CustomOverlay
             ref={markerRef}
@@ -108,14 +108,14 @@ const Example = () => {
 
   return (
     <>
-      <div ref={divElm} style={{ height: '100%' }} />
+      <div ref={divElm} style={{ height: 350 }} />
       {portal}
     </>
   )
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

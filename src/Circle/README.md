@@ -30,7 +30,7 @@ const Example = () => {
       <button onClick={() => setEnableEditing(!enableEditing)}>{enableEditing ? '取消编辑' : '编辑'}</button>
       <button onClick={() => setStrokeOpacity(0.7)}>透明度0.7</button>
       <button onClick={() => setStrokeOpacity(0.2)}>透明度0.2</button>
-      <Map widget={['NavigationControl']}>
+      <Map widget={['NavigationControl']} style={{ height: 350 }}>
         <Circle
           ref={circleRef}
           visiable={visiable}
@@ -53,7 +53,7 @@ const Example = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

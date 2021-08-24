@@ -25,7 +25,7 @@ const Example = () => {
   return (
     <>
       <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
-      <Map zoom={12} widget={['NavigationControl']}>
+      <Map zoom={12} widget={['NavigationControl']} style={{ height: 350 }}>
         <CanvasLayer
           ref={canvasLayerRef}
           visiable={visiable}
@@ -57,7 +57,7 @@ const Example = () => {
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '350px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>
@@ -116,13 +116,13 @@ const Example = () => {
   return (
     <>
       <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}</button>
-      <div ref={divElm} style={{ height: '100%' }} />
+      <div ref={divElm} style={{ height: 350 }} />
     </>
   )
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

@@ -155,13 +155,13 @@ const Example = () => {
       <button onClick={() => setCenter('北京')}>北京</button>
       <button onClick={() => setCenter('上海')}>上海</button>
       <button onClick={() => setAutoLocalCity(true)}>IP定位</button>
-      <div ref={divElm} style={{ height: '100%' }} />
+      <div ref={divElm} style={{ height: 350 }} />
     </>
   )
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>

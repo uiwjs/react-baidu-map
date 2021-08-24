@@ -22,7 +22,7 @@ const Example = () => {
       <button onClick={() => setShow(!show)}>
         {show ? '关闭' : '开启'}
       </button>
-      <Map zoom={13}>
+      <Map zoom={13} style={{ height: 300 }}>
         {show && (
           <PanoramaControl />
         )}
@@ -33,7 +33,7 @@ const Example = () => {
 }
 
 ReactDOM.render((
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>
@@ -89,5 +89,5 @@ ReactDOM.render(<Demo />, _mount_);
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
-| ~~anchor~~ | **`无效`**控件的位置偏移值。| `ControlAnchor` | `BMAP_ANCHOR_TOP_RIGHT` |
-| ~~offset~~ | **`无效`**控件的水平偏移值。 | `BMap.Size` | - |
+| ~~anchor~~ | **`无效`** 控件的位置偏移值。| `ControlAnchor` | `BMAP_ANCHOR_TOP_RIGHT` |
+| ~~offset~~ | **`无效`** 控件的水平偏移值。 | `BMap.Size` | - |
