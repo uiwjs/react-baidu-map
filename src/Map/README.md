@@ -189,7 +189,7 @@ ReactDOM.render(<Demo />, _mount_);
 | viewport | 根据提供的地理区域或坐标设置地图视野，调整后的视野会保证包含提供的地理区域或坐标 | `(view: Array<Point> \| Viewport, viewportOptions: ViewportOptions)` | - |
 | mapStyleV2 | 设置地图样式的个性化地图服务V2，使用对象字面量形式表示，样式Json，通过[编辑器生成](http://lbsyun.baidu.com/apiconsole/custommap)。(支持Canvas) | `{ styleJson: MapStyleItem[] }` / `{styleId: string}` | - |
 | enableHighResolution | 是否启用使用高分辨率地图。在iPhone4及其后续设备上，可以通过开启此选项获取更高分辨率的底图，v1.2,v1.3版本默认不开启，v1.4 默认为开启状态 | boolean | - |
-| enableAutoResize | 地图允许展示的最大级别 | boolean | `true` |
+| enableAutoResize | 是否启用自动适应容器尺寸变化，默认启用 | boolean | `true` |
 | enableMapClick | 是否开启底图可点功能 | boolean | `true` |
 | enableDragging | 启用地图拖拽，默认启用 | boolean | - |
 | enableScrollWheelZoom | 启用滚轮放大缩小，默认禁用 | boolean | - |
