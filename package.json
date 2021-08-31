@@ -72,7 +72,7 @@
     "@uiw/react-domain-verify": "1.0.2",
     "@uiw/reset.css": "1.0.5",
     "@uiw/react-loader": "4.9.4",
-    "compile-less-cli": "1.8.1",
+    "compile-less-cli": "1.8.8",
     "cross-env": "7.0.3",
     "jest-environment-jsdom": "27.0.6",
     "husky": "7.0.1",
