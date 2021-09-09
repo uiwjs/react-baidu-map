@@ -9,7 +9,7 @@ export interface UseCreatePortal {
   children?: React.ReactNode;
 }
 
-export default (props = {} as UseCreatePortal) => {
+export default function useCreatePortal(props = {} as UseCreatePortal) {
   const [div, setDiv] = useState<HTMLDivElement>(document.createElement('div'));
   const [portal, setPortal] = useState<React.ReactPortal>();
   const [count, setCount] = useState(0);
@@ -20,7 +20,7 @@ export default (props = {} as UseCreatePortal) => {
       setCount(count + 1);
       setPortal(portalInstance);
     }
-  }, [portal]);
+  }, [children, count, div, portal]);
 
   const prevCount = usePrevious(count);
   useMemo(() => {
@@ -29,7 +29,7 @@ export default (props = {} as UseCreatePortal) => {
       setCount(count + 1);
       setPortal(portalInstance);
     }
-  }, [children, div, portal]);
+  }, [children, count, div, prevCount]);
 
   return {
     div,
@@ -39,4 +39,4 @@ export default (props = {} as UseCreatePortal) => {
     children,
     setChildren,
   };
-};
+}

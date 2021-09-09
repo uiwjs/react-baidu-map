@@ -1,4 +1,4 @@
-NavigationControl 平移缩放控件
+GeolocationControl 定位控件
 ===
 
 负责进行地图定位的控件，使用html5浏览器定位功能。你也可以使用 `Map` 组件 `widget` 属性来设置控件更方便。

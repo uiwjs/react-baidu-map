@@ -19,16 +19,10 @@ import React, { useEffect, useState, useRef } from 'react';
 export function useEnableProperties<T = {}, F = {}>(instance: T, props = {} as F, propsName: string[] = []) {
   propsName.forEach((name) => {
     const eName = `enable${name}` as keyof F;
-    const [state, setState] = useState(props[eName]);
-    useEffect(() => {
-      const funName = (props[eName] ? `enable${name}` : `disable${name}`) as keyof T;
-      if (instance && props[eName] !== undefined) {
-        instance[funName] && (instance[funName] as any)();
-        if (props[eName] !== state) {
-          setState(props[eName]);
-        }
-      }
-    }, [instance, props[eName]]);
+    const funName = (props[eName] ? `enable${name}` : `disable${name}`) as keyof T;
+    if (instance && props[eName] !== undefined) {
+      instance[funName] && (instance[funName] as any)();
+    }
   });
 }
 
@@ -41,9 +35,7 @@ export function useVisiable<T extends BMap.Overlay, F extends { visiable?: boole
   const [state, setState] = useState(visiable);
   useEffect(() => {
     if (instance && visiable !== undefined) {
-      console.log('visiable', visiable);
       if (visiable) {
-        console.log('visiable', instance);
         instance.show && instance.show();
       } else {
         instance.hide && instance.hide();
@@ -52,7 +44,7 @@ export function useVisiable<T extends BMap.Overlay, F extends { visiable?: boole
         setState(visiable);
       }
     }
-  }, [instance, visiable]);
+  }, [instance, state, visiable]);
 }
 
 /**

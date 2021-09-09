@@ -42,6 +42,7 @@ export default function useCircle(props = {} as UseCircle) {
       map.addOverlay(instance);
       setCircle(instance);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, circle]);
 
   useVisiable(circle!, props);

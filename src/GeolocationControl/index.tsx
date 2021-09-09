@@ -15,6 +15,6 @@ export interface GeolocationControlProps extends OverlayProps, BMap.GeolocationC
 
 export default React.forwardRef<GeolocationControlProps, GeolocationControlProps>((props, ref) => {
   const { geolocationControl } = useGeolocationControl(props);
-  useImperativeHandle(ref, () => ({ ...props, geolocationControl }), [geolocationControl]);
+  useImperativeHandle(ref, () => ({ ...props, geolocationControl }), [geolocationControl, props]);
   return null;
 });
