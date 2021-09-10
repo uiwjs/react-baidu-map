@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map",
-  "version": "1.19.3",
+  "version": "1.19.4",
   "description": "Baidu Map Components for React.",
   "author": "kenny wong <wowohoo@qq.com>",
   "main": "cjs/index.js",
