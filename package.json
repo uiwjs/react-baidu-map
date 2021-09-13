@@ -74,7 +74,7 @@
     "@uiw/react-loader": "4.9.6",
     "compile-less-cli": "1.8.8",
     "cross-env": "7.0.3",
-    "jest-environment-jsdom": "27.1.1",
+    "jest-environment-jsdom": "27.2.0",
     "husky": "7.0.2",
     "kkt": "6.11.0",
     "lint-staged": "11.1.2",
