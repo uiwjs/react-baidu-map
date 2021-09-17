@@ -12,9 +12,12 @@ jobs:
         with:
           node-version: 14
 
+      - run: npm -v
+      - run: npm install -g npm@7
+      - run: npm -v
       - run: npm install
+      - run: npm install --workspaces
       - run: npm run build
-      - run: npm run doc
 
   build-deploy:
     runs-on: ubuntu-20.04
@@ -24,23 +27,50 @@ jobs:
       with:
         node-version: 14
 
-    - run: npm install -g npm
+    - run: npm -v
+    - run: npm install -g npm@7
     - run: npm -v
     - run: npm install
+    - run: npm install --workspaces
     - run: npm run build
-    - run: npm ls @babel/core
-    - run: npm run doc
     - run: npm run coverage
 
     - run: npm install @jsdevtools/npm-publish -g
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/baidu-map/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/api-loader/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/canvas-layer/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/circle/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/control/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/copyright-control/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/curve-line/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/custom-overlay/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/drawing-manager/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/geolocation-control/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/ground-overlay/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/info-window/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/label/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/map/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/marker/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/navigation-control/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/overview-map-control/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/panorama-control/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/point-collection/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/polygon/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/polyline/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/require-script/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/scale-control/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/tile-layer/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/type-control/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/types/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/utils/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/with-map/package.json
 
     - name: Create Tag
       id: create_tag
       uses: jaywcjlove/create-tag-action@v1.2.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        package-path: ./package.json
+        package-path: ./packages/baidu-map/package.json
 
     - name: Generate Changelog
       id: changelog
@@ -54,7 +84,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+        publish_dir: ./website/build
 
     - name: Create Release
       uses: ncipollo/release-action@v1

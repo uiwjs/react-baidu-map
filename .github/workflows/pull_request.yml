@@ -12,6 +12,6 @@ jobs:
           node-version: 14
 
       - run: npm install
+      - run: npm install --workspaces
       - run: npm run build
       - run: npm ls @babel/core
-      - run: npm run doc
