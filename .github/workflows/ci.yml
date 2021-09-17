@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+
+env:
+  SKIP_PREFLIGHT_CHECK: true
+
 jobs:
   windows:
     runs-on: windows-2019
@@ -18,7 +22,6 @@ jobs:
       - run: npm install
       - run: npm install --workspaces
       - run: npm run build
-      - run: npm run doc
 
   build-deploy:
     runs-on: ubuntu-20.04
@@ -34,6 +37,7 @@ jobs:
     - run: npm install
     - run: npm install --workspaces
     - run: npm run build
+    - run: npm run doc
     - run: npm run coverage
 
     - run: npm install @jsdevtools/npm-publish -g
