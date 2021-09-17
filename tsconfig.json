@@ -1,23 +1,24 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "strict": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
+    "sourceMap": false,
+    "target": "esnext",
     "module": "esnext",
+    "lib": ["esnext", "dom"],
     "moduleResolution": "node",
+    "strict": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "declaration": true,
-    "baseUrl": "website",
-    "jsx": "react-jsx",
-    "types": ["jest", "node"],
+    "baseUrl": ".",
+    "jsx": "react",
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
     "noEmit": true
-  },
-  "include": [".kktrc.ts", "website", "react-app-env.d.ts"]
+  }
 }

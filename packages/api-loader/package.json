@@ -1,0 +1,45 @@
+{
+  "name": "@uiw/react-baidu-map-api-loader",
+  "version": "2.0.0",
+  "description": "Baidu Map api-loader Components for React.",
+  "homepage": "https://uiwjs.github.io/react-baidu-map/",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-baidu-map.git"
+  },
+  "scripts": {
+    "build": "tsbb build",
+    "watch": "tsbb watch"
+  },
+  "author": "Kenny Wong <wowohoo@qq.com>",
+  "license": "MIT",
+  "files": [
+    "src",
+    "esm",
+    "cjs"
+  ],
+  "keywords": [
+    "react-baidu-map",
+    "baidu",
+    "baidu-map",
+    "baidu-map-utils",
+    "utils",
+    "map",
+    "react",
+    "bdmap",
+    "types",
+    "百度",
+    "地图",
+    "百度地图"
+  ],
+  "peerDependencies": {
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.15.4",
+    "@uiw/react-baidu-map-utils": "^2.0.0"
+  }
+}

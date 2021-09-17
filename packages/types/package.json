@@ -1,0 +1,33 @@
+{
+  "name": "@uiw/react-baidu-map-types",
+  "version": "2.0.0",
+  "description": "Baidu Map Components for React.",
+  "homepage": "https://uiwjs.github.io/react-baidu-map/#/types",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-baidu-map.git"
+  },
+  "scripts": {},
+  "author": "Kenny Wong <wowohoo@qq.com>",
+  "license": "MIT",
+  "files": [
+    "index.d.ts",
+    "src"
+  ],
+  "keywords": [
+    "react-baidu-map",
+    "baidu-map",
+    "map",
+    "react",
+    "bdmap",
+    "types",
+    "百度",
+    "地图",
+    "百度地图"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}

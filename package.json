@@ -1,23 +1,21 @@
 {
-  "name": "@uiw/react-baidu-map",
-  "version": "1.19.5",
   "description": "Baidu Map Components for React.",
   "author": "kenny wong <wowohoo@qq.com>",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
+  "private": true,
   "scripts": {
-    "prepare": "husky install && npm run build",
-    "released": "npm run build && npm run doc",
-    "doc": "kkt build --app-src ./website && npm run map",
-    "start": "kkt start --app-src ./website",
-    "watch": "tsbb watch & npm run css:watch",
-    "build": "tsbb build && npm run css:build",
-    "test": "tsbb test",
-    "coverage": "tsbb test --coverage",
-    "css:build": "compile-less -d src -o esm",
-    "css:watch": "compile-less -d src -o esm --watch",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
-    "map": "source-map-explorer build/static/js/*.js --html build/website-result.html"
+    "prepare": "husky install",
+    "lib:build": "npm run-script build --workspace @uiw/react-baidu-map-polygon",
+    "⬇️⬇️⬇️⬇️⬇️ watch ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ watch::package ▼▼▼▼▼",
+    "watch:map": "npm run-script watch --workspace @uiw/react-baidu-map",
+    "watch:map-map": "npm run-script watch --workspace @uiw/react-baidu-map-map",
+    "watch:api-loader": "npm run-script watch --workspace @uiw/react-baidu-map-api-loader",
+    "⬆️⬆️⬆️⬆️⬆️ watch ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
+    "version": "npm version patch --workspaces",
+    "publish": "npm publish --access public --workspaces",
+    "test": "tsbb test --env=jsdom",
+    "coverage": "tsbb test --env=jsdom --coverage",
+    "build": "npm run-script build --workspaces --if-present",
+    "start": "npm run-script start --workspace=website"
   },
   "homepage": "https://uiwjs.github.io/react-baidu-map",
   "repository": {
@@ -49,42 +47,23 @@
       "prettier --write"
     ]
   },
-  "jest": {},
-  "peerDependencies": {
-    "@babel/runtime": ">=7.12.0",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+  "jest": {
+    "testMatch": [
+      "<rootDir>/test/*.{ts,tsx}",
+      "<rootDir>/packages/**/__tests__/*.{ts,tsx}"
+    ]
   },
+  "workspaces": [
+    "packages/**",
+    "website"
+  ],
   "devDependencies": {
-    "@babel/runtime": "7.15.4",
-    "@kkt/less-modules": "6.11.0",
-    "@kkt/raw-modules": "6.11.0",
-    "@kkt/scope-plugin-options": "6.11.0",
-    "@loadable/component": "5.15.0",
-    "@types/loadable__component": "5.13.4",
-    "@types/react": "17.0.21",
-    "@types/react-dom": "17.0.9",
-    "@types/react-router-dom": "5.1.9",
-    "@types/react-test-renderer": "17.0.1",
-    "@uiw/react-code-preview": "2.1.0",
-    "@uiw/react-github-corners": "1.5.3",
-    "@uiw/react-markdown-preview": "3.3.3",
-    "@uiw/react-domain-verify": "1.1.2",
-    "@uiw/reset.css": "1.0.5",
-    "@uiw/react-loader": "4.9.7",
     "compile-less-cli": "1.8.8",
     "cross-env": "7.0.3",
     "jest-environment-jsdom": "27.2.0",
     "husky": "7.0.2",
-    "kkt": "6.11.0",
     "lint-staged": "11.1.2",
     "prettier": "2.4.1",
-    "rehype-attr": "2.0.3",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-router-dom": "5.3.0",
-    "react-test-renderer": "17.0.2",
-    "source-map-explorer": "2.5.2",
     "tsbb": "3.2.1"
   },
   "eslintConfig": {
