@@ -24,6 +24,8 @@ jobs:
       with:
         node-version: 14
 
+    - run: npm install -g npm
+    - run: npm -v
     - run: npm install
     - run: npm run build
     - run: npm ls @babel/core
