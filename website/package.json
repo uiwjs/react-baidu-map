@@ -5,7 +5,7 @@
   "description": "Baidu Map Components for React.",
   "author": "kenny wong <wowohoo@qq.com>",
   "scripts": {
-    "build": "SKIP_PREFLIGHT_CHECK=true kkt build && npm run map",
+    "doc": "SKIP_PREFLIGHT_CHECK=true kkt build && npm run map",
     "start": "SKIP_PREFLIGHT_CHECK=true kkt start",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "map": "source-map-explorer build/static/js/*.js --html build/website-result.html"

@@ -15,6 +15,7 @@
     "test": "tsbb test --env=jsdom",
     "coverage": "tsbb test --env=jsdom --coverage",
     "build": "npm run-script build --workspaces --if-present",
+    "doc": "npm run-script doc --workspace=website --if-present",
     "start": "npm run-script start --workspace=website"
   },
   "homepage": "https://uiwjs.github.io/react-baidu-map",
