@@ -16,8 +16,8 @@
     "test": "tsbb test --env=jsdom",
     "coverage": "tsbb test --env=jsdom --coverage",
     "build:lib:canvas-layer": "npm run-script build --workspace @uiw/react-baidu-map-canvas-layer",
-    "build": "npm run-script build --workspaces --if-present",
-    "build1": "npm exec --ws -- tsbb build",
+    "build1": "npm run-script build --workspaces --if-present",
+    "build": "npm exec --ws -- tsbb build",
     "doc": "npm run-script doc --workspace=website --if-present",
     "start": "npm run-script start --workspace=website"
   },
