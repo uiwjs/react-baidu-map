@@ -13,7 +13,34 @@ jobs:
 
       - run: npm install
       - run: npm install --workspaces
-      - run: npm run build
-      - run: npm run build:lib:canvas-layer
+      - run: npm exec -w=@uiw/react-baidu-map-api-loader -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-canvas-layer -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-circle -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-control -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-copyright-control -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-curve-line -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-custom-overlay -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-drawing-manager -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-geolocation-control -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-ground-overlay -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-info-window -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-label -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-map -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-marker -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-navigation-control -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-overview-map-control -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-panorama-control -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-point-collection -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-polygon -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-polyline -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-require-script -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-scale-control -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-tile-layer -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-type-control -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-types -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-utils -- tsbb build
+      - run: npm exec -w=@uiw/react-baidu-map-with-map -- tsbb build
       - run: npm run doc
+      - run: npm run coverage
       - run: npm ls @babel/core
