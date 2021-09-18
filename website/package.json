@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "description": "Baidu Map Components for React.",
   "author": "kenny wong <wowohoo@qq.com>",

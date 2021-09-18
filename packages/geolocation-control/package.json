@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-geolocation-control",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Baidu Map geolocation-control Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/geolocation-control",
   "main": "cjs/index.js",

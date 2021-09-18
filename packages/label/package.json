@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-label",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Baidu Map label Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/label",
   "main": "cjs/index.js",

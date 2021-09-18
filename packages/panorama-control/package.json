@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-panorama-control",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Baidu Map map-panorama-control Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/panorama-control",
   "main": "cjs/index.js",
