@@ -50,7 +50,6 @@ export function useMap(props: UseMap = {}) {
        */
       widget &&
         widget.forEach((item) => {
-          console.log('item!!!!!!', item);
           if (!BMap) {
             return;
           }
@@ -161,6 +160,8 @@ export function useMap(props: UseMap = {}) {
   return {
     map,
     setMap,
+    zoom,
+    setZoom,
     container,
     setContainer,
     center,

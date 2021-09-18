@@ -119,9 +119,13 @@ export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & MapChi
       container: elmRef.current as string | HTMLDivElement,
       ...props,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => setContainer(elmRef.current as string | HTMLDivElement | undefined), [elmRef.current]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useMemo(() => props.center && setCenter(props.center!), [props.center]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => setAutoLocalCity(props.autoLocalCity!), [props.autoLocalCity]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useImperativeHandle(ref, () => ({ ...props, map, BMap, container: elmRef }), [map]);
     const childs = React.Children.toArray(children);
     return (
