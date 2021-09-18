@@ -15,7 +15,7 @@
     "type-check": "npm exec --ws -- tsc --noEmit",
     "test": "tsbb test --env=jsdom",
     "coverage": "tsbb test --env=jsdom --coverage",
-    "build": "npm run-script build --ws --if-present",
+    "build": "lerna exec --scope @uiw/* --ignore @uiw/react-baidu-map-types -- tsbb build",
     "doc": "npm run-script doc --workspace=website --if-present",
     "start": "npm run-script start --workspace=website"
   },
@@ -68,6 +68,7 @@
     "cross-env": "7.0.3",
     "jest-environment-jsdom": "27.2.0",
     "husky": "7.0.2",
+    "lerna": "4.0.0",
     "lint-staged": "11.1.2",
     "prettier": "2.4.1",
     "tsbb": "3.2.1"
