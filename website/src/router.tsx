@@ -118,6 +118,14 @@ export const routes: Routes = [
     path: '/tile-layer',
     component: loadable(() => import('./pages/tile-layer'), options),
   },
+  {
+    path: '/map-types',
+    component: loadable(() => import('./pages/map-types'), options),
+  },
+  {
+    path: '/utils',
+    component: loadable(() => import('./pages/utils'), options),
+  },
 ];
 
 export const menus = [
@@ -140,6 +148,10 @@ export const menus = [
   {
     label: 'withMap',
     path: '/with-map',
+  },
+  {
+    label: 'Support TypeScript',
+    path: '/map-types',
   },
   {
     divider: true,
@@ -244,6 +256,10 @@ export const menus = [
   {
     divider: true,
     label: '其它',
+  },
+  {
+    label: 'utils 工具',
+    path: '/utils',
   },
   {
     label: '百度拾取坐标系统',
