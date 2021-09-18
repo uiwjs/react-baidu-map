@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
-    "lib:build": "npm run-script build --workspace @uiw/react-baidu-map-polygon",
+    "lib:build": "npm run-script build --workspace @uiw/react-baidu-map-canvas-layer",
     "⬇️⬇️⬇️⬇️⬇️ watch ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ watch::package ▼▼▼▼▼",
     "watch:map": "npm run-script watch --workspace @uiw/react-baidu-map",
     "watch:map-map": "npm run-script watch --workspace @uiw/react-baidu-map-map",
@@ -15,6 +15,7 @@
     "type-check": "npm exec --ws -- tsc --noEmit",
     "test": "tsbb test --env=jsdom",
     "coverage": "tsbb test --env=jsdom --coverage",
+    "build:lib:canvas-layer": "npm run-script build --workspace @uiw/react-baidu-map-canvas-layer",
     "build": "npm run-script build --workspaces --if-present",
     "build1": "npm exec --ws -- tsbb build",
     "doc": "npm run-script doc --workspace=website --if-present",

@@ -37,6 +37,7 @@ jobs:
     - run: npm install
     - run: npm install --workspaces
     - run: npm run build
+    - run: npm run build:lib:canvas-layer
     - run: npm run doc
     - run: npm run coverage
 
