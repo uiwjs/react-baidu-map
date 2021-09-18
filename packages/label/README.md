@@ -66,8 +66,9 @@ import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useLabel } from '@uiw/react-baidu-map';
 
 const Example = () => {
+  const [zoom, setZoom] = useState(15)
   const divElm = useRef(null);
-  const { map, setContainer, zoom, setZoom, center } = useMap({
+  const { map, setContainer, center } = useMap({
     zoom: 9,
     widget: ['GeolocationControl', 'NavigationControl']
   });
@@ -80,10 +81,17 @@ const Example = () => {
   });
 
   useEffect(() => {
+    if (map) {
+      // 启用滚轮放大缩小，默认禁用
+      map.setZoom(zoom);
+    }
+  }, [zoom, map]);
+
+  useEffect(() => {
     if (divElm.current) {
       setContainer(divElm.current);
     }
-  });
+  }, [divElm.current]);
   let counts = zoom || 15;
   return (
     <>

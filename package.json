@@ -9,6 +9,8 @@
     "watch:map": "npm run-script watch --workspace @uiw/react-baidu-map",
     "watch:map-map": "npm run-script watch --workspace @uiw/react-baidu-map-map",
     "watch:api-loader": "npm run-script watch --workspace @uiw/react-baidu-map-api-loader",
+    "watch:label": "npm run-script watch --workspace @uiw/react-baidu-map-label",
+    "watch:utils": "npm run-script watch --workspace @uiw/react-baidu-map-utils",
     "⬆️⬆️⬆️⬆️⬆️ watch ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
     "version": "npm version patch --workspaces",
     "publish": "npm publish --access public --workspaces",
