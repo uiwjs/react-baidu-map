@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
-import { APILoader, Map, useMap, CanvasLayer, useCanvasLayer } from '@uiw/react-baidu-map';
+import { APILoader, Map, useMap } from '@uiw/react-baidu-map';
+import CanvasLayer, { useCanvasLayer } from '@uiw/react-baidu-map-canvas-layer';
 import Markdown from '../../components/Markdown';
 
 export default class Page extends Markdown {

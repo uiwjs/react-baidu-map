@@ -12,9 +12,11 @@
     "⬆️⬆️⬆️⬆️⬆️ watch ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
     "version": "npm version patch --workspaces",
     "publish": "npm publish --access public --workspaces",
+    "type-check": "npm exec --ws -- tsc --noEmit",
     "test": "tsbb test --env=jsdom",
     "coverage": "tsbb test --env=jsdom --coverage",
     "build": "npm run-script build --workspaces --if-present",
+    "build1": "npm exec --ws -- tsbb build",
     "doc": "npm run-script doc --workspace=website --if-present",
     "start": "npm run-script start --workspace=website"
   },
@@ -52,6 +54,10 @@
     "testMatch": [
       "<rootDir>/test/*.{ts,tsx}",
       "<rootDir>/packages/**/__tests__/*.{ts,tsx}"
+    ],
+    "collectCoverageFrom": [
+      "<rootDir>/packages/**/*.{tsx,ts}",
+      "!**/*.{js,d.ts}"
     ]
   },
   "workspaces": [
