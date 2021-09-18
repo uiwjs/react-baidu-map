@@ -2,7 +2,7 @@
   "name": "@uiw/react-baidu-map-polyline",
   "version": "2.0.1",
   "description": "Baidu Map map-polyline Components for React.",
-  "homepage": "https://uiwjs.github.io/react-baidu-map/",
+  "homepage": "https://uiwjs.github.io/react-baidu-map/#/polyline",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {

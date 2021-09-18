@@ -2,7 +2,7 @@
   "name": "@uiw/react-baidu-map-canvas-layer",
   "version": "2.0.1",
   "description": "Baidu Map canvas-layer Components for React.",
-  "homepage": "https://uiwjs.github.io/react-baidu-map/",
+  "homepage": "https://uiwjs.github.io/react-baidu-map/#/canvas-layer",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {

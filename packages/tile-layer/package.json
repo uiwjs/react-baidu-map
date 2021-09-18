@@ -2,7 +2,7 @@
   "name": "@uiw/react-baidu-map-tile-layer",
   "version": "2.0.1",
   "description": "Baidu Map tile-layer Components for React.",
-  "homepage": "https://uiwjs.github.io/react-baidu-map/",
+  "homepage": "https://uiwjs.github.io/react-baidu-map/#/tile-layer",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {
