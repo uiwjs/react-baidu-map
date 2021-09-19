@@ -1,5 +1,5 @@
 /// <reference types="@uiw/react-baidu-map-types" />
-import React, { useRef, useEffect, useImperativeHandle, Fragment, useMemo } from 'react';
+import React, { useRef, useEffect, useImperativeHandle, Fragment, useMemo, CSSProperties } from 'react';
 import { useMap } from './useMap';
 
 export * from './useMap';
@@ -49,6 +49,8 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
    */
   autoLocalCity?: boolean;
   children?: React.ReactNode;
+  /** 设置地图默认的鼠标指针样式。参数cursor应符合CSS的cursor属性规范 */
+  defaultCursor?: CSSProperties['cursor'];
   /**
    * 启用地图拖拽，默认启用
    */
