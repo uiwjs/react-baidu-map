@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-utils",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Baidu Map utils Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/",
   "main": "cjs/index.js",

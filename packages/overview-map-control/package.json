@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-overview-map-control",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Baidu Map map-overview-map-control Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/overview-map-control",
   "main": "cjs/index.js",
