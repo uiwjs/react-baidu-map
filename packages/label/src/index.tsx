@@ -1,4 +1,4 @@
-import React, { useImperativeHandle } from 'react';
+import React, { CSSProperties, useImperativeHandle } from 'react';
 import { OverlayProps } from '@uiw/react-baidu-map-map';
 import { useLabel } from './useLabel';
 
@@ -15,7 +15,7 @@ export interface LabelProps extends OverlayProps, BMap.LabelOptions, BMap.LabelE
    * 注意：如果css的属性名中包含连字符，需要将连字符去掉并将其后的字母进行大写处理，
    * 例如：背景色属性要写成：backgroundColor
    */
-  style?: HTMLDivElement['style'];
+  style?: CSSProperties;
 }
 
 export default React.forwardRef<LabelProps & { label?: BMap.Label }, LabelProps>((props, ref) => {
