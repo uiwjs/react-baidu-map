@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../packages/utils/README.md"],"names":[],"mappings":"qGAAA,OAAe","file":"static/js/72.d9b85190.chunk.js","sourcesContent":["export default \"@uiw/react-baidu-map-utils\\n===\\n\\n```shell\\n$ npm i @uiw/react-baidu-map-utils\\n```\\n\\n```jsx\\nimport { noop, requireCss, requireScript } from '@uiw/react-baidu-map-utils';\\n```\\n\";"],"sourceRoot":""}
