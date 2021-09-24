@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-navigation-control",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Baidu Map map-navigation-control Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/navigation-control",
   "main": "cjs/index.js",

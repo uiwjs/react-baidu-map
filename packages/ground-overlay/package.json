@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-ground-overlay",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Baidu Map ground-overlay Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/ground-overlay",
   "main": "cjs/index.js",
