@@ -22,7 +22,7 @@
     "@types/loadable__component": "5.13.4",
     "@types/react": "17.0.21",
     "@types/react-dom": "17.0.9",
-    "@types/react-router-dom": "5.1.9",
+    "@types/react-router-dom": "5.3.0",
     "@types/react-test-renderer": "17.0.1",
     "@uiw/react-baidu-map": "^2.0.0",
     "@uiw/react-baidu-map-api-loader": "^2.0.0",
