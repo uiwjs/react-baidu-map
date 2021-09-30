@@ -68,7 +68,7 @@
     "@kkt/less-modules": "6.11.0",
     "@kkt/raw-modules": "6.11.0",
     "@kkt/scope-plugin-options": "6.11.0",
-    "compile-less-cli": "1.8.8",
+    "compile-less-cli": "1.8.9",
     "cross-env": "7.0.3",
     "husky": "7.0.2",
     "jest": "27.2.1",
