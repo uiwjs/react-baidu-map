@@ -1,6 +1,5 @@
 import { Component, Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import rehypeAttr from 'rehype-attr';
 import Code from './Code';
 import Footer from '../Footer';
 import styles from './index.module.less';
@@ -69,7 +68,6 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
           style={{ padding: '20px 26px' }}
           source={this.state.mdStr}
           className={styles.markdown}
-          rehypePlugins={[[rehypeAttr, { properties: 'attr' }]]}
           components={{
             /**
              * bgWhite 设置代码预览背景白色，否则为格子背景。
