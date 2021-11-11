@@ -42,35 +42,145 @@ jobs:
     - run: npm run doc
     - run: npm run coverage
 
-    - run: npm install @jsdevtools/npm-publish -g
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/baidu-map/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/api-loader/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/canvas-layer/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/circle/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/control/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/copyright-control/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/curve-line/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/custom-overlay/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/drawing-manager/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/geolocation-control/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/ground-overlay/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/info-window/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/label/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/map/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/marker/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/navigation-control/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/overview-map-control/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/panorama-control/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/point-collection/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/polygon/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/polyline/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/require-script/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/scale-control/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/tile-layer/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/type-control/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/types/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/utils/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/with-map/package.json
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/baidu-map/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/api-loader/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/canvas-layer/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/circle/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/control/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/copyright-control/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/curve-line/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/custom-overlay/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/drawing-manager/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/geolocation-control/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: packages/ground-overlay/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/info-window/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/label/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/map/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/marker/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/navigation-control/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/overview-map-control/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/panorama-control/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/point-collection/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/polygon/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/polyline/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/require-script/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/scale-control/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/tile-layer/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/type-control/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/types/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/utils/package.json
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./packages/with-map/package.json
 
     - name: Create Tag
       id: create_tag
