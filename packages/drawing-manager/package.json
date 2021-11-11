@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-drawing-manager",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Baidu Map drawing-manager Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/drawing-manager",
   "main": "cjs/index.js",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.16.3",
-    "@uiw/react-baidu-map-map": "^2.0.0",
-    "@uiw/react-baidu-map-utils": "^2.0.0"
+    "@uiw/react-baidu-map-map": "2.0.6",
+    "@uiw/react-baidu-map-utils": "2.0.6"
   }
 }
