@@ -32,7 +32,7 @@
 ### 特性
 
 - ♻️ 自动加载百度地图 SDK（通过创建 Script 标签的形式加载），包括第三方 SDK。
-- 📚 使用 Typescript 编写，集成百度地图 SDK [@type](src/types) 声明文件（包括中文注释）。
+- 📚 使用 Typescript 编写，集成百度地图 SDK [@type](https://github.com/uiwjs/react-baidu-map/tree/master/packages/types) 声明文件（包括中文注释）。
 - ⚛️ 支持 React Hook 新增特性（需要 React 16.8+）。
 - 💝 不依赖任何第三方组件。
 
