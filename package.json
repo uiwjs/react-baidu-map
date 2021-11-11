@@ -19,7 +19,9 @@
     "coverage": "tsbb test --env=jsdom --coverage",
     "build": "lerna exec --scope @uiw/* --ignore @uiw/react-baidu-map-types -- tsbb build",
     "doc": "npm run-script doc --workspace=website --if-present",
-    "start": "npm run-script start --workspace=website"
+    "start": "npm run-script start --workspace=website",
+    "remove": "npm run clean && lerna exec \"rm -rf package-lock.json\" --scope @uiw/* --scope website",
+    "clean": "lerna clean --yes"
   },
   "homepage": "https://uiwjs.github.io/react-baidu-map",
   "repository": {
@@ -66,14 +68,14 @@
     "website"
   ],
   "devDependencies": {
-    "compile-less-cli": "1.8.8",
+    "compile-less-cli": "1.8.9",
     "cross-env": "7.0.3",
-    "jest-environment-jsdom": "27.2.0",
-    "husky": "7.0.2",
+    "jest-environment-jsdom": "27.3.1",
+    "husky": "7.0.4",
     "lerna": "4.0.0",
-    "lint-staged": "11.1.2",
+    "lint-staged": "11.2.6",
     "prettier": "2.4.1",
-    "tsbb": "3.3.1"
+    "tsbb": "3.4.4"
   },
   "eslintConfig": {
     "extends": [

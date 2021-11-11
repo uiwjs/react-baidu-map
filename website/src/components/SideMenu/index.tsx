@@ -54,7 +54,7 @@ export default function SideMenu() {
             );
           }
           return (
-            <NavLink key={idx} to={path || ''} exact>
+            <NavLink key={idx} to={path || ''}>
               {label}
             </NavLink>
           );

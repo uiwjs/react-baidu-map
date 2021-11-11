@@ -1,10 +1,4 @@
-import React from 'react';
-import loadable from '@loadable/component';
-import Loader from '@uiw/react-loader';
-
-const options = {
-  fallback: <Loader tip="加载中..." style={{ margin: 30 }} />,
-};
+import React, { lazy } from 'react';
 
 export type Routes = {
   path: string;
@@ -16,115 +10,115 @@ export const routes: Routes = [
   {
     path: '/',
     exact: true,
-    component: loadable(() => import('./pages/home'), options),
+    component: lazy(() => import('./pages/home')),
   },
   {
     path: '/api-loader',
-    component: loadable(() => import('./pages/api-loader'), options),
+    component: lazy(() => import('./pages/api-loader')),
   },
   {
     path: '/with-map',
-    component: loadable(() => import('./pages/with-map'), options),
+    component: lazy(() => import('./pages/with-map')),
   },
   {
     path: '/control',
-    component: loadable(() => import('./pages/control'), options),
+    component: lazy(() => import('./pages/control')),
   },
   {
     path: '/copyright-control',
-    component: loadable(() => import('./pages/copyright-control'), options),
+    component: lazy(() => import('./pages/copyright-control')),
   },
   {
     path: '/map',
-    component: loadable(() => import('./pages/map'), options),
+    component: lazy(() => import('./pages/map')),
   },
   {
     path: '/marker',
-    component: loadable(() => import('./pages/marker'), options),
+    component: lazy(() => import('./pages/marker')),
   },
   {
     path: '/navigation-control',
-    component: loadable(() => import('./pages/navigation-control'), options),
+    component: lazy(() => import('./pages/navigation-control')),
   },
   {
     path: '/geolocation-control',
-    component: loadable(() => import('./pages/geolocation-control'), options),
+    component: lazy(() => import('./pages/geolocation-control')),
   },
   {
     path: '/ground-overlay',
-    component: loadable(() => import('./pages/ground-overlay'), options),
+    component: lazy(() => import('./pages/ground-overlay')),
   },
   {
     path: '/overview-map-control',
-    component: loadable(() => import('./pages/overview-map-control'), options),
+    component: lazy(() => import('./pages/overview-map-control')),
   },
   {
     path: '/scale-control',
-    component: loadable(() => import('./pages/scale-control'), options),
+    component: lazy(() => import('./pages/scale-control')),
   },
   {
     path: '/map-type-control',
-    component: loadable(() => import('./pages/map-type-control'), options),
+    component: lazy(() => import('./pages/map-type-control')),
   },
   {
     path: '/panorama-control',
-    component: loadable(() => import('./pages/panorama-control'), options),
+    component: lazy(() => import('./pages/panorama-control')),
   },
   {
     path: '/info-window',
-    component: loadable(() => import('./pages/info-window'), options),
+    component: lazy(() => import('./pages/info-window')),
   },
   {
     path: '/label',
-    component: loadable(() => import('./pages/label'), options),
+    component: lazy(() => import('./pages/label')),
   },
   {
     path: '/point-collection',
-    component: loadable(() => import('./pages/point-collection'), options),
+    component: lazy(() => import('./pages/point-collection')),
   },
   {
     path: '/polyline',
-    component: loadable(() => import('./pages/polyline'), options),
+    component: lazy(() => import('./pages/polyline')),
   },
   {
     path: '/curve-line',
-    component: loadable(() => import('./pages/curve-line'), options),
+    component: lazy(() => import('./pages/curve-line')),
   },
   {
     path: '/drawing-manager',
-    component: loadable(() => import('./pages/drawing-manager'), options),
+    component: lazy(() => import('./pages/drawing-manager')),
   },
   {
     path: '/polygon',
-    component: loadable(() => import('./pages/polygon'), options),
+    component: lazy(() => import('./pages/polygon')),
   },
   {
     path: '/circle',
-    component: loadable(() => import('./pages/circle'), options),
+    component: lazy(() => import('./pages/circle')),
   },
   {
     path: '/canvas-layer',
-    component: loadable(() => import('./pages/canvas-layer'), options),
+    component: lazy(() => import('./pages/canvas-layer')),
   },
   {
     path: '/custom-overlay',
-    component: loadable(() => import('./pages/custom-overlay'), options),
+    component: lazy(() => import('./pages/custom-overlay')),
   },
   {
     path: '/require-script',
-    component: loadable(() => import('./pages/require-script'), options),
+    component: lazy(() => import('./pages/require-script')),
   },
   {
     path: '/tile-layer',
-    component: loadable(() => import('./pages/tile-layer'), options),
+    component: lazy(() => import('./pages/tile-layer')),
   },
   {
     path: '/map-types',
-    component: loadable(() => import('./pages/map-types'), options),
+    component: lazy(() => import('./pages/map-types')),
   },
   {
     path: '/utils',
-    component: loadable(() => import('./pages/utils'), options),
+    component: lazy(() => import('./pages/utils')),
   },
 ];
 
