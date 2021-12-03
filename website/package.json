@@ -50,7 +50,7 @@
     "@uiw/react-baidu-map-types": "2.0.6",
     "@uiw/react-baidu-map-utils": "2.0.6",
     "@uiw/react-baidu-map-with-map": "2.0.6",
-    "@uiw/react-code-preview": "2.2.2",
+    "@uiw/react-code-preview": "2.2.4",
     "@uiw/react-domain-verify": "1.1.2",
     "@uiw/react-github-corners": "1.5.3",
     "@uiw/react-loader": "4.9.7",
