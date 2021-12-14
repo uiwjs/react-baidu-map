@@ -57,7 +57,7 @@ const Demo = () => (
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Map center="杭州"/>
       <Map center="上海">
-        {({ AMap, map, container }) => {
+        {({ BMap, map, container }) => {
           return;
         }}
       </Map>
