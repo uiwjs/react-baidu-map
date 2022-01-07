@@ -62,7 +62,7 @@
     "react-test-renderer": "17.0.2"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.11.0",
+    "@kkt/less-modules": "7.0.5",
     "@kkt/raw-modules": "6.11.0",
     "@kkt/scope-plugin-options": "6.11.0",
     "compile-less-cli": "1.8.9",
