@@ -62,19 +62,17 @@
     "react-test-renderer": "17.0.2"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.11.0",
-    "@kkt/raw-modules": "6.11.0",
-    "@kkt/scope-plugin-options": "6.11.0",
-    "compile-less-cli": "1.8.9",
+    "@kkt/less-modules": "7.0.5",
+    "@kkt/raw-modules": "7.0.5",
+    "@kkt/scope-plugin-options": "7.0.5",
+    "compile-less-cli": "1.8.11",
     "cross-env": "7.0.3",
     "husky": "7.0.4",
-    "jest": "27.3.1",
-    "jest-environment-jsdom": "27.3.1",
-    "kkt": "6.11.0",
+    "kkt": "7.0.5",
     "lint-staged": "11.2.6",
     "prettier": "2.4.1",
     "source-map-explorer": "2.5.2",
-    "tsbb": "3.4.4"
+    "tsbb": "3.5.4"
   },
   "eslintConfig": {
     "extends": [
