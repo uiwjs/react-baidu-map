@@ -70,7 +70,7 @@
   "devDependencies": {
     "compile-less-cli": "1.8.11",
     "cross-env": "7.0.3",
-    "jest-environment-jsdom": "27.3.1",
+    "jest-environment-jsdom": "27.4.6",
     "husky": "7.0.4",
     "lerna": "4.0.0",
     "lint-staged": "11.2.6",
