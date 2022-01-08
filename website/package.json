@@ -65,14 +65,8 @@
     "@kkt/less-modules": "7.0.5",
     "@kkt/raw-modules": "7.0.5",
     "@kkt/scope-plugin-options": "7.0.5",
-    "compile-less-cli": "1.8.11",
-    "cross-env": "7.0.3",
-    "husky": "7.0.4",
     "kkt": "7.0.5",
-    "lint-staged": "12.1.7",
-    "prettier": "2.5.1",
-    "source-map-explorer": "2.5.2",
-    "tsbb": "3.5.4"
+    "source-map-explorer": "2.5.2"
   },
   "eslintConfig": {
     "extends": [
