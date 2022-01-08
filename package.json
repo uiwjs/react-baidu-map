@@ -74,7 +74,7 @@
     "husky": "7.0.4",
     "lerna": "4.0.0",
     "lint-staged": "11.2.6",
-    "prettier": "2.4.1",
+    "prettier": "2.5.1",
     "tsbb": "3.4.4"
   },
   "eslintConfig": {
