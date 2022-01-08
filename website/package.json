@@ -69,7 +69,7 @@
     "cross-env": "7.0.3",
     "husky": "7.0.4",
     "kkt": "7.0.5",
-    "lint-staged": "11.2.6",
+    "lint-staged": "12.1.7",
     "prettier": "2.5.1",
     "source-map-explorer": "2.5.2",
     "tsbb": "3.5.4"
