@@ -1,2 +1,0 @@
-(this.webpackJsonpwebsite=this.webpackJsonpwebsite||[]).push([[71],{813:function(i,e,n){"use strict";n.r(e),e.default="@uiw/react-baidu-map-utils\n===\n\n```shell\n$ npm i @uiw/react-baidu-map-utils\n```\n\n```jsx\nimport { noop, requireCss, requireScript } from '@uiw/react-baidu-map-utils';\n```\n"}}]);
-//# sourceMappingURL=71.54813375.chunk.js.map
