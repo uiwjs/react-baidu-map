@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-panorama-control",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Baidu Map map-panorama-control Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/panorama-control",
   "main": "cjs/index.js",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.16.7",
-    "@uiw/react-baidu-map-map": "2.0.7",
-    "@uiw/react-baidu-map-utils": "2.0.7"
+    "@uiw/react-baidu-map-map": "2.0.8",
+    "@uiw/react-baidu-map-utils": "2.0.8"
   }
 }
