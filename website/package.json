@@ -64,7 +64,7 @@
     "@kkt/less-modules": "7.0.6",
     "@kkt/raw-modules": "7.0.6",
     "@kkt/scope-plugin-options": "7.0.6",
-    "kkt": "7.0.6",
+    "kkt": "7.1.5",
     "source-map-explorer": "2.5.2"
   },
   "eslintConfig": {
