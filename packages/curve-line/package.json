@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-curve-line",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Baidu Map Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/curve-line",
   "main": "cjs/index.js",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "~7.17.2",
-    "@uiw/react-baidu-map-map": "2.1.1",
-    "@uiw/react-baidu-map-utils": "2.1.1"
+    "@uiw/react-baidu-map-map": "2.1.2",
+    "@uiw/react-baidu-map-utils": "2.1.2"
   }
 }
