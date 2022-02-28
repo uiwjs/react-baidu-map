@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-types",
-  "version": "2.0.8",
+  "version": "2.1.0",
   "description": "Baidu Map Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/map-types",
   "types": "index.d.ts",

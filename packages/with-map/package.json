@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-with-map",
-  "version": "2.0.8",
+  "version": "2.1.0",
   "description": "Baidu Map with-map Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/with-map",
   "main": "cjs/index.js",
@@ -41,6 +41,6 @@
   },
   "dependencies": {
     "@babel/runtime": "~7.17.2",
-    "@uiw/react-baidu-map-map": "2.0.8"
+    "@uiw/react-baidu-map-map": "2.1.0"
   }
 }
