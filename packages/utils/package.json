@@ -39,7 +39,7 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.17.2",
+    "@babel/runtime": "~7.17.2",
     "@uiw/react-baidu-map-types": "2.0.8"
   }
 }

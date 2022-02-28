@@ -68,13 +68,13 @@
     "website"
   ],
   "devDependencies": {
-    "compile-less-cli": "1.8.11",
-    "cross-env": "7.0.3",
-    "husky": "7.0.4",
-    "lerna": "4.0.0",
-    "lint-staged": "12.2.0",
-    "prettier": "2.5.1",
-    "tsbb": "3.5.4"
+    "compile-less-cli": "~1.8.11",
+    "cross-env": "~7.0.3",
+    "husky": "~7.0.4",
+    "lerna": "~4.0.0",
+    "lint-staged": "~12.3.4",
+    "prettier": "~2.5.1",
+    "tsbb": "~3.7.0"
   },
   "eslintConfig": {
     "extends": [
