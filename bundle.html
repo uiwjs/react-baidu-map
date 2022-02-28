@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React Baidu Map - 百度地图 React 组件</title>
+    <meta name="keywords" content="react,component,baidu,百度地图,地图,百度" />
+    <meta name="description" content="这是一个基于 React 封装的百度地图组件，帮助你轻松的接入地图到 React 项目中。" />
+    <script src="https://unpkg.com/@babel/standalone@7.17.x/babel.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react@17.x/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17.x/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@uiw/codepen-require-polyfill/index.js" crossorigin></script>
+  </head>
+  <body>
+    <a href="https://uiwjs.github.io/react-baidu-map">@uiw/react-baidu-map</a>
+    <div id="container" style="padding: 24px"></div>
+    <script src="https://unpkg.com/@uiw/react-baidu-map/dist/baidu.min.js"></script>
+    <script type="text/babel">
+      import { Map, APILoader } from '@uiw/react-baidu-map';
+
+      const Demo = () => (
+        <div style={{ width: '100%', height: '300px' }}>
+          <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+            <Map center="杭州"/>
+            <Map center="上海">
+              {({ BMap, map, container }) => {
+                return;
+              }}
+            </Map>
+          </APILoader>
+        </div>
+      );
+      ReactDOM.render(<Demo />, document.getElementById('container'));
+    </script>
+  </body>
+</html>
