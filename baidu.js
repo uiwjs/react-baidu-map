@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["react"], factory);
 	else if(typeof exports === 'object')
-		exports["@uiw/react-amap"] = factory(require("react"));
+		exports["@uiw/react-baidu-map"] = factory(require("react"));
 	else
-		root["@uiw/react-amap"] = factory(root["React"]);
+		root["@uiw/react-baidu-map"] = factory(root["React"]);
 })(self, function(__WEBPACK_EXTERNAL_MODULE__787__) {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
