@@ -7,10 +7,13 @@
 
 <p align="center">
   <a href="https://github.com/uiwjs/react-baidu-map/actions">
-    <img src="https://github.com/uiwjs/react-baidu-map/workflows/Build%20&%20Deploy/badge.svg" alt="Build & Deploy">
+    <img src="https://github.com/uiwjs/react-baidu-map/actions/workflows/ci.yml/badge.svg" alt="Build & Deploy">
   </a>
   <a href="https://www.npmjs.com/package/@uiw/react-baidu-map">
     <img src="https://img.shields.io/npm/dm/@uiw/react-baidu-map.svg?style=flat" alt="Downloads">
+  </a>
+  <a href="https://uiwjs.github.io/react-baidu-map/coverage/lcov-report/">
+    <img src="https://uiwjs.github.io/react-baidu-map/badges.svg" alt="Coverage Status">
   </a>
   <a href="https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-baidu-map/file/README.md">
     <img src="https://img.shields.io/badge/Open%20in-unpkg-blue" alt="Open in unpkg">
@@ -119,6 +122,8 @@ Package | Bundle size(gzip) | Version/unpkg
 ## 开发
 
 ```bash
+npm install -g npm@7
+
 npm install # 安装依赖
 
 npm run build # 编译输出组件 js 文件, .d.ts 类型文件
@@ -132,3 +137,17 @@ npm run start # 文档网站运行
 - [百度拾取坐标系统](https://api.map.baidu.com/lbsapi/getpoint/index.html) 
 - [百度地图官方 Demo 示例](https://lbsyun.baidu.com/jsdemo.htm) 
 - [百度地图 API v3.0](https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html) 
+
+## Contributors
+
+As always, thanks to our amazing contributors!
+
+<a href="https://github.com/uiwjs/react-baidu-map/graphs/contributors">
+  <img src="https://uiwjs.github.io/react-baidu-map/CONTRIBUTORS.svg" />
+</a>
+
+Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
+
+### License
+
+Licensed under the MIT License.

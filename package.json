@@ -4,6 +4,11 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
+
+    "bundle": "lerna exec \"ncc build src/index.tsx --target web --filename baidu\" --scope @uiw/react-baidu-map",
+    "bundle:watch": "lerna exec \"ncc watch src/index.tsx --target web --filename baidu\" --scope @uiw/react-baidu-map",
+    "bundle:min": "lerna exec \"ncc build src/index.tsx --target web --filename baidu --minify\" --scope @uiw/react-baidu-map",
+
     "lib:build": "npm run-script build --workspace @uiw/react-baidu-map-canvas-layer",
     "⬇️⬇️⬇️⬇️⬇️ watch ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ watch::package ▼▼▼▼▼",
     "watch:map": "npm run-script watch --workspace @uiw/react-baidu-map",
@@ -63,11 +68,15 @@
       "!**/*.{js,d.ts}"
     ]
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "workspaces": [
     "packages/**",
     "website"
   ],
   "devDependencies": {
+    "@kkt/ncc": "~1.0.8",
     "compile-less-cli": "~1.8.11",
     "cross-env": "~7.0.3",
     "husky": "~7.0.4",

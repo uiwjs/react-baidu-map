@@ -64,6 +64,11 @@ export function useMap(props: UseMap = {}) {
         });
       setMap(instance);
     }
+    return () => {
+      if (map) {
+        map.clearOverlays();
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [container, map]);
 
