@@ -10,6 +10,12 @@ export default (conf: WebpackConfiguration, env: 'production' | 'development', o
         commonjs: 'react',
         amd: 'react',
       },
+      'react-dom': {
+        root: 'ReactDOM',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom',
+      },
     };
   }
   return conf;
