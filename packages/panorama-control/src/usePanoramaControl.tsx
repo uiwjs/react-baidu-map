@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useVisiable } from '@uiw/react-baidu-map-utils';
 import { PanoramaControlProps } from './';
 
@@ -6,7 +7,7 @@ export interface UsePanoramaControl extends PanoramaControlProps {}
 
 export function usePanoramaControl(props = {} as UsePanoramaControl) {
   const [panoramaControl, setPanoramaControl] = useState<BMap.PanoramaControl>();
-  const { map } = props;
+  const { map } = useMapContext();
   useEffect(() => {
     if (map && !panoramaControl) {
       const instance = new BMap.PanoramaControl();

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
 import { GeolocationControlProps } from './';
 
@@ -6,7 +7,8 @@ export interface UseGeolocationControl extends GeolocationControlProps {}
 
 export function useGeolocationControl(props = {} as UseGeolocationControl) {
   const [geolocationControl, setGeolocationControl] = useState<BMap.GeolocationControl>();
-  const { map, anchor, offset, showAddressBar, enableAutoLocation, locationIcon } = props;
+  const { anchor, offset, showAddressBar, enableAutoLocation, locationIcon } = props;
+  const { map } = useMapContext();
   useEffect(() => {
     if (map && !geolocationControl) {
       const instance = new BMap.GeolocationControl({

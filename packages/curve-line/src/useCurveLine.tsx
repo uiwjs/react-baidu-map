@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { requireScript } from '@uiw/react-baidu-map-utils';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
 import { CurveLineProps } from '.';
@@ -7,7 +8,6 @@ export interface UseCurveLine extends CurveLineProps {}
 
 export function useCurveLine(props = {} as UseCurveLine) {
   const {
-    map,
     strokeColor,
     strokeWeight,
     strokeOpacity,
@@ -17,6 +17,7 @@ export function useCurveLine(props = {} as UseCurveLine) {
     enableClicking,
     icons,
   } = props;
+  const { map } = useMapContext();
   const [curveLine, setCurveLine] = useState<BMapLib.CurveLine>();
   const libSDK = window.BMapLib;
   const [bMapLib, setBMapLib] = useState<typeof BMapLib>(libSDK);

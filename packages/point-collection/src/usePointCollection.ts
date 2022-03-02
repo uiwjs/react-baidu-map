@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import { PointCollectionProps } from './';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
+import { PointCollectionProps } from './';
 
 const EVENTS = ['onClick', 'onMouseOver', 'onMouseOut'];
 
 export interface UsePointCollection extends PointCollectionProps {}
 
 export function usePointCollection(props = {} as UsePointCollection) {
-  const { map, shape, color, size } = props;
+  const { shape, color, size } = props;
+  const { map } = useMapContext();
   const [points, setPoints] = useState(props.points);
   const [pointCollection, setPointCollection] = useState<BMap.PointCollection>();
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { TileLayerProps } from './';
 
 export interface UseTileLayer extends TileLayerProps {}
@@ -7,7 +8,8 @@ export interface UseTileLayer extends TileLayerProps {}
  */
 export function useTileLayer(props = {} as UseTileLayer) {
   const [tileLayer, setTileLayer] = useState<BMap.TileLayer>();
-  const { map, transparentPng = true, tileUrlTemplate, copyright, zIndex } = props;
+  const { transparentPng = true, tileUrlTemplate, copyright, zIndex } = props;
+  const { map } = useMapContext();
 
   useEffect(() => {
     if (map && !tileLayer) {

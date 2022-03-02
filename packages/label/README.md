@@ -40,9 +40,11 @@ const Example = () => {
           position={{ lng: 121.501365, lat: 31.224942 }}
           onClick={() => setContent('您！点击了文本标注！')}
         />
-        <Label content="test" visiable={visiable} title="wwww" position={{ lng: 121.501365, lat: 31.234942 }}>
-          children - 2<br /> 上海市 <del>青浦区</del> 徐泾镇盈港东路
-        </Label>
+        <div>
+          <Label content="test" visiable={visiable} title="wwww" position={{ lng: 121.501365, lat: 31.234942 }}>
+            children - 2<br /> 上海市 <del>青浦区</del> 徐泾镇盈港东路
+          </Label>
+        </div>
       </Map>
     </>
   );

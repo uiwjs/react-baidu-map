@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useProperties, useVisiable } from '@uiw/react-baidu-map-utils';
 import { CopyrightControlProps } from './';
 
@@ -7,7 +8,8 @@ export interface UseCopyrightControl extends CopyrightControlProps {}
 export function useCopyrightControl(props = {} as UseCopyrightControl) {
   const [copyrightControl, setCopyrightControl] = useState<BMap.CopyrightControl>();
 
-  const { map, anchor, offset } = props;
+  const { anchor, offset } = props;
+  const { map } = useMapContext();
   useEffect(() => {
     if (map && !copyrightControl) {
       const instance = new BMap.CopyrightControl({

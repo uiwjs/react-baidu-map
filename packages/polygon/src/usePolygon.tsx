@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { noop, useEnableProperties, useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
 import { PolygonProps } from './';
 
@@ -6,7 +7,6 @@ export interface UsePolygon extends PolygonProps {}
 
 export function usePolygon(props = {} as UsePolygon) {
   const {
-    map,
     strokeColor,
     fillColor,
     strokeWeight,
@@ -17,6 +17,7 @@ export function usePolygon(props = {} as UsePolygon) {
     enableEditing,
     enableClicking,
   } = props;
+  const { map } = useMapContext();
   const [polygon, setPolygon] = useState<BMap.Polygon>();
   const [path, setPath] = useState(props.path || []);
 

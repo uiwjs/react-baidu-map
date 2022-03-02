@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useProperties, usePrevious } from '@uiw/react-baidu-map-utils';
 import { CustomOverlayProps } from './';
 
@@ -58,7 +59,8 @@ function getCustomOverlay() {
 export interface UseCustomOverlay extends CustomOverlayProps {}
 
 export function useCustomOverlay(props = {} as UseCustomOverlay) {
-  const { map, children, paneName, position } = props;
+  const { children, paneName, position } = props;
+  const { map } = useMapContext();
   const [customOverlay, setCustomOverlay] = useState<BMap.Overlay>();
   const [div, setDiv] = useState<HTMLDivElement>();
   const [portal, setPortal] = useState<React.ReactPortal>();

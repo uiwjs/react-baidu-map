@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 // import defaultIconUrl from './markers.png';
 import { defaultIconUrl } from './markers';
 import { MarkerProps } from '.';
@@ -64,7 +65,6 @@ const getIcons = (name: string) => {
 
 export function useMarker(props = {} as UseMarker) {
   const {
-    map,
     position,
     animation,
     offset,
@@ -78,7 +78,7 @@ export function useMarker(props = {} as UseMarker) {
     shadow,
     title,
   } = props;
-
+  const { map } = useMapContext();
   const [marker, setMarker] = useState<BMap.Marker>();
 
   useEffect(() => {

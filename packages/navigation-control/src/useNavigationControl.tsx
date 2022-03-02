@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useProperties, useVisiable } from '@uiw/react-baidu-map-utils';
 import { NavigationControlProps } from './';
 
@@ -6,7 +7,8 @@ export interface UseNavigationControl extends NavigationControlProps {}
 
 export function useNavigationControl(props = {} as UseNavigationControl) {
   const [navigationControl, setNavigationControl] = useState<BMap.NavigationControl>();
-  const { map, anchor, offset, type, showZoomInfo, enableGeolocation } = props;
+  const { anchor, offset, type, showZoomInfo, enableGeolocation } = props;
+  const { map } = useMapContext();
   useEffect(() => {
     if (!map || navigationControl) return;
     const instance = new BMap.NavigationControl({

@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useVisiable } from '@uiw/react-baidu-map-utils';
 import { CanvasLayerProps } from '.';
 
@@ -14,7 +15,8 @@ export interface CanvasLayerResult {
 }
 
 export function useCanvasLayer(props = {} as UseCanvasLayer) {
-  const { map, zIndex, paneName } = props;
+  const { zIndex, paneName } = props;
+  const { map } = useMapContext();
   const [canvasLayer, setCanvasLayer] = useState<BMap.CanvasLayer>();
   useMemo(() => {
     if (map && BMap && !canvasLayer) {

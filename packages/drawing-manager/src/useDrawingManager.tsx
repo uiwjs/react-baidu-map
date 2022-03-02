@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { requireScript, requireCss } from '@uiw/react-baidu-map-utils';
 import { DrawingManagerProps } from '.';
 
@@ -6,7 +7,6 @@ export interface UseDrawingManager extends DrawingManagerProps {}
 
 export function useDrawingManager(props = {} as UseDrawingManager) {
   const {
-    map,
     isOpen,
     drawingMode,
     enableDrawingTool,
@@ -18,6 +18,7 @@ export function useDrawingManager(props = {} as UseDrawingManager) {
     polygonOptions,
     rectangleOptions,
   } = props;
+  const { map } = useMapContext();
 
   const [drawingManager, setDrawingManager] = useState<BMapLib.DrawingManager>();
   const libSDK = window.BMapLib;

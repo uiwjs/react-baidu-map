@@ -1,12 +1,12 @@
 import { useState, useEffect, useMemo } from 'react';
-import { PolylineProps } from './';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
+import { PolylineProps } from './';
 
 export interface UsePolyline extends PolylineProps {}
 
 export function usePolyline(props = {} as UsePolyline) {
   const {
-    map,
     strokeColor,
     strokeWeight,
     strokeOpacity,
@@ -16,6 +16,7 @@ export function usePolyline(props = {} as UsePolyline) {
     enableClicking,
     icons,
   } = props;
+  const { map } = useMapContext();
   const [polyline, setPolyline] = useState<BMap.Polyline>();
   const [path, setPath] = useState(props.path || []);
 

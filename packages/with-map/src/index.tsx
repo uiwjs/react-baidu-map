@@ -3,7 +3,7 @@ import Map, { MapProps } from '@uiw/react-baidu-map-map';
 
 export interface WithMapProps {
   BMap?: typeof BMap;
-  container?: string | HTMLDivElement;
+  container?: string | HTMLDivElement | null;
   map?: BMap.Map;
 }
 

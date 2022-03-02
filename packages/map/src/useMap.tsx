@@ -1,6 +1,7 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useContext } from 'react';
 import { useEnableProperties, useProperties, useEventProperties } from '@uiw/react-baidu-map-utils';
 import { MapProps } from './';
+import { Context } from './context';
 
 export interface OverlayProps extends MapChildProps {
   /**
@@ -23,18 +24,14 @@ export interface MapChildProps {
   map?: BMap.Map;
 }
 
-export interface UseMap extends MapProps, MapChildProps {
-  /**
-   * 指定的容器
-   */
-  container?: string | HTMLDivElement;
-}
+export interface UseMap extends MapProps, MapChildProps {}
 
 export function useMap(props: UseMap = {}) {
   const { widget, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick } = props;
   const [map, setMap] = useState<BMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);
-  const [container, setContainer] = useState(props.container);
+  const [container, setContainer] = useState<HTMLDivElement | null | undefined>(props.container);
+  const { dispatch } = useContext(Context);
   useMemo(() => {
     if (container && !map && BMap) {
       const instance = new BMap.Map(container, {
@@ -71,6 +68,15 @@ export function useMap(props: UseMap = {}) {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [container, map]);
+
+  useEffect(() => {
+    if (map && container) {
+      dispatch({ map, container, BMap });
+    }
+    return () => {
+      dispatch({ map: undefined, container: undefined, BMap: undefined });
+    };
+  }, [map, container]);
 
   const [center, setCenter] = useState(props.center || '上海');
   /**

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useProperties, useVisiable } from '@uiw/react-baidu-map-utils';
 import { MapTypeControlProps } from './';
 
@@ -6,7 +7,8 @@ export interface UseMapTypeControl extends MapTypeControlProps {}
 
 export function useMapTypeControl(props = {} as UseMapTypeControl) {
   const [mapTypeControl, setMapTypeControl] = useState<BMap.MapTypeControl>();
-  const { map, anchor, offset, type, mapTypes } = props;
+  const { anchor, offset, type, mapTypes } = props;
+  const { map } = useMapContext();
   useEffect(() => {
     if (map && !mapTypeControl) {
       const instance = new BMap.MapTypeControl({

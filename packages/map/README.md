@@ -1,9 +1,9 @@
 Map 组件
 ===
 
-Map 组件是其他组件的基础，Map 组件会给所有的子组件注入两个属性 **`map`**，**`container`** 和 **`BMap`**，
+Map 组件是其他组件的基础，Map 组件会给所有的子组件注入两个属性 **`map`**，**`container`** 和 **`BMap`**，在 `v2.3.0+` 版本支持使用 `useMapContext` 获取它们。
 
-⚠️ 注意
+🚧 注意
 
 > 1. 组件 `<Map>` 必须包裹在 `<APILoader>` 组件内，该组件作用是加载百度地图 SDK。  
 > 2. 其他地图组件必须作为 `<Map>` 的子组件使用；
@@ -93,6 +93,55 @@ const Demo = () => (
     </APILoader>
   </div>
 );
+ReactDOM.render(<Demo />, _mount_);
+```
+
+### useMapContext
+
+通过 React 的 Context 提供了一个`无需`为每层组件手动注入 ~~`map`~~，~~`container`~~ 和 ~~`BMap`~~ 三个属性 `props`，就能在组件树间进行传递。
+
+> 🚧 在 `v2.3.0+` 版本支持
+<!--rehype:style=border-left: 8px solid #ffe564;background-color: #ffe56440;padding: 12px 10px;-->
+
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import { useState } from 'react';
+import { Map, APILoader, useMapContext } from '@uiw/react-baidu-map';
+
+const Marker = () => {
+  const { map } = useMapContext();
+
+  useEffect(() => {
+    if (map) {
+      // 创建点标记
+      const marker1 = new BMap.Marker(new BMap.Point(116.404, 39.925));
+      const marker2 = new BMap.Marker(new BMap.Point(116.404, 39.915));
+      const marker3 = new BMap.Marker(new BMap.Point(116.395, 39.935));
+      const marker4 = new BMap.Marker(new BMap.Point(116.415, 39.931));
+      // 在地图上添加点标记
+      map.addOverlay(marker1);
+      map.addOverlay(marker2);
+      map.addOverlay(marker3);
+      map.addOverlay(marker4);
+    }
+  }, [map]);
+  return null
+}
+
+const Demo = () => {
+  return (
+    <div style={{ width: '100%', height: '300px' }}>
+      <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+        <Map enableScrollWheelZoom={true} zoom={13}  center="北京">
+          <div>
+            <Marker />
+          </div>
+        </Map>
+      </APILoader>
+    </div>
+  );
+}
 ReactDOM.render(<Demo />, _mount_);
 ```
 

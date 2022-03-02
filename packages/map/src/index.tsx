@@ -1,8 +1,10 @@
 /// <reference types="@uiw/react-baidu-map-types" />
-import React, { useRef, useEffect, useImperativeHandle, Fragment, useMemo, CSSProperties } from 'react';
+import React, { useRef, useEffect, useImperativeHandle, useReducer, useMemo, CSSProperties } from 'react';
 import { useMap } from './useMap';
+import { Context, reducer, initialState } from './context';
 
 export * from './useMap';
+export * from './context';
 
 export interface Control {
   Control: BMap.Control;
@@ -31,6 +33,10 @@ export type ControlOptionsAll = keyof Control | ControlOptions;
 export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
+  /**
+   * 指定的容器
+   */
+  container?: HTMLDivElement | null | undefined;
   /**
    * 百度地图上负责与地图交互的UI元素称为控件。
    */
@@ -115,37 +121,47 @@ export type MapChildRenderProps =
 
 export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & MapChildRenderProps>(
   ({ className, style, children, ...props }, ref) => {
+    const [state, dispatch] = useReducer(reducer, initialState);
     window.BMap = window.BMap || window.BMapGL;
     const elmRef = useRef<HTMLDivElement>(null);
     const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({
-      container: elmRef.current as string | HTMLDivElement,
+      container: elmRef.current,
       ...props,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => setContainer(elmRef.current as string | HTMLDivElement | undefined), [elmRef.current]);
+    useEffect(() => setContainer(elmRef.current), [elmRef.current]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useMemo(() => props.center && setCenter(props.center!), [props.center]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => setAutoLocalCity(props.autoLocalCity!), [props.autoLocalCity]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useImperativeHandle(ref, () => ({ ...props, map, BMap, container: elmRef }), [map]);
+    useImperativeHandle(ref, () => ({ ...props, map, BMap, container: elmRef.current }), [map]);
     const childs = React.Children.toArray(children);
+    useEffect(() => {
+      if (map) {
+        dispatch({ map, container: elmRef.current, BMap });
+      }
+    }, [map]);
     return (
-      <Fragment>
+      <Context.Provider value={{ state, dispatch }}>
         <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} />
         {BMap && map && typeof children === 'function' && children({ BMap, map, container })}
         {BMap &&
           map &&
-          childs.map((child) => {
+          childs.map((child, key) => {
             if (!React.isValidElement(child)) return null;
+            if (child.type && typeof child.type === 'string') {
+              return React.cloneElement(child, { key });
+            }
             return React.cloneElement(child, {
               ...child.props,
               BMap,
               map,
               container,
+              key,
             });
           })}
-      </Fragment>
+      </Context.Provider>
     );
   },
 );

@@ -6,14 +6,16 @@ import {
   useVisiable,
   useEventProperties,
 } from '@uiw/react-baidu-map-utils';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { LabelProps } from './';
 
 export interface UseLabel extends LabelProps {}
 
 export function useLabel(props = {} as UseLabel) {
   const [label, setLabel] = useState<BMap.Label>();
-  const { map, offset, style, content = '', position, enableMassClear } = props;
+  const { offset, style, content = '', position, enableMassClear } = props;
   const { container } = useRenderDom({ children: props.children });
+  const { map } = useMapContext();
 
   useEffect(() => {
     if (!BMap || !map) return;

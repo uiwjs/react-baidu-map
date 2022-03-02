@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useProperties, useVisiable } from '@uiw/react-baidu-map-utils';
 import getControl from './getControl';
 import { ControlProps } from './';
@@ -7,7 +8,8 @@ export interface UseControl extends ControlProps {}
 
 export function useControl(props = {} as UseControl) {
   const [control, setControl] = useState<BMap.Control>();
-  const { map, offset, anchor } = props;
+  const { offset, anchor } = props;
+  const { map } = useMapContext();
 
   useEffect(() => {
     if (map && !control && props.children) {

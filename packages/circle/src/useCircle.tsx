@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
 import { CircleProps } from './';
 
@@ -6,7 +7,6 @@ export interface UseCircle extends CircleProps {}
 
 export function useCircle(props = {} as UseCircle) {
   const {
-    map,
     center,
     radius,
     strokeColor,
@@ -19,6 +19,7 @@ export function useCircle(props = {} as UseCircle) {
     enableEditing,
     enableClicking,
   } = props;
+  const { map } = useMapContext();
   const [circle, setCircle] = useState<BMap.Circle>();
 
   useMemo(() => {

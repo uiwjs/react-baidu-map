@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import { OverviewMapControlProps } from './';
+import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
+import { OverviewMapControlProps } from './';
 
 export interface UseOverviewMapControl extends OverviewMapControlProps {}
 
 export function useOverviewMapControl(props = {} as UseOverviewMapControl) {
   const [overviewMapControl, setOverviewMapControl] = useState<BMap.OverviewMapControl>();
-  const { map, anchor, offset, size, isOpen } = props;
+  const { anchor, offset, size, isOpen } = props;
+  const { map } = useMapContext();
   useEffect(() => {
     if (map && !overviewMapControl) {
       const instance = new BMap.OverviewMapControl({
