@@ -1,5 +1,6 @@
 import { Component, Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
+import pkg from '@uiw/react-baidu-map/package.json';
 import Code from './Code';
 import Footer from '../Footer';
 import styles from './index.module.less';
@@ -77,19 +78,20 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
              * codePen 显示 Codepen 按钮，要特别注意 包导入的问题，实例中的 import 主要用于 Codepen 使用。
              */
             code: ({ inline, node, ...props }) => {
-              const { noPreview, noScroll, bgWhite, noCode, codePen, codeSandboxOption } = props as any;
+              const { noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen } = props as any;
               if (inline) {
                 return <code {...props} />;
               }
-              const config = { noPreview, noScroll, bgWhite, noCode, codePen, codeSandboxOption } as any;
+              const config = { noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen } as any;
               if (Object.keys(config).filter((name) => config[name] !== undefined).length === 0) {
                 return <code {...props} />;
               }
               return (
                 <Code
+                  version={pkg.version}
                   code={getCodeStr(node.children)}
                   dependencies={this.dependencies}
-                  {...{ noPreview, noScroll, bgWhite, noCode, codePen, codeSandboxOption }}
+                  {...{ noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen }}
                 />
               );
             },
