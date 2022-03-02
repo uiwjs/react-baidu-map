@@ -69,7 +69,7 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
-import { Map, useMap, APILoader, useMap, usePolygon } from '@uiw/react-baidu-map';
+import { Map, useMap, APILoader, usePolygon } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [enableEditing, setEnableEditing] = useState(false);
