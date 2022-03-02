@@ -16,6 +16,7 @@
     "watch:api-loader": "npm run-script watch --workspace @uiw/react-baidu-map-api-loader",
     "watch:map-control": "npm run-script watch --workspace @uiw/react-baidu-map-control",
     "watch:info-window": "npm run-script watch --workspace @uiw/react-baidu-map-info-window",
+    "watch:copyright-control": "npm run-script watch --workspace @uiw/react-baidu-map-copyright-control",
     "watch:label": "npm run-script watch --workspace @uiw/react-baidu-map-label",
     "watch:utils": "npm run-script watch --workspace @uiw/react-baidu-map-utils",
     "⬆️⬆️⬆️⬆️⬆️ watch ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",

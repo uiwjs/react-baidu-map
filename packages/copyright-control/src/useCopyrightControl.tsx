@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useProperties, useVisiable } from '@uiw/react-baidu-map-utils';
-import { useCreatePortal } from '@uiw/react-baidu-map-utils';
 import { CopyrightControlProps } from './';
 
 export interface UseCopyrightControl extends CopyrightControlProps {}
 
 export function useCopyrightControl(props = {} as UseCopyrightControl) {
-  const { portal, setPortal } = useCreatePortal({ children: props.children });
   const [copyrightControl, setCopyrightControl] = useState<BMap.CopyrightControl>();
+
   const { map, anchor, offset } = props;
   useEffect(() => {
     if (map && !copyrightControl) {
@@ -29,8 +28,6 @@ export function useCopyrightControl(props = {} as UseCopyrightControl) {
   useProperties<BMap.CopyrightControl, UseCopyrightControl>(copyrightControl!, props, ['Anchor', 'Offset']);
 
   return {
-    portal,
-    setPortal,
     copyrightControl,
     setCopyrightControl,
   };

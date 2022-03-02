@@ -1,6 +1,6 @@
 /// <reference types="@uiw/react-baidu-map-types" />
-
-import { useEffect, useState, useRef } from 'react';
+import { render } from 'react-dom';
+import React, { Fragment, useEffect, useState, useRef, useLayoutEffect } from 'react';
 
 /**
  * 批量创建多个如下 State，监听并设置值，
@@ -174,4 +174,13 @@ export function usePrevious<T>(value: T) {
     ref.current = value;
   });
   return ref.current;
+}
+
+export function useRenderDom(props: { children: React.ReactNode }) {
+  const container = useRef(document.createElement('div'));
+  useLayoutEffect(() => {
+    render(<Fragment>{props.children}</Fragment>, container.current);
+  }, [props.children]);
+
+  return { container: container.current };
 }

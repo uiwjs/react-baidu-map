@@ -15,7 +15,6 @@ export interface CopyrightControlProps extends OverlayProps, BMap.CopyrightContr
 
 const CopyrightControl: any = React.forwardRef<CopyrightControlProps>((props, ref) => {
   const { copyrightControl } = useCopyrightControl(props);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(ref, () => ({ ...props, copyrightControl }), [copyrightControl]);
   return (
     <Fragment>

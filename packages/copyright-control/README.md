@@ -35,6 +35,12 @@ const Example = () => {
           {show && (
             <CopyrightControl.Item>在任何区域都可见</CopyrightControl.Item>
           )}
+          <CopyrightControl.Item>
+            <button type="button" onClick={() => setCount(count + 1)}>
+              +++ {count}
+            </button>
+            <span style={{ color: 'red', backgroundColor: '#fff', padding: 3 }}>在任何区域都可见</span>
+          </CopyrightControl.Item>
         </CopyrightControl>
         <CopyrightControl offset={new BMap.Size(40, 10)} anchor={BMAP_ANCHOR_BOTTOM_RIGHT}>
           {show && (
@@ -58,7 +64,6 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-
 
 ### 使用 hooks
 

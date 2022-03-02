@@ -6,5 +6,5 @@ $ npm i @uiw/react-baidu-map-utils
 ```
 
 ```jsx
-import { noop, requireCss, requireScript } from '@uiw/react-baidu-map-utils';
+import { noop, requireCss, requireScript, useRenderDom, usePrevious } from '@uiw/react-baidu-map-utils';
 ```

@@ -40,6 +40,9 @@ const Example = () => {
           position={{ lng: 121.501365, lat: 31.224942 }}
           onClick={() => setContent('您！点击了文本标注！')}
         />
+        <Label content="test" visiable={visiable} title="wwww" position={{ lng: 121.501365, lat: 31.234942 }}>
+          children - 2<br /> 上海市 <del>青浦区</del> 徐泾镇盈港东路
+        </Label>
       </Map>
     </>
   );
@@ -118,6 +121,7 @@ ReactDOM.render(<Demo />, _mount_);
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
 | content | 文本标注内容 | `string` | - |
+| children | 展示文本标注内容，_🚧  添加 `children` 的时候 `content` 将失效_<!--rehype:style=background-color: #ffe56440;-->。 | `JSX.Element` | - |
 | offset | 文本标注的位置偏移值 | `Size` | - |
 | position | 文本标注的地理位置 | `Point` | - |
 | title | 文本标注的标题 | `string` | - |

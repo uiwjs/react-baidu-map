@@ -1,18 +1,25 @@
 import { useEffect, useState } from 'react';
-import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
+import {
+  useRenderDom,
+  useEnableProperties,
+  useProperties,
+  useVisiable,
+  useEventProperties,
+} from '@uiw/react-baidu-map-utils';
 import { LabelProps } from './';
 
 export interface UseLabel extends LabelProps {}
 
 export function useLabel(props = {} as UseLabel) {
   const [label, setLabel] = useState<BMap.Label>();
-  const { map, offset, style, content, position, enableMassClear } = props;
+  const { map, offset, style, content = '', position, enableMassClear } = props;
+  const { container } = useRenderDom({ children: props.children });
 
   useEffect(() => {
     if (!BMap || !map) return;
     if (!label) {
       const opts = { offset, position, enableMassClear };
-      const instance = new BMap.Label(content || '', opts);
+      const instance = new BMap.Label(props.children ? container.innerHTML : content, opts);
       instance.setStyle({ ...style });
       map.addOverlay(instance);
       setLabel(instance);
@@ -25,6 +32,12 @@ export function useLabel(props = {} as UseLabel) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
+  useEffect(() => {
+    if (label) {
+      label.setContent(props.children ? container.innerHTML : content);
+    }
+  }, [props.children, container, label]);
+
   useVisiable(label!, props);
   useEventProperties<BMap.Label, UseLabel>(label!, props, [
     'Click',
@@ -36,7 +49,7 @@ export function useLabel(props = {} as UseLabel) {
     'Remove',
     'RightClick',
   ]);
-  useProperties<BMap.Label, UseLabel>(label!, props, ['Style', 'Content', 'Position', 'Offset', 'Title', 'ZIndex']);
+  useProperties<BMap.Label, UseLabel>(label!, props, ['Style', 'Position', 'Offset', 'Title', 'ZIndex']);
   useEnableProperties<BMap.Label, UseLabel>(label!, props, ['MassClear']);
 
   return {

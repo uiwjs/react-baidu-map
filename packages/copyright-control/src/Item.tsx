@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { usePrevious, useCreatePortal } from '@uiw/react-baidu-map-utils';
+import { usePrevious, useRenderDom } from '@uiw/react-baidu-map-utils';
 
 let uid: number = 1;
 
@@ -21,22 +21,15 @@ export interface CopyrightControlItemProps {
 
 export function CopyrightControlItem(props: CopyrightControlItemProps = {}) {
   const { children, control, bounds } = props;
-  const { portal, div, setChildren } = useCreatePortal();
   const [id] = useState(uid++);
-  useEffect(() => {
-    if (control) {
-      setChildren(children);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [children, control]);
-
+  const { container } = useRenderDom({ children });
   const prevId = usePrevious(id);
   useEffect(() => {
-    if (portal && control) {
+    if (control) {
       control.addCopyright({
         id,
         bounds,
-        content: div!.innerHTML,
+        content: container!.innerHTML,
       });
     }
     return function () {
@@ -44,7 +37,6 @@ export function CopyrightControlItem(props: CopyrightControlItemProps = {}) {
         control.removeCopyright(prevId);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [children, portal]);
-  return portal || null;
+  }, [children, control]);
+  return null;
 }

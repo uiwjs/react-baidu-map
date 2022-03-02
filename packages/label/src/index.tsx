@@ -16,10 +16,11 @@ export interface LabelProps extends OverlayProps, BMap.LabelOptions, BMap.LabelE
    * 例如：背景色属性要写成：backgroundColor
    */
   style?: CSSProperties;
+  children?: JSX.Element;
 }
 
 export default React.forwardRef<LabelProps & { label?: BMap.Label }, LabelProps>((props, ref) => {
-  const { label } = useLabel(props);
+  const { label } = useLabel({ ...props });
   useImperativeHandle(ref, () => ({ ...props, label }), [label, props]);
   return null;
 });
