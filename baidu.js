@@ -553,6 +553,8 @@ function requireScript(src) {
     script.type = 'text/javascript';
     script.id = '_react_baidu_map';
     script.src = src;
+    script.async = true;
+    script.defer = true;
 
     script.onerror = err => {
       headElement.removeChild(script);
@@ -638,11 +640,11 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
    */
   static ready() {
     return _asyncToGenerator(function* () {
-      if (window && window.BMap) {
+      if (window && window.BMap.Map) {
         return;
       }
 
-      if (window && window.BMapGL) {
+      if (window && window.BMapGL.Map) {
         return;
       }
 
@@ -677,7 +679,7 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
     };
 
     this.state = {
-      loaded: props.type === 'webgl' ? window && !!window.BMapGL : window && !!window.BMap
+      loaded: props.type === 'webgl' ? window && !!window.BMapGL && !!window.BMapGL.Map : window && !!window.BMap && !!window.BMap.Map
     };
 
     if (this.props.akay == null) {
@@ -691,11 +693,11 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
       callbackName
     } = this.props;
 
-    if (!window) {
+    if (!window || !callbackName) {
       return;
     }
 
-    if (this.props.type === 'webgl' && window && !window.BMapGL || window && !window.BMap) {
+    if (this.props.type === 'webgl' && window && window.BMapGL && !window.BMapGL.Map || this.props.type === 'webgl' && window && !window.BMapGL || window && window.BMap && !window.BMap.Map || window && !window.BMap) {
       if (window && window[callbackName]) {
         APILoader.waitQueue.push([this.finish, this.handleError]);
         return;
@@ -747,7 +749,7 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
         callbackName
       } = _this.props;
 
-      if (!window) {
+      if (!window || !callbackName) {
         return;
       }
 
@@ -2354,6 +2356,11 @@ function useControl(props) {
     props = {};
   }
 
+  var {
+    container
+  } = useRenderDom({
+    children: props.children
+  });
   var [control, setControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     offset,
@@ -2366,7 +2373,7 @@ function useControl(props) {
     if (map && !control && props.children) {
       var _Control = getControl_getCustomOverlay();
 
-      var instance = new _Control(props.children, anchor, offset);
+      var instance = new _Control(container, anchor, offset);
       setControl(instance);
       map.addOverlay(instance);
     }
@@ -2376,7 +2383,7 @@ function useControl(props) {
         map.removeControl(control);
       };
     };
-  }, [map, control, anchor, offset, props.children]);
+  }, [map, control, anchor, offset, container, props.children]);
   useVisiable(control, props);
   useProperties(control, props, ['Anchor', 'Offset']);
   return {
@@ -2390,24 +2397,12 @@ function useControl(props) {
 
 
 
-
-
 /* harmony default export */ const control_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
-    children
-  } = props;
-  var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-    children: children
-  }), container), [children]);
-  var {
     control
-  } = useControl(_extends({}, props, {
-    children: container
-  }));
+  } = useControl(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    control,
-    children: container
+    control
   }), [control]);
   return null;
 }));
