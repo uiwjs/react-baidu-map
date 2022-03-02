@@ -70,6 +70,8 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
     type: '',
   };
 
+  private isMountedOk: boolean = false;
+
   /**
    * 全局可能存在多个Loader同时渲染, 但是只能由一个负责加载
    */
@@ -99,6 +101,7 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
   }
 
   public componentDidMount() {
+    this.isMountedOk = true;
     const { callbackName } = this.props;
     if (!window) {
       return;
@@ -111,6 +114,10 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
 
       this.loadMap();
     }
+  }
+
+  componentWillUnmount() {
+    this.isMountedOk = false;
   }
 
   public render() {
@@ -172,15 +179,19 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
   }
 
   private handleError = (error: Error) => {
-    this.setState({ error });
+    if (this.isMountedOk) {
+      this.setState({ error });
+    }
   };
 
   private finish = () => {
     if (window && this.props.type === 'webgl') {
       window.BMap = window.BMapGL as any;
     }
-    this.setState({
-      loaded: true,
-    });
+    if (this.isMountedOk) {
+      this.setState({
+        loaded: true,
+      });
+    }
   };
 }
