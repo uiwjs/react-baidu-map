@@ -4,6 +4,12 @@
 import React from 'react';
 import { requireScript } from '@uiw/react-baidu-map-utils';
 
+declare global {
+  interface Window {
+    [index: string]: () => any; // or just any
+  }
+}
+
 export interface APILoaderConfig {
   /**
    * akay 密钥
@@ -80,10 +86,10 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
    * 等待BMap就绪
    */
   public static async ready() {
-    if (window && window.BMap) {
+    if (window && window.BMap.Map) {
       return;
     }
-    if (window && window.BMapGL) {
+    if (window && window.BMapGL.Map) {
       return;
     }
     return new Promise((res, rej) => {
@@ -93,7 +99,10 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
   public constructor(props: APILoaderProps) {
     super(props);
     this.state = {
-      loaded: props.type === 'webgl' ? window && !!window.BMapGL : window && !!window.BMap,
+      loaded:
+        props.type === 'webgl'
+          ? window && !!window.BMapGL && !!window.BMapGL.Map
+          : window && !!window.BMap && !!window.BMap.Map,
     };
     if (this.props.akay == null) {
       throw new TypeError('BaiDuMap: akay is required');
@@ -103,11 +112,16 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
   public componentDidMount() {
     this.isMountedOk = true;
     const { callbackName } = this.props;
-    if (!window) {
+    if (!window || !callbackName) {
       return;
     }
-    if ((this.props.type === 'webgl' && window && !window.BMapGL) || (window && !window.BMap)) {
-      if (window && window[callbackName as any]) {
+    if (
+      (this.props.type === 'webgl' && window && window.BMapGL && !window.BMapGL.Map) ||
+      (this.props.type === 'webgl' && window && !window.BMapGL) ||
+      (window && window.BMap && !window.BMap.Map) ||
+      (window && !window.BMap)
+    ) {
+      if (window && window[callbackName]) {
         APILoader.waitQueue.push([this.finish, this.handleError]);
         return;
       }
@@ -147,11 +161,11 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
    */
   private async loadMap() {
     const { callbackName } = this.props;
-    if (!window) {
+    if (!window || !callbackName) {
       return;
     }
     const src = this.getScriptSrc();
-    (window as any)[callbackName as any] = () => {
+    window[callbackName] = () => {
       // flush queue
       const queue = APILoader.waitQueue;
       APILoader.waitQueue = [];
