@@ -59,6 +59,57 @@ const Demo = () => (
 ReactDOM.render(<Demo />, _mount_);
 ```
 
+### ~~`content`~~ -> `children` 支持 `JSX.Element`
+
+通过 `children` 支持 `JSX.Element` 的方式展现内容，因为窗口信息内容通过 `content` 展示内容，它支持 `string/HTMLElement` 添加事件并不方便。
+
+> 🚧 如果同时设置了 `content` 属性且有 `children`，`content` 将失效被忽略。
+<!--rehype:style=border-left: 8px solid #ffe564; background-color: #ffe56440; padding: 12px 16px;-->
+
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import { Map, InfoWindow, APILoader } from '@uiw/react-baidu-map';
+
+const Example = () => {
+  const [visiable, setVisiable] = useState(true);
+  const [ isOpen, setIsOpen ] = useState(true);
+  const [ count, setCount ] = useState(0);
+  return (
+    <>
+      <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? '关闭' : '打开'} isOpen={String(isOpen)}</button>
+      <button onClick={() => setVisiable(!visiable)}>{visiable ? '隐藏' : '显示'}visiable={String(visiable)}</button>
+      <Map zoom={13} center={{ lng: 121.460977, lat: 31.227906 }}>
+        <InfoWindow
+          visiable={visiable}
+          isOpen={isOpen}
+          onClose={() => {
+            console.log(':onClose');
+          }}
+          position={{ lng: 121.501365, lat: 31.224942 }}
+          title="地址信息二"
+          content="test"
+        >
+          上海市 <del>青浦区</del> 徐泾镇盈港东路 Good!
+          <br/>
+          <button onClick={() => setCount(count+1)}>{count} Count={String(count)}</button>
+        </InfoWindow>
+      </Map>
+    </>
+  );
+}
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '350px' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <Example />
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
+```
+
 ### 使用 hooks
 
 `infoWindow`, `setInfoWindow`, `isOpen`, `setIsOpen`
@@ -116,16 +167,17 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
-| position | **`必填`** 指定的经度和纬度创建一个地理点坐标 | `Point` | - |
+| position | **`必填`**<!--rehype:style=background-color: #ffe56440;--> 指定的经度和纬度创建一个地理点坐标 | `Point` | - |
+| content | 展示文本内容，支持 `HTML` 内容字符串 | `string` | - |
+| children | 展示文本内容，_🚧  添加 `children` 的时候 `content` 将失效_<!--rehype:style=background-color: #ffe56440;-->。 | `JSX.Element` | - |
 | isOpen | 窗口是否打开 | `Point` | - |
-| visiable | 覆盖物是否可见。此属性来自继承 Overlay 实例对象。 | `boolean` | - |
-| width | 信息窗宽度，单位像素。取值范围：0, 220 - 730。如果您指定宽度为0，则信息窗口的宽度将按照其内容自动调整 | `number` | `true` |
-| height | 信息窗高度，单位像素。取值范围：0, 60 - 650。如果您指定宽度为0，则信息窗口的宽度将按照其内容自动调整 | `number` | - |
-| maxWidth | 信息窗最大化时的宽度，单位像素。取值范围：220 - 730 | `number` | - |
+| visiable | 覆盖物是否可见。此属性来自继承 `Overlay` 实例对象。 | `boolean` | - |
+| width | 信息窗宽度，单位像素。取值范围：`0`, `220 - 730`。如果您指定宽度为 `0`，则信息窗口的宽度将按照其内容自动调整 | `number` | `true` |
+| height | 信息窗高度，单位像素。取值范围：`0`, `60 - 650`。如果您指定宽度为 `0`，则信息窗口的宽度将按照其内容自动调整 | `number` | - |
+| maxWidth | 信息窗最大化时的宽度，单位像素。取值范围：`220 - 730` | `number` | - |
 | offset | 信息窗位置偏移值。默认情况下在地图上打开的信息窗底端的尖角将指向其地理坐标，在标注上打开的信息窗底端尖角的位置取决于标注所用图标的 infoWindowOffset 属性值，您可以为信息窗添加偏移量来改变默认位置 | `Size` | - |
-| content | 展示文本内容，支持 HTML 内容字符串 | `string` | - |
 | maxContent | 信息窗口最大化时所显示内容，支持HTML内容 | `string` | - |
-| title | 信息窗标题文字，支持HTML内容 | `string` | - |
+| title | 信息窗标题文字，支持 `HTML` 内容 | `string` | - |
 | message | 自定义部分的短信内容，可选项。完整的短信内容包括：自定义部分+位置链接，不设置时，显示默认短信内容。短信内容最长为140个字 | `string` | - |
 | enableAutoPan | 是否开启信息窗口打开时地图自动移动（默认开启） | `boolean` | - |
 | enableCloseOnClick | 是否开启点击地图关闭信息窗口（默认开启） | `boolean` | - |

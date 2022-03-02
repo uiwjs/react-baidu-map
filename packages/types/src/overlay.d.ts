@@ -468,7 +468,7 @@ declare namespace BMap {
     /**
      * 信息窗标题文字，支持HTML内容
      */
-    title?: string;
+    title?: string | HTMLElement;
     /**
      * 是否开启信息窗口打开时地图自动移动（默认开启）
      */

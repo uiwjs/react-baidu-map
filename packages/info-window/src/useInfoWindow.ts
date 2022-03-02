@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
-import { InfoWindowProps } from './';
+import { InfoWindowProps } from '.';
 
 export interface UseInfoWindow extends InfoWindowProps {}
 
@@ -9,7 +9,7 @@ export function useInfoWindow(props = {} as UseInfoWindow) {
   const [infoWindow, setInfoWindow] = useState<BMap.InfoWindow>();
   useMemo(() => {
     if (!infoWindow && map) {
-      const win = new BMap.InfoWindow('', { ...opts });
+      const win = new BMap.InfoWindow(opts.content || '', { ...opts } as BMap.InfoWindowOptions);
       setInfoWindow(win);
     }
     return () => {
