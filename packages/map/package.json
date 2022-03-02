@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "~7.17.2",
+    "@uiw/react-baidu-map-api-loader": "2.1.2",
     "@uiw/react-baidu-map-types": "2.1.2",
     "@uiw/react-baidu-map-utils": "2.1.2"
   }
