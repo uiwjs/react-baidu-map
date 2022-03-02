@@ -21,7 +21,7 @@ const Example = () => {
   const [count, setCount] = useState(0);
   const map = useRef(null);
   return (
-    <Map zoom={13} ref={map} style={{ height: 350 }}>
+    <Map zoom={13} ref={map} widget={['NavigationControl']} style={{ height: 350 }}>
       <Control
         ref={(instance) => {
           if (instance && instance.control) {
@@ -81,37 +81,48 @@ ReactDOM.render(<Demo />, _mount_);
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
-import { useRef, useEffect, useState } from 'react';
+import { useMemo, useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useControl } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
-  const [count, setCount] = useState(0);
-  const { setContainer, map, setMap } = useMap({ widget: ['NavigationControl'], enableScrollWheelZoom: true });
+  const [count, setCount] = useState(4);
+  const { setContainer, map, setMap } = useMap({ widget: ['NavigationControl'], enableScrollWheelZoom: true, zoom: count });
+
   useEffect(() => {
     if (divElm.current && !map) {
       setContainer(divElm.current);
     }
   }, [map]);
+
   const children = (
     <div style={{ background: 'gray', padding: '10px' }}>
       <button
         onClick={() => {
           setCount(count + 1);
-          map.setZoom(map.getZoom() + 2);
+          map.setZoom(map.getZoom() + 1);
         }}
       >
-        放大2级 {count}
+        放大1级 {count}
+      </button>
+      <button
+        onClick={() => {
+          setCount(count - 1);
+          map.setZoom(map.getZoom() - 2);
+        }}
+      >
+        缩小1级 {count}
       </button>
     </div>
-  )
-  const { portal } = useControl({ map, children, anchor: BMAP_ANCHOR_TOP_RIGHT });
+  );
+
+  const container = useMemo(() => document.createElement('div'), []);
+  useEffect(() => ReactDOM.render(<Fragment>{children}</Fragment>, container), [children]);
+  useControl({ map, children: container, anchor: BMAP_ANCHOR_TOP_RIGHT });
+
   return (
-    <>
-      <div ref={divElm} style={{ height: 350 }} />
-      {portal}
-    </>
-  )
+    <div ref={divElm} style={{ height: 350 }} />
+  );
 }
 
 const Demo = () => (
@@ -131,6 +142,7 @@ ReactDOM.render(<Demo />, _mount_);
 | visiable | 覆盖物是否可见。 | `boolean` | - |
 | anchor | 控件的停靠位置。| `ControlAnchor` | `BMAP_ANCHOR_TOP_LEFT` |
 | offset | 控件的位置偏移值。 | `BMap.Size` | `new BMap.Size(10, 10)` |
+| children | 展示控件内容。 | `JSX.Element` | - |
 
 ### ControlAnchor
 

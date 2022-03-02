@@ -1,4 +1,5 @@
-import React, { useImperativeHandle } from 'react';
+import { render } from 'react-dom';
+import React, { useImperativeHandle, useEffect, Fragment, useMemo } from 'react';
 import { OverlayProps } from '@uiw/react-baidu-map-map';
 import { useControl } from './useControl';
 export * from './useControl';
@@ -19,11 +20,10 @@ export interface ControlProps extends OverlayProps {
 }
 
 export default React.forwardRef<ControlProps & { control?: BMap.Control }, ControlProps>((props, ref) => {
-  const { control, portal } = useControl(props);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useImperativeHandle(ref, () => ({ ...props, control }), [control]);
-  if (portal) {
-    return portal;
-  }
+  const { children } = props;
+  const container = useMemo(() => document.createElement('div'), []);
+  useEffect(() => render(<Fragment>{children}</Fragment>, container), [children]);
+  const { control } = useControl({ ...props, children: container });
+  useImperativeHandle(ref, () => ({ ...props, control, children: container }), [control]);
   return null;
 });
