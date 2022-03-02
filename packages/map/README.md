@@ -101,6 +101,7 @@ ReactDOM.render(<Demo />, _mount_);
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
+import { useState } from 'react';
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => {

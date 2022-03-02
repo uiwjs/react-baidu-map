@@ -14,7 +14,7 @@ import NavigationControl, { useNavigationControl } from '@uiw/react-baidu-map-na
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Map, APILoader, NavigationControl } from '@uiw/react-baidu-map';
 
 const Example = () => {

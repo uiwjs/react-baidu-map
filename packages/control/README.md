@@ -80,6 +80,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useControl } from '@uiw/react-baidu-map';
 

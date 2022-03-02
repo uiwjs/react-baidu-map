@@ -58,6 +58,7 @@ ReactDOM.render((
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useOverviewMapControl } from '@uiw/react-baidu-map';
 

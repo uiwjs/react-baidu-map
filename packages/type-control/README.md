@@ -39,7 +39,7 @@ map.addControl(navi3DCtrl);
 <!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Map, APILoader, MapTypeControl } from '@uiw/react-baidu-map';
 
 const Example = () => {
@@ -75,6 +75,7 @@ ReactDOM.render((
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
+import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, useMapTypeControl } from '@uiw/react-baidu-map';
 

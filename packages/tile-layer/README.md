@@ -14,7 +14,7 @@ import TileLayer, { useTileLayer } from '@uiw/react-baidu-map-tile-layer';
 <!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Map, APILoader, TileLayer } from '@uiw/react-baidu-map';
 
 const Example = () => {
@@ -46,7 +46,6 @@ ReactDOM.render((
   </div>
 ), _mount_);
 ```
-
 
 ### 使用 hooks
 

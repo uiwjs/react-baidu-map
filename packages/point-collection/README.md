@@ -79,7 +79,7 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, usePointCollection } from '@uiw/react-baidu-map';
+import { Map, useMap, APILoader, usePointCollection } from '@uiw/react-baidu-map';
 
 let loadData = false;
 let data = []
