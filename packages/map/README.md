@@ -96,7 +96,7 @@ const Demo = () => (
 ReactDOM.render(<Demo />, _mount_);
 ```
 
-### useMapContext
+### useMapContext & Provider
 
 通过 React 的 Context 提供了一个`无需`为每层组件手动注入 ~~`map`~~，~~`container`~~ 和 ~~`BMap`~~ 三个属性 `props`，就能在组件树间进行传递。
 
@@ -107,10 +107,21 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import ReactDOM from 'react-dom';
 import { useState } from 'react';
-import { Map, APILoader, useMapContext } from '@uiw/react-baidu-map';
+import { Map, APILoader, useMap, Provider, useMapContext } from '@uiw/react-baidu-map';
 
 const Marker = () => {
   const { map } = useMapContext();
+  const container = useRef(null);
+  const { setContainer } = useMap({
+    zoom: 9,
+    widget: ['GeolocationControl', 'NavigationControl']
+  });
+
+  useEffect(() => {
+    if (container.current) {
+      setContainer(container.current);
+    }
+  }, [container.current]);
 
   useEffect(() => {
     if (map) {
@@ -126,18 +137,20 @@ const Marker = () => {
       map.addOverlay(marker4);
     }
   }, [map]);
-  return null
+  return (
+    <div ref={container} style={{ height: 300 }} />
+  );
 }
 
 const Demo = () => {
   return (
     <div style={{ width: '100%', height: '300px' }}>
       <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-        <Map enableScrollWheelZoom={true} zoom={13}  center="北京">
+        <Provider>
           <div>
             <Marker />
           </div>
-        </Map>
+        </Provider>
       </APILoader>
     </div>
   );

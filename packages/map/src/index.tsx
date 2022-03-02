@@ -119,6 +119,11 @@ export type MapChildRenderProps =
     }
   | { children?: React.ReactNode };
 
+export function Provider(props: MapChildRenderProps) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return <Context.Provider value={{ state, dispatch }}>{props.children}</Context.Provider>;
+}
+
 export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & MapChildRenderProps>(
   ({ className, style, children, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, initialState);
