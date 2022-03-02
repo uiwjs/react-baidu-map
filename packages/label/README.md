@@ -68,12 +68,62 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useLabel } from '@uiw/react-baidu-map';
+import { Map, APILoader, useMap, useLabel, useMapContext } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [zoom, setZoom] = useState(15)
   const divElm = useRef(null);
-  const { map, setContainer, center } = useMap({
+  const { map } = useMapContext();
+  const { label } = useLabel({
+    content: '徐泾镇',
+    children: <div>xxxxxx</div>,
+    position: { lng: 121.501365, lat: 31.224942 },
+    onClick: () => {
+      console.log('点击事件！');
+    }
+  });
+
+  useEffect(() => {
+    if (map) {
+      // 启用滚轮放大缩小，默认禁用
+      map.setZoom(zoom);
+    }
+  }, [zoom, map]);
+  
+  let counts = zoom || 15;
+  return (
+    <>
+      <button onClick={() => setZoom(counts-1)}>-</button>
+      <span>{zoom || 10}</span>
+      <button onClick={() => setZoom(counts+1)}>+</button>
+    </>
+  )
+}
+
+const Demo = () => (
+  <div style={{ width: '100%' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <Map zoom={9} widget={['NavigationControl']} style={{ height: 350 }} >
+        <Example />
+      </Map>
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
+```
+
+使用 Provider
+
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import { useRef, useEffect, useState } from 'react';
+import { Map, APILoader, useMap, Provider, useLabel } from '@uiw/react-baidu-map';
+
+const Example = () => {
+  const [zoom, setZoom] = useState(15)
+  const divElm = useRef(null);
+  const { map, setContainer } = useMap({
     zoom: 9,
     widget: ['GeolocationControl', 'NavigationControl']
   });
@@ -111,7 +161,9 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
