@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">42.1% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/19</span>
+                <span class='fraction'>8/19</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>8/18</span>
             </div>
         
             
@@ -116,26 +116,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,14 +136,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,11 +161,11 @@ import { LabelProps } from './';
 &nbsp;
 export interface UseLabel extends LabelProps {}
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >useLabel(</span>props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseLabel)</span> {
-  const [label, setLabel] = <span class="cstat-no" title="statement not covered" >useState&lt;BMap.Label&gt;();</span>
-  const { map, offset, style, content, position, enableMassClear } = <span class="cstat-no" title="statement not covered" >props;</span>
+export function useLabel(props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseLabel)</span> {
+  const [label, setLabel] = useState&lt;BMap.Label&gt;();
+  const { map, offset, style, content, position, enableMassClear } = props;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (!BMap || !map) <span class="cstat-no" title="statement not covered" >return;</span></span>
 <span class="cstat-no" title="statement not covered" >    if (!label) {</span>
       const opts = <span class="cstat-no" title="statement not covered" >{ offset, position, enableMassClear };</span>
@@ -182,8 +182,8 @@ export function <span class="fstat-no" title="function not covered" >useLabel(</
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useVisiable(label!, props);</span>
-<span class="cstat-no" title="statement not covered" >  useEventProperties&lt;BMap.Label, UseLabel&gt;(label!, props, [</span>
+  useVisiable(label!, props);
+  useEventProperties&lt;BMap.Label, UseLabel&gt;(label!, props, [
     'Click',
     'DblClick',
     'MouseDo',
@@ -193,10 +193,10 @@ export function <span class="fstat-no" title="function not covered" >useLabel(</
     'Remove',
     'RightClick',
   ]);
-<span class="cstat-no" title="statement not covered" >  useProperties&lt;BMap.Label, UseLabel&gt;(label!, props, ['Style', 'Content', 'Position', 'Offset', 'Title', 'ZIndex']);</span>
-<span class="cstat-no" title="statement not covered" >  useEnableProperties&lt;BMap.Label, UseLabel&gt;(label!, props, ['MassClear']);</span>
+  useProperties&lt;BMap.Label, UseLabel&gt;(label!, props, ['Style', 'Content', 'Position', 'Offset', 'Title', 'ZIndex']);
+  useEnableProperties&lt;BMap.Label, UseLabel&gt;(label!, props, ['MassClear']);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return {</span>
+  return {
     label,
     setLabel,
   };
@@ -208,7 +208,7 @@ export function <span class="fstat-no" title="function not covered" >useLabel(</
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Mar 02 2022 03:03:17 GMT+0000 (Coordinated Universal Time)
+                at Wed Mar 02 2022 03:45:39 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

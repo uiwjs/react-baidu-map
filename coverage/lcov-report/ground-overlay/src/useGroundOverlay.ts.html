@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>7/14</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>7/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -113,6 +113,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -123,20 +133,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,7 +144,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,10 +155,10 @@ import { GroundOverlayProps } from './';
 &nbsp;
 export interface UseGroundOverlay extends GroundOverlayProps {}
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >useGroundOverlay(</span>props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseGroundOverlay)</span> {
-  const [groundOverlay, setGroundOverlay] = <span class="cstat-no" title="statement not covered" >useState&lt;BMap.GroundOverlay&gt;();</span>
-  const { map, bounds, opacity, imageURL, displayOnMinLevel, displayOnMaxLevel } = <span class="cstat-no" title="statement not covered" >props;</span>
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+export function useGroundOverlay(props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseGroundOverlay)</span> {
+  const [groundOverlay, setGroundOverlay] = useState&lt;BMap.GroundOverlay&gt;();
+  const { map, bounds, opacity, imageURL, displayOnMinLevel, displayOnMaxLevel } = props;
+  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (!groundOverlay &amp;&amp; bounds &amp;&amp; map) {</span>
       const instance = <span class="cstat-no" title="statement not covered" >new BMap.GroundOverlay(bounds, {</span>
         opacity,
@@ -177,9 +177,9 @@ export function <span class="fstat-no" title="function not covered" >useGroundOv
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useVisiable(groundOverlay!, props);</span>
-<span class="cstat-no" title="statement not covered" >  useEventProperties&lt;BMap.GroundOverlay, UseGroundOverlay&gt;(groundOverlay!, props, ['Click', 'DblClick']);</span>
-<span class="cstat-no" title="statement not covered" >  useProperties&lt;BMap.GroundOverlay, UseGroundOverlay&gt;(groundOverlay!, props, [</span>
+  useVisiable(groundOverlay!, props);
+  useEventProperties&lt;BMap.GroundOverlay, UseGroundOverlay&gt;(groundOverlay!, props, ['Click', 'DblClick']);
+  useProperties&lt;BMap.GroundOverlay, UseGroundOverlay&gt;(groundOverlay!, props, [
     'Bounds',
     'Opacity',
     'ImageURL',
@@ -187,7 +187,7 @@ export function <span class="fstat-no" title="function not covered" >useGroundOv
     'DispalyOnMaxLevel',
   ]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return {</span>
+  return {
     groundOverlay,
     setGroundOverlay,
   };
@@ -199,7 +199,7 @@ export function <span class="fstat-no" title="function not covered" >useGroundOv
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Mar 02 2022 03:03:17 GMT+0000 (Coordinated Universal Time)
+                at Wed Mar 02 2022 03:45:39 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

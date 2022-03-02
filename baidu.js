@@ -1721,13 +1721,16 @@ function useInfoWindow(props) {
 
   var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
-    if (!BMap || !map) return;
-
-    if (!infoWindow) {
+    if (!infoWindow && map) {
       var win = new BMap.InfoWindow('', _extends({}, opts));
       setInfoWindow(win);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
+    }
 
+    return () => {
+      if (infoWindow) {
+        infoWindow.restore();
+      }
+    }; // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   var [isOpen, setIsOpen] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(opts.isOpen === undefined ? true : opts.isOpen);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {

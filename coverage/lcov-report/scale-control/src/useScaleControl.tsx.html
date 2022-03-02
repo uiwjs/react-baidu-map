@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>6/12</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>6/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -101,7 +101,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -109,18 +116,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,10 +131,10 @@ import { ScaleControlProps } from './';
 &nbsp;
 export interface UseScaleControl extends ScaleControlProps {}
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >useScaleControl(</span>props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseScaleControl)</span> {
-  const [scaleControl, setScaleControl] = <span class="cstat-no" title="statement not covered" >useState&lt;BMap.ScaleControl&gt;();</span>
-  const { map, anchor, offset } = <span class="cstat-no" title="statement not covered" >props;</span>
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+export function useScaleControl(props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseScaleControl)</span> {
+  const [scaleControl, setScaleControl] = useState&lt;BMap.ScaleControl&gt;();
+  const { map, anchor, offset } = props;
+  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (map &amp;&amp; !scaleControl) {</span>
       const instance = <span class="cstat-no" title="statement not covered" >new BMap.ScaleControl({</span>
         anchor: anchor || BMAP_ANCHOR_TOP_LEFT,
@@ -149,9 +149,9 @@ export function <span class="fstat-no" title="function not covered" >useScaleCon
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useVisiable(scaleControl!, props);</span>
-<span class="cstat-no" title="statement not covered" >  useProperties&lt;BMap.ScaleControl, UseScaleControl&gt;(scaleControl!, props, ['Anchor', 'Offset', 'Unit']);</span>
-<span class="cstat-no" title="statement not covered" >  return {</span>
+  useVisiable(scaleControl!, props);
+  useProperties&lt;BMap.ScaleControl, UseScaleControl&gt;(scaleControl!, props, ['Anchor', 'Offset', 'Unit']);
+  return {
     scaleControl,
     setScaleControl,
   };
@@ -163,7 +163,7 @@ export function <span class="fstat-no" title="function not covered" >useScaleCon
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Mar 02 2022 03:03:17 GMT+0000 (Coordinated Universal Time)
+                at Wed Mar 02 2022 03:45:39 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
