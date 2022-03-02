@@ -2242,53 +2242,35 @@ function getControl_getCustomOverlay() {
 
 
 
-
 function useControl(props) {
   if (props === void 0) {
     props = {};
   }
 
-  var {
-    portal,
-    div,
-    children,
-    setPortal,
-    setChildren
-  } = useCreatePortal({
-    children: props.children
-  });
   var [control, setControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     map,
     offset,
     anchor
   } = props;
-  var [count, setCount] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(0);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (map && !control && div) {
+    if (map && !control && props.children) {
       var _Control = getControl_getCustomOverlay();
 
-      var instance = new _Control(div, anchor, offset);
-      setCount(count + 1);
+      var instance = new _Control(props.children, anchor, offset);
       setControl(instance);
       map.addOverlay(instance);
-      setChildren(props.children);
     }
-  }, [map, control, div, anchor, offset, count, setChildren, props.children]);
-  var prevCount = usePrevious(count);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
-    if (map && control && div && children && count === prevCount) {
-      var portalInstance = /*#__PURE__*/external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_default().createPortal(children, div);
-      setCount(count + 1);
-      setPortal(portalInstance);
-      setChildren(props.children);
-    }
-  }, [children, control, count, div, map, prevCount, props.children, setChildren, setPortal]);
+
+    return () => {
+      if (map && control) () => {
+        map.removeControl(control);
+      };
+    };
+  }, [map, control, anchor, offset, props.children]);
   useVisiable(control, props);
   useProperties(control, props, ['Anchor', 'Offset']);
   return {
-    portal,
-    setPortal,
     control,
     setControl
   };
@@ -2299,20 +2281,25 @@ function useControl(props) {
 
 
 
+
+
 /* harmony default export */ const control_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
-    control,
-    portal
-  } = useControl(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    children
+  } = props;
+  var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+    children: children
+  }), container), [children]);
+  var {
     control
+  } = useControl(_extends({}, props, {
+    children: container
+  }));
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    control,
+    children: container
   }), [control]);
-
-  if (portal) {
-    return portal;
-  }
-
   return null;
 }));
 
