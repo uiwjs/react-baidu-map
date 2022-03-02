@@ -24,6 +24,7 @@
     "type-check": "npm exec --ws -- tsc --noEmit",
     "test": "tsbb test --env=jsdom",
     "coverage": "tsbb test --env=jsdom --coverage",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "build": "lerna exec --scope @uiw/* --ignore @uiw/react-baidu-map-types -- tsbb build",
     "doc": "npm run-script doc --workspace=website --if-present",
     "start": "npm run-script start --workspace=website",

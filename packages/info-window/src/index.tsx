@@ -5,20 +5,18 @@ import { useInfoWindow } from './useInfoWindow';
 
 export * from './useInfoWindow';
 
-export interface InfoWindowProps extends OverlayProps, BMap.InfoWindowOptions, BMap.InfoWindowEvent {
+export interface InfoWindowProps extends OverlayProps, Omit<BMap.InfoWindowOptions, 'title'>, BMap.InfoWindowEvent {
   /**
    * 窗口是否打开
    * @default true
    */
   isOpen?: boolean;
-  /**
-   * 窗口位置经纬度
-   */
+  /** 窗口位置经纬度 */
   position: BMap.Point;
-  /**
-   * 展示文本内容，支持 HTML 内容字符串
-   */
+  /** 展示文本内容，支持 HTML 内容字符串 */
   content?: string | HTMLElement;
+  /** 信息窗标题文字 */
+  title?: string | HTMLElement | JSX.Element;
   /**
    * 信息窗口最大化时所显示内容，支持HTML内容
    */
@@ -33,9 +31,12 @@ export default React.forwardRef<InfoWindowProps & { infoWindow?: BMap.InfoWindow
   const { children } = props;
   const container = useMemo(() => document.createElement('div'), []);
   useEffect(() => render(<Fragment>{children}</Fragment>, container), [children]);
+  const title = useMemo(() => document.createElement('div'), []);
+  useEffect(() => render(<Fragment>{props.title}</Fragment>, title), [props.title]);
 
   const { infoWindow, setIsOpen } = useInfoWindow({
     ...props,
+    title,
     content: props.children ? container : props.content,
   });
 

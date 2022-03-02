@@ -88,7 +88,7 @@ const Example = () => {
             console.log(':onClose');
           }}
           position={{ lng: 121.501365, lat: 31.224942 }}
-          title="地址信息二"
+          title={<div>地址信息二</div>}
           content="test"
         >
           上海市 <del>青浦区</del> 徐泾镇盈港东路 Good!

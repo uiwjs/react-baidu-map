@@ -9,7 +9,9 @@ describe('<InfoWindow />', () => {
   it('InfoWindow test case', () => {
     expect(typeof InfoWindow).toEqual('object');
     expect(typeof useInfoWindow).toEqual('function');
-    const component = TestRenderer.create(<InfoWindow position={{ lng: 121.501365, lat: 31.224942 }} />);
+    const component = TestRenderer.create(
+      <InfoWindow title={<div>xxx</div>} position={{ lng: 121.501365, lat: 31.224942 }} />,
+    );
     let tree = component.toJSON();
     expect(tree).toBeNull();
   });
