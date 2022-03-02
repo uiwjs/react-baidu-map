@@ -252,6 +252,7 @@ __webpack_require__.d(__webpack_exports__, {
   "PointCollection": () => (/* reexport */ point_collection_esm),
   "Polygon": () => (/* reexport */ polygon_esm),
   "Polyline": () => (/* reexport */ polyline_esm),
+  "Provider": () => (/* reexport */ Provider),
   "RequireScript": () => (/* reexport */ require_script_esm),
   "ScaleControl": () => (/* reexport */ scale_control_esm),
   "TileLayer": () => (/* reexport */ tile_layer_esm),
@@ -1004,6 +1005,16 @@ var _excluded = ["className", "style", "children"];
 
 
 
+function Provider(props) {
+  var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(Context.Provider, {
+    value: {
+      state,
+      dispatch
+    },
+    children: props.children
+  });
+}
 /* harmony default export */ const esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((_ref, ref) => {
   var {
     className,
@@ -1813,12 +1824,23 @@ function useInfoWindow(props) {
       opts = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
 
   var {
+    container
+  } = useRenderDom({
+    children: props.children
+  });
+  var {
+    container: title
+  } = useRenderDom({
+    children: props.title || ''
+  });
+  var {
     map
   } = useMapContext();
   var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (!infoWindow && map) {
-      var win = new BMap.InfoWindow(opts.content || '', _extends({}, opts));
+      opts.title = title;
+      var win = new BMap.InfoWindow(props.children ? container : opts.content || '', _extends({}, opts));
       setInfoWindow(win);
     }
 
@@ -1840,9 +1862,20 @@ function useInfoWindow(props) {
     } // eslint-disable-next-line react-hooks/exhaustive-deps
 
   }, [isOpen, infoWindow]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (infoWindow) {
+      infoWindow.setContent(props.children ? container : opts.content || '');
+    }
+  }, [props.content, props.children]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (infoWindow) {
+      infoWindow.setTitle(title);
+    }
+  }, [props.content, title]);
   useVisiable(infoWindow, props);
   useEventProperties(infoWindow, props, ['Close', 'Open', 'Maximize', 'Restore', 'ClickClose']);
-  useProperties(infoWindow, props, ['Width', 'Height', 'Title', 'Content', 'MaxContent']);
+  useProperties(infoWindow, props, ['Width', 'Height', 'Title', // 'Content',
+  'MaxContent']);
   useEnableProperties(infoWindow, props, ['CloseOnClick', 'Maximize', 'AutoPan']);
   return {
     /**
@@ -1864,27 +1897,11 @@ function useInfoWindow(props) {
 
 
 
-
-
 /* harmony default export */ const info_window_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    children
-  } = props;
-  var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-    children: children
-  }), container), [children]);
-  var title = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-    children: props.title
-  }), title), [props.title]);
   var {
     infoWindow,
     setIsOpen
-  } = useInfoWindow(_extends({}, props, {
-    title,
-    content: props.children ? container : props.content
-  }));
+  } = useInfoWindow(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setIsOpen(props.isOpen), [props.isOpen]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     infoWindow
