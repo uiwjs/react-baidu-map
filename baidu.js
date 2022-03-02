@@ -654,11 +654,14 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
 
   constructor(props) {
     super(props);
+    this.isMountedOk = false;
 
     this.handleError = error => {
-      this.setState({
-        error
-      });
+      if (this.isMountedOk) {
+        this.setState({
+          error
+        });
+      }
     };
 
     this.finish = () => {
@@ -666,9 +669,11 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
         window.BMap = window.BMapGL;
       }
 
-      this.setState({
-        loaded: true
-      });
+      if (this.isMountedOk) {
+        this.setState({
+          loaded: true
+        });
+      }
     };
 
     this.state = {
@@ -681,6 +686,7 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
   }
 
   componentDidMount() {
+    this.isMountedOk = true;
     var {
       callbackName
     } = this.props;
@@ -697,6 +703,10 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
 
       this.loadMap();
     }
+  }
+
+  componentWillUnmount() {
+    this.isMountedOk = false;
   }
 
   render() {
