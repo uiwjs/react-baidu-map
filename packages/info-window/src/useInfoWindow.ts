@@ -1,17 +1,28 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useMapContext } from '@uiw/react-baidu-map-map';
-import { useEnableProperties, useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
+import {
+  useEnableProperties,
+  useProperties,
+  useVisiable,
+  useEventProperties,
+  useRenderDom,
+} from '@uiw/react-baidu-map-utils';
 import { InfoWindowProps } from '.';
 
 export interface UseInfoWindow extends InfoWindowProps {}
 
 export function useInfoWindow(props = {} as UseInfoWindow) {
   const { position, ...opts } = props;
+  const { container } = useRenderDom({ children: props.children });
+  const { container: title } = useRenderDom({ children: props.title || '' });
   const { map } = useMapContext();
   const [infoWindow, setInfoWindow] = useState<BMap.InfoWindow>();
   useMemo(() => {
     if (!infoWindow && map) {
-      const win = new BMap.InfoWindow(opts.content || '', { ...opts } as BMap.InfoWindowOptions);
+      opts.title = title;
+      const win = new BMap.InfoWindow(props.children ? container : opts.content || '', {
+        ...opts,
+      } as BMap.InfoWindowOptions);
       setInfoWindow(win);
     }
     return () => {
@@ -35,6 +46,18 @@ export function useInfoWindow(props = {} as UseInfoWindow) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, infoWindow]);
 
+  useEffect(() => {
+    if (infoWindow) {
+      infoWindow.setContent(props.children ? container : opts.content || '');
+    }
+  }, [props.content, props.children]);
+
+  useEffect(() => {
+    if (infoWindow) {
+      infoWindow.setTitle(title);
+    }
+  }, [props.content, title]);
+
   useVisiable(infoWindow!, props);
   useEventProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
     'Close',
@@ -47,7 +70,7 @@ export function useInfoWindow(props = {} as UseInfoWindow) {
     'Width',
     'Height',
     'Title',
-    'Content',
+    // 'Content',
     'MaxContent',
   ]);
   useEnableProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, ['CloseOnClick', 'Maximize', 'AutoPan']);

@@ -1,5 +1,4 @@
-import { render } from 'react-dom';
-import React, { Fragment, useMemo, useEffect, useImperativeHandle } from 'react';
+import React, { useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '@uiw/react-baidu-map-map';
 import { useInfoWindow } from './useInfoWindow';
 
@@ -28,17 +27,7 @@ export interface InfoWindowProps extends OverlayProps, Omit<BMap.InfoWindowOptio
 }
 
 export default React.forwardRef<InfoWindowProps & { infoWindow?: BMap.InfoWindow }, InfoWindowProps>((props, ref) => {
-  const { children } = props;
-  const container = useMemo(() => document.createElement('div'), []);
-  useEffect(() => render(<Fragment>{children}</Fragment>, container), [children]);
-  const title = useMemo(() => document.createElement('div'), []);
-  useEffect(() => render(<Fragment>{props.title}</Fragment>, title), [props.title]);
-
-  const { infoWindow, setIsOpen } = useInfoWindow({
-    ...props,
-    title,
-    content: props.children ? container : props.content,
-  });
+  const { infoWindow, setIsOpen } = useInfoWindow(props);
 
   useEffect(() => setIsOpen(props.isOpen!), [props.isOpen]);
   useImperativeHandle(ref, () => ({ ...props, infoWindow }));
