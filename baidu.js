@@ -1722,7 +1722,7 @@ function useInfoWindow(props) {
   var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (!infoWindow && map) {
-      var win = new BMap.InfoWindow('', _extends({}, opts));
+      var win = new BMap.InfoWindow(opts.content || '', _extends({}, opts));
       setInfoWindow(win);
     }
 
@@ -1768,12 +1768,27 @@ function useInfoWindow(props) {
 
 
 
+
+
 /* harmony default export */ const info_window_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    children
+  } = props;
+  var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+    children: children
+  }), container), [children]);
+  var title = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+    children: props.title
+  }), title), [props.title]);
   var {
     infoWindow,
     setIsOpen
-  } = useInfoWindow(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = useInfoWindow(_extends({}, props, {
+    title,
+    content: props.children ? container : props.content
+  }));
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setIsOpen(props.isOpen), [props.isOpen]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     infoWindow
