@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useMapContext } from '@uiw/react-baidu-map-map';
-import { useProperties, useVisiable } from '@uiw/react-baidu-map-utils';
+import { useProperties, useVisiable, useRenderDom } from '@uiw/react-baidu-map-utils';
 import getControl from './getControl';
 import { ControlProps } from './';
 
 export interface UseControl extends ControlProps {}
 
 export function useControl(props = {} as UseControl) {
+  const { container } = useRenderDom({ children: props.children });
   const [control, setControl] = useState<BMap.Control>();
   const { offset, anchor } = props;
   const { map } = useMapContext();
@@ -14,7 +15,7 @@ export function useControl(props = {} as UseControl) {
   useEffect(() => {
     if (map && !control && props.children) {
       const Control = getControl();
-      const instance = new Control(props.children as HTMLDivElement, anchor, offset);
+      const instance = new Control(container, anchor, offset);
       setControl(instance);
       map.addOverlay(instance);
     }
@@ -24,7 +25,7 @@ export function useControl(props = {} as UseControl) {
           map.removeControl(control);
         };
     };
-  }, [map, control, anchor, offset, props.children]);
+  }, [map, control, anchor, offset, container, props.children]);
 
   useVisiable(control!, props);
   useProperties<BMap.Control, UseControl>(control!, props, ['Anchor', 'Offset']);

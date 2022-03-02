@@ -178,6 +178,7 @@ export function usePrevious<T>(value: T) {
 
 export function useRenderDom(props: { children: React.ReactNode }) {
   const container = useRef(document.createElement('div'));
+
   useLayoutEffect(() => {
     render(<Fragment>{props.children}</Fragment>, container.current);
   }, [props.children]);

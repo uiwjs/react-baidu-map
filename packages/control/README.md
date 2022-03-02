@@ -76,25 +76,18 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 使用 hooks
 
-`portal`, `setPortal`, `control`, `setControl`
+`control`, `setControl`
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { useMemo, useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useControl } from '@uiw/react-baidu-map';
+import { Map, APILoader, useMap, useControl, useMapContext } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
   const [count, setCount] = useState(4);
-  const { setContainer, map, setMap } = useMap({ widget: ['NavigationControl'], enableScrollWheelZoom: true, zoom: count });
-
-  useEffect(() => {
-    if (divElm.current && !map) {
-      setContainer(divElm.current);
-    }
-  }, [map]);
-
+  const { map } = useMapContext();
   const children = (
     <div style={{ background: 'gray', padding: '10px' }}>
       <button
@@ -115,20 +108,17 @@ const Example = () => {
       </button>
     </div>
   );
-
-  const container = useMemo(() => document.createElement('div'), []);
-  useEffect(() => ReactDOM.render(<Fragment>{children}</Fragment>, container), [children]);
-  useControl({ map, children: container, anchor: BMAP_ANCHOR_TOP_RIGHT });
-
-  return (
-    <div ref={divElm} style={{ height: 350 }} />
-  );
+  useControl({ children, anchor: BMAP_ANCHOR_TOP_RIGHT });
+  useControl({ children, anchor: BMAP_ANCHOR_BOTTOM_RIGHT });
+  return null
 }
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Map zoom={13} widget={['NavigationControl']} style={{ height: 350 }}>
+        <Example />
+      </Map>
     </APILoader>
   </div>
 );

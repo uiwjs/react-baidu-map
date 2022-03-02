@@ -42,6 +42,8 @@ export function requireScript(src: string): Promise<void> {
     script.type = 'text/javascript';
     script.id = '_react_baidu_map';
     script.src = src;
+    script.async = true;
+    script.defer = true;
     script.onerror = (err) => {
       headElement!.removeChild(script);
       reject(new URIError(`The Script ${src} is no accessible.`));

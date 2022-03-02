@@ -1,5 +1,4 @@
-import { render } from 'react-dom';
-import React, { useImperativeHandle, useEffect, Fragment, useMemo } from 'react';
+import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '@uiw/react-baidu-map-map';
 import { useControl } from './useControl';
 export * from './useControl';
@@ -20,10 +19,7 @@ export interface ControlProps extends OverlayProps {
 }
 
 export default React.forwardRef<ControlProps & { control?: BMap.Control }, ControlProps>((props, ref) => {
-  const { children } = props;
-  const container = useMemo(() => document.createElement('div'), []);
-  useEffect(() => render(<Fragment>{children}</Fragment>, container), [children]);
-  const { control } = useControl({ ...props, children: container });
-  useImperativeHandle(ref, () => ({ ...props, control, children: container }), [control]);
+  const { control } = useControl(props);
+  useImperativeHandle(ref, () => ({ ...props, control }), [control]);
   return null;
 });
