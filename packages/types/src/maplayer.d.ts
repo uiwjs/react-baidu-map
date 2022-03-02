@@ -10,7 +10,7 @@ declare namespace BMap {
      * 抽象。向地图返回地图图块的网址，图块索引由 tileCoord 的 x 和 y 属性在指定的缩放级别 zoom 提供。
      * 如果您在 TileLayerOptions 中提供了 tileUrlTemplate 参数，则可不实现此接口
      */
-    getTilesUrl: (tileCoord: Pixel, zoom: number) => string;
+    getTilesUrl?: (tileCoord: Pixel, zoom: number) => string;
     /**
      * 返回地图图层数据的版权对象
      */
