@@ -8,11 +8,15 @@ export function useInfoWindow(props = {} as UseInfoWindow) {
   const { map, position, ...opts } = props;
   const [infoWindow, setInfoWindow] = useState<BMap.InfoWindow>();
   useMemo(() => {
-    if (!BMap || !map) return;
-    if (!infoWindow) {
+    if (!infoWindow && map) {
       const win = new BMap.InfoWindow('', { ...opts });
       setInfoWindow(win);
     }
+    return () => {
+      if (infoWindow) {
+        infoWindow.restore();
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
