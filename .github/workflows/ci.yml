@@ -207,7 +207,7 @@ jobs:
 
     - name: Generate Changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.4.9
+      uses: jaywcjlove/changelog-generator@v1.5.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         filter-author: (renovate-bot|Renovate Bot)
@@ -238,3 +238,7 @@ jobs:
           ${{ steps.changelog.outputs.compareurl }}
 
           ${{ steps.changelog.outputs.changelog }}
+
+
+          Document react-baidu-map@${{ steps.create_tag.outputs.version }}:
+          https://raw.githack.com/uiwjs/react-baidu-map/${{ steps.changelog.outputs.gh-pages-short-hash }}/index.html
