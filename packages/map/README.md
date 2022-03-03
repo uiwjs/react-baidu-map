@@ -158,6 +158,15 @@ const Demo = () => {
 ReactDOM.render(<Demo />, _mount_);
 ```
 
+```js
+import { useMapContext, Provider } from '@uiw/react-baidu-map';
+
+const { AMaps, map, container, state, dispatch } = useMapContext();
+// => state.AMaps
+// => state.map
+// => state.container
+```
+
 ### 可控属性
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
