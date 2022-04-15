@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.82% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/17</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/10</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.82% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/17</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -159,17 +159,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -187,8 +187,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -198,8 +198,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -210,7 +210,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -222,7 +222,7 @@ import { CircleProps } from './';
 &nbsp;
 export interface UseCircle extends CircleProps {}
 &nbsp;
-export function useCircle(props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseCircle)</span> {
+export function <span class="fstat-no" title="function not covered" >useCircle(</span>props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseCircle)</span> {
   const {
     center,
     radius,
@@ -235,12 +235,12 @@ export function useCircle(props = <span class="branch-0 cbranch-no" title="branc
     enableMassClear,
     enableEditing,
     enableClicking,
-  } = props;
-  const { map } = useMapContext();
-  const [circle, setCircle] = useState&lt;BMap.Circle&gt;();
+  } = <span class="cstat-no" title="statement not covered" >props;</span>
+  const { map } = <span class="cstat-no" title="statement not covered" >useMapContext();</span>
+  const [circle, setCircle] = <span class="cstat-no" title="statement not covered" >useState&lt;BMap.Circle&gt;();</span>
 &nbsp;
-  useMemo(() =&gt; {
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (map &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!circle)</span> {
+<span class="cstat-no" title="statement not covered" >  useMemo(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (map &amp;&amp; !circle) {</span>
       let point = <span class="cstat-no" title="statement not covered" >center;</span>
 <span class="cstat-no" title="statement not covered" >      if (center &amp;&amp; center.lng &amp;&amp; center.lat) {</span>
 <span class="cstat-no" title="statement not covered" >        point = new BMap.Point(center.lng, center.lat);</span>
@@ -263,8 +263,8 @@ export function useCircle(props = <span class="branch-0 cbranch-no" title="branc
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, circle]);
 &nbsp;
-  useVisiable(circle!, props);
-  useEventProperties&lt;BMap.Circle, UseCircle&gt;(circle!, props, [
+<span class="cstat-no" title="statement not covered" >  useVisiable(circle!, props);</span>
+<span class="cstat-no" title="statement not covered" >  useEventProperties&lt;BMap.Circle, UseCircle&gt;(circle!, props, [</span>
     'Click',
     'DblClick',
     'MouseDown',
@@ -274,8 +274,8 @@ export function useCircle(props = <span class="branch-0 cbranch-no" title="branc
     'Remove',
     'LineUpdate',
   ]);
-  useEnableProperties&lt;BMap.Circle, UseCircle&gt;(circle!, props, ['Editing', 'MassClear']);
-  useProperties&lt;BMap.Circle, UseCircle&gt;(circle!, props, [
+<span class="cstat-no" title="statement not covered" >  useEnableProperties&lt;BMap.Circle, UseCircle&gt;(circle!, props, ['Editing', 'MassClear']);</span>
+<span class="cstat-no" title="statement not covered" >  useProperties&lt;BMap.Circle, UseCircle&gt;(circle!, props, [</span>
     'Center',
     'Radius',
     'StrokeColor',
@@ -286,7 +286,7 @@ export function useCircle(props = <span class="branch-0 cbranch-no" title="branc
     'StrokeStyle',
   ]);
 &nbsp;
-  return {
+<span class="cstat-no" title="statement not covered" >  return {</span>
     circle,
     setCircle,
   };
@@ -298,7 +298,7 @@ export function useCircle(props = <span class="branch-0 cbranch-no" title="branc
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Mar 03 2022 14:11:28 GMT+0000 (Coordinated Universal Time)
+                at Fri Apr 15 2022 16:44:02 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
