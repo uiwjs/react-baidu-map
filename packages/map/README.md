@@ -11,10 +11,12 @@ Map 组件是其他组件的基础，Map 组件会给所有的子组件注入两
 
 <!--rehype-->
 ```jsx
-import { Map, useMap, APILoader } from '@uiw/react-baidu-map';
+import { Map, useMap, APILoader, Provider, useMapContext } from '@uiw/react-baidu-map';
 // 或者单独安装使用
-import Map, { useMap, APILoader } from '@uiw/react-baidu-map-map';
+import Map, { useMap, APILoader, Provider, useMapContext } from '@uiw/react-baidu-map-map';
 ```
+
+🚧  注意：需要使用到 `<Provider>`，新的封装 `Marker` 组建使用了 `Context` 来避免 `map` 对象传来传去。
 
 ### 基本用法
 

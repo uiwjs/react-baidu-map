@@ -76,6 +76,7 @@ export function useMap(props: UseMap = {}) {
     return () => {
       dispatch({ map: undefined, container: undefined, BMap: undefined });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, container]);
 
   const [center, setCenter] = useState(props.center || '上海');

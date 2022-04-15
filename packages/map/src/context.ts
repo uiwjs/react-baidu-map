@@ -20,12 +20,12 @@ export const reducer = (state: InitialState, action: InitialState) => {
   };
 };
 
-export interface Context {
+export interface ContextState {
   state: Partial<InitialState>;
   dispatch: React.Dispatch<InitialState>;
 }
 
-export const Context = React.createContext<Context>({
+export const Context = React.createContext<ContextState>({
   state: initialState,
   dispatch: () => null,
 });
