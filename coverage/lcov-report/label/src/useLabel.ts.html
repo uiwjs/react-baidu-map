@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45.83% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/24</span>
+                <span class='fraction'>0/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.55% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/18</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.82% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/23</span>
+                <span class='fraction'>0/23</span>
             </div>
         
             
@@ -138,15 +138,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -155,32 +146,41 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -198,13 +198,13 @@ import { LabelProps } from './';
 &nbsp;
 export interface UseLabel extends LabelProps {}
 &nbsp;
-export function useLabel(props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseLabel)</span> {
-  const [label, setLabel] = useState&lt;BMap.Label&gt;();
-  const { offset, style, content = '', position, enableMassClear } = props;
-  const { container } = useRenderDom({ children: props.children });
-  const { map } = useMapContext();
+export function <span class="fstat-no" title="function not covered" >useLabel(</span>props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseLabel)</span> {
+  const [label, setLabel] = <span class="cstat-no" title="statement not covered" >useState&lt;BMap.Label&gt;();</span>
+  const { offset, style, content = <span class="branch-0 cbranch-no" title="branch not covered" >'',</span> position, enableMassClear } = <span class="cstat-no" title="statement not covered" >props;</span>
+  const { container } = <span class="cstat-no" title="statement not covered" >useRenderDom({ children: props.children });</span>
+  const { map } = <span class="cstat-no" title="statement not covered" >useMapContext();</span>
 &nbsp;
-  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!BMap || !map) <span class="cstat-no" title="statement not covered" >return;</span></span>
 <span class="cstat-no" title="statement not covered" >    if (!label) {</span>
       const opts = <span class="cstat-no" title="statement not covered" >{ offset, position, enableMassClear };</span>
@@ -221,14 +221,14 @@ export function useLabel(props = <span class="branch-0 cbranch-no" title="branch
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 &nbsp;
-  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (label) {</span>
 <span class="cstat-no" title="statement not covered" >      label.setContent(props.children ? container.innerHTML : content);</span>
     }
   }, [props.children, container, label]);
 &nbsp;
-  useVisiable(label!, props);
-  useEventProperties&lt;BMap.Label, UseLabel&gt;(label!, props, [
+<span class="cstat-no" title="statement not covered" >  useVisiable(label!, props);</span>
+<span class="cstat-no" title="statement not covered" >  useEventProperties&lt;BMap.Label, UseLabel&gt;(label!, props, [</span>
     'Click',
     'DblClick',
     'MouseDo',
@@ -238,10 +238,10 @@ export function useLabel(props = <span class="branch-0 cbranch-no" title="branch
     'Remove',
     'RightClick',
   ]);
-  useProperties&lt;BMap.Label, UseLabel&gt;(label!, props, ['Style', 'Position', 'Offset', 'Title', 'ZIndex']);
-  useEnableProperties&lt;BMap.Label, UseLabel&gt;(label!, props, ['MassClear']);
+<span class="cstat-no" title="statement not covered" >  useProperties&lt;BMap.Label, UseLabel&gt;(label!, props, ['Style', 'Position', 'Offset', 'Title', 'ZIndex']);</span>
+<span class="cstat-no" title="statement not covered" >  useEnableProperties&lt;BMap.Label, UseLabel&gt;(label!, props, ['MassClear']);</span>
 &nbsp;
-  return {
+<span class="cstat-no" title="statement not covered" >  return {</span>
     label,
     setLabel,
   };
@@ -253,7 +253,7 @@ export function useLabel(props = <span class="branch-0 cbranch-no" title="branch
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Apr 15 2022 16:50:59 GMT+0000 (Coordinated Universal Time)
+                at Fri Apr 15 2022 16:51:17 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

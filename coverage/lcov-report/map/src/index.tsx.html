@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/24</span>
+                <span class='fraction'>0/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.31% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/19</span>
+                <span class='fraction'>0/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.89% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/19</span>
+                <span class='fraction'>0/19</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -363,28 +363,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -534,35 +534,35 @@ export function <span class="fstat-no" title="function not covered" >Provider(</
 }
 &nbsp;
 export default React.forwardRef&lt;MapProps &amp; { map?: BMap.Map }, MapProps &amp; MapChildRenderProps&gt;(
-  ({ className, style, children, ...props }, ref) =&gt; {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    window.BMap = window.BMap || window.BMapGL;
-    const elmRef = useRef&lt;HTMLDivElement&gt;(null);
-    const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({
+<span class="fstat-no" title="function not covered" >  ({</span> className, style, children, ...props }, ref) =&gt; {
+    const [state, dispatch] = <span class="cstat-no" title="statement not covered" >useReducer(reducer, initialState);</span>
+<span class="cstat-no" title="statement not covered" >    window.BMap = window.BMap || window.BMapGL;</span>
+    const elmRef = <span class="cstat-no" title="statement not covered" >useRef&lt;HTMLDivElement&gt;(null);</span>
+    const { setContainer, container, setCenter, setAutoLocalCity, map } = <span class="cstat-no" title="statement not covered" >useMap({</span>
       container: elmRef.current,
       ...props,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setContainer(elmRef.current),</span> [elmRef.current]);
+<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setContainer(elmRef.current),</span> [elmRef.current]);</span>
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useMemo(() =&gt; props.center &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >setCenter(props.center!),</span> [props.center]);
+<span class="cstat-no" title="statement not covered" >    useMemo(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.center &amp;&amp; setCenter(props.center!),</span> [props.center]);</span>
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setAutoLocalCity(props.autoLocalCity!),</span> [props.autoLocalCity]);
+<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setAutoLocalCity(props.autoLocalCity!),</span> [props.autoLocalCity]);</span>
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useImperativeHandle(ref, <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ ...props, map, BMap, container: elmRef.current })</span>, [map]);
-    const childs = React.Children.toArray(children);
-    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >    useImperativeHandle(ref, <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ ...props, map, BMap, container: elmRef.current })</span>, [map]);</span>
+    const childs = <span class="cstat-no" title="statement not covered" >React.Children.toArray(children);</span>
+<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      if (map) {</span>
 <span class="cstat-no" title="statement not covered" >        dispatch({ map, container: elmRef.current, BMap });</span>
       }
     }, [map]);
-    return (
+<span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;Context.Provider value={{ state, dispatch }}&gt;
         &lt;div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} /&gt;
-        {BMap &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >map </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >typeof children === 'function' </span>&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >children({ BMap, map, container })}</span>
+        {BMap &amp;&amp; map &amp;&amp; typeof children === 'function' &amp;&amp; children({ BMap, map, container })}
         {BMap &amp;&amp;
-<span class="branch-1 cbranch-no" title="branch not covered" >          map </span>&amp;&amp;
-<span class="branch-2 cbranch-no" title="branch not covered" >          childs.map(<span class="fstat-no" title="function not covered" >(c</span>hild, key) =&gt; {</span>
+          map &amp;&amp;
+          childs.map(<span class="fstat-no" title="function not covered" >(c</span>hild, key) =&gt; {
 <span class="cstat-no" title="statement not covered" >            if (!React.isValidElement(child)) <span class="cstat-no" title="statement not covered" >return null;</span></span>
 <span class="cstat-no" title="statement not covered" >            if (child.type &amp;&amp; typeof child.type === 'string') {</span>
 <span class="cstat-no" title="statement not covered" >              return React.cloneElement(child, { key });</span>
@@ -586,7 +586,7 @@ export default React.forwardRef&lt;MapProps &amp; { map?: BMap.Map }, MapProps &
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Apr 15 2022 16:50:59 GMT+0000 (Coordinated Universal Time)
+                at Fri Apr 15 2022 16:51:17 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

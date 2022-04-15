@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>0/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.55% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/18</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>0/20</span>
             </div>
         
             
@@ -125,26 +125,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -153,16 +137,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,12 +177,12 @@ export interface UseTileLayer extends TileLayerProps {}
 /**
  * https://lbsyun.baidu.com/jsdemo.htm#g0_2
  */
-export function useTileLayer(props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseTileLayer)</span> {
-  const [tileLayer, setTileLayer] = useState&lt;BMap.TileLayer&gt;();
-  const { transparentPng = true, tileUrlTemplate, copyright, zIndex } = props;
-  const { map } = useMapContext();
+export function <span class="fstat-no" title="function not covered" >useTileLayer(</span>props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseTileLayer)</span> {
+  const [tileLayer, setTileLayer] = <span class="cstat-no" title="statement not covered" >useState&lt;BMap.TileLayer&gt;();</span>
+  const { transparentPng = <span class="branch-0 cbranch-no" title="branch not covered" >true,</span> tileUrlTemplate, copyright, zIndex } = <span class="cstat-no" title="statement not covered" >props;</span>
+  const { map } = <span class="cstat-no" title="statement not covered" >useMapContext();</span>
 &nbsp;
-  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (map &amp;&amp; !tileLayer) {</span>
       const instance = <span class="cstat-no" title="statement not covered" >new BMap.TileLayer({</span>
         transparentPng,
@@ -207,15 +207,15 @@ export function useTileLayer(props = <span class="branch-0 cbranch-no" title="br
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 &nbsp;
-  const [visiable, setVisiable] = useState(props.visiable);
-  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+  const [visiable, setVisiable] = <span class="cstat-no" title="statement not covered" >useState(props.visiable);</span>
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (map &amp;&amp; tileLayer) {</span>
 <span class="cstat-no" title="statement not covered" >      visiable ? map.addTileLayer(tileLayer) : map.removeTileLayer(tileLayer);</span>
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visiable, map]);
 &nbsp;
-  return {
+<span class="cstat-no" title="statement not covered" >  return {</span>
     tileLayer,
     setTileLayer,
     visiable,
@@ -229,7 +229,7 @@ export function useTileLayer(props = <span class="branch-0 cbranch-no" title="br
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Apr 15 2022 16:50:59 GMT+0000 (Coordinated Universal Time)
+                at Fri Apr 15 2022 16:51:17 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
