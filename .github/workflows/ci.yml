@@ -207,18 +207,20 @@ jobs:
 
     - name: get tag version
       id: tag_version
-      uses: jaywcjlove/changelog-generator@v1.5.0
+      uses: jaywcjlove/changelog-generator@v1.5.3
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./website/build
         commit_message: ${{steps.tag_version.outputs.tag}} ${{ github.event.head_commit.message }}
 
     - name: Generate Changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.5.0
+      uses: jaywcjlove/changelog-generator@v1.5.3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         filter-author: (renovate-bot|Renovate Bot)
@@ -234,12 +236,13 @@ jobs:
         tag: ${{ steps.create_tag.outputs.version }}
         body: |
           [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-baidu-map@${{steps.create_tag.outputs.versionNumber}}/file/README.md) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-baidu-map)](https://bundlephobia.com/result?p=@uiw/react-baidu-map@${{steps.create_tag.outputs.versionNumber}})
+        
+          Documentation ${{ steps.changelog.outputs.tag }}: https://raw.githack.com/jaywcjlove/idoc/${{ steps.changelog.outputs.gh-pages-short-hash }}/index.html  
+          Comparing Changes: ${{ steps.changelog.outputs.compareurl }}  
           
           ```bash
           npm i @uiw/react-baidu-map@${{steps.create_tag.outputs.versionNumber}}
           ```
-
-          ${{ steps.changelog.outputs.compareurl }}
 
           ${{ steps.changelog.outputs.changelog }}
 
