@@ -68,7 +68,7 @@
     "@uiw/react-baidu-map-with-map": "2.4.0"
   },
   "devDependencies": {
-    "@types/react": "~17.0.39",
+    "@types/react": "~18.0.0",
     "@types/react-dom": "~17.0.11"
   }
 }
