@@ -125,6 +125,7 @@ Package | Bundle size(gzip) | Version/unpkg
 npm install -g npm@7
 
 npm install # 安装依赖
+npm install --workspaces
 
 npm run build # 编译输出组件 js 文件, .d.ts 类型文件
 npm run watch # 监听编译输出 js 文件, .d.ts 类型文件

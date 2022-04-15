@@ -10,115 +10,115 @@ export const routes: Routes = [
   {
     path: '/',
     exact: true,
-    component: lazy(() => import('./pages/home')),
+    component: lazy(() => import('./pages/home')) as any,
   },
   {
     path: '/api-loader',
-    component: lazy(() => import('./pages/api-loader')),
+    component: lazy(() => import('./pages/api-loader')) as any,
   },
   {
     path: '/with-map',
-    component: lazy(() => import('./pages/with-map')),
+    component: lazy(() => import('./pages/with-map')) as any,
   },
   {
     path: '/control',
-    component: lazy(() => import('./pages/control')),
+    component: lazy(() => import('./pages/control')) as any,
   },
   {
     path: '/copyright-control',
-    component: lazy(() => import('./pages/copyright-control')),
+    component: lazy(() => import('./pages/copyright-control')) as any,
   },
   {
     path: '/map',
-    component: lazy(() => import('./pages/map')),
+    component: lazy(() => import('./pages/map')) as any,
   },
   {
     path: '/marker',
-    component: lazy(() => import('./pages/marker')),
+    component: lazy(() => import('./pages/marker')) as any,
   },
   {
     path: '/navigation-control',
-    component: lazy(() => import('./pages/navigation-control')),
+    component: lazy(() => import('./pages/navigation-control')) as any,
   },
   {
     path: '/geolocation-control',
-    component: lazy(() => import('./pages/geolocation-control')),
+    component: lazy(() => import('./pages/geolocation-control')) as any,
   },
   {
     path: '/ground-overlay',
-    component: lazy(() => import('./pages/ground-overlay')),
+    component: lazy(() => import('./pages/ground-overlay')) as any,
   },
   {
     path: '/overview-map-control',
-    component: lazy(() => import('./pages/overview-map-control')),
+    component: lazy(() => import('./pages/overview-map-control')) as any,
   },
   {
     path: '/scale-control',
-    component: lazy(() => import('./pages/scale-control')),
+    component: lazy(() => import('./pages/scale-control')) as any,
   },
   {
     path: '/map-type-control',
-    component: lazy(() => import('./pages/map-type-control')),
+    component: lazy(() => import('./pages/map-type-control')) as any,
   },
   {
     path: '/panorama-control',
-    component: lazy(() => import('./pages/panorama-control')),
+    component: lazy(() => import('./pages/panorama-control')) as any,
   },
   {
     path: '/info-window',
-    component: lazy(() => import('./pages/info-window')),
+    component: lazy(() => import('./pages/info-window')) as any,
   },
   {
     path: '/label',
-    component: lazy(() => import('./pages/label')),
+    component: lazy(() => import('./pages/label')) as any,
   },
   {
     path: '/point-collection',
-    component: lazy(() => import('./pages/point-collection')),
+    component: lazy(() => import('./pages/point-collection')) as any,
   },
   {
     path: '/polyline',
-    component: lazy(() => import('./pages/polyline')),
+    component: lazy(() => import('./pages/polyline')) as any,
   },
   {
     path: '/curve-line',
-    component: lazy(() => import('./pages/curve-line')),
+    component: lazy(() => import('./pages/curve-line')) as any,
   },
   {
     path: '/drawing-manager',
-    component: lazy(() => import('./pages/drawing-manager')),
+    component: lazy(() => import('./pages/drawing-manager')) as any,
   },
   {
     path: '/polygon',
-    component: lazy(() => import('./pages/polygon')),
+    component: lazy(() => import('./pages/polygon')) as any,
   },
   {
     path: '/circle',
-    component: lazy(() => import('./pages/circle')),
+    component: lazy(() => import('./pages/circle')) as any,
   },
   {
     path: '/canvas-layer',
-    component: lazy(() => import('./pages/canvas-layer')),
+    component: lazy(() => import('./pages/canvas-layer')) as any,
   },
   {
     path: '/custom-overlay',
-    component: lazy(() => import('./pages/custom-overlay')),
+    component: lazy(() => import('./pages/custom-overlay')) as any,
   },
   {
     path: '/require-script',
-    component: lazy(() => import('./pages/require-script')),
+    component: lazy(() => import('./pages/require-script')) as any,
   },
   {
     path: '/tile-layer',
-    component: lazy(() => import('./pages/tile-layer')),
+    component: lazy(() => import('./pages/tile-layer')) as any,
   },
   {
     path: '/map-types',
-    component: lazy(() => import('./pages/map-types')),
+    component: lazy(() => import('./pages/map-types')) as any,
   },
   {
     path: '/utils',
-    component: lazy(() => import('./pages/utils')),
+    component: lazy(() => import('./pages/utils')) as any,
   },
 ];
 
