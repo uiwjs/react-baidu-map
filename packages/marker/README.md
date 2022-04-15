@@ -9,12 +9,14 @@ import { Marker, useMarker } from '@uiw/react-baidu-map';
 import Marker, { useMarker } from '@uiw/react-baidu-map-marker';
 ```
 
+🚧  注意：需要使用到 `<Provider>`，新的封装 `Marker` 组建使用了 `Context` 来避免 `map` 对象传来传去。
+
 ### 基本用法
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
-import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
+import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => {
   function markerRef(props) {
@@ -25,22 +27,24 @@ const Demo = () => {
   return (
     <div style={{ width: '100%', height: 350 }}>
       <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-        <Map widget={['NavigationControl']} zoom={13}>
-          <Marker ref={markerRef} animation={2} position={{ lng: 121.411535, lat: 31.222965 }} />
-          <Marker position={{ lng: 121.465145, lat: 31.241245 }} />
-          <Marker position={{ lng: 121.466008, lat: 31.220001 }} type="loc_red" /> 
-          <Marker position={{ lng: 121.501365, lat: 31.224942 }} type="simple_blue" />
-          <Marker position={{ lng: 121.464858, lat: 31.202705 }} type="simple_red" />
-          <Marker position={{ lng: 121.458534, lat: 31.224942}} type="start" />
-          <Marker position={{ lng: 121.434962, lat: 31.200729 }} type="end" />
-          <Marker position={{ lng: 121.478943, lat: 31.2531 }} type="location" />
-          <Marker position={{ lng: 121.516888, lat: 31.249149 }} type="red1" />
-          <Marker position={{ lng: 121.512576, lat: 31.240504 }} type="red2" />
-          <Marker position={{ lng: 121.513726, lat: 31.233588}} type="blue3" />
-          <Marker position={{ lng: 121.520912, lat: 31.234576}} type="blue4" />
-          <Marker position={{ lng: 121.491879, lat: 31.195045}} type="dot_red" />
-          <Marker position={{ lng: 121.485555, lat: 31.195045}} type="dot_blue" />
-        </Map>
+        <Provider>
+          <Map widget={['NavigationControl']} zoom={13}>
+            <Marker ref={markerRef} animation={2} position={{ lng: 121.411535, lat: 31.222965 }} />
+            <Marker position={{ lng: 121.465145, lat: 31.241245 }} />
+            <Marker position={{ lng: 121.466008, lat: 31.220001 }} type="loc_red" /> 
+            <Marker position={{ lng: 121.501365, lat: 31.224942 }} type="simple_blue" />
+            <Marker position={{ lng: 121.464858, lat: 31.202705 }} type="simple_red" />
+            <Marker position={{ lng: 121.458534, lat: 31.224942}} type="start" />
+            <Marker position={{ lng: 121.434962, lat: 31.200729 }} type="end" />
+            <Marker position={{ lng: 121.478943, lat: 31.2531 }} type="location" />
+            <Marker position={{ lng: 121.516888, lat: 31.249149 }} type="red1" />
+            <Marker position={{ lng: 121.512576, lat: 31.240504 }} type="red2" />
+            <Marker position={{ lng: 121.513726, lat: 31.233588}} type="blue3" />
+            <Marker position={{ lng: 121.520912, lat: 31.234576}} type="blue4" />
+            <Marker position={{ lng: 121.491879, lat: 31.195045}} type="dot_red" />
+            <Marker position={{ lng: 121.485555, lat: 31.195045}} type="dot_blue" />
+          </Map>
+        </Provider>
       </APILoader>
     </div>
   );
@@ -54,6 +58,7 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import ReactDOM from 'react-dom';
 import { useState } from 'react';
+import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 const CustomIcon = () => {
   const [position, setPosition] = useState({ lng: 121.466008, lat: 31.220001 });
   const icon = new BMap.Icon('http://developer.baidu.com/map/jsdemo/img/fox.gif', new BMap.Size(300, 157));
@@ -70,7 +75,9 @@ const CustomIcon = () => {
 const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <CustomIcon />
+      <Provider>
+        <CustomIcon />
+      </Provider>
     </APILoader>
   </div>
 );
@@ -81,8 +88,9 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
-import ReactDOM from 'react-dom';
 import { useState } from 'react';
+import ReactDOM from 'react-dom';
+import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const CustomIcon = () => {
   const [count, setCount] = useState(0)
@@ -107,7 +115,9 @@ const CustomIcon = () => {
 const Demo = () => (
   <div style={{ width: '100%', height: '350px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <CustomIcon />
+      <Provider>
+        <CustomIcon />
+      </Provider>
     </APILoader>
   </div>
 );
@@ -120,7 +130,7 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import ReactDOM from 'react-dom';
 import { useState } from 'react';
-import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
+import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const CustomIcon = () => {
   const [enableDragging, setEnableDragging] = useState(true);
@@ -170,7 +180,9 @@ const CustomIcon = () => {
 const Demo = () => (
   <div style={{ width: '100%', height: '350px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <CustomIcon />
+      <Provider>
+        <CustomIcon />
+      </Provider>
     </APILoader>
   </div>
 );
@@ -186,7 +198,7 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import ReactDOM from 'react-dom';
 import { useState } from 'react';
-import { Map, Marker, APILoader } from '@uiw/react-baidu-map';
+import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const CustomIcon = () => {
   const [visiable, setVisiable] = useState(true);
@@ -232,7 +244,9 @@ const CustomIcon = () => {
 const Demo = () => (
   <div style={{ width: '100%', height: '350px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <CustomIcon />
+      <Provider>
+        <CustomIcon />
+      </Provider>
     </APILoader>
   </div>
 );
@@ -247,7 +261,7 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import ReactDOM from 'react-dom';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMarker } from '@uiw/react-baidu-map';
+import { Provider, APILoader, useMap, useMarker } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
@@ -273,7 +287,9 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
