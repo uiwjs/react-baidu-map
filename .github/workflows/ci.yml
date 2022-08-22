@@ -69,10 +69,10 @@ jobs:
         token: ${{ secrets.NPM_TOKEN }}
         package: packages/api-loader/package.json
 
-    - uses: JS-DevTools/npm-publish@v1
-      with:
-        token: ${{ secrets.NPM_TOKEN }}
-        package: packages/canvas-layer/package.json
+    # - uses: JS-DevTools/npm-publish@v1
+    #   with:
+    #     token: ${{ secrets.NPM_TOKEN }}
+    #     package: packages/canvas-layer/package.json
 
     - uses: JS-DevTools/npm-publish@v1
       with:
