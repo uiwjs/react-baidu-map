@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[7644],{7644:function(e,u,i){i.r(u),u.default={components:{},data:{},source:"@uiw/react-baidu-map-utils\n===\n\n```shell\n$ npm i @uiw/react-baidu-map-utils\n```\n\n```jsx\nimport { noop, requireCss, requireScript, useRenderDom, usePrevious } from '@uiw/react-baidu-map-utils';\n```\n"}}}]);
+//# sourceMappingURL=7644.3ba618f6.chunk.js.map

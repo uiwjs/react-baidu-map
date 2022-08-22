@@ -189,6 +189,7 @@ __webpack_require__.d(__webpack_exports__, {
   "usePointCollection": () => (/* reexport */ usePointCollection),
   "usePolygon": () => (/* reexport */ usePolygon),
   "usePolyline": () => (/* reexport */ usePolyline),
+  "usePortal": () => (/* reexport */ usePortal),
   "usePrevious": () => (/* reexport */ usePrevious),
   "useProperties": () => (/* reexport */ useProperties),
   "useRenderDom": () => (/* reexport */ useRenderDom),
@@ -203,7 +204,6 @@ function noop() {}
 
 // EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
 var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(156);
-var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_default = /*#__PURE__*/__webpack_require__.n(external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_);
 // EXTERNAL MODULE: external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react"}
 var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(787);
 var external_root_React_commonjs2_react_commonjs_react_amd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_);
@@ -475,7 +475,52 @@ function requireScript(src) {
   });
 }
 
+;// CONCATENATED MODULE: ../utils/esm/usePortal.js
+
+
+var usePortal = () => {
+  var [container] = external_root_React_commonjs2_react_commonjs_react_amd_react_default().useState(() => {
+    var el = document.createElement('div');
+    return el;
+  });
+  var [portal, setPortal] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)({
+    render: () => null,
+    remove: () => null
+  });
+  var ReactCreatePortal = external_root_React_commonjs2_react_commonjs_react_amd_react_default().useCallback(elmm => {
+    var Portal = _ref => {
+      var {
+        children
+      } = _ref;
+      if (!children) return null;
+      return /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, elmm);
+    };
+
+    var remove = elm => {
+      elm && (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.unmountComponentAtNode)(elm);
+    };
+
+    return {
+      render: Portal,
+      remove
+    };
+  }, []);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (container) portal.remove();
+    var newPortal = ReactCreatePortal(container);
+    setPortal(newPortal);
+    return () => {
+      newPortal.remove(container);
+    };
+  }, [container]);
+  return {
+    Portal: portal.render,
+    container
+  };
+};
+
 ;// CONCATENATED MODULE: ../utils/esm/index.js
+
 
 
 
@@ -617,6 +662,10 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
   }
 
   render() {
+    if (window && window.BMapGL && this.props.type === 'webgl') {
+      window.BMap = window.BMapGL;
+    }
+
     return this.state.loaded ? this.props.children : this.props.fallback ? this.props.fallback(this.state.error) : this.state.error ? /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
       style: {
         color: 'red'
@@ -702,7 +751,7 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
 APILoader.defaultProps = {
   akay: '',
   hostAndPath: 'api.map.baidu.com/api',
-  version: '3.0',
+  version: '2.0',
   callbackName: 'load_bmap_sdk',
   type: ''
 };
@@ -811,12 +860,14 @@ function useMap(props) {
         }
 
         if (typeof item === 'string') {
-          instance.addControl(new BMap[item]());
+          var Control = BMap[item];
+          Control && instance.addControl(new Control());
         } else if (typeof item === 'object' && item.control && typeof item.control === 'function') {
           instance.addControl(item.control(BMap, instance));
         } else if (typeof item === 'object' && item.name) {
           var options = typeof item.options === 'function' ? item.options(BMap, instance) : item.options;
-          instance.addControl(new BMap[item.name](options));
+          var _Control = BMap[item.name];
+          _Control && instance.addControl(new _Control(options));
         }
       });
       setMap(instance);
@@ -908,7 +959,7 @@ var _excluded = ["className", "style", "children"];
 
 
 
-function Provider(props) {
+var Provider = props => {
   var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
   return /*#__PURE__*/(0,jsx_runtime.jsx)(Context.Provider, {
     value: {
@@ -917,7 +968,7 @@ function Provider(props) {
     },
     children: props.children
   });
-}
+};
 /* harmony default export */ const esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((_ref, ref) => {
   var {
     className,
@@ -1344,7 +1395,7 @@ function useCustomOverlay(props) {
     if (map && !portal && document) {
       var elm = document.createElement('div');
       var CustomOverlay = getCustomOverlay();
-      var portalInstance = /*#__PURE__*/external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_default().createPortal(children, elm);
+      var portalInstance = /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, elm);
       var CompOverlay = new CustomOverlay(elm, position, paneName);
       setCount(count + 1);
       setDiv(elm);
@@ -1356,7 +1407,7 @@ function useCustomOverlay(props) {
   var prevCount = usePrevious(count);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (map && div && children && count === prevCount) {
-      var portalInstance = /*#__PURE__*/external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_default().createPortal(children, div);
+      var portalInstance = /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, div);
       setPortal(portalInstance);
       setCount(count + 1);
     } // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1497,6 +1548,7 @@ function useMarker(props) {
       shadow,
       title
     };
+    console.log('map:', map);
     var point = new BMap.Point(position.lng, position.lat);
     var newMarker = new BMap.Marker(point, options);
     map.addOverlay(newMarker);
@@ -1514,6 +1566,7 @@ function useMarker(props) {
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && marker && !icon && type) {
       var newIcon = getIcons(type);
+      console.log('>>>>newIcon>>>', newIcon);
       newIcon.setImageSize(new BMap.Size(600 / 2, 600 / 2));
       marker.setIcon(newIcon);
     } // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1568,10 +1621,10 @@ function useLabel(props) {
     enableMassClear
   } = props;
   var {
-    container
-  } = useRenderDom({
-    children: props.children
-  });
+    container,
+    Portal
+  } = usePortal(); // const { container } = useRenderDom({ children: props.children });
+
   var {
     map
   } = useMapContext();
@@ -1599,7 +1652,8 @@ function useLabel(props) {
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (label) {
       label.setContent(props.children ? container.innerHTML : content);
-    }
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [props.children, container, label]);
   useVisiable(label, props);
   useEventProperties(label, props, ['Click', 'DblClick', 'MouseDo', 'MouseUp', 'MouseOout', 'MouseO', 'Remove', 'RightClick']);
@@ -1607,7 +1661,8 @@ function useLabel(props) {
   useEnableProperties(label, props, ['MassClear']);
   return {
     label,
-    setLabel
+    setLabel,
+    Portal
   };
 }
 
@@ -1616,14 +1671,18 @@ function useLabel(props) {
 
 
 
+
 /* harmony default export */ const label_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
-    label
+    label,
+    Portal
   } = useLabel(_extends({}, props));
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     label
   }), [label, props]);
-  return null;
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(Portal, {
+    children: props.children
+  });
 }));
 
 ;// CONCATENATED MODULE: ../tile-layer/esm/useTileLayer.js
@@ -1727,15 +1786,13 @@ function useInfoWindow(props) {
       opts = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
 
   var {
-    container
-  } = useRenderDom({
-    children: props.children
-  });
+    container,
+    Portal
+  } = usePortal();
   var {
-    container: title
-  } = useRenderDom({
-    children: props.title || ''
-  });
+    container: title,
+    Portal: PortalTitle
+  } = usePortal();
   var {
     map
   } = useMapContext();
@@ -1769,15 +1826,16 @@ function useInfoWindow(props) {
     if (infoWindow) {
       infoWindow.setContent(props.children ? container : opts.content || '');
     }
-  }, [props.content, props.children]);
+  }, [props.content, props.children, infoWindow, container, opts.content]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (infoWindow) {
       infoWindow.setTitle(title);
     }
-  }, [props.content, title]);
+  }, [infoWindow, props.content, title]);
   useVisiable(infoWindow, props);
   useEventProperties(infoWindow, props, ['Close', 'Open', 'Maximize', 'Restore', 'ClickClose']);
-  useProperties(infoWindow, props, ['Width', 'Height', 'Title', // 'Content',
+  useProperties(infoWindow, props, ['Width', 'Height', // 'Title',
+  // 'Content',
   'MaxContent']);
   useEnableProperties(infoWindow, props, ['CloseOnClick', 'Maximize', 'AutoPan']);
   return {
@@ -1791,7 +1849,9 @@ function useInfoWindow(props) {
      */
     setInfoWindow,
     isOpen,
-    setIsOpen
+    setIsOpen,
+    Portal,
+    PortalTitle
   };
 }
 
@@ -1800,16 +1860,26 @@ function useInfoWindow(props) {
 
 
 
+
+
 /* harmony default export */ const info_window_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
     infoWindow,
-    setIsOpen
+    setIsOpen,
+    Portal,
+    PortalTitle
   } = useInfoWindow(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setIsOpen(props.isOpen), [props.isOpen]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setIsOpen(props.isOpen), [props.isOpen, setIsOpen]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     infoWindow
   }));
-  return null;
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(Portal, {
+      children: props.children
+    }), /*#__PURE__*/(0,jsx_runtime.jsx)(PortalTitle, {
+      children: props.title
+    })]
+  });
 }));
 
 ;// CONCATENATED MODULE: ../point-collection/esm/usePointCollection.js
@@ -2277,10 +2347,9 @@ function useControl(props) {
   }
 
   var {
-    container
-  } = useRenderDom({
-    children: props.children
-  });
+    container,
+    Portal
+  } = usePortal();
   var [control, setControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     offset,
@@ -2289,8 +2358,9 @@ function useControl(props) {
   var {
     map
   } = useMapContext();
+  console.log(map);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (map && !control && props.children) {
+    if (map && !control && container) {
       var _Control = getControl_getCustomOverlay();
 
       var instance = new _Control(container, anchor, offset);
@@ -2299,15 +2369,16 @@ function useControl(props) {
     }
 
     return () => {
-      if (map && control) () => {
+      if (map && control) {
         map.removeControl(control);
-      };
+      }
     };
-  }, [map, control, anchor, offset, container, props.children]);
+  }, [map, control, anchor, offset, container]);
   useVisiable(control, props);
   useProperties(control, props, ['Anchor', 'Offset']);
   return {
     control,
+    ControlPortal: Portal,
     setControl
   };
 }
@@ -2317,14 +2388,18 @@ function useControl(props) {
 
 
 
+
 /* harmony default export */ const control_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
-    control
+    control,
+    ControlPortal
   } = useControl(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     control
-  }), [control]);
-  return null;
+  }), [control, props]);
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(ControlPortal, {
+    children: props.children
+  });
 }));
 
 ;// CONCATENATED MODULE: ../copyright-control/esm/useCopyrightControl.js
@@ -2371,6 +2446,8 @@ function useCopyrightControl(props) {
 ;// CONCATENATED MODULE: ../copyright-control/esm/Item.js
 
 
+
+
 var uid = 1;
 function CopyrightControlItem(props) {
   if (props === void 0) {
@@ -2384,10 +2461,9 @@ function CopyrightControlItem(props) {
   } = props;
   var [id] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(uid++);
   var {
-    container
-  } = useRenderDom({
-    children
-  });
+    container,
+    Portal
+  } = usePortal();
   var prevId = usePrevious(id);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (control) {
@@ -2403,8 +2479,10 @@ function CopyrightControlItem(props) {
         control.removeCopyright(prevId);
       }
     };
-  }, [children, control]);
-  return null;
+  }, [bounds, children, container, control, id, prevId]);
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(Portal, {
+    children: children
+  });
 }
 
 ;// CONCATENATED MODULE: ../copyright-control/esm/index.js
@@ -2421,7 +2499,7 @@ var CopyrightControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs
   } = useCopyrightControl(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     copyrightControl
-  }), [copyrightControl]);
+  }), [copyrightControl, props]);
   return /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
     children: external_root_React_commonjs2_react_commonjs_react_amd_react_default().Children.toArray(props.children).map((child, index) => {
       if ( /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().isValidElement(child)) {

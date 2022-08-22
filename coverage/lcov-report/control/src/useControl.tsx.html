@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.05% </span>
+                <span class="strong">52.94% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/17</span>
+                <span class='fraction'>9/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/10</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.05% </span>
+                <span class="strong">52.94% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/17</span>
+                <span class='fraction'>9/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -108,66 +108,66 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useEffect } from 'react';
 import { useMapContext } from '@uiw/react-baidu-map-map';
-import { useProperties, useVisiable, useRenderDom } from '@uiw/react-baidu-map-utils';
+import { useProperties, useVisiable, usePortal } from '@uiw/react-baidu-map-utils';
 import getControl from './getControl';
 import { ControlProps } from './';
 &nbsp;
 export interface UseControl extends ControlProps {}
 &nbsp;
-export function useControl(props = {} as UseControl) {
-  const { container } = useRenderDom({ children: props.children });
+export function useControl(props = <span class="branch-0 cbranch-no" title="branch not covered" >{} as UseControl)</span> {
+  const { container, Portal } = usePortal();
   const [control, setControl] = useState&lt;BMap.Control&gt;();
   const { offset, anchor } = props;
   const { map } = useMapContext();
-&nbsp;
+  console.log(map);
   useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >    if (map &amp;&amp; !control &amp;&amp; props.children) {</span>
+<span class="cstat-no" title="statement not covered" >    if (map &amp;&amp; !control &amp;&amp; container) {</span>
       const Control = <span class="cstat-no" title="statement not covered" >getControl();</span>
       const instance = <span class="cstat-no" title="statement not covered" >new Control(container, anchor, offset);</span>
 <span class="cstat-no" title="statement not covered" >      setControl(instance);</span>
 <span class="cstat-no" title="statement not covered" >      map.addOverlay(instance);</span>
     }
 <span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (map &amp;&amp; control)</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        ()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          map.removeControl(control);</span>
-        };
+<span class="cstat-no" title="statement not covered" >      if (map &amp;&amp; control) {</span>
+<span class="cstat-no" title="statement not covered" >        map.removeControl(control);</span>
+      }
     };
-  }, [map, control, anchor, offset, container, props.children]);
+  }, [map, control, anchor, offset, container]);
 &nbsp;
   useVisiable(control!, props);
   useProperties&lt;BMap.Control, UseControl&gt;(control!, props, ['Anchor', 'Offset']);
   return {
     control,
+    ControlPortal: Portal,
     setControl,
   };
 }
@@ -178,7 +178,7 @@ export function useControl(props = {} as UseControl) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-22T07:23:15.913Z
+                at 2022-08-22T17:10:28.706Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
