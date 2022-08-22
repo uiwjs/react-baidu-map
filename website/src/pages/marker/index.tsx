@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { APILoader, Map, Marker, useMap, useMarker } from '@uiw/react-baidu-map';
+import { APILoader, Map, Marker, useMap, useMarker, Provider } from '@uiw/react-baidu-map';
 import Markdown from '../../components/Markdown';
 
 export default class Page extends Markdown {
@@ -14,5 +14,6 @@ export default class Page extends Markdown {
     useRef,
     useEffect,
     useState,
+    Provider,
   };
 }
