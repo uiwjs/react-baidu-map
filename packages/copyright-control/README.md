@@ -11,9 +11,7 @@ import CopyrightControl, { useCopyrightControl } from '@uiw/react-baidu-map-copy
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, CopyrightControl } from '@uiw/react-baidu-map';
 
@@ -62,60 +60,7 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
-```
-
-### 使用 hooks
-
-`portal`, `setPortal`, `copyrightControl`, `setCopyrightControl`
-
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
-import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useCopyrightControl } from '@uiw/react-baidu-map';
-
-const Example = () => {
-  const divElm = useRef(null);
-  const [count, setCount] = useState(0);
-  const { setContainer, map } = useMap({ zoom: 13, center: '上海', widget: ['NavigationControl'] });
-  const { portal, copyrightControl } = useCopyrightControl({ map });
-
-  useEffect(() => {
-    if (divElm.current && !map) {
-      setContainer(divElm.current);
-    }
-  }, [map]);
-
-  useEffect(() => {
-    if (portal && copyrightControl) {
-      copyrightControl.removeCopyright(111);
-      copyrightControl.addCopyright({
-        id: 111,
-        content: `<a href='#' style='font-size:20px;background:yellow'>我是自定义版权控件呀${count}</a>`,
-        bounds: new BMap.Bounds(new BMap.Point(121.412972,31.245691), new BMap.Point(121.53083,31.185407)),
-      });
-    }
-  }, [copyrightControl, count]);
-  return (
-    <>
-      <button onClick={() => setCount(count + 1)}>
-        更改版权信息 {count}
-      </button>
-      <div ref={divElm} style={{ height: '100%' }} />
-      {portal}
-    </>
-  )
-}
-
-const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
-    </APILoader>
-  </div>
-);
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### CopyrightControl

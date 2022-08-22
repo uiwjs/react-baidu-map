@@ -11,9 +11,7 @@ import Circle, { useCircle } from '@uiw/react-baidu-map-circle';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useState } from 'react';
 import { Map, Circle, APILoader } from '@uiw/react-baidu-map';
 
@@ -61,7 +59,8 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 
@@ -69,11 +68,10 @@ ReactDOM.render(<Demo />, _mount_);
 
 `circle`, `setCircle`
 
-<!--rehype:bgWhite=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useCircle } from '@uiw/react-baidu-map';
+import { Map, Provider, APILoader, useMap, useCircle } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [enableEditing, setEnableEditing] = useState(false);
@@ -131,11 +129,14 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### Props

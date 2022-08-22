@@ -11,9 +11,7 @@ import NavigationControl, { useNavigationControl } from '@uiw/react-baidu-map-na
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
-import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, APILoader, NavigationControl } from '@uiw/react-baidu-map';
 
@@ -61,23 +59,24 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### 使用 hooks
 
 `navigationControl`, `setNavigationControl`
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useNavigationControl } from '@uiw/react-baidu-map';
+import { Map, APILoader, Provider, useMap, useNavigationControl } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
   const { setContainer, map } = useMap();
-  const { navigationControl } = useNavigationControl({ map, type: BMAP_NAVIGATION_CONTROL_SMALL });
+  const { navigationControl } = useNavigationControl({
+    type: BMAP_NAVIGATION_CONTROL_SMALL
+  });
 
   useEffect(() => {
     if (divElm.current && !map) {
@@ -100,11 +99,13 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### Props

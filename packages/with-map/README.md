@@ -11,9 +11,8 @@ import withMap from '@uiw/react-baidu-map-with-map';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { withMap, APILoader } from '@uiw/react-baidu-map';
 
 class ExampleMap extends React.Component {
@@ -66,7 +65,8 @@ const Demo = () => {
     </div>
   )
 };
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 

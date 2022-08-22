@@ -16,13 +16,12 @@ import RequireScript, { requireScript } from '@uiw/react-baidu-map-require-scrip
 
 下面实例来自高德官方： https://lbsyun.baidu.com/jsdemo.htm#gl_tool_1
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef } from 'react';
 import { Map, APILoader, RequireScript } from '@uiw/react-baidu-map';
 
-const Demo = () => {
+const Example = () => {
   const myDis = useRef();
   const openHandle = () => {
     myDis.current.open();
@@ -65,15 +64,18 @@ const Demo = () => {
     </>
   );
 };
-ReactDOM.render((
+
+const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader type="webgl" akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <RequireScript src="//mapopen.cdn.bcebos.com/github/BMapGLLib/DistanceTool/src/DistanceTool.min.js">
-        <Demo />
+        <Example />
       </RequireScript>
     </APILoader>
   </div>
-), _mount_);
+);
+
+export default Demo;
 ```
 
 ### Props

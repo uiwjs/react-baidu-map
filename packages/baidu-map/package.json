@@ -38,7 +38,7 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@babel/runtime": "~7.18.0",
+    "@babel/runtime": "^7.18.0",
     "@uiw/react-baidu-map-api-loader": "2.4.0",
     "@uiw/react-baidu-map-canvas-layer": "2.4.0",
     "@uiw/react-baidu-map-circle": "2.4.0",

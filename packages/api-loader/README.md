@@ -27,9 +27,8 @@ Map 的父组件必须具有宽度和高度；
 ```
 
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => (
@@ -39,7 +38,8 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### Props

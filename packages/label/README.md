@@ -13,9 +13,7 @@ import Label, { useLabel } from '@uiw/react-baidu-map-label';
 
 官方原生 JS 实例：https://lbsyun.baidu.com/jsdemo.htm#c1_14
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useState } from 'react';
 import { Map, Label, APILoader } from '@uiw/react-baidu-map';
 
@@ -57,26 +55,24 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### 使用 hooks
 
 `label`, `setLabel`
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useLabel, useMapContext } from '@uiw/react-baidu-map';
+import { Map, APILoader, Provider, useMap, useLabel, useMapContext } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const [zoom, setZoom] = useState(15)
   const divElm = useRef(null);
   const { map } = useMapContext();
-  const { label } = useLabel({
+  const { label, Portal } = useLabel({
     content: '徐泾镇',
-    children: <div>xxxxxx</div>,
     position: { lng: 121.501365, lat: 31.224942 },
     onClick: () => {
       console.log('点击事件！');
@@ -96,6 +92,7 @@ const Example = () => {
       <button onClick={() => setZoom(counts-1)}>-</button>
       <span>{zoom || 10}</span>
       <button onClick={() => setZoom(counts+1)}>+</button>
+      <Portal><div>xxxxxx</div></Portal>
     </>
   )
 }
@@ -109,14 +106,13 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 使用 Provider
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap, Provider, useLabel } from '@uiw/react-baidu-map';
 
@@ -167,7 +163,8 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### Props

@@ -22,9 +22,8 @@ import Map, { useMap, APILoader, Provider, useMapContext } from '@uiw/react-baid
 
 Map 的父组件必须具有宽度和高度；
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => (
@@ -34,16 +33,15 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### 小工具
 
 百度地图上负责与地图交互的UI元素称为控件。百度地图API中提供了丰富的控件，您还可以通过 Control 类来实现自定义控件，[`百度控件文档`](http://lbsyun.baidu.com/index.php?title=jspopular3.0/guide/widget)。
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => (
@@ -95,7 +93,7 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### useMapContext & Provider
@@ -105,17 +103,16 @@ ReactDOM.render(<Demo />, _mount_);
 > 🚧 在 `v2.3.0+` 版本支持
 <!--rehype:style=border-left: 8px solid #ffe564;background-color: #ffe56440;padding: 12px 10px;-->
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
-import { useState } from 'react';
+```jsx mdx:preview
+import React from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Map, APILoader, useMap, Provider, useMapContext } from '@uiw/react-baidu-map';
 
 const Marker = () => {
   const { map } = useMapContext();
   const container = useRef(null);
   const { setContainer } = useMap({
-    zoom: 9,
+    zoom: 3,
     widget: ['GeolocationControl', 'NavigationControl']
   });
 
@@ -146,7 +143,7 @@ const Marker = () => {
 
 const Demo = () => {
   return (
-    <div style={{ width: '100%', height: '300px' }}>
+    <div style={{ width: '100%', height: '300px', overflow: 'auto' }}>
       <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
         <Provider>
           <div>
@@ -157,7 +154,7 @@ const Demo = () => {
     </div>
   );
 }
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ```js
@@ -171,9 +168,8 @@ const { AMaps, map, container, state, dispatch } = useMapContext();
 
 ### 可控属性
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useState } from 'react';
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
@@ -191,16 +187,15 @@ const Demo = () => {
     </div>
   );
 }
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### 使用 hooks
 
 `map`, `setMap`, `container`, `setContainer`, `zoom`, `setZoom`, `setCenter`, `autoLocalCity`, `setAutoLocalCity`,
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
 import { Map, APILoader, useMap } from '@uiw/react-baidu-map';
 
@@ -245,7 +240,7 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### Props

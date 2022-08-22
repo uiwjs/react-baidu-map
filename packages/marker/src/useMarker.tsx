@@ -95,6 +95,7 @@ export function useMarker(props = {} as UseMarker) {
       shadow,
       title,
     };
+    console.log('map:', map);
     const point = new BMap.Point(position.lng, position.lat);
     const newMarker = new BMap.Marker(point, options);
     map.addOverlay(newMarker);
@@ -112,6 +113,7 @@ export function useMarker(props = {} as UseMarker) {
   useEffect(() => {
     if (map && marker && !icon && type) {
       const newIcon = getIcons(type as string);
+      console.log('>>>>newIcon>>>', newIcon);
       newIcon.setImageSize(new BMap.Size(600 / 2, 600 / 2));
       marker.setIcon(newIcon);
     }

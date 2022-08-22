@@ -11,9 +11,7 @@ import OverviewMapControl, { useOverviewMapControl } from '@uiw/react-baidu-map-
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, OverviewMapControl } from '@uiw/react-baidu-map';
 
@@ -42,13 +40,15 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>
   </div>
-), _mount_);
+);
+
+export default Demo;
 ```
 
 
@@ -56,11 +56,10 @@ ReactDOM.render((
 
 `overviewMapControl`, `setGeolocationControl`
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useOverviewMapControl } from '@uiw/react-baidu-map';
+import { Map, APILoader, Provider, useMap, useOverviewMapControl } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
@@ -88,11 +87,13 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### Props

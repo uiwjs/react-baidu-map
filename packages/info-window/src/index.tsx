@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle } from 'react';
+import React, { Fragment, useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '@uiw/react-baidu-map-map';
 import { useInfoWindow } from './useInfoWindow';
 
@@ -27,9 +27,14 @@ export interface InfoWindowProps extends OverlayProps, Omit<BMap.InfoWindowOptio
 }
 
 export default React.forwardRef<InfoWindowProps & { infoWindow?: BMap.InfoWindow }, InfoWindowProps>((props, ref) => {
-  const { infoWindow, setIsOpen } = useInfoWindow(props);
+  const { infoWindow, setIsOpen, Portal, PortalTitle } = useInfoWindow(props);
 
-  useEffect(() => setIsOpen(props.isOpen!), [props.isOpen]);
+  useEffect(() => setIsOpen(props.isOpen!), [props.isOpen, setIsOpen]);
   useImperativeHandle(ref, () => ({ ...props, infoWindow }));
-  return null;
+  return (
+    <Fragment>
+      <Portal>{props.children}</Portal>
+      <PortalTitle>{props.title as any}</PortalTitle>
+    </Fragment>
+  );
 });

@@ -80,14 +80,15 @@
     "website"
   ],
   "devDependencies": {
-    "@kkt/ncc": "~1.0.8",
-    "compile-less-cli": "~1.8.11",
-    "cross-env": "~7.0.3",
-    "husky": "~7.0.4",
-    "lerna": "~4.0.0",
-    "lint-staged": "~12.3.4",
-    "prettier": "~2.6.0",
-    "tsbb": "~3.7.0"
+    "@babel/runtime": "^7.18.9",
+    "@kkt/ncc": "~1.0.14",
+    "compile-less-cli": "~1.8.13",
+    "cross-env": "^7.0.3",
+    "husky": "^8.0.1",
+    "lerna": "^5.4.3",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "tsbb": "^3.7.6"
   },
   "eslintConfig": {
     "extends": [

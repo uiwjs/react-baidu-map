@@ -11,9 +11,7 @@ import Control, { useControl } from '@uiw/react-baidu-map-control';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useState, useRef } from 'react';
 import { Map, Control, APILoader } from '@uiw/react-baidu-map';
 
@@ -71,58 +69,72 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### 使用 hooks
 
 `control`, `setControl`
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useMemo, useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useControl, useMapContext } from '@uiw/react-baidu-map';
+import { Map, Provider, APILoader, useMap, useControl, useMapContext } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
   const [count, setCount] = useState(4);
   const { map } = useMapContext();
-  const children = (
-    <div style={{ background: 'gray', padding: '10px' }}>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-          map.setZoom(map.getZoom() + 1);
-        }}
-      >
-        放大1级 {count}
-      </button>
-      <button
-        onClick={() => {
-          setCount(count - 1);
-          map.setZoom(map.getZoom() - 2);
-        }}
-      >
-        缩小1级 {count}
-      </button>
-    </div>
-  );
-  useControl({ children, anchor: BMAP_ANCHOR_TOP_RIGHT });
-  useControl({ children, anchor: BMAP_ANCHOR_BOTTOM_RIGHT });
-  return null
+  const { ControlPortal } = useControl({ anchor: BMAP_ANCHOR_TOP_RIGHT });
+  const { ControlPortal: ControlPortal2 } = useControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT });
+  return (
+    <>
+      <ControlPortal>
+        <div style={{ background: 'gray', padding: '10px' }}>
+          <button
+            onClick={() => {
+              setCount(count + 1);
+              map.setZoom(map.getZoom() + 1);
+            }}
+          >
+            放大1级 {count}
+          </button>
+          <button
+            onClick={() => {
+              setCount(count - 1);
+              map.setZoom(map.getZoom() - 2);
+            }}
+          >
+            缩小1级 {count}
+          </button>
+        </div>
+      </ControlPortal>
+      <ControlPortal2>
+        <div
+          style={{ background: 'gray', padding: '10px', fontSize: 12 }}
+          onClick={() => setCount(count + 1)}
+        >
+          Current Count: {count}
+        </div>
+      </ControlPortal2>
+    </>
+  )
 }
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Map zoom={13} widget={['NavigationControl']} style={{ height: 350 }}>
-        <Example />
-      </Map>
+      <Provider>
+        <Map zoom={13} widget={['NavigationControl']} style={{ height: 350 }}>
+          <Example />
+        </Map>
+      </Provider>
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### Props

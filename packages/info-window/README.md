@@ -11,9 +11,7 @@ import InfoWindow, { useInfoWindow } from '@uiw/react-baidu-map-info-window';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useState } from 'react';
 import { Map, InfoWindow, APILoader } from '@uiw/react-baidu-map';
 
@@ -56,7 +54,7 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### ~~`content`~~ -> `children` 支持 `JSX.Element`
@@ -66,9 +64,8 @@ ReactDOM.render(<Demo />, _mount_);
 > 🚧 如果同时设置了 `content` 属性且有 `children`，`content` 将失效被忽略。
 <!--rehype:style=border-left: 8px solid #ffe564; background-color: #ffe56440; padding: 12px 16px;-->
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+<!--rehype-->
+```jsx mdx:preview
 import React, { useState } from 'react';
 import { Map, InfoWindow, APILoader } from '@uiw/react-baidu-map';
 
@@ -91,9 +88,11 @@ const Example = () => {
           title={<div>地址信息二</div>}
           content="test"
         >
-          上海市 <del>青浦区</del> 徐泾镇盈港东路 Good!
-          <br/>
-          <button onClick={() => setCount(count+1)}>{count} Count={String(count)}</button>
+          <div>
+            上海市 <del>青浦区</del> 徐泾镇盈港东路 Good!
+            <br/>
+            <button onClick={() => setCount(count+1)}>{count} Count={String(count)}</button>
+          </div>
         </InfoWindow>
       </Map>
     </>
@@ -107,18 +106,16 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### 使用 hooks
 
 `infoWindow`, `setInfoWindow`, `isOpen`, `setIsOpen`
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useRef, useState, useEffect } from 'react';
-import { Map, useMap, InfoWindow, useInfoWindow, APILoader } from '@uiw/react-baidu-map';
+import { Map, Provider, useMap, InfoWindow, useInfoWindow, APILoader } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
@@ -129,10 +126,10 @@ const Example = () => {
 
   const [title, setTitle] = useState('地址信息二');
   const position = { lng: 121.501365, lat: 31.224942 };
-  const { infoWindow, isOpen, setIsOpen } = useInfoWindow({
-    BMap, map, position, enableCloseOnClick: false, isOpen: true,
-    content: '上海市 <del>青浦区</del> 徐泾镇盈港东路',
-    title,
+  const { infoWindow, isOpen, setIsOpen, Portal, PortalTitle } = useInfoWindow({
+    position, enableCloseOnClick: false, isOpen: true,
+    // content: '上海市 <del>青浦区</del> 徐泾镇盈港东路',
+    // title,
     onClose: () => {
       console.log('onClose:');
     }
@@ -147,6 +144,8 @@ const Example = () => {
       <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? '显示' : '隐藏'}</button>
       <input value={title} onChange={(e) => setTitle(e.target.value)} />
       <div ref={divElm} style={{ height: 350 }} />
+      <Portal>上海市 <del>青浦区</del> 徐泾镇盈港东路</Portal>
+      <PortalTitle> {title} </PortalTitle>
     </>
   )
 }
@@ -155,12 +154,14 @@ const Demo = () => {
   return (
     <div style={{ width: '100%' }}>
       <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-        <Example />
+        <Provider>
+          <Example />
+        </Provider>
       </APILoader>
     </div>
   )
 };
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### Props

@@ -50,13 +50,12 @@ npm install @uiw/react-baidu-map --save
 
 ## 使用
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { Map, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%', height: '300px', overflow: 'auto' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Map center="杭州"/>
       <Map center="上海">
@@ -67,7 +66,8 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ## 容器组件

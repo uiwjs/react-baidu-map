@@ -1,28 +1,28 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, PropsWithChildren } from 'react';
 import { useMapContext } from '@uiw/react-baidu-map-map';
 import {
   useEnableProperties,
   useProperties,
   useVisiable,
   useEventProperties,
-  useRenderDom,
+  usePortal,
 } from '@uiw/react-baidu-map-utils';
 import { InfoWindowProps } from '.';
 
-export interface UseInfoWindow extends InfoWindowProps {}
+export interface UseInfoWindow extends PropsWithChildren<InfoWindowProps> {}
 
 export function useInfoWindow(props = {} as UseInfoWindow) {
   const { position, ...opts } = props;
-  const { container } = useRenderDom({ children: props.children });
-  const { container: title } = useRenderDom({ children: props.title || '' });
+  const { container, Portal } = usePortal();
+  const { container: title, Portal: PortalTitle } = usePortal();
   const { map } = useMapContext();
   const [infoWindow, setInfoWindow] = useState<BMap.InfoWindow>();
   useMemo(() => {
     if (!infoWindow && map) {
       opts.title = title;
       const win = new BMap.InfoWindow(props.children ? container : opts.content || '', {
-        ...opts,
-      } as BMap.InfoWindowOptions);
+        ...(opts as BMap.InfoWindowOptions),
+      });
       setInfoWindow(win);
     }
     return () => {
@@ -50,13 +50,13 @@ export function useInfoWindow(props = {} as UseInfoWindow) {
     if (infoWindow) {
       infoWindow.setContent(props.children ? container : opts.content || '');
     }
-  }, [props.content, props.children]);
+  }, [props.content, props.children, infoWindow, container, opts.content]);
 
   useEffect(() => {
     if (infoWindow) {
       infoWindow.setTitle(title);
     }
-  }, [props.content, title]);
+  }, [infoWindow, props.content, title]);
 
   useVisiable(infoWindow!, props);
   useEventProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
@@ -69,7 +69,7 @@ export function useInfoWindow(props = {} as UseInfoWindow) {
   useProperties<BMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
     'Width',
     'Height',
-    'Title',
+    // 'Title',
     // 'Content',
     'MaxContent',
   ]);
@@ -86,5 +86,7 @@ export function useInfoWindow(props = {} as UseInfoWindow) {
     setInfoWindow,
     isOpen,
     setIsOpen,
+    Portal,
+    PortalTitle,
   };
 }

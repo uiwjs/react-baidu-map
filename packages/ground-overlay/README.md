@@ -11,9 +11,7 @@ import GroundOverlay, { useGroundOverlay } from '@uiw/react-baidu-map-ground-ove
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useState } from 'react';
 import { Map, GroundOverlay, APILoader } from '@uiw/react-baidu-map';
 
@@ -54,7 +52,8 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### 使用 hooks
@@ -63,11 +62,10 @@ ReactDOM.render(<Demo />, _mount_);
 
 > ⚠️ 不知为何 `show` 和 `hide` 方法存在但不起作用，理论上是继承 [`Overlay`](https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html#a3b0) 类就会有 `show()` 和 `hide()` 方法。
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useGroundOverlay } from '@uiw/react-baidu-map';
+import { Map, Provider, APILoader, useMap, useGroundOverlay } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
@@ -108,11 +106,14 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### Props

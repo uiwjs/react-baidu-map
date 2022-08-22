@@ -13,10 +13,7 @@ import DrawingManager, { useDrawingManager } from '@uiw/react-baidu-map-drawing-
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useState } from 'react'
 import { Map, DrawingManager, APILoader } from '@uiw/react-baidu-map'
 
@@ -57,18 +54,16 @@ const Demo = () => (
     </APILoader>
   </div>
 )
-ReactDOM.render(<Demo />, _mount_)
+export default Demo;
 ```
 
 
 ### 使用 hooks
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react'
-import { Map, APILoader, useMap, useDrawingManager } from '@uiw/react-baidu-map'
+import { Map, APILoader, Provider, useMap, useDrawingManager } from '@uiw/react-baidu-map'
 
 const Example = () => {
 
@@ -119,11 +114,13 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 )
-ReactDOM.render(<Demo />, _mount_)
+export default Demo;
 ```
 
 

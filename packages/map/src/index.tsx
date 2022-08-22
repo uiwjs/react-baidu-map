@@ -1,5 +1,14 @@
 /// <reference types="@uiw/react-baidu-map-types" />
-import React, { useRef, useEffect, useImperativeHandle, useReducer, useMemo, CSSProperties } from 'react';
+import React, {
+  FC,
+  PropsWithChildren,
+  useRef,
+  useEffect,
+  useImperativeHandle,
+  useReducer,
+  useMemo,
+  CSSProperties,
+} from 'react';
 import { useMap } from './useMap';
 import { Context, reducer, initialState } from './context';
 
@@ -113,18 +122,16 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
   viewport?: (view: Array<BMap.Point> | BMap.Viewport, viewportOptions: BMap.ViewportOptions) => void;
 }
 
-export type MapChildRenderProps =
-  | {
-      children?: (data: { BMap: typeof BMap; map: BMap.Map; container?: string | HTMLDivElement | null }) => void;
-    }
+export type RenderProps =
+  | { children?: (data: { BMap: typeof BMap; map: BMap.Map; container?: HTMLDivElement | null }) => undefined }
   | { children?: React.ReactNode };
 
-export function Provider(props: MapChildRenderProps) {
+export const Provider: FC<PropsWithChildren<RenderProps>> = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return <Context.Provider value={{ state, dispatch }}>{props.children}</Context.Provider>;
-}
+};
 
-export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & MapChildRenderProps>(
+export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & RenderProps>(
   ({ className, style, children, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, initialState);
     window.BMap = window.BMap || window.BMapGL;

@@ -19,7 +19,7 @@ export interface ControlProps extends OverlayProps {
 }
 
 export default React.forwardRef<ControlProps & { control?: BMap.Control }, ControlProps>((props, ref) => {
-  const { control } = useControl(props);
-  useImperativeHandle(ref, () => ({ ...props, control }), [control]);
-  return null;
+  const { control, ControlPortal } = useControl(props);
+  useImperativeHandle(ref, () => ({ ...props, control }), [control, props]);
+  return <ControlPortal>{props.children}</ControlPortal>;
 });

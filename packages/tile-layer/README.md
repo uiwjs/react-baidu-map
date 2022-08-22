@@ -11,9 +11,8 @@ import TileLayer, { useTileLayer } from '@uiw/react-baidu-map-tile-layer';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useState, useRef } from 'react';
 import { Map, APILoader, TileLayer } from '@uiw/react-baidu-map';
 
@@ -25,37 +24,38 @@ const Example = () => {
         {show ? '关闭' : '开启'}
       </button>
       <Map widget={['NavigationControl']} zoom={16} center={{ lng: 116.332782, lat: 40.007978 }} style={{ height: 350 }}>
-          <TileLayer
-            visiable={show}
-            getTilesUrl={(tileCoord, zoom) => {
-              const { x, y } = tileCoord;
-              // 根据当前坐标，选取合适的瓦片图
-              return `http://lbsyun.baidu.com/jsdemo/demo/tiles/${zoom}/tile${x}_${y}.png`;
-            }}
-          />
+        <TileLayer
+          visiable={show}
+          getTilesUrl={(tileCoord, zoom) => {
+            const { x, y } = tileCoord;
+            // 根据当前坐标，选取合适的瓦片图
+            return `http://lbsyun.baidu.com/jsdemo/demo/tiles/${zoom}/tile${x}_${y}.png`;
+          }}
+        />
       </Map>
     </>
   );
 }
 
-ReactDOM.render((
+const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Example />
     </APILoader>
   </div>
-), _mount_);
+);
+
+export default Demo;
 ```
 
 ### 使用 hooks
 
 `tileLayer`, `setTileLayer`, `visiable`, `setVisiable`
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useTileLayer } from '@uiw/react-baidu-map';
+import { Map, APILoader, Provider, useMap, useTileLayer } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
@@ -95,11 +95,13 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### Props

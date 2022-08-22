@@ -13,9 +13,8 @@ import PointCollection, { usePointCollection } from '@uiw/react-baidu-map-point-
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { Map, PointCollection, APILoader, requireScript } from '@uiw/react-baidu-map';
 
@@ -65,7 +64,7 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 
@@ -75,11 +74,10 @@ ReactDOM.render(<Demo />, _mount_);
 
 > 下面实例[`来源官方网站实例`](http://lbsyun.baidu.com/jsdemo.htm#c1_19)。
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import { Map, useMap, APILoader, usePointCollection } from '@uiw/react-baidu-map';
+import { Map, useMap, Provider, APILoader, usePointCollection, requireScript } from '@uiw/react-baidu-map';
 
 let loadData = false;
 let data = []
@@ -114,11 +112,13 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### Props

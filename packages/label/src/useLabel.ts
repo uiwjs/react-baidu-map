@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
-  useRenderDom,
+  usePortal,
   useEnableProperties,
   useProperties,
   useVisiable,
@@ -14,7 +14,8 @@ export interface UseLabel extends LabelProps {}
 export function useLabel(props = {} as UseLabel) {
   const [label, setLabel] = useState<BMap.Label>();
   const { offset, style, content = '', position, enableMassClear } = props;
-  const { container } = useRenderDom({ children: props.children });
+  const { container, Portal } = usePortal();
+  // const { container } = useRenderDom({ children: props.children });
   const { map } = useMapContext();
 
   useEffect(() => {
@@ -38,6 +39,7 @@ export function useLabel(props = {} as UseLabel) {
     if (label) {
       label.setContent(props.children ? container.innerHTML : content);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.children, container, label]);
 
   useVisiable(label!, props);
@@ -57,5 +59,6 @@ export function useLabel(props = {} as UseLabel) {
   return {
     label,
     setLabel,
+    Portal,
   };
 }

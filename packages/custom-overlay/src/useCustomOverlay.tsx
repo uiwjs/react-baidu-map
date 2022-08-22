@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import { createPortal } from 'react-dom';
 import { useMapContext } from '@uiw/react-baidu-map-map';
 import { useProperties, usePrevious } from '@uiw/react-baidu-map-utils';
 import { CustomOverlayProps } from './';
@@ -76,7 +76,7 @@ export function useCustomOverlay(props = {} as UseCustomOverlay) {
     if (map && !portal && document) {
       const elm = document.createElement('div');
       const CustomOverlay = getCustomOverlay();
-      const portalInstance = ReactDOM.createPortal(children, elm);
+      const portalInstance = createPortal(children, elm);
       const CompOverlay = new CustomOverlay(elm, position, paneName);
       setCount(count + 1);
       setDiv(elm);
@@ -89,7 +89,7 @@ export function useCustomOverlay(props = {} as UseCustomOverlay) {
   const prevCount = usePrevious(count);
   useMemo(() => {
     if (map && div && children && count === prevCount) {
-      const portalInstance = ReactDOM.createPortal(children, div);
+      const portalInstance = createPortal(children, div);
       setPortal(portalInstance);
       setCount(count + 1);
     }

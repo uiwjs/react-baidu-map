@@ -1,12 +1,6 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 
-export type Routes = {
-  path: string;
-  exact?: boolean;
-  component: React.ReactNode;
-}[];
-
-export const routes: Routes = [
+export const routes = [
   {
     path: '/',
     exact: true,
@@ -269,6 +263,11 @@ export const menus = [
     label: '百度地图 API v3.0',
     target: '__blank',
     path: 'https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html',
+  },
+  {
+    label: '百度地图 WebGL v1.0 类参考',
+    target: '__blank',
+    path: 'https://mapopen-pub-jsapi.bj.bcebos.com/jsapi/reference/jsapi_webgl_1_0.html#a2b7',
   },
   {
     label: '源码 Github 仓库',

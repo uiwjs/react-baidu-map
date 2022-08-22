@@ -67,11 +67,11 @@ const DEFAULT_RETRY_TIME = 3;
 /**
  * APILoader 用于加载百度地图依赖
  */
-export default class APILoader extends React.Component<APILoaderProps, State> {
+export default class APILoader extends React.Component<React.PropsWithChildren<APILoaderProps>, State> {
   public static defaultProps = {
     akay: '',
     hostAndPath: 'api.map.baidu.com/api',
-    version: '3.0',
+    version: '2.0',
     callbackName: 'load_bmap_sdk',
     type: '',
   };
@@ -135,6 +135,9 @@ export default class APILoader extends React.Component<APILoaderProps, State> {
   }
 
   public render() {
+    if (window && window.BMapGL && this.props.type === 'webgl') {
+      window.BMap = window.BMapGL as any;
+    }
     return this.state.loaded ? (
       this.props.children
     ) : this.props.fallback ? (

@@ -13,9 +13,7 @@ import CustomOverlay, { useCustomOverlay } from '@uiw/react-baidu-map-custom-ove
 
 官方原生 JS 实例：https://lbsyun.baidu.com/jsdemo.htm#c1_11
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
 import React, { useState } from 'react';
 import { APILoader, Map, Marker, CustomOverlay } from '@uiw/react-baidu-map';
 
@@ -66,18 +64,17 @@ const Demo = () => {
     </div>
   );
 };
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### 使用 hooks
 
 `portal`, `setPortal`, `customOverlay`, `setCustomOverlay`
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useMarker, useCustomOverlay } from '@uiw/react-baidu-map';
+import { Map, APILoader, Provider, useMap, useMarker, useCustomOverlay } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef();
@@ -120,11 +117,13 @@ const Example = () => {
 const Demo = () => (
   <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### Props

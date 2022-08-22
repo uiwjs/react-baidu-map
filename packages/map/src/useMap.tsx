@@ -51,12 +51,14 @@ export function useMap(props: UseMap = {}) {
             return;
           }
           if (typeof item === 'string') {
-            instance.addControl(new (BMap[item] as any)());
+            const Control = BMap[item] as any;
+            Control && instance.addControl(new Control());
           } else if (typeof item === 'object' && item.control && typeof item.control === 'function') {
             instance.addControl(item.control(BMap, instance));
           } else if (typeof item === 'object' && item.name) {
             const options = typeof item.options === 'function' ? item.options(BMap, instance) : item.options;
-            instance.addControl(new (BMap[item.name] as any)(options));
+            const Control = BMap[item.name] as any;
+            Control && instance.addControl(new Control(options));
           }
         });
       setMap(instance);

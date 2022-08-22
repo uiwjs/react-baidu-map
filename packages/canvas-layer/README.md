@@ -1,6 +1,8 @@
 CanvasLayer 自定义Canvas
 ===
 
+⚠️ `BMap.CanvasLayer` API 不知道为何没有了
+
 用于在地图上绘制自定义的canvas2D或WebGL图形，[百度 CanvasLayer 文档](http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html#a3b28)。
 
 ```jsx
@@ -11,9 +13,7 @@ import CanvasLayer, { useCanvasLayer } from '@uiw/react-baidu-map-canvas-layer';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
-import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, CanvasLayer, APILoader } from '@uiw/react-baidu-map';
 
@@ -60,12 +60,12 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f" version="2.0">
       <Example />
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 
@@ -73,11 +73,10 @@ ReactDOM.render(<Demo />, _mount_);
 
 `canvasLayer`, `setCanvasLayer`
 
-<!--rehype:bgWhite=true-->
 ```jsx
-import ReactDOM from 'react-dom';
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import { Map, APILoader, useMap, useCanvasLayer } from '@uiw/react-baidu-map';
+import { Map, APILoader, Provider, useMap, useCanvasLayer } from '@uiw/react-baidu-map';
 
 const Example = () => {
   const divElm = useRef(null);
@@ -126,12 +125,14 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f" version="2.0">
+      <Provider>
+        <Example />
+      </Provider>
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+export default Demo;
 ```
 
 ### Props

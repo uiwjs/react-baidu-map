@@ -13,9 +13,8 @@ import Marker, { useMarker } from '@uiw/react-baidu-map-marker';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => {
@@ -25,10 +24,10 @@ const Demo = () => {
     }
   }
   return (
-    <div style={{ width: '100%', height: 350 }}>
+    <div style={{ width: '100%' }}>
       <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
         <Provider>
-          <Map widget={['NavigationControl']} zoom={13}>
+          <Map widget={['NavigationControl']} zoom={13} style={{ height: 350 }}>
             <Marker ref={markerRef} animation={2} position={{ lng: 121.411535, lat: 31.222965 }} />
             <Marker position={{ lng: 121.465145, lat: 31.241245 }} />
             <Marker position={{ lng: 121.466008, lat: 31.220001 }} type="loc_red" /> 
@@ -49,14 +48,14 @@ const Demo = () => {
     </div>
   );
 };
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### 自定义标点
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useState } from 'react';
 import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 const CustomIcon = () => {
@@ -81,15 +80,15 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### 添加事件
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
+```jsx mdx:preview
+import React from 'react';
 import { useState } from 'react';
-import ReactDOM from 'react-dom';
 import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 
 const CustomIcon = () => {
@@ -121,14 +120,14 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### 可拖拽
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useState } from 'react';
 import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 
@@ -186,7 +185,8 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 
@@ -194,9 +194,8 @@ ReactDOM.render(<Demo />, _mount_);
 
 百度地图[官方实例](http://lbsyun.baidu.com/jsdemo.htm#c1_20)。
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useState } from 'react';
 import { Map, Provider, Marker, APILoader } from '@uiw/react-baidu-map';
 
@@ -250,16 +249,16 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### 使用 hooks
 
 `marker`, `setMarker`, `type`, `setType`
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { useRef, useEffect, useState } from 'react';
 import { Provider, APILoader, useMap, useMarker } from '@uiw/react-baidu-map';
 
@@ -279,13 +278,13 @@ const Example = () => {
       <button onClick={() => marker.setPosition(new BMap.Point(121.497197, 31.232847))}>设置坐标点</button>
       <button onClick={() => marker.setAnimation(2)}>设置动画</button>
       <button onClick={() => marker.setAnimation(null)}>取消动画</button>
-      <div ref={divElm} style={{ height: '100%' }} />
+      <div ref={divElm} style={{ height: 350 }} />
     </>
   )
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
+  <div style={{ width: '100%' }}>
     <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
       <Provider>
         <Example />
@@ -293,7 +292,8 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 
 ### Props
