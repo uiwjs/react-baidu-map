@@ -40,7 +40,7 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@babel/runtime": "~7.17.2",
+    "@babel/runtime": "~7.18.0",
     "@uiw/react-baidu-map-map": "2.4.0"
   }
 }
