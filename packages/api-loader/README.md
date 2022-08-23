@@ -3,6 +3,9 @@ APILoader
 
 用于加载百度地图 SDK 依赖，加载完成，全局将会有 **`window.BMap`** 对象。
 
+- [x] 自动加载百度地图 SDK 依赖
+- [x] 避免重复加载 SDK 依赖
+
 ```jsx
 import { APILoader } from '@uiw/react-baidu-map';
 // 或者单独安装使用

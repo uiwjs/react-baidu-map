@@ -289,6 +289,11 @@ export const menus = [
     label: '相关连接',
   },
   {
+    label: '百度官方 React-BMapGL 组件',
+    target: '__blank',
+    path: 'https://lbsyun.baidu.com/solutions/reactBmapDoc',
+  },
+  {
     label: '高德地图 React 组件',
     target: '__blank',
     path: 'https://uiwjs.github.io/react-amap/',
