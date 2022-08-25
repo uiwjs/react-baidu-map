@@ -134,7 +134,6 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "APILoader": () => (/* reexport */ APILoader),
-  "CanvasLayer": () => (/* reexport */ canvas_layer_esm),
   "Circle": () => (/* reexport */ circle_esm),
   "Context": () => (/* reexport */ Context),
   "Control": () => (/* reexport */ control_esm),
@@ -166,7 +165,6 @@ __webpack_require__.d(__webpack_exports__, {
   "reducer": () => (/* reexport */ reducer),
   "requireCss": () => (/* reexport */ requireCss),
   "requireScript": () => (/* reexport */ requireScript),
-  "useCanvasLayer": () => (/* reexport */ useCanvasLayer),
   "useCircle": () => (/* reexport */ useCircle),
   "useControl": () => (/* reexport */ useControl),
   "useCopyrightControl": () => (/* reexport */ useCopyrightControl),
@@ -1118,66 +1116,6 @@ function useCircle(props) {
   } = useCircle(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     circle
-  }));
-  return null;
-}));
-
-;// CONCATENATED MODULE: ../canvas-layer/esm/useCanvasLayer.js
-
-
-
-
-function useCanvasLayer(props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var {
-    zIndex,
-    paneName
-  } = props;
-  var {
-    map
-  } = useMapContext();
-  var [canvasLayer, setCanvasLayer] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
-    if (map && BMap && !canvasLayer) {
-      var update = function update() {
-        var self = this;
-        props.update && props.update(_extends({}, self, {
-          BMap,
-          map
-        }));
-      };
-
-      var instance = new BMap.CanvasLayer({
-        zIndex,
-        paneName,
-        update
-      });
-      map.addOverlay(instance);
-      setCanvasLayer(instance);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  }, [map, canvasLayer]);
-  useVisiable(canvasLayer, props);
-  return {
-    canvasLayer,
-    setCanvasLayer
-  };
-}
-
-;// CONCATENATED MODULE: ../canvas-layer/esm/index.js
-
-
-
-
-/* harmony default export */ const canvas_layer_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    canvasLayer
-  } = useCanvasLayer(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    canvasLayer
   }));
   return null;
 }));
