@@ -13,9 +13,14 @@ export interface CopyrightControlProps extends OverlayProps, BMap.CopyrightContr
   children?: React.ReactNode;
 }
 
-const CopyrightControl: React.ForwardRefExoticComponent<
+type RefCopyrightControl = React.ForwardRefExoticComponent<
   CopyrightControlProps & React.RefAttributes<CopyrightControlProps>
-> & { Item?: typeof CopyrightControlItem } = React.forwardRef((props, ref) => {
+> & { Item: typeof CopyrightControlItem };
+
+const CopyrightControl: RefCopyrightControl = React.forwardRef<
+  CopyrightControlProps & { copyrightControl?: BMap.CopyrightControl },
+  CopyrightControlProps
+>((props, ref) => {
   const { copyrightControl } = useCopyrightControl(props);
   useImperativeHandle(ref, () => ({ ...props, copyrightControl }), [copyrightControl, props]);
   return (
@@ -31,7 +36,7 @@ const CopyrightControl: React.ForwardRefExoticComponent<
       })}
     </Fragment>
   );
-});
+}) as unknown as RefCopyrightControl;
 
 CopyrightControl.Item = CopyrightControlItem;
 
