@@ -5,8 +5,6 @@ export { default as Map } from '@uiw/react-baidu-map-map';
 export * from '@uiw/react-baidu-map-map';
 export { default as Circle } from '@uiw/react-baidu-map-circle';
 export * from '@uiw/react-baidu-map-circle';
-export { default as CanvasLayer } from '@uiw/react-baidu-map-canvas-layer';
-export * from '@uiw/react-baidu-map-canvas-layer';
 export { default as CurveLine } from '@uiw/react-baidu-map-curve-line';
 export * from '@uiw/react-baidu-map-curve-line';
 export { default as CustomOverlay } from '@uiw/react-baidu-map-custom-overlay';
