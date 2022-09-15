@@ -60,7 +60,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f" version="2.0">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG" version="2.0">
       <Example />
     </APILoader>
   </div>
@@ -125,7 +125,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f" version="2.0">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG" version="2.0">
       <Provider>
         <Example />
       </Provider>

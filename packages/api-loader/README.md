@@ -24,7 +24,7 @@ Map 的父组件必须具有宽度和高度；
 ```html
 <script
   type="text/javascript"
-  src="http://api.map.baidu.com/api?v=3.0&ak=GTrnXa5hwXGwgQnTBG28SHBubErMKm3f&callback=load_bmap_sdk"
+  src="http://api.map.baidu.com/api?v=3.0&ak=eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG&callback=load_bmap_sdk"
 >
 </script>
 ```
@@ -36,7 +36,7 @@ import { Map, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Map autoLocalCity style={{ height: 350 }} />
     </APILoader>
   </div>

@@ -39,7 +39,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Example />
     </APILoader>
   </div>
@@ -94,7 +94,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Provider>
         <Example />
       </Provider>

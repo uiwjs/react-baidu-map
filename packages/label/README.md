@@ -50,7 +50,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Example />
     </APILoader>
   </div>
@@ -99,7 +99,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Map zoom={9} widget={['NavigationControl']} style={{ height: 350 }} >
         <Example />
       </Map>
@@ -156,7 +156,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Provider>
         <Example />
       </Provider>

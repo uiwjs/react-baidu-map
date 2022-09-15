@@ -28,7 +28,7 @@ import { Map, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Map />
     </APILoader>
   </div>
@@ -46,7 +46,7 @@ import { Map, APILoader } from '@uiw/react-baidu-map';
 
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Map
         ref={(props) => {
           if (props && props.map) {
@@ -144,7 +144,7 @@ const Marker = () => {
 const Demo = () => {
   return (
     <div style={{ width: '100%', height: '300px', overflow: 'auto' }}>
-      <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
         <Provider>
           <div>
             <Marker />
@@ -181,7 +181,7 @@ const Demo = () => {
       <button onClick={() => setCenter('北京')}>北京</button>
       <button onClick={() => setCenter('上海')}>上海</button>
       <button onClick={() => setEnableScrollWheelZoom(!enableScrollWheelZoom)}>{enableScrollWheelZoom ? '禁用': '启用'}滚轮放大缩小</button>
-      <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
         <Map enableScrollWheelZoom={enableScrollWheelZoom} zoom={10}  center={center}/>
       </APILoader>
     </div>
@@ -235,7 +235,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Example />
     </APILoader>
   </div>

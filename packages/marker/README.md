@@ -25,7 +25,7 @@ const Demo = () => {
   }
   return (
     <div style={{ width: '100%' }}>
-      <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
         <Provider>
           <Map widget={['NavigationControl']} zoom={13} style={{ height: 350 }}>
             <Marker ref={markerRef} animation={2} position={{ lng: 121.411535, lat: 31.222965 }} />
@@ -73,7 +73,7 @@ const CustomIcon = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Provider>
         <CustomIcon />
       </Provider>
@@ -113,7 +113,7 @@ const CustomIcon = () => {
 
 const Demo = () => (
   <div style={{ width: '100%', height: '350px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Provider>
         <CustomIcon />
       </Provider>
@@ -178,7 +178,7 @@ const CustomIcon = () => {
 
 const Demo = () => (
   <div style={{ width: '100%', height: '350px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Provider>
         <CustomIcon />
       </Provider>
@@ -242,7 +242,7 @@ const CustomIcon = () => {
 
 const Demo = () => (
   <div style={{ width: '100%', height: '350px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Provider>
         <CustomIcon />
       </Provider>
@@ -285,7 +285,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Provider>
         <Example />
       </Provider>

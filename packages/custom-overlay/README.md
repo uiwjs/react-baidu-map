@@ -31,7 +31,7 @@ const Demo = () => {
   }
   return (
     <div style={{ width: '100%' }}>
-      <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
         <Map widget={['NavigationControl']} zoom={13} style={{ height: 350 }}>
           <Marker position={{ lng: 121.466008, lat: 31.220001 }} />
           <CustomOverlay
@@ -116,7 +116,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <Provider>
         <Example />
       </Provider>

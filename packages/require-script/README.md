@@ -67,7 +67,7 @@ const Example = () => {
 
 const Demo = () => (
   <div style={{ width: '100%' }}>
-    <APILoader type="webgl" akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <APILoader type="webgl" akay="eYpCTECSntZmw0WyoQ7zFpCRR9cpgHFG">
       <RequireScript src="//mapopen.cdn.bcebos.com/github/BMapGLLib/DistanceTool/src/DistanceTool.min.js">
         <Example />
       </RequireScript>
