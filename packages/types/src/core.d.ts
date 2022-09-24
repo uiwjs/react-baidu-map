@@ -118,7 +118,7 @@ declare namespace BMap {
     /**
      * 返回两点之间的距离，单位是米
      */
-    getDistance(start: Point, end: Point): void;
+    getDistance(start: Point, end: Point): Number;
     /**
      * 返回地图类型
      */
