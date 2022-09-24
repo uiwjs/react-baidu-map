@@ -244,7 +244,7 @@ declare namespace BMap {
     strokeWeight?: number;
   }
   class IconSequence {
-    constructor(symbol: symbol, offset?: string, repeat?: string, fixedRotation?: boolean);
+    constructor(symbol: Symbol, offset?: string, repeat?: string, fixedRotation?: boolean);
   }
   interface PointCollection extends Overlay {
     /**
