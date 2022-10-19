@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
 import { useMapContext } from '@uiw/react-baidu-map-map';
+import { useEffect, useState } from 'react';
 // import defaultIconUrl from './markers.png';
-import { defaultIconUrl } from './markers';
+import { noop, useEnableProperties, useEventProperties, useProperties, useVisiable } from '@uiw/react-baidu-map-utils';
 import { MarkerProps } from '.';
-import { noop, useEnableProperties, useProperties, useVisiable, useEventProperties } from '@uiw/react-baidu-map-utils';
+import { defaultIconUrl } from './markers';
 
 export interface UseMarker extends MarkerProps {}
 
@@ -95,7 +95,6 @@ export function useMarker(props = {} as UseMarker) {
       shadow,
       title,
     };
-    console.log('map:', map);
     const point = new BMap.Point(position.lng, position.lat);
     const newMarker = new BMap.Marker(point, options);
     map.addOverlay(newMarker);
