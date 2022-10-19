@@ -211,6 +211,7 @@ var jsx_runtime = __webpack_require__(664);
 /// <reference types="@uiw/react-baidu-map-types" />
 
 
+
 /**
  * 批量创建多个如下 State，监听并设置值，
  * 组件属性更改 <Componet enableDragging={true} >
@@ -228,35 +229,30 @@ var jsx_runtime = __webpack_require__(664);
  * @param propsName
  */
 
-
 function useEnableProperties(instance, props, propsName) {
   if (props === void 0) {
     props = {};
   }
-
   if (propsName === void 0) {
     propsName = [];
   }
-
   propsName.forEach(name => {
     var eName = "enable" + name;
     var funName = props[eName] ? "enable" + name : "disable" + name;
-
     if (instance && props[eName] !== undefined) {
       instance[funName] && instance[funName]();
     }
   });
 }
+
 /**
  * 针对 Overlay 类型的组件，有公共的是否显示 对象处理
  * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
  */
-
 function useVisiable(instance, props) {
   if (props === void 0) {
     props = {};
   }
-
   var visiable = props.visiable;
   var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -266,13 +262,13 @@ function useVisiable(instance, props) {
       } else {
         instance.hide && instance.hide();
       }
-
       if (visiable !== state) {
         setState(visiable);
       }
     }
   }, [instance, state, visiable]);
 }
+
 /**
  * 批量创建多个如下 State，监听并设置值，
  * 执行 `set` 开头的函数。
@@ -280,39 +276,33 @@ function useVisiable(instance, props) {
  * @param props
  * @param propsName
  */
-
 function useProperties(instance, props, propsName) {
   if (propsName === void 0) {
     propsName = [];
   }
-
   propsName.forEach(name => {
-    var eName = "" + name.charAt(0).toLowerCase() + name.slice(1); // eslint-disable-next-line react-hooks/rules-of-hooks
-
-    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props[eName]); // eslint-disable-next-line react-hooks/rules-of-hooks
-
+    var eName = "" + name.charAt(0).toLowerCase() + name.slice(1);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props[eName]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
       if (instance && instance["set" + name] && props[eName] !== undefined) {
         /**
          * 坐标点的参数设置，比对, 坐标点的参数设置
          */
         var data = props[eName];
-
         if (data && data.lng && data.lat) {
           data = new BMap.Point(data.lng, data.lat);
           var preData = state;
-
           if (preData && preData.lng && preData.lat) {
             preData = new BMap.Point(preData.lng, preData.lat);
-
             if (data.equals(preData)) {
               return;
             }
           }
         }
-
-        instance["set" + name](data); // 属性发生变化缓存
-
+        instance["set" + name](data);
+        // 属性发生变化缓存
         if (state !== props[eName]) {
           if (eName === 'bounds') {
             if (state && props[eName] && !state.equals(props[eName])) {
@@ -322,12 +312,11 @@ function useProperties(instance, props, propsName) {
             setState(props[eName]);
           }
         }
-      } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [instance, props[eName]]);
   });
 }
-
 /**
  * 绑定事件
  * @param instance 实例对象
@@ -345,36 +334,32 @@ function useEventProperties(instance, props, eventName, type) {
   if (props === void 0) {
     props = {};
   }
-
   if (eventName === void 0) {
     eventName = [];
   }
-
   eventName.forEach(name => {
     var eventName = "on" + name;
-    var eventHandle = props[eventName]; // eslint-disable-next-line react-hooks/rules-of-hooks
-
+    var eventHandle = props[eventName];
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
       if (!instance) return;
-
       if (eventHandle && name) {
         var eName = name;
-
         if (type === 'CamelCase') {
           eName = name.replace(name[0], name[0].toLowerCase());
         } else {
           eName = name.toLowerCase();
         }
-
         instance.addEventListener(eName, eventHandle);
         return () => {
           instance.removeEventListener(eName, eventHandle);
         };
-      } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [instance, props[eventName]]);
   });
 }
+
 /**
  * 获取上一轮的 props 或 state
  * How to get the previous props or state?
@@ -388,7 +373,6 @@ function useEventProperties(instance, props, eventName, type) {
  * }
  * ```
  */
-
 function usePrevious(value) {
   var ref = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -410,10 +394,10 @@ function useRenderDom(props) {
 
 ;// CONCATENATED MODULE: ../utils/esm/requireScript.js
 var _importedScript = {};
+
 /**
  * load dependency by css tag
  */
-
 function requireCss(src) {
   var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
   return new Promise((resolve, reject) => {
@@ -421,29 +405,25 @@ function requireCss(src) {
       resolve();
       return;
     }
-
     var script = document.createElement('link');
     script.type = 'text/css';
     script.rel = 'stylesheet';
     script.href = src;
-
     script.onerror = err => {
       headElement.removeChild(script);
       reject(new URIError("The css " + src + " is no accessible."));
     };
-
     script.onload = () => {
       _importedScript[src] = true;
       resolve();
     };
-
     headElement.appendChild(script);
   });
 }
+
 /**
  * load dependency by script tag
  */
-
 function requireScript(src) {
   var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
   return new Promise((resolve, reject) => {
@@ -451,24 +431,20 @@ function requireScript(src) {
       resolve();
       return;
     }
-
     var script = document.createElement('script');
     script.type = 'text/javascript';
     script.id = '_react_baidu_map';
     script.src = src;
     script.async = true;
     script.defer = true;
-
     script.onerror = err => {
       headElement.removeChild(script);
       reject(new URIError("The Script " + src + " is no accessible."));
     };
-
     script.onload = () => {
       _importedScript[src] = true;
       resolve();
     };
-
     headElement.appendChild(script);
   });
 }
@@ -493,11 +469,9 @@ var usePortal = () => {
       if (!children) return null;
       return /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, elmm);
     };
-
     var remove = elm => {
       elm && (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.unmountComponentAtNode)(elm);
     };
-
     return {
       render: Portal,
       remove
@@ -532,35 +506,29 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
     reject(error);
     return;
   }
-
   if (info.done) {
     resolve(value);
   } else {
     Promise.resolve(value).then(_next, _throw);
   }
 }
-
 function _asyncToGenerator(fn) {
   return function () {
     var self = this,
-        args = arguments;
+      args = arguments;
     return new Promise(function (resolve, reject) {
       var gen = fn.apply(self, args);
-
       function _next(value) {
         asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
       }
-
       function _throw(err) {
         asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
       }
-
       _next(undefined);
     });
   };
 }
 ;// CONCATENATED MODULE: ../api-loader/esm/index.js
-
 
 /**
  * 初始化和加载baidu地图
@@ -574,10 +542,10 @@ function delay(time) {
   });
 }
 var DEFAULT_RETRY_TIME = 3;
+
 /**
  * APILoader 用于加载百度地图依赖
  */
-
 class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_react_default()).Component {
   /**
    * 全局可能存在多个Loader同时渲染, 但是只能由一个负责加载
@@ -591,21 +559,17 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
       if (window && window.BMap.Map) {
         return;
       }
-
       if (window && window.BMapGL.Map) {
         return;
       }
-
       return new Promise((res, rej) => {
         APILoader.waitQueue.push([res, rej]);
       });
     })();
   }
-
   constructor(props) {
     super(props);
     this.isMountedOk = false;
-
     this.handleError = error => {
       if (this.isMountedOk) {
         this.setState({
@@ -613,57 +577,46 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
         });
       }
     };
-
     this.finish = () => {
       if (window && this.props.type === 'webgl') {
         window.BMap = window.BMapGL;
       }
-
       if (this.isMountedOk) {
         this.setState({
           loaded: true
         });
       }
     };
-
     this.state = {
       loaded: props.type === 'webgl' ? window && !!window.BMapGL && !!window.BMapGL.Map : window && !!window.BMap && !!window.BMap.Map
     };
-
     if (this.props.akay == null) {
       throw new TypeError('BaiDuMap: akay is required');
     }
   }
-
   componentDidMount() {
     this.isMountedOk = true;
     var {
       callbackName
     } = this.props;
-
     if (!window || !callbackName) {
       return;
     }
-
     if (this.props.type === 'webgl' && window && window.BMapGL && !window.BMapGL.Map || this.props.type === 'webgl' && window && !window.BMapGL || window && window.BMap && !window.BMap.Map || window && !window.BMap) {
       if (window && window[callbackName]) {
         APILoader.waitQueue.push([this.finish, this.handleError]);
         return;
       }
-
       this.loadMap();
     }
   }
-
   componentWillUnmount() {
     this.isMountedOk = false;
   }
-
   render() {
     if (window && window.BMapGL && this.props.type === 'webgl') {
       window.BMap = window.BMapGL;
     }
-
     return this.state.loaded ? this.props.children : this.props.fallback ? this.props.fallback(this.state.error) : this.state.error ? /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
       style: {
         color: 'red'
@@ -671,51 +624,38 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
       children: this.state.error.message
     }) : null;
   }
-
   getScriptSrc() {
     var cfg = this.props;
     var protocol = cfg.protocol || window.location.protocol;
-
     if (protocol.indexOf(':') === -1) {
       protocol += ':';
     }
-
     var args = ["v=" + cfg.version, "ak=" + cfg.akay, "callback=" + cfg.callbackName];
-
     if (cfg.type) {
       args.push("type=" + cfg.type);
     }
-
     return protocol + "//" + cfg.hostAndPath + "?" + args.join('&');
   }
   /**
    * load BaiduMap in script tag
    */
-
-
   loadMap() {
     var _this = this;
-
     return _asyncToGenerator(function* () {
       var {
         callbackName
       } = _this.props;
-
       if (!window || !callbackName) {
         return;
       }
-
       var src = _this.getScriptSrc();
-
       window[callbackName] = () => {
         // flush queue
         var queue = APILoader.waitQueue;
         APILoader.waitQueue = [];
         queue.forEach(task => task[0]());
-
         _this.finish();
       };
-
       for (var i = 0; i < DEFAULT_RETRY_TIME; i++) {
         try {
           yield requireScript(src);
@@ -723,28 +663,23 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
         } catch (error) {
           if (i === DEFAULT_RETRY_TIME - 1) {
             var _ret = function () {
-              var err = new Error("Failed to load Baidu Map: " + error.message); // flush queue
-
+              var err = new Error("Failed to load Baidu Map: " + error.message);
+              // flush queue
               var queue = APILoader.waitQueue;
               APILoader.waitQueue = [];
               queue.forEach(task => task[1](err));
-
               _this.handleError(err);
-
               return {
                 v: void 0
               };
             }();
-
             if (typeof _ret === "object") return _ret.v;
           }
-
           yield delay(i * 1000);
         }
       }
     })();
   }
-
 }
 APILoader.defaultProps = {
   akay: '',
@@ -760,14 +695,12 @@ function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
-
       for (var key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
       }
     }
-
     return target;
   };
   return _extends.apply(this, arguments);
@@ -778,13 +711,11 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   var target = {};
   var sourceKeys = Object.keys(source);
   var key, i;
-
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
     if (excluded.indexOf(key) >= 0) continue;
     target[key] = source[key];
   }
-
   return target;
 }
 ;// CONCATENATED MODULE: ../map/esm/context.js
@@ -822,7 +753,6 @@ function useMap(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     widget,
     minZoom,
@@ -851,12 +781,10 @@ function useMap(props) {
       /**
        * 加载控件
        */
-
       widget && widget.forEach(item => {
         if (!BMap) {
           return;
         }
-
         if (typeof item === 'string') {
           var Control = BMap[item];
           Control && instance.addControl(new Control());
@@ -870,12 +798,12 @@ function useMap(props) {
       });
       setMap(instance);
     }
-
     return () => {
       if (map) {
         map.clearOverlays();
       }
-    }; // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [container, map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && container) {
@@ -885,38 +813,34 @@ function useMap(props) {
         BMap
       });
     }
-
     return () => {
       dispatch({
         map: undefined,
         container: undefined,
         BMap: undefined
       });
-    }; // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, container]);
   var [center, setCenter] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.center || '上海');
   /**
    * 根据参数设置中心点
    */
-
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && center) {
       var cent = center;
-
       if (center && center.lng && center.lat) {
         cent = new BMap.Point(center.lng, center.lat);
         map.centerAndZoom(cent, zoom);
       }
-
       map.centerAndZoom(center, zoom);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [center, map]);
   var [autoLocalCity, setAutoLocalCity] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.autoLocalCity);
   /**
    * IP定位获取当前城市，进行自动定位
    */
-
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && autoLocalCity) {
       var myCity = new BMap.LocalCity();
@@ -927,8 +851,8 @@ function useMap(props) {
       });
     }
   }, [autoLocalCity, map]);
-  useEventProperties(map, props, ['Click', 'DblClick', 'RightClick', 'RightdblClick', 'MapTypeChange', 'MouseMove', 'MouseOver', 'MouseOut', 'MoveStart', 'Moving', 'MoveEnd', 'ZoomStart', 'ZoomEnd', 'AddOverlay', 'AddControl', 'RemoveControl', 'RemoveOverlay', 'ClearOverlays', 'DragStart', 'Dragging', 'DragEnd', 'AddTileLayer', 'RemoveTileLayer', 'Load', 'ReSize', 'HotspotClick', 'HotspotOver', 'HotspotOut', 'TilesLoaded', 'TouchStart', 'TouchMove', 'TouchEnd', 'LongPress']); // 'Center',
-
+  useEventProperties(map, props, ['Click', 'DblClick', 'RightClick', 'RightdblClick', 'MapTypeChange', 'MouseMove', 'MouseOver', 'MouseOut', 'MoveStart', 'Moving', 'MoveEnd', 'ZoomStart', 'ZoomEnd', 'AddOverlay', 'AddControl', 'RemoveControl', 'RemoveOverlay', 'ClearOverlays', 'DragStart', 'Dragging', 'DragEnd', 'AddTileLayer', 'RemoveTileLayer', 'Load', 'ReSize', 'HotspotClick', 'HotspotOver', 'HotspotOut', 'TilesLoaded', 'TouchStart', 'TouchMove', 'TouchEnd', 'LongPress']);
+  // 'Center',
   useProperties(map, props, ['DefaultCursor', 'DraggingCursor', 'MinZoom', 'MaxZoom', 'MapStyle', 'MapStyleV2', 'Panorama', 'CurrentCity', 'MapType', 'Viewport', 'Zoom']);
   useEnableProperties(map, props, ['Dragging', 'ScrollWheelZoom', 'DoubleClickZoom', 'Keyboard', 'InertialDragging', 'ContinuousZoom', 'PinchToZoom', 'AutoResize']);
   return {
@@ -969,12 +893,11 @@ var Provider = props => {
 };
 /* harmony default export */ const esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((_ref, ref) => {
   var {
-    className,
-    style,
-    children
-  } = _ref,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded);
-
+      className,
+      style,
+      children
+    } = _ref,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded);
   var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
   window.BMap = window.BMap || window.BMapGL;
   var elmRef = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(null);
@@ -986,14 +909,14 @@ var Provider = props => {
     map
   } = useMap(_extends({
     container: elmRef.current
-  }, props)); // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setContainer(elmRef.current), [elmRef.current]); // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => props.center && setCenter(props.center), [props.center]); // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setAutoLocalCity(props.autoLocalCity), [props.autoLocalCity]); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  }, props));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setContainer(elmRef.current), [elmRef.current]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => props.center && setCenter(props.center), [props.center]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setAutoLocalCity(props.autoLocalCity), [props.autoLocalCity]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     map,
     BMap,
@@ -1027,13 +950,11 @@ var Provider = props => {
       container
     }), BMap && map && childs.map((child, key) => {
       if (! /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().isValidElement(child)) return null;
-
       if (child.type && typeof child.type === 'string') {
         return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().cloneElement(child, {
           key
         });
       }
-
       return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().cloneElement(child, _extends({}, child.props, {
         BMap,
         map,
@@ -1052,7 +973,6 @@ function useCircle(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     center,
     radius,
@@ -1073,11 +993,9 @@ function useCircle(props) {
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (map && !circle) {
       var point = center;
-
       if (center && center.lng && center.lat) {
         point = new BMap.Point(center.lng, center.lat);
       }
-
       var opts = {
         strokeColor,
         fillColor,
@@ -1092,8 +1010,8 @@ function useCircle(props) {
       var instance = new BMap.Circle(point, radius, opts);
       map.addOverlay(instance);
       setCircle(instance);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, circle]);
   useVisiable(circle, props);
   useEventProperties(circle, props, ['Click', 'DblClick', 'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver', 'Remove', 'LineUpdate']);
@@ -1129,7 +1047,6 @@ function useCurveLine(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     strokeColor,
     strokeWeight,
@@ -1146,8 +1063,8 @@ function useCurveLine(props) {
   var [curveLine, setCurveLine] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var libSDK = window.BMapLib;
   var [bMapLib, setBMapLib] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(libSDK);
-  var [loadMapLib, setLoadBMapLib] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)( false || !!libSDK); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  var [loadMapLib, setLoadBMapLib] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)( false || !!libSDK);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   var opts = {
     strokeColor,
     strokeWeight,
@@ -1167,26 +1084,23 @@ function useCurveLine(props) {
         map.addOverlay(instance);
         setCurveLine(instance);
       }
-    } // 如果 bMapLib 已经加载过，会执行下面的
+    }
 
-
+    // 如果 bMapLib 已经加载过，会执行下面的
     if (map && bMapLib && !bMapLib.CurveLine) {
       requireScript('//api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js').then(() => {
         if (window.BMapLib) {
           var newMapLib = Object.assign(window.BMapLib, bMapLib);
           setBMapLib(newMapLib);
-
           var _points = (props.path || []).map(item => new BMap.Point(item.lng, item.lat));
-
           var _instance = new BMapLib.CurveLine(_points, opts);
-
           map.addOverlay(_instance);
           setCurveLine(_instance);
         }
       }).catch(() => {});
-    } // 如果第一次加载，会执行下面的
+    }
 
-
+    // 如果第一次加载，会执行下面的
     if (!bMapLib && !loadMapLib) {
       setLoadBMapLib(true);
       requireScript('//api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js').then(() => {
@@ -1205,8 +1119,8 @@ function useCurveLine(props) {
   }, [curveLine, path, props.path]);
   useVisiable(curveLine, props);
   useEventProperties(curveLine, props, ['Click', 'DblClick', 'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver', 'Remove', 'LineUpdate']);
-  useEnableProperties(curveLine, props, ['Editing', 'MassClear']); // PositionAt
-
+  useEnableProperties(curveLine, props, ['Editing', 'MassClear']);
+  // PositionAt
   useProperties(curveLine, props, ['StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'StrokeStyle']);
   return {
     curveLine,
@@ -1227,8 +1141,8 @@ function useCurveLine(props) {
     curveLine,
     BMapLib,
     setPath
-  } = useCurveLine(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = useCurveLine(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setPath(props.path), [props.path]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     curveLine,
@@ -1242,7 +1156,6 @@ function useCurveLine(props) {
 
 
 
-
 function getCustomOverlay() {
   return class extends BMap.Overlay {
     constructor(elm, _position, paneName) {
@@ -1252,7 +1165,6 @@ function getCustomOverlay() {
       this.paneName = void 0;
       this.position = void 0;
       this.offset = void 0;
-
       this.initialize = map => {
         var panes = map.getPanes();
         this.container.style.position = 'absolute';
@@ -1260,12 +1172,10 @@ function getCustomOverlay() {
         panes[this.paneName].appendChild(this.container);
         return this.container;
       };
-
       this.draw = () => {
         if (this.position == null || this.map == null) {
           return;
         }
-
         var position = this.map.pointToOverlayPixel(this.position);
         var {
           width = 0,
@@ -1274,42 +1184,33 @@ function getCustomOverlay() {
         this.container.style.left = position.x + width + "px";
         this.container.style.top = position.y + height + "px";
       };
-
       this.setOffset = offset => {
         this.offset = offset;
         this.draw();
       };
-
       this.setPosition = position => {
         this.position = position;
         this.draw();
       };
-
       this.setVisiable = visiable => {
         this.container.style.display = visiable ? 'block' : 'none';
       };
-
       this.getPosition = () => {
         return this.position;
       };
-
       this.setZIndex = index => {
         this.container.style.zIndex = index.toString();
       };
-
       this.container = elm;
       this.paneName = paneName || 'markerPane';
       this.position = _position;
     }
-
   };
 }
-
 function useCustomOverlay(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     children,
     paneName,
@@ -1348,8 +1249,8 @@ function useCustomOverlay(props) {
       var portalInstance = /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, div);
       setPortal(portalInstance);
       setCount(count + 1);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [children, customOverlay]);
   useProperties(customOverlay, props, ['ZIndex', 'Offset', 'Position', 'Visiable']);
   return {
@@ -1369,16 +1270,14 @@ function useCustomOverlay(props) {
   var {
     customOverlay,
     portal
-  } = useCustomOverlay(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = useCustomOverlay(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     customOverlay
   }), [customOverlay]);
-
   if (portal) {
     return portal;
   }
-
   return null;
 }));
 
@@ -1387,9 +1286,8 @@ var defaultIconUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYCAYA
 
 ;// CONCATENATED MODULE: ../marker/esm/useMarker.js
 
- // import defaultIconUrl from './markers.png';
 
-
+// import defaultIconUrl from './markers.png';
 
 
 var getIcons = name => {
@@ -1431,29 +1329,24 @@ var getIcons = name => {
       anchor: new BMap.Size(28 / 2 / 2, 40 / 2)
     })
   };
-
   for (var i = 1; i <= 10; i++) {
     icons['red' + i] = new BMap.Icon(defaultIconUrl, new BMap.Size(42 / 2, 66 / 2), {
       imageOffset: new BMap.Size(0 - 42 / 2 * (i - 1), 0),
       anchor: new BMap.Size(42 / 2 / 2, 66 / 2)
     });
   }
-
   for (var _i = 1; _i <= 10; _i++) {
     icons['blue' + _i] = new BMap.Icon(defaultIconUrl, new BMap.Size(42 / 2, 66 / 2), {
       imageOffset: new BMap.Size(0 - 42 / 2 * (_i - 1), -132 / 2),
       anchor: new BMap.Size(42 / 2 / 2, 66 / 2)
     });
   }
-
   return icons[name];
 };
-
 function useMarker(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     position,
     animation,
@@ -1486,7 +1379,6 @@ function useMarker(props) {
       shadow,
       title
     };
-    console.log('map:', map);
     var point = new BMap.Point(position.lng, position.lat);
     var newMarker = new BMap.Marker(point, options);
     map.addOverlay(newMarker);
@@ -1494,21 +1386,21 @@ function useMarker(props) {
     setMarker(newMarker);
     return () => {
       map.removeOverlay(newMarker);
-    }; // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   var [type, setType] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.type || 'loc_blue');
   /**
    * 设置标注点 `图标`
    */
-
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && marker && !icon && type) {
       var newIcon = getIcons(type);
       console.log('>>>>newIcon>>>', newIcon);
       newIcon.setImageSize(new BMap.Size(600 / 2, 600 / 2));
       marker.setIcon(newIcon);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type, marker]);
   useVisiable(marker, props);
   useEventProperties(marker, props, ['Click', 'DblClick', 'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver', 'Remove', 'InfowindowClose', 'InfowindowOpen', 'DragStart', 'Dragging', 'DragEnd', 'RightClick']);
@@ -1531,8 +1423,8 @@ function useMarker(props) {
   var {
     marker,
     setType
-  } = useMarker(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = useMarker(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => props.type && setType(props.type), [props.type]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     marker
@@ -1549,7 +1441,6 @@ function useLabel(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [label, setLabel] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     offset,
@@ -1561,14 +1452,13 @@ function useLabel(props) {
   var {
     container,
     Portal
-  } = usePortal(); // const { container } = useRenderDom({ children: props.children });
-
+  } = usePortal();
+  // const { container } = useRenderDom({ children: props.children });
   var {
     map
   } = useMapContext();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!BMap || !map) return;
-
     if (!label) {
       var opts = {
         offset,
@@ -1580,18 +1470,18 @@ function useLabel(props) {
       map.addOverlay(instance);
       setLabel(instance);
     }
-
     return () => {
       if (map && label) {
         map.removeOverlay(label);
       }
-    }; // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (label) {
       label.setContent(props.children ? container.innerHTML : content);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.children, container, label]);
   useVisiable(label, props);
   useEventProperties(label, props, ['Click', 'DblClick', 'MouseDo', 'MouseUp', 'MouseOout', 'MouseO', 'Remove', 'RightClick']);
@@ -1626,7 +1516,6 @@ function useLabel(props) {
 ;// CONCATENATED MODULE: ../tile-layer/esm/useTileLayer.js
 
 
-
 /**
  * https://lbsyun.baidu.com/jsdemo.htm#g0_2
  */
@@ -1634,7 +1523,6 @@ function useTileLayer(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [tileLayer, setTileLayer] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     transparentPng = true,
@@ -1653,15 +1541,12 @@ function useTileLayer(props) {
         copyright,
         zIndex
       });
-
       if (!!props.getTilesUrl) {
         instance.getTilesUrl = props.getTilesUrl;
       }
-
       if (!!props.getCopyright) {
         instance.getCopyright = props.getCopyright;
       }
-
       map.addTileLayer(instance);
       setTileLayer(instance);
       return () => {
@@ -1669,15 +1554,15 @@ function useTileLayer(props) {
           map.removeTileLayer(instance);
         }
       };
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.visiable);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && tileLayer) {
       visiable ? map.addTileLayer(tileLayer) : map.removeTileLayer(tileLayer);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visiable, map]);
   return {
     tileLayer,
@@ -1696,12 +1581,12 @@ function useTileLayer(props) {
   var {
     tileLayer,
     setVisiable
-  } = useTileLayer(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = useTileLayer(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     tileLayer
-  }), [tileLayer]); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  }), [tileLayer]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setVisiable(props.visiable), [props.visiable]);
   return null;
 }));
@@ -1717,12 +1602,10 @@ function useInfoWindow(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    position
-  } = props,
-      opts = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
-
+      position
+    } = props,
+    opts = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
   var {
     container,
     Portal
@@ -1741,12 +1624,12 @@ function useInfoWindow(props) {
       var win = new BMap.InfoWindow(props.children ? container : opts.content || '', _extends({}, opts));
       setInfoWindow(win);
     }
-
     return () => {
       if (infoWindow) {
         infoWindow.restore();
       }
-    }; // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   var [isOpen, setIsOpen] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(opts.isOpen === undefined ? true : opts.isOpen);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -1757,8 +1640,8 @@ function useInfoWindow(props) {
         var point = new BMap.Point(position.lng, position.lat);
         map.openInfoWindow(infoWindow, point);
       }
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, infoWindow]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (infoWindow) {
@@ -1772,7 +1655,8 @@ function useInfoWindow(props) {
   }, [infoWindow, props.content, title]);
   useVisiable(infoWindow, props);
   useEventProperties(infoWindow, props, ['Close', 'Open', 'Maximize', 'Restore', 'ClickClose']);
-  useProperties(infoWindow, props, ['Width', 'Height', // 'Title',
+  useProperties(infoWindow, props, ['Width', 'Height',
+  // 'Title',
   // 'Content',
   'MaxContent']);
   useEnableProperties(infoWindow, props, ['CloseOnClick', 'Maximize', 'AutoPan']);
@@ -1781,7 +1665,6 @@ function useInfoWindow(props) {
      * 信息窗口实例对象
      */
     infoWindow,
-
     /**
      * 更新 信息窗口实例对象
      */
@@ -1829,7 +1712,6 @@ function usePointCollection(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     shape,
     color,
@@ -1840,48 +1722,41 @@ function usePointCollection(props) {
   } = useMapContext();
   var [points, setPoints] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.points);
   var [pointCollection, setPointCollection] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-
   var getPoints = function getPoints(data) {
     if (data === void 0) {
       data = [];
     }
-
     var result = [];
     data.forEach(item => {
       result.push(new BMap.Point(item[0], item[1]));
     });
     return result;
   };
-
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!BMap || !map) return; // 判断当前浏览器是否支持绘制海量点
-
+    if (!BMap || !map) return;
+    // 判断当前浏览器是否支持绘制海量点
     if (document && !document.createElement('canvas').getContext) return;
     var opts = {
       shape,
       color,
       size
     };
-
     if (!pointCollection) {
       if (!opts.size) opts.size = BMAP_POINT_SIZE_SMALL;
       if (!opts.shape) opts.shape = BMAP_POINT_SHAPE_WATERDROP;
       if (!opts.color) opts.color = '#d340c3';
-
-      var _pointCollection = new BMap.PointCollection(getPoints(points), opts); // pointCollection.clear();
-
-
+      var _pointCollection = new BMap.PointCollection(getPoints(points), opts);
+      // pointCollection.clear();
       map.addOverlay(_pointCollection);
       setPointCollection(_pointCollection);
       EVENTS.forEach(evnetName => {
         if (props[evnetName]) {
           var name = evnetName.replace(/^on/, '').toLowerCase();
-
           _pointCollection.addEventListener(name, props[evnetName]);
         }
       });
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (pointCollection && points) {
@@ -1909,10 +1784,10 @@ function usePointCollection(props) {
   var {
     pointCollection,
     setPoints
-  } = usePointCollection(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setPoints(props.points), [props.points]); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = usePointCollection(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setPoints(props.points), [props.points]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     pointCollection
   }), [pointCollection]);
@@ -1927,7 +1802,6 @@ function useDrawingManager(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     isOpen,
     drawingMode,
@@ -1966,24 +1840,22 @@ function useDrawingManager(props) {
         var instance = new BMapLib.DrawingManager(map, opts);
         setDrawingManager(instance);
       }
-    } // 如果 bMapLib 已经加载过，会执行下面的
+    }
 
-
+    // 如果 bMapLib 已经加载过，会执行下面的
     if (map && bMapLib && !bMapLib.DrawingManager) {
       requireCss('//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css').then(() => {});
       requireScript('//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js').then(() => {
         if (window.BMapLib) {
           var newMapLib = Object.assign(window.BMapLib, bMapLib);
           setBMapLib(newMapLib);
-
           var _instance = new BMapLib.DrawingManager(map, opts);
-
           setDrawingManager(_instance);
         }
       }).catch(() => {});
-    } // 如果第一次加载，会执行下面的
+    }
 
-
+    // 如果第一次加载，会执行下面的
     if (!bMapLib && !loadMapLib) {
       setLoadBMapLib(true);
       requireCss('//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css').then(() => {});
@@ -1992,8 +1864,8 @@ function useDrawingManager(props) {
           setBMapLib(window.BMapLib);
         }
       }).catch(() => {});
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, loadMapLib, bMapLib, drawingManager]);
   return {
     drawingManager,
@@ -2026,7 +1898,6 @@ function usePolyline(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     strokeColor,
     strokeWeight,
@@ -2041,8 +1912,9 @@ function usePolyline(props) {
     map
   } = useMapContext();
   var [polyline, setPolyline] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var [path, setPath] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.path || []); // eslint-disable-next-line react-hooks/exhaustive-deps
+  var [path, setPath] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.path || []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   var opts = {
     strokeColor,
     strokeWeight,
@@ -2058,7 +1930,8 @@ function usePolyline(props) {
       if (polyline && map) {
         map.removeOverlay(polyline);
       }
-    }; // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (map && !polyline) {
@@ -2076,8 +1949,8 @@ function usePolyline(props) {
   }, [polyline, path]);
   useVisiable(polyline, props);
   useEventProperties(polyline, props, ['Click', 'DblClick', 'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver', 'Remove', 'LineUpdate']);
-  useEnableProperties(polyline, props, ['Editing', 'MassClear']); // PositionAt
-
+  useEnableProperties(polyline, props, ['Editing', 'MassClear']);
+  // PositionAt
   useProperties(polyline, props, ['StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'StrokeStyle']);
   return {
     polyline,
@@ -2096,8 +1969,8 @@ function usePolyline(props) {
   var {
     polyline,
     setPath
-  } = usePolyline(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = usePolyline(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setPath(props.path), [props.path]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polyline
@@ -2113,7 +1986,6 @@ function usePolygon(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     strokeColor,
     fillColor,
@@ -2149,7 +2021,8 @@ function usePolygon(props) {
     setPolygon(instance);
     return function () {
       map.removeOverlay(instance);
-    }; // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (path && polygon) {
@@ -2159,8 +2032,8 @@ function usePolygon(props) {
   }, [polygon, path]);
   useVisiable(polygon, props);
   useEventProperties(polygon, props, ['Click', 'DoubleClick', 'MouseDown', 'MouseUp', 'MouseOut', 'MouseOver', 'Remove', 'LineUpdate']);
-  useEnableProperties(polygon, props, ['Editing', 'MassClear']); // PositionAt
-
+  useEnableProperties(polygon, props, ['Editing', 'MassClear']);
+  // PositionAt
   useProperties(polygon, props, ['StrokeColor', 'StrokeOpacity', 'FillColor', 'FillOpacity', 'StrokeWeight', 'StrokeStyle']);
   return {
     polygon,
@@ -2179,10 +2052,10 @@ function usePolygon(props) {
   var {
     polygon,
     setPath
-  } = usePolygon(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setPath(props.path), [props.path]); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = usePolygon(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setPath(props.path), [props.path]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polygon
   }), [polygon, props]);
@@ -2224,11 +2097,10 @@ function withMap(Comp) {
       }).catch(err => {
         props.onFailed && props.onFailed(err);
       });
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   var childs = external_root_React_commonjs2_react_commonjs_react_amd_react_default().Children.toArray(children);
-
   if (completed) {
     return /*#__PURE__*/(0,jsx_runtime.jsxs)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
       children: [typeof children === 'function' && children({
@@ -2245,7 +2117,6 @@ function withMap(Comp) {
       })]
     });
   }
-
   return null;
 }));
 
@@ -2256,21 +2127,17 @@ function getControl_getCustomOverlay() {
       super();
       this.container = void 0;
       this.map = void 0;
-
       this.initialize = map => {
-        this.map = map; // 添加DOM元素到地图中
-
+        this.map = map;
+        // 添加DOM元素到地图中
         map.getContainer().appendChild(this.container);
         return this.container;
       };
-
       this.draw = () => {};
-
       this.container = elm;
       this.defaultAnchor = defaultAnchor || BMAP_ANCHOR_TOP_LEFT;
       this.defaultOffset = defaultOffset || new BMap.Size(10, 10);
     }
-
   };
 }
 
@@ -2283,7 +2150,6 @@ function useControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     container,
     Portal
@@ -2300,12 +2166,10 @@ function useControl(props) {
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !control && container) {
       var _Control = getControl_getCustomOverlay();
-
       var instance = new _Control(container, anchor, offset);
       setControl(instance);
       map.addOverlay(instance);
     }
-
     return () => {
       if (map && control) {
         map.removeControl(control);
@@ -2348,7 +2212,6 @@ function useCopyrightControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [copyrightControl, setCopyrightControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     anchor,
@@ -2366,7 +2229,6 @@ function useCopyrightControl(props) {
       map.addControl(instance);
       setCopyrightControl(instance);
     }
-
     return () => {
       if (map && copyrightControl) {
         map.removeControl(copyrightControl);
@@ -2391,7 +2253,6 @@ function CopyrightControlItem(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     children,
     control,
@@ -2411,7 +2272,6 @@ function CopyrightControlItem(props) {
         content: container.innerHTML
       });
     }
-
     return function () {
       if (prevId && control) {
         control.removeCopyright(prevId);
@@ -2446,7 +2306,6 @@ var CopyrightControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs
           id: index + 1
         });
       }
-
       return child;
     })
   });
@@ -2462,7 +2321,6 @@ function useNavigationControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [navigationControl, setNavigationControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     anchor,
@@ -2489,7 +2347,8 @@ function useNavigationControl(props) {
       if (map && instance) {
         map.removeControl(instance);
       }
-    }; // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   useVisiable(navigationControl, props);
   useProperties(navigationControl, props, ['Anchor', 'Offset', 'Type']);
@@ -2507,8 +2366,8 @@ function useNavigationControl(props) {
 /* harmony default export */ const navigation_control_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
     navigationControl
-  } = useNavigationControl(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = useNavigationControl(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     navigationControl
   }), [navigationControl]);
@@ -2523,7 +2382,6 @@ function useGeolocationControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [geolocationControl, setGeolocationControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     anchor,
@@ -2551,8 +2409,8 @@ function useGeolocationControl(props) {
           map.removeControl(instance);
         }
       };
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   useVisiable(geolocationControl, props);
   useEventProperties(geolocationControl, props, ['LocationSuccess', 'LocationError'], 'CamelCase');
@@ -2586,7 +2444,6 @@ function useOverviewMapControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [overviewMapControl, setOverviewMapControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     anchor,
@@ -2610,8 +2467,8 @@ function useOverviewMapControl(props) {
       return () => {
         map.removeControl(instance);
       };
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   useVisiable(overviewMapControl, props);
   useEventProperties(overviewMapControl, props, ['ViewChanged', 'ViewChanging']);
@@ -2630,8 +2487,8 @@ function useOverviewMapControl(props) {
 /* harmony default export */ const overview_map_control_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
     overviewMapControl
-  } = useOverviewMapControl(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = useOverviewMapControl(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     overviewMapControl
   }), [overviewMapControl]);
@@ -2646,7 +2503,6 @@ function useScaleControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [scaleControl, setScaleControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     anchor,
@@ -2666,8 +2522,8 @@ function useScaleControl(props) {
       return () => {
         map.removeControl(instance);
       };
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   useVisiable(scaleControl, props);
   useProperties(scaleControl, props, ['Anchor', 'Offset', 'Unit']);
@@ -2685,8 +2541,8 @@ function useScaleControl(props) {
 /* harmony default export */ const scale_control_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
     scaleControl
-  } = useScaleControl(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = useScaleControl(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     scaleControl
   }), [scaleControl]);
@@ -2701,7 +2557,6 @@ function useMapTypeControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [mapTypeControl, setMapTypeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     anchor,
@@ -2725,8 +2580,8 @@ function useMapTypeControl(props) {
       return () => {
         map.removeControl(instance);
       };
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   useVisiable(mapTypeControl, props);
   useProperties(mapTypeControl, props, ['Anchor', 'Offset', 'Unit']);
@@ -2759,7 +2614,6 @@ function usePanoramaControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [panoramaControl, setPanoramaControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     map
@@ -2772,8 +2626,8 @@ function usePanoramaControl(props) {
       return () => {
         map.removeControl(instance);
       };
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   useVisiable(panoramaControl, props);
   return {
@@ -2790,8 +2644,8 @@ function usePanoramaControl(props) {
 /* harmony default export */ const panorama_control_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
     panoramaControl
-  } = usePanoramaControl(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = usePanoramaControl(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     panoramaControl
   }), [panoramaControl]);
@@ -2806,7 +2660,6 @@ function useGroundOverlay(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [groundOverlay, setGroundOverlay] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     bounds,
@@ -2833,8 +2686,8 @@ function useGroundOverlay(props) {
           map.removeOverlay(instance);
         }
       };
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   useVisiable(groundOverlay, props);
   useEventProperties(groundOverlay, props, ['Click', 'DblClick']);
@@ -2853,8 +2706,8 @@ function useGroundOverlay(props) {
 /* harmony default export */ const ground_overlay_esm = (/*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
     groundOverlay
-  } = useGroundOverlay(props); // eslint-disable-next-line react-hooks/exhaustive-deps
-
+  } = useGroundOverlay(props);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     groundOverlay
   }), [groundOverlay]);
