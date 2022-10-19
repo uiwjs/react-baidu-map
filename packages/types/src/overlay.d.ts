@@ -732,7 +732,7 @@ declare namespace BMap {
    */
   class Icon {
     /**
-     * 创建一个文本标注实例。point参数指定了文本标注所在的地理位置
+     * 此类表示标注覆盖物所使用的图标。point参数指定了文本标注所在的地理位置
      */
     constructor(url: string, size: Size, opts?: IconOptions);
   }
