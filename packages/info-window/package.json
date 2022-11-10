@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-info-window",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "description": "Baidu Map info-window Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/info-window",
   "main": "cjs/index.js",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.0",
-    "@uiw/react-baidu-map-map": "2.5.3",
-    "@uiw/react-baidu-map-utils": "2.5.3"
+    "@uiw/react-baidu-map-map": "2.5.4",
+    "@uiw/react-baidu-map-utils": "2.5.4"
   }
 }
