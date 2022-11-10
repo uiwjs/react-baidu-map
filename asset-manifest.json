@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5a0ac96e.css",
-    "main.js": "/static/js/main.224366f4.js",
+    "main.js": "/static/js/main.47be0e54.js",
     "static/css/4069.7a5297cf.chunk.css": "/static/css/4069.7a5297cf.chunk.css",
     "static/js/4069.15ba10f3.chunk.js": "/static/js/4069.15ba10f3.chunk.js",
     "static/css/2556.7a5297cf.chunk.css": "/static/css/2556.7a5297cf.chunk.css",
@@ -96,7 +96,7 @@
     "static/js/6986.a24dc720.chunk.js": "/static/js/6986.a24dc720.chunk.js",
     "index.html": "/index.html",
     "main.5a0ac96e.css.map": "/static/css/main.5a0ac96e.css.map",
-    "main.224366f4.js.map": "/static/js/main.224366f4.js.map",
+    "main.47be0e54.js.map": "/static/js/main.47be0e54.js.map",
     "4069.7a5297cf.chunk.css.map": "/static/css/4069.7a5297cf.chunk.css.map",
     "4069.15ba10f3.chunk.js.map": "/static/js/4069.15ba10f3.chunk.js.map",
     "2556.7a5297cf.chunk.css.map": "/static/css/2556.7a5297cf.chunk.css.map",
@@ -195,6 +195,6 @@
     "static/js/uiw-vendor.58d50898.js",
     "static/js/react-vendor.96197fd5.js",
     "static/css/main.5a0ac96e.css",
-    "static/js/main.224366f4.js"
+    "static/js/main.47be0e54.js"
   ]
 }
