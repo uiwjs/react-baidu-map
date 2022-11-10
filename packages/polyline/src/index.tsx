@@ -10,7 +10,7 @@ export interface PolylineProps extends BMap.PolylineOptions, BMap.PolylineEvents
   path: BMap.Point[];
 }
 
-export default React.forwardRef<PolylineProps & { polygon?: BMap.Polygon }, PolylineProps>((props, ref) => {
+export default React.forwardRef<PolylineProps & { polyline?: BMap.Polyline }, PolylineProps>((props, ref) => {
   const { polyline, setPath } = usePolyline(props);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => setPath(props.path), [props.path]);
