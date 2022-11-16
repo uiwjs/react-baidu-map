@@ -160,8 +160,8 @@ export default Demo;
 ```js
 import { useMapContext, Provider } from '@uiw/react-baidu-map';
 
-const { AMaps, map, container, state, dispatch } = useMapContext();
-// => state.AMaps
+const { BMap, map, container, state, dispatch } = useMapContext();
+// => state.BMap
 // => state.map
 // => state.container
 ```
