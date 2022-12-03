@@ -2162,7 +2162,6 @@ function useControl(props) {
   var {
     map
   } = useMapContext();
-  console.log(map);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !control && container) {
       var _Control = getControl_getCustomOverlay();
