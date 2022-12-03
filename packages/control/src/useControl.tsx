@@ -11,7 +11,7 @@ export function useControl(props = {} as UseControl) {
   const [control, setControl] = useState<BMap.Control>();
   const { offset, anchor } = props;
   const { map } = useMapContext();
-  console.log(map);
+
   useEffect(() => {
     if (map && !control && container) {
       const Control = getControl();
