@@ -57,7 +57,7 @@
     "@uiw/reset.css": "~1.0.5",
     "@wcj/dark-mode": "^1.0.14",
     "react": ">=16.14.0",
-    "react-code-preview-layout": "^2.0.6",
+    "react-code-preview-layout": "^3.0.0",
     "react-dom": ">=16.14.0",
     "react-router-dom": "~6.3.0",
     "react-test-renderer": "^18.2.0"
