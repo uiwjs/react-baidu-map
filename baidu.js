@@ -656,27 +656,29 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
         queue.forEach(task => task[0]());
         _this.finish();
       };
-      for (var i = 0; i < DEFAULT_RETRY_TIME; i++) {
+      var _loop = function* _loop() {
         try {
           yield requireScript(src);
-          break;
+          return "break";
         } catch (error) {
           if (i === DEFAULT_RETRY_TIME - 1) {
-            var _ret = function () {
-              var err = new Error("Failed to load Baidu Map: " + error.message);
-              // flush queue
-              var queue = APILoader.waitQueue;
-              APILoader.waitQueue = [];
-              queue.forEach(task => task[1](err));
-              _this.handleError(err);
-              return {
-                v: void 0
-              };
-            }();
-            if (typeof _ret === "object") return _ret.v;
+            var err = new Error("Failed to load Baidu Map: " + error.message);
+            // flush queue
+            var queue = APILoader.waitQueue;
+            APILoader.waitQueue = [];
+            queue.forEach(task => task[1](err));
+            _this.handleError(err);
+            return {
+              v: void 0
+            };
           }
           yield delay(i * 1000);
         }
+      };
+      for (var i = 0; i < DEFAULT_RETRY_TIME; i++) {
+        var _ret = yield* _loop();
+        if (_ret === "break") break;
+        if (typeof _ret === "object") return _ret.v;
       }
     })();
   }
