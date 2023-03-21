@@ -32,7 +32,7 @@
 
 文档实例预览: [Github](https://uiwjs.github.io/react-baidu-map/) | [Gitee](https://uiw.gitee.io/react-baidu-map/)
 
-### 特性
+## 特性
 
 - ♻️ 自动加载百度地图 SDK（通过创建 Script 标签的形式加载），包括第三方 SDK。
 - 📚 使用 Typescript 编写，集成百度地图 SDK [@type](https://github.com/uiwjs/react-baidu-map/tree/master/packages/types) 声明文件（包括中文注释）。
