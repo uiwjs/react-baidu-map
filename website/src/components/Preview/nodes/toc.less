@@ -1,0 +1,45 @@
+.menu-toc {
+  padding-left: 23px;
+  .menu-modal {
+    padding-top: 23px;
+    position: sticky;
+    top: 40px;
+    z-index: 999;
+    right: 0;
+  }
+  .menu-marker {
+    height: 18px;
+    width: 5px;
+    background-color: #f38701;
+    position: absolute;
+    margin-left: -5px;
+    margin-top: 3px;
+    border-radius: 2px;
+    transition: top 0.3s;
+  }
+  a {
+    display: block;
+    height: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 8px;
+    &.active {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  }
+  a + a {
+    margin-top: 5px;
+  }
+  .level1 {
+    font-weight: bold;
+    color: var(--color-theme-text);
+  }
+  .level3,
+  .level4,
+  .level5,
+  .level6 {
+    padding-left: 18px;
+  }
+}

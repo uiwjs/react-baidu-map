@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
+import { routesConfig } from './data';
 import './index.less';
-import App from './pages/root/App';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
-root.render(<App />);
+root.render(<RouterProvider router={createHashRouter(routesConfig as any)} fallbackElement={<div>xxx</div>} />);

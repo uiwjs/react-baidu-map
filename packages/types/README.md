@@ -1,4 +1,4 @@
-@uiw/react-baidu-map-types
+Support TypeScript
 ===
 
 此包包含百度地图 [API](https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html) 的类型定义。
