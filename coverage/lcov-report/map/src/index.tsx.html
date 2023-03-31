@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">52% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>13/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/21</span>
+                <span class='fraction'>6/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>2/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>12/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -368,34 +368,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -545,40 +545,40 @@ export type RenderProps =
   | { children?: (data: { BMap: typeof BMap; map: BMap.Map; container?: HTMLDivElement | null }) =&gt; React.ReactNode }
   | { children?: React.ReactNode };
 &nbsp;
-export const Provider: FC&lt;PropsWithChildren&lt;RenderProps&gt;&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {</span>
+export const Provider: FC&lt;PropsWithChildren&lt;RenderProps&gt;&gt; = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
   const [state, dispatch] = <span class="cstat-no" title="statement not covered" >useReducer(reducer, initialState);</span>
 <span class="cstat-no" title="statement not covered" >  return &lt;Context.Provider value={{ state, dispatch }}&gt;{props.children}&lt;/Context.Provider&gt;;</span>
 };
 export type MapRefs = MapProps &amp; { map?: BMap.Map; BMap?: typeof BMap; container?: HTMLDivElement | null };
-export default React.forwardRef&lt;MapRefs, MapProps &amp; RenderProps&gt;(<span class="fstat-no" title="function not covered" >({</span> className, style, children, ...props }, ref) =&gt; {
-  const [state, dispatch] = <span class="cstat-no" title="statement not covered" >useReducer(reducer, initialState);</span>
-<span class="cstat-no" title="statement not covered" >  window.BMap = window.BMap || window.BMapGL;</span>
-  const elmRef = <span class="cstat-no" title="statement not covered" >useRef&lt;HTMLDivElement&gt;(null);</span>
-  const { setContainer, container, setCenter, setAutoLocalCity, map } = <span class="cstat-no" title="statement not covered" >useMap({</span>
+export default React.forwardRef&lt;MapRefs, MapProps &amp; RenderProps&gt;(({ className, style, children, ...props }, ref) =&gt; {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  window.BMap = window.BMap || window.BMapGL;
+  const elmRef = useRef&lt;HTMLDivElement&gt;(null);
+  const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({
     container: elmRef.current,
     ...props,
   });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setContainer(elmRef.current),</span> [elmRef.current]);</span>
+  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setContainer(elmRef.current),</span> [elmRef.current]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-<span class="cstat-no" title="statement not covered" >  useMemo(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.center &amp;&amp; setCenter(props.center!),</span> [props.center]);</span>
+  useMemo(() =&gt; props.center &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >setCenter(props.center!),</span> [props.center]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setAutoLocalCity(props.autoLocalCity!),</span> [props.autoLocalCity]);</span>
+  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setAutoLocalCity(props.autoLocalCity!),</span> [props.autoLocalCity]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-<span class="cstat-no" title="statement not covered" >  useImperativeHandle(ref, <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ ...props, map, BMap, container: elmRef.current })</span>, [map]);</span>
-  const chields = <span class="cstat-no" title="statement not covered" >typeof children === 'function' ? [children] : React.Children.toArray(children);</span>
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+  useImperativeHandle(ref, <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ ...props, map, BMap, container: elmRef.current })</span>, [map]);
+  const chields = typeof children === 'function' ? <span class="branch-0 cbranch-no" title="branch not covered" >[children] </span>: React.Children.toArray(children);
+  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (map) {</span>
 <span class="cstat-no" title="statement not covered" >      dispatch({ map, container: elmRef.current, BMap });</span>
     }
   }, [map]);
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;Context.Provider value={{ state, dispatch }}&gt;
       &lt;div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} /&gt;
-      {BMap &amp;&amp; map &amp;&amp; typeof children === 'function' &amp;&amp; children({ BMap, map, container })}
+      {BMap &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >map </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >typeof children === 'function' </span>&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >children({ BMap, map, container })}</span>
       {BMap &amp;&amp;
-        map &amp;&amp;
-        chields.map(<span class="fstat-no" title="function not covered" >(c</span>hild, key) =&gt; {
+<span class="branch-1 cbranch-no" title="branch not covered" >        map </span>&amp;&amp;
+<span class="branch-2 cbranch-no" title="branch not covered" >        chields.map(<span class="fstat-no" title="function not covered" >(c</span>hild, key) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >          if (!React.isValidElement(child)) <span class="cstat-no" title="statement not covered" >return null;</span></span>
 <span class="cstat-no" title="statement not covered" >          if (child.type &amp;&amp; typeof child.type === 'string') {</span>
 <span class="cstat-no" title="statement not covered" >            return React.cloneElement(child, { key });</span>
@@ -601,7 +601,7 @@ export default React.forwardRef&lt;MapRefs, MapProps &amp; RenderProps&gt;(<span
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-31T08:46:15.327Z
+                at 2023-03-31T08:56:30.724Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
