@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/19</span>
+                <span class='fraction'>0/21</span>
             </div>
         
             
@@ -240,9 +240,7 @@
 <a name='L175'></a><a href='#L175'>175</a>
 <a name='L176'></a><a href='#L176'>176</a>
 <a name='L177'></a><a href='#L177'>177</a>
-<a name='L178'></a><a href='#L178'>178</a>
-<a name='L179'></a><a href='#L179'>179</a>
-<a name='L180'></a><a href='#L180'>180</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L178'></a><a href='#L178'>178</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -376,7 +374,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -410,7 +407,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -486,7 +482,6 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
    * IP定位获取当前城市，进行自动定位
    */
   autoLocalCity?: boolean;
-  children?: React.ReactNode;
   /** 设置地图默认的鼠标指针样式。参数cursor应符合CSS的cursor属性规范 */
   defaultCursor?: CSSProperties['cursor'];
   /**
@@ -543,63 +538,62 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
   panorama?: BMap.Panorama;
 &nbsp;
   viewport?: (view: Array&lt;BMap.Point&gt; | BMap.Viewport, viewportOptions: BMap.ViewportOptions) =&gt; void;
+  children?: RenderProps['children'];
 }
 &nbsp;
 export type RenderProps =
-  | { children?: (data: { BMap: typeof BMap; map: BMap.Map; container?: HTMLDivElement | null }) =&gt; undefined }
+  | { children?: (data: { BMap: typeof BMap; map: BMap.Map; container?: HTMLDivElement | null }) =&gt; React.ReactNode }
   | { children?: React.ReactNode };
 &nbsp;
 export const Provider: FC&lt;PropsWithChildren&lt;RenderProps&gt;&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {</span>
   const [state, dispatch] = <span class="cstat-no" title="statement not covered" >useReducer(reducer, initialState);</span>
 <span class="cstat-no" title="statement not covered" >  return &lt;Context.Provider value={{ state, dispatch }}&gt;{props.children}&lt;/Context.Provider&gt;;</span>
 };
-&nbsp;
-export default React.forwardRef&lt;MapProps &amp; { map?: BMap.Map }, MapProps &amp; RenderProps&gt;(
-<span class="fstat-no" title="function not covered" >  ({</span> className, style, children, ...props }, ref) =&gt; {
-    const [state, dispatch] = <span class="cstat-no" title="statement not covered" >useReducer(reducer, initialState);</span>
-<span class="cstat-no" title="statement not covered" >    window.BMap = window.BMap || window.BMapGL;</span>
-    const elmRef = <span class="cstat-no" title="statement not covered" >useRef&lt;HTMLDivElement&gt;(null);</span>
-    const { setContainer, container, setCenter, setAutoLocalCity, map } = <span class="cstat-no" title="statement not covered" >useMap({</span>
-      container: elmRef.current,
-      ...props,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setContainer(elmRef.current),</span> [elmRef.current]);</span>
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-<span class="cstat-no" title="statement not covered" >    useMemo(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.center &amp;&amp; setCenter(props.center!),</span> [props.center]);</span>
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setAutoLocalCity(props.autoLocalCity!),</span> [props.autoLocalCity]);</span>
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-<span class="cstat-no" title="statement not covered" >    useImperativeHandle(ref, <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ ...props, map, BMap, container: elmRef.current })</span>, [map]);</span>
-    const childs = <span class="cstat-no" title="statement not covered" >React.Children.toArray(children);</span>
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (map) {</span>
-<span class="cstat-no" title="statement not covered" >        dispatch({ map, container: elmRef.current, BMap });</span>
-      }
-    }, [map]);
-<span class="cstat-no" title="statement not covered" >    return (</span>
-      &lt;Context.Provider value={{ state, dispatch }}&gt;
-        &lt;div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} /&gt;
-        {BMap &amp;&amp; map &amp;&amp; typeof children === 'function' &amp;&amp; children({ BMap, map, container })}
-        {BMap &amp;&amp;
-          map &amp;&amp;
-          childs.map(<span class="fstat-no" title="function not covered" >(c</span>hild, key) =&gt; {
-<span class="cstat-no" title="statement not covered" >            if (!React.isValidElement(child)) <span class="cstat-no" title="statement not covered" >return null;</span></span>
-<span class="cstat-no" title="statement not covered" >            if (child.type &amp;&amp; typeof child.type === 'string') {</span>
-<span class="cstat-no" title="statement not covered" >              return React.cloneElement(child, { key });</span>
-            }
-<span class="cstat-no" title="statement not covered" >            return React.cloneElement(child, {</span>
-              ...child.props,
-              BMap,
-              map,
-              container,
-              key,
-            });
-          })}
-      &lt;/Context.Provider&gt;
-    );
-  },
-);
+export type MapRefs = MapProps &amp; { map?: BMap.Map; BMap?: typeof BMap; container?: HTMLDivElement | null };
+export default React.forwardRef&lt;MapRefs, MapProps &amp; RenderProps&gt;(<span class="fstat-no" title="function not covered" >({</span> className, style, children, ...props }, ref) =&gt; {
+  const [state, dispatch] = <span class="cstat-no" title="statement not covered" >useReducer(reducer, initialState);</span>
+<span class="cstat-no" title="statement not covered" >  window.BMap = window.BMap || window.BMapGL;</span>
+  const elmRef = <span class="cstat-no" title="statement not covered" >useRef&lt;HTMLDivElement&gt;(null);</span>
+  const { setContainer, container, setCenter, setAutoLocalCity, map } = <span class="cstat-no" title="statement not covered" >useMap({</span>
+    container: elmRef.current,
+    ...props,
+  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setContainer(elmRef.current),</span> [elmRef.current]);</span>
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+<span class="cstat-no" title="statement not covered" >  useMemo(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.center &amp;&amp; setCenter(props.center!),</span> [props.center]);</span>
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setAutoLocalCity(props.autoLocalCity!),</span> [props.autoLocalCity]);</span>
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+<span class="cstat-no" title="statement not covered" >  useImperativeHandle(ref, <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ ...props, map, BMap, container: elmRef.current })</span>, [map]);</span>
+  const chields = <span class="cstat-no" title="statement not covered" >typeof children === 'function' ? [children] : React.Children.toArray(children);</span>
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (map) {</span>
+<span class="cstat-no" title="statement not covered" >      dispatch({ map, container: elmRef.current, BMap });</span>
+    }
+  }, [map]);
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;Context.Provider value={{ state, dispatch }}&gt;
+      &lt;div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} /&gt;
+      {BMap &amp;&amp; map &amp;&amp; typeof children === 'function' &amp;&amp; children({ BMap, map, container })}
+      {BMap &amp;&amp;
+        map &amp;&amp;
+        chields.map(<span class="fstat-no" title="function not covered" >(c</span>hild, key) =&gt; {
+<span class="cstat-no" title="statement not covered" >          if (!React.isValidElement(child)) <span class="cstat-no" title="statement not covered" >return null;</span></span>
+<span class="cstat-no" title="statement not covered" >          if (child.type &amp;&amp; typeof child.type === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >            return React.cloneElement(child, { key });</span>
+          }
+<span class="cstat-no" title="statement not covered" >          return React.cloneElement(child, {</span>
+            ...child.props,
+            BMap,
+            map,
+            container,
+            key,
+          });
+        })}
+    &lt;/Context.Provider&gt;
+  );
+});
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -607,7 +601,7 @@ export default React.forwardRef&lt;MapProps &amp; { map?: BMap.Map }, MapProps &
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-31T07:14:31.556Z
+                at 2023-03-31T07:16:53.873Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

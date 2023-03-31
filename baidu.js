@@ -916,7 +916,7 @@ var Provider = props => {
     BMap,
     container: elmRef.current
   }), [map]);
-  var childs = external_root_React_commonjs2_react_commonjs_react_amd_react_default().Children.toArray(children);
+  var chields = typeof children === 'function' ? [children] : external_root_React_commonjs2_react_commonjs_react_amd_react_default().Children.toArray(children);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map) {
       dispatch({
@@ -942,7 +942,7 @@ var Provider = props => {
       BMap,
       map,
       container
-    }), BMap && map && childs.map((child, key) => {
+    }), BMap && map && chields.map((child, key) => {
       if (! /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().isValidElement(child)) return null;
       if (child.type && typeof child.type === 'string') {
         return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().cloneElement(child, {
@@ -2069,14 +2069,14 @@ function withMap(Comp) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  var childs = external_root_React_commonjs2_react_commonjs_react_amd_react_default().Children.toArray(children);
+  var chields = typeof children === 'function' ? [children] : external_root_React_commonjs2_react_commonjs_react_amd_react_default().Children.toArray(children);
   if (completed) {
     return /*#__PURE__*/(0,jsx_runtime.jsxs)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
       children: [typeof children === 'function' && children({
         BMap,
         map,
         container
-      }), childs.map(child => {
+      }), chields.map(child => {
         if (! /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().isValidElement(child)) return null;
         return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().cloneElement(child, _extends({}, child.props, {
           BMap,
