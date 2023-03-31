@@ -27,10 +27,16 @@ const CopyrightControl: RefCopyrightControl = React.forwardRef<
     <Fragment>
       {React.Children.toArray(props.children).map((child, index) => {
         if (React.isValidElement(child)) {
-          return React.cloneElement(child, {
-            control: copyrightControl,
-            id: index + 1,
-          });
+          return React.cloneElement(
+            child as React.ReactElement<
+              { control: BMap.CopyrightControl; id: number },
+              string | React.JSXElementConstructor<any>
+            >,
+            {
+              control: copyrightControl,
+              id: index + 1,
+            },
+          );
         }
         return child;
       })}

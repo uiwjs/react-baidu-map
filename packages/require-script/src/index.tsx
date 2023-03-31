@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { requireScript } from '@uiw/react-baidu-map-utils';
-import { MapChildRenderProps } from '@uiw/react-baidu-map-map';
+import { RenderProps } from '@uiw/react-baidu-map-map';
 
 export type RequireScriptProps = {
   src?: string;
@@ -8,13 +8,13 @@ export type RequireScriptProps = {
   onCompleted?: () => void;
   /** ❌ 加载失败 */
   onFailed?: (error: any) => void;
-} & MapChildRenderProps;
+} & RenderProps;
 
 export default React.forwardRef<
   RequireScriptProps,
   RequireScriptProps & {
     map: BMap.Map;
-    container?: string | HTMLDivElement | null;
+    container?: HTMLDivElement | null;
   }
 >((props, ref) => {
   const { children, map, container } = props || {};
@@ -32,12 +32,12 @@ export default React.forwardRef<
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const childs = React.Children.toArray(children);
+  const chields = typeof children === 'function' ? [children] : React.Children.toArray(children);
   if (completed) {
     return (
       <Fragment>
         {typeof children === 'function' && children({ BMap, map, container })}
-        {childs.map((child) => {
+        {chields.map((child) => {
           if (!React.isValidElement(child)) return null;
           return React.cloneElement(child, {
             ...child.props,

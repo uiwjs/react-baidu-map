@@ -63,7 +63,6 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
    * IP定位获取当前城市，进行自动定位
    */
   autoLocalCity?: boolean;
-  children?: React.ReactNode;
   /** 设置地图默认的鼠标指针样式。参数cursor应符合CSS的cursor属性规范 */
   defaultCursor?: CSSProperties['cursor'];
   /**
@@ -120,60 +119,59 @@ export interface MapProps extends BMap.MapOptions, BMap.MapEvents {
   panorama?: BMap.Panorama;
 
   viewport?: (view: Array<BMap.Point> | BMap.Viewport, viewportOptions: BMap.ViewportOptions) => void;
+  children?: RenderProps['children'];
 }
 
 export type RenderProps =
-  | { children?: (data: { BMap: typeof BMap; map: BMap.Map; container?: HTMLDivElement | null }) => undefined }
+  | { children?: (data: { BMap: typeof BMap; map: BMap.Map; container?: HTMLDivElement | null }) => React.ReactNode }
   | { children?: React.ReactNode };
 
 export const Provider: FC<PropsWithChildren<RenderProps>> = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return <Context.Provider value={{ state, dispatch }}>{props.children}</Context.Provider>;
 };
-
-export default React.forwardRef<MapProps & { map?: BMap.Map }, MapProps & RenderProps>(
-  ({ className, style, children, ...props }, ref) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    window.BMap = window.BMap || window.BMapGL;
-    const elmRef = useRef<HTMLDivElement>(null);
-    const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({
-      container: elmRef.current,
-      ...props,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => setContainer(elmRef.current), [elmRef.current]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useMemo(() => props.center && setCenter(props.center!), [props.center]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => setAutoLocalCity(props.autoLocalCity!), [props.autoLocalCity]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useImperativeHandle(ref, () => ({ ...props, map, BMap, container: elmRef.current }), [map]);
-    const childs = React.Children.toArray(children);
-    useEffect(() => {
-      if (map) {
-        dispatch({ map, container: elmRef.current, BMap });
-      }
-    }, [map]);
-    return (
-      <Context.Provider value={{ state, dispatch }}>
-        <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} />
-        {BMap && map && typeof children === 'function' && children({ BMap, map, container })}
-        {BMap &&
-          map &&
-          childs.map((child, key) => {
-            if (!React.isValidElement(child)) return null;
-            if (child.type && typeof child.type === 'string') {
-              return React.cloneElement(child, { key });
-            }
-            return React.cloneElement(child, {
-              ...child.props,
-              BMap,
-              map,
-              container,
-              key,
-            });
-          })}
-      </Context.Provider>
-    );
-  },
-);
+export type MapRefs = MapProps & { map?: BMap.Map; BMap?: typeof BMap; container?: HTMLDivElement | null };
+export default React.forwardRef<MapRefs, MapProps & RenderProps>(({ className, style, children, ...props }, ref) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  window.BMap = window.BMap || window.BMapGL;
+  const elmRef = useRef<HTMLDivElement>(null);
+  const { setContainer, container, setCenter, setAutoLocalCity, map } = useMap({
+    container: elmRef.current,
+    ...props,
+  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setContainer(elmRef.current), [elmRef.current]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useMemo(() => props.center && setCenter(props.center!), [props.center]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setAutoLocalCity(props.autoLocalCity!), [props.autoLocalCity]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(ref, () => ({ ...props, map, BMap, container: elmRef.current }), [map]);
+  const chields = typeof children === 'function' ? [children] : React.Children.toArray(children);
+  useEffect(() => {
+    if (map) {
+      dispatch({ map, container: elmRef.current, BMap });
+    }
+  }, [map]);
+  return (
+    <Context.Provider value={{ state, dispatch }}>
+      <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} />
+      {BMap && map && typeof children === 'function' && children({ BMap, map, container })}
+      {BMap &&
+        map &&
+        chields.map((child, key) => {
+          if (!React.isValidElement(child)) return null;
+          if (child.type && typeof child.type === 'string') {
+            return React.cloneElement(child, { key });
+          }
+          return React.cloneElement(child, {
+            ...child.props,
+            BMap,
+            map,
+            container,
+            key,
+          });
+        })}
+    </Context.Provider>
+  );
+});
