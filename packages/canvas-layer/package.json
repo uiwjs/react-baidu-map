@@ -11,8 +11,8 @@
     "url": "https://github.com/uiwjs/react-baidu-map.git"
   },
   "scripts": {
-    "build": "tsbb build",
-    "watch": "tsbb watch"
+    "build": "tsbb build \"src/*.{tsx,ts}\" --use-babel --cjs cjs",
+    "watch": "tsbb watch \"src/*.{tsx,ts}\" --use-babel --cjs cjs"
   },
   "author": "Kenny Wong <wowohoo@qq.com>",
   "license": "MIT",
