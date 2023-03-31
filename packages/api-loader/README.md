@@ -56,7 +56,7 @@ export default Demo;
 ```
 
 ```html
-<script src="https://webapi.amap.com/maps?v=2.0&key=您申请的key值"></script>
+<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
 ```
 
 ### Props
