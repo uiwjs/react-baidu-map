@@ -45,12 +45,27 @@ const Demo = () => (
 export default Demo;
 ```
 
+### 禁用 SDK 加载
+
+收到一个需求，希望自己在 `html` 中引入 SDK，不需要自动加载，可以使用 `disableScripts` 禁用，在 html 中自己手动添加
+
+```jsx
+<APILoader disableScripts>
+  <Map style={{ height: 100, marginBottom: 10 }} />
+</APILoader>
+```
+
+```html
+<script src="https://webapi.amap.com/maps?v=2.0&key=您申请的key值"></script>
+```
+
 ### Props
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| akay | **`必填`** 您需先[申请密钥（ak）](http://lbs.baidu.com/apiconsole/key?application=key)才可使用该服务，接口无使用次数限制，请开发者放心使用。 | string | - |
+| akay | **`必填`** `disableScripts=true` 时**选填** 您需先[申请密钥（ak）](http://lbs.baidu.com/apiconsole/key?application=key)才可使用该服务，接口无使用次数限制，请开发者放心使用。 | string | - |
 | version | SDK 版本 | string | `3.0` |
 | protocol | 协议，默认是根据当前网站协议的 | `http`/`https` | `window.location.protocol` |
 | hostAndPath | 请求 `SDK` 的前半部分 | string | `api.map.baidu.com/api` |
 | type | 可选使用百度的 `webgl` 地图 | `webgl` | - |
+| `disableScripts` | 禁用 `SDK` 加载 | boolean | `-` |

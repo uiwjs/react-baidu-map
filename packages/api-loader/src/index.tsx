@@ -17,7 +17,7 @@ export interface APILoaderConfig {
    * 文档说明地址：http://lbsyun.baidu.com/index.php?title=jspopular3.0/guide/getkey
    * 申请秘钥地址：http://lbs.baidu.com/apiconsole/key?application=key
    */
-  akay: string;
+  akay?: string;
   /**
    * SDK 包版本
    * @default 3.0
@@ -42,6 +42,13 @@ export interface APILoaderConfig {
    * JavaScript API GL使用了WebGL对地图、覆盖物等进行渲染，支持3D视角展示地图。 GL版本接口基本向下兼容，迁移成本低。目前v1.0版本支持了基本的3D地图展示、基本地图控件和覆盖物。
    */
   type?: 'webgl';
+  /**
+   * 禁用 SDK 加载，当你使用本地自己加载 SDK 可以设置为 true
+   * ```html
+   * <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
+   * ```
+   */
+  disableScripts?: boolean;
 }
 
 export function delay(time: number): Promise<undefined> {
