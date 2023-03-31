@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/9</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -125,13 +125,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -146,7 +146,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useImperativeHandle, Fragment } from 'react';
@@ -168,13 +168,13 @@ type RefCopyrightControl = React.ForwardRefExoticComponent&lt;
   CopyrightControlProps &amp; React.RefAttributes&lt;CopyrightControlProps&gt;
 &gt; &amp; { Item: typeof CopyrightControlItem };
 &nbsp;
-const CopyrightControl: RefCopyrightControl = React.forwardRef&lt;
+const CopyrightControl: RefCopyrightControl = <span class="cstat-no" title="statement not covered" >React.forwardRef&lt;</span>
   CopyrightControlProps &amp; { copyrightControl?: BMap.CopyrightControl },
   CopyrightControlProps
-&gt;((props, ref) =&gt; {
-  const { copyrightControl } = useCopyrightControl(props);
-  useImperativeHandle(ref, <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ ...props, copyrightControl })</span>, [copyrightControl, props]);
-  return (
+&gt;(<span class="fstat-no" title="function not covered" >(p</span>rops, ref) =&gt; {
+  const { copyrightControl } = <span class="cstat-no" title="statement not covered" >useCopyrightControl(props);</span>
+<span class="cstat-no" title="statement not covered" >  useImperativeHandle(ref, <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ ...props, copyrightControl })</span>, [copyrightControl, props]);</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;Fragment&gt;
       {React.Children.toArray(props.children).map(<span class="fstat-no" title="function not covered" >(c</span>hild, index) =&gt; {
 <span class="cstat-no" title="statement not covered" >        if (React.isValidElement(child)) {</span>
@@ -189,7 +189,7 @@ const CopyrightControl: RefCopyrightControl = React.forwardRef&lt;
   );
 }) as unknown as RefCopyrightControl;
 &nbsp;
-CopyrightControl.Item = CopyrightControlItem;
+<span class="cstat-no" title="statement not covered" >CopyrightControl.Item = CopyrightControlItem;</span>
 &nbsp;
 export default CopyrightControl;
 &nbsp;</pre></td></tr></table></pre>
@@ -199,7 +199,7 @@ export default CopyrightControl;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-21T11:07:58.348Z
+                at 2023-03-31T07:14:31.556Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
