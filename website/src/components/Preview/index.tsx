@@ -8,6 +8,7 @@ import CodeLayout from 'react-code-preview-layout';
 import { useMdData, MdDataHandle } from './useMdData';
 import { useHyperlink } from './useHyperlink';
 import { getTocTree } from './nodes/toc';
+import Footer from '../Footer';
 import './nodes/toc.less';
 
 // @ts-ignore
@@ -48,10 +49,16 @@ const Markdown = styled<
 //   return defaultValue;
 // };
 
-const PreviewDocument = ({ path }: { path: MdDataHandle }) => {
+interface PreviewDocumentProps {
+  path: MdDataHandle;
+  editor: string;
+}
+
+const PreviewDocument = ({ path, editor }: PreviewDocumentProps) => {
   const $dom = useRef<HTMLDivElement>(null);
   const { mdData } = useMdData(path);
   useHyperlink($dom.current);
+  const editorUrl = `https://github.com/uiwjs/react-baidu-map/tree/master/${editor}`;
   return (
     <Wrapper ref={$dom}>
       <Markdown
@@ -122,6 +129,7 @@ const PreviewDocument = ({ path }: { path: MdDataHandle }) => {
       <BackToUp element={$dom.current} style={{ float: 'right' }}>
         Top
       </BackToUp>
+      <Footer editorUrl={editorUrl} />
     </Wrapper>
   );
 };

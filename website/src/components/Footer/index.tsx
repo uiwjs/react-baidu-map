@@ -37,12 +37,7 @@ const Footer = (props: FooterProps) => {
   return (
     <Wrapper>
       {editorUrl && (
-        <a
-          title="Editor Current Page"
-          target="_blank"
-          rel="noreferrer"
-          href={`https://github.com/uiwjs/react-baidu-map/edit/master${editorUrl}`}
-        >
+        <a title="Editor Current Page" target="_blank" rel="noreferrer" href={editorUrl}>
           编辑当前页面
         </a>
       )}
