@@ -23,10 +23,10 @@
     "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
     "publish": "npm publish --access public --workspaces",
     "type-check": "npm exec --ws -- tsc --noEmit",
-    "test": "tsbb test --env=jsdom",
-    "coverage": "tsbb test --env=jsdom --coverage",
+    "test": "tsbb test",
+    "coverage": "tsbb test --coverage --bail",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
-    "build": "lerna exec --scope @uiw/* --ignore @uiw/react-baidu-map-types -- tsbb build \"src/*.{tsx,ts}\" --use-babel --cjs cjs",
+    "build": "lerna exec --scope @uiw/* --ignore @uiw/react-baidu-map-types -- tsbb build \"src/*.{tsx,ts}\" --use-babel --cjs cjs --bail",
     "doc": "npm run-script doc --workspace=website --if-present",
     "start": "npm run-script start --workspace=website",
     "remove": "npm run clean && lerna exec \"rm -rf package-lock.json\" --scope @uiw/* --scope website",
@@ -88,7 +88,7 @@
     "lerna": "^6.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "tsbb": "^4.0.8"
+    "tsbb": "^4.1.0"
   },
   "eslintConfig": {
     "extends": [
