@@ -6,9 +6,9 @@ import BackToUp from '@uiw/react-back-to-top';
 import { getMetaId, isMeta, getURLParameters } from 'markdown-react-code-preview-loader';
 import CodeLayout from 'react-code-preview-layout';
 import { useMdData, MdDataHandle } from './useMdData';
-import { useHyperlink } from './useHyperlink';
 import { getTocTree } from './nodes/toc';
 import Footer from '../Footer';
+import { Hyperlink } from './Hyperlink';
 import './nodes/toc.less';
 
 // @ts-ignore
@@ -57,10 +57,10 @@ interface PreviewDocumentProps {
 const PreviewDocument = ({ path, editor }: PreviewDocumentProps) => {
   const $dom = useRef<HTMLDivElement>(null);
   const { mdData } = useMdData(path);
-  useHyperlink($dom.current);
   const editorUrl = `https://github.com/uiwjs/react-baidu-map/tree/master/${editor}`;
   return (
     <Wrapper ref={$dom}>
+      <Hyperlink dom={$dom.current} />
       <Markdown
         disableCopy={true}
         source={mdData.source}
