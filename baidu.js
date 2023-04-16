@@ -543,10 +543,6 @@ var DEFAULT_RETRY_TIME = 3;
  */
 class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_react_default()).Component {
   /**
-   * 全局可能存在多个Loader同时渲染, 但是只能由一个负责加载
-   */
-
-  /**
    * 等待BMap就绪
    */
   static ready() {
@@ -685,6 +681,9 @@ APILoader.defaultProps = {
   callbackName: 'load_bmap_sdk',
   type: ''
 };
+/**
+ * 全局可能存在多个Loader同时渲染, 但是只能由一个负责加载
+ */
 APILoader.waitQueue = [];
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
@@ -743,6 +742,11 @@ function useMapContext() {
 ;// CONCATENATED MODULE: ../map/esm/useMap.js
 
 
+
+
+/**
+ * 此类型是 `<Map>` 组件传递给子组件(如 `<Marker>`)的两个 `props`
+ */
 
 function useMap(props) {
   if (props === void 0) {

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.56684032.css",
-    "main.js": "/static/js/main.d0c4b54b.js",
+    "main.js": "/static/js/main.f29d674b.js",
     "static/js/983.6e69d90c.chunk.js": "/static/js/983.6e69d90c.chunk.js",
     "static/js/534.f3aa0be0.chunk.js": "/static/js/534.f3aa0be0.chunk.js",
     "static/js/883.9d6800de.chunk.js": "/static/js/883.9d6800de.chunk.js",
@@ -37,7 +37,7 @@
     "static/js/55.12467d3b.chunk.js": "/static/js/55.12467d3b.chunk.js",
     "index.html": "/index.html",
     "main.56684032.css.map": "/static/css/main.56684032.css.map",
-    "main.d0c4b54b.js.map": "/static/js/main.d0c4b54b.js.map",
+    "main.f29d674b.js.map": "/static/js/main.f29d674b.js.map",
     "983.6e69d90c.chunk.js.map": "/static/js/983.6e69d90c.chunk.js.map",
     "534.f3aa0be0.chunk.js.map": "/static/js/534.f3aa0be0.chunk.js.map",
     "883.9d6800de.chunk.js.map": "/static/js/883.9d6800de.chunk.js.map",
@@ -79,6 +79,6 @@
     "static/js/react-vendor.19ebb7f3.js",
     "static/js/babel-standalone-vendor.8b8160c0.js",
     "static/css/main.56684032.css",
-    "static/js/main.d0c4b54b.js"
+    "static/js/main.f29d674b.js"
   ]
 }
