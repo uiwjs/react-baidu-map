@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@babel/runtime": ">=7.12.0",
-    "@types/react": "~18.0.0",
-    "@types/react-dom": "~18.0.0",
+    "@types/react": "~18.2.0",
+    "@types/react-dom": "~18.2.0",
     "@types/react-test-renderer": "~18.0.0",
     "@types/styled-components": "^5.1.26",
     "@uiw/react-back-to-top": "^1.2.1",
