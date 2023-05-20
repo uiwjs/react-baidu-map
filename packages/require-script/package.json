@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-require-script",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "Baidu Map require-script Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/require-script",
   "main": "cjs/index.js",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.0",
-    "@uiw/react-baidu-map-map": "2.6.0",
-    "@uiw/react-baidu-map-utils": "2.6.0"
+    "@uiw/react-baidu-map-map": "2.6.1",
+    "@uiw/react-baidu-map-utils": "2.6.1"
   }
 }
