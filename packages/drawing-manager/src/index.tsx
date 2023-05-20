@@ -8,7 +8,7 @@ export interface DrawingManagerProps extends BMap.DrawingManagerOptions, MapChil
 export default React.forwardRef<DrawingManagerProps & { drawingManager?: BMapLib.DrawingManager }, DrawingManagerProps>(
   (props, ref) => {
     const { drawingManager } = useDrawingManager(props);
-    useImperativeHandle(ref, () => ({ ...props, drawingManager, BMapLib }));
+    useImperativeHandle(ref, () => ({ ...props, drawingManager, BMapLib: window.BMapLib }));
     return null;
   },
 );
