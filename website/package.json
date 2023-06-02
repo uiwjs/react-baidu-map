@@ -67,7 +67,7 @@
   },
   "devDependencies": {
     "@kkt/less-modules": "~7.4.9",
-    "@kkt/raw-modules": "~7.4.9",
+    "@kkt/raw-modules": "~7.5.0",
     "@kkt/scope-plugin-options": "~7.4.9",
     "kkt": "~7.4.9",
     "markdown-react-code-preview-loader": "^2.1.5",
