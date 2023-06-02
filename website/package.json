@@ -66,7 +66,7 @@
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
-    "@kkt/less-modules": "~7.4.9",
+    "@kkt/less-modules": "~7.5.0",
     "@kkt/raw-modules": "~7.4.9",
     "@kkt/scope-plugin-options": "~7.4.9",
     "kkt": "~7.4.9",
