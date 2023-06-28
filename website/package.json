@@ -63,7 +63,7 @@
     "react-dom": "~18.2.0",
     "react-router-dom": "^6.10.0",
     "react-test-renderer": "^18.2.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^6.0.0"
   },
   "devDependencies": {
     "@kkt/less-modules": "~7.4.9",
