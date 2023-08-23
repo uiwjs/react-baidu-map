@@ -11,7 +11,7 @@ import NavigationControl, { useNavigationControl } from '@uiw/react-baidu-map-na
 
 ### 基本用法
 
-```jsx
+```jsx mdx:preview
 import React, { useState } from 'react';
 import { Map, APILoader, NavigationControl } from '@uiw/react-baidu-map';
 

@@ -20,6 +20,7 @@
     "watch:scale-control": "npm run-script watch --workspace @uiw/react-baidu-map-scale-control",
     "watch:type-control": "npm run-script watch --workspace @uiw/react-baidu-map-type-control",
     "watch:geolocation-control": "npm run-script watch --workspace @uiw/react-baidu-map-geolocation-control",
+    "watch:require-script": "npm run-script watch --workspace @uiw/react-baidu-map-require-script",
     "watch:label": "npm run-script watch --workspace @uiw/react-baidu-map-label",
     "watch:utils": "npm run-script watch --workspace @uiw/react-baidu-map-utils",
     "⬆️⬆️⬆️⬆️⬆️ watch ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
