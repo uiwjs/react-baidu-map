@@ -19,12 +19,16 @@ export function useMapTypeControl(props = {} as UseMapTypeControl) {
       });
       map.addControl(instance);
       setMapTypeControl(instance);
-      return () => {
-        map.removeControl(instance);
-      };
     }
+    return () => {
+      if (map && mapTypeControl) {
+        try {
+          map.removeControl(mapTypeControl);
+        } catch (error) {}
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map]);
+  }, [map, mapTypeControl]);
 
   useVisiable(mapTypeControl!, props);
   useProperties<BMap.MapTypeControl, UseMapTypeControl>(mapTypeControl!, props, ['Anchor', 'Offset', 'Unit']);

@@ -145,9 +145,13 @@ export function useEventProperties<T extends EventListener, F>(
         } else {
           eName = name.toLowerCase();
         }
-        instance.addEventListener(eName, eventHandle);
+        try {
+          instance.addEventListener(eName, eventHandle);
+        } catch (error) {}
         return () => {
-          instance.removeEventListener(eName, eventHandle);
+          try {
+            instance.removeEventListener(eName, eventHandle);
+          } catch (error) {}
         };
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps

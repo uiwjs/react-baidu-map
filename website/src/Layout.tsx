@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 import GitHubCorners from '@uiw/react-github-corners';
 import styled from 'styled-components';
 import SideMenu from './components/SideMenu';
@@ -23,6 +23,7 @@ export default function Layout() {
       <Main>
         <Outlet />
       </Main>
+      <ScrollRestoration />
     </Wrapper>
   );
 }

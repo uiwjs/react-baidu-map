@@ -20,14 +20,16 @@ export function useGeolocationControl(props = {} as UseGeolocationControl) {
       });
       map.addControl(instance);
       setGeolocationControl(instance);
-      return () => {
-        if (map && instance) {
-          map.removeControl(instance);
-        }
-      };
     }
+    return () => {
+      if (map && geolocationControl) {
+        try {
+          map.removeControl(geolocationControl);
+        } catch (error) {}
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map]);
+  }, [map, geolocationControl]);
 
   useVisiable(geolocationControl!, props);
   useEventProperties<BMap.GeolocationControl, UseGeolocationControl>(

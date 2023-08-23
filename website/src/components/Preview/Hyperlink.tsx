@@ -39,6 +39,7 @@ export const Hyperlink = (props: any) => {
       };
       setTimeout(() => {
         const anchor = dom.getElementsByClassName('anchor') as HTMLCollectionOf<HTMLAnchorElement>;
+        console.log('anchor', anchor, dom);
         Array.from(anchor).forEach((item) => {
           item.onclick = clickFn;
         });

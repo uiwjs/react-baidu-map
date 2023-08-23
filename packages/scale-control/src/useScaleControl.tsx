@@ -17,12 +17,17 @@ export function useScaleControl(props = {} as UseScaleControl) {
       });
       map.addControl(instance);
       setScaleControl(instance);
-      return () => {
-        map.removeControl(instance);
-      };
     }
+
+    return () => {
+      if (map && scaleControl) {
+        try {
+          map.removeControl(scaleControl);
+        } catch (error) {}
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map]);
+  }, [map, scaleControl]);
 
   useVisiable(scaleControl!, props);
   useProperties<BMap.ScaleControl, UseScaleControl>(scaleControl!, props, ['Anchor', 'Offset', 'Unit']);
