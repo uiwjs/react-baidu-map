@@ -12,7 +12,7 @@ return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 858:
+/***/ 31:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 var __webpack_unused_export__;
@@ -31,13 +31,13 @@ function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&
 
 /***/ }),
 
-/***/ 664:
+/***/ 310:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
 
 if (true) {
-  module.exports = __webpack_require__(858);
+  module.exports = __webpack_require__(31);
 } else {}
 
 
@@ -205,7 +205,7 @@ var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_
 var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(787);
 var external_root_React_commonjs2_react_commonjs_react_amd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_);
 // EXTERNAL MODULE: ../../node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(664);
+var jsx_runtime = __webpack_require__(310);
 ;// CONCATENATED MODULE: ../utils/esm/hooks.js
 /// <reference types="@uiw/react-baidu-map-types" />
 
@@ -349,9 +349,13 @@ function useEventProperties(instance, props, eventName, type) {
         } else {
           eName = name.toLowerCase();
         }
-        instance.addEventListener(eName, eventHandle);
+        try {
+          instance.addEventListener(eName, eventHandle);
+        } catch (error) {}
         return () => {
-          instance.removeEventListener(eName, eventHandle);
+          try {
+            instance.removeEventListener(eName, eventHandle);
+          } catch (error) {}
         };
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -648,28 +652,29 @@ class APILoader extends (external_root_React_commonjs2_react_commonjs_react_amd_
         _this.finish();
       };
       var _loop = function* _loop() {
-        try {
-          yield requireScript(src);
-          return "break";
-        } catch (error) {
-          if (i === DEFAULT_RETRY_TIME - 1) {
-            var err = new Error("Failed to load Baidu Map: " + error.message);
-            // flush queue
-            var queue = APILoader.waitQueue;
-            APILoader.waitQueue = [];
-            queue.forEach(task => task[1](err));
-            _this.handleError(err);
-            return {
-              v: void 0
-            };
+          try {
+            yield requireScript(src);
+            return 0; // break
+          } catch (error) {
+            if (i === DEFAULT_RETRY_TIME - 1) {
+              var err = new Error("Failed to load Baidu Map: " + error.message);
+              // flush queue
+              var queue = APILoader.waitQueue;
+              APILoader.waitQueue = [];
+              queue.forEach(task => task[1](err));
+              _this.handleError(err);
+              return {
+                v: void 0
+              };
+            }
+            yield delay(i * 1000);
           }
-          yield delay(i * 1000);
-        }
-      };
+        },
+        _ret;
       for (var i = 0; i < DEFAULT_RETRY_TIME; i++) {
-        var _ret = yield* _loop();
-        if (_ret === "break") break;
-        if (typeof _ret === "object") return _ret.v;
+        _ret = yield* _loop();
+        if (_ret === 0) break;
+        if (_ret) return _ret.v;
       }
     })();
   }
@@ -2367,14 +2372,16 @@ function useGeolocationControl(props) {
       });
       map.addControl(instance);
       setGeolocationControl(instance);
-      return () => {
-        if (map && instance) {
-          map.removeControl(instance);
-        }
-      };
     }
+    return () => {
+      if (map && geolocationControl) {
+        try {
+          map.removeControl(geolocationControl);
+        } catch (error) {}
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map]);
+  }, [map, geolocationControl]);
   useVisiable(geolocationControl, props);
   useEventProperties(geolocationControl, props, ['LocationSuccess', 'LocationError'], 'CamelCase');
   useProperties(geolocationControl, props, ['Anchor', 'Offset']);
@@ -2478,12 +2485,16 @@ function useScaleControl(props) {
       });
       map.addControl(instance);
       setScaleControl(instance);
-      return () => {
-        map.removeControl(instance);
-      };
     }
+    return () => {
+      if (map && scaleControl) {
+        try {
+          map.removeControl(scaleControl);
+        } catch (error) {}
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map]);
+  }, [map, scaleControl]);
   useVisiable(scaleControl, props);
   useProperties(scaleControl, props, ['Anchor', 'Offset', 'Unit']);
   return {
@@ -2534,12 +2545,16 @@ function useMapTypeControl(props) {
       });
       map.addControl(instance);
       setMapTypeControl(instance);
-      return () => {
-        map.removeControl(instance);
-      };
     }
+    return () => {
+      if (map && mapTypeControl) {
+        try {
+          map.removeControl(mapTypeControl);
+        } catch (error) {}
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map]);
+  }, [map, mapTypeControl]);
   useVisiable(mapTypeControl, props);
   useProperties(mapTypeControl, props, ['Anchor', 'Offset', 'Unit']);
   return {

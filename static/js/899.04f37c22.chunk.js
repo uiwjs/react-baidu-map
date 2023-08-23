@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[899],{1899:function(e,n,t){t.r(n),n.default={components:{},data:{},source:'Support TypeScript\n===\n\n\u6b64\u5305\u5305\u542b\u767e\u5ea6\u5730\u56fe [API](https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html) \u7684\u7c7b\u578b\u5b9a\u4e49\u3002\n\n```shell\n$ npm i @uiw/react-baidu-map-types\n```\n\n### \u57fa\u672c\u7528\u6cd5\n\n```tsx\n/// <reference path="@uiw/react-baidu-map-types" />\n```\n'}}}]);
-//# sourceMappingURL=899.04f37c22.chunk.js.map
