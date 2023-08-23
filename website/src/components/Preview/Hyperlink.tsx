@@ -26,7 +26,6 @@ function useScrollSpy(ids: string[], options: IntersectionObserverInit) {
     observer.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry?.isIntersecting) {
-          console.log('entry.target::', entry.target.id, entry?.intersectionRatio, entry.target, entry);
           setActiveId(entry.target.id);
         }
       });
