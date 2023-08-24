@@ -28,7 +28,9 @@
 
 这是一个基于 React 封装的百度地图组件，帮助你轻松的接入地图到 React 项目中。除了必须引用的 APILoader/Map 组件外，我们目前提供了最常用的地图组件，能满足大部分简单的业务场景；如果你有更复杂的需求，或者觉得默认提供的组件功能不够，可以使用 Map 组件返回的地图实例，完全自定义一个地图组件，然后根据百度地图原生 API 做百度地图允许你做的一切事情。
 
+<!--rehype:ignore:start-->
 ![](https://user-images.githubusercontent.com/1680273/71525077-35126b00-290b-11ea-9a11-ffd8b30dc9b8.png)
+<!--rehype:ignore:end-->
 
 文档实例预览: [Github](https://uiwjs.github.io/react-baidu-map/) | [Gitee](https://uiw.gitee.io/react-baidu-map/)
 
@@ -149,6 +151,6 @@ As always, thanks to our amazing contributors!
 
 Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
 
-### License
+## License
 
 Licensed under the MIT License.

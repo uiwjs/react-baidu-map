@@ -55,6 +55,9 @@ const Aside = styled.aside`
   z-index: 999;
   max-height: calc(100vh - 6px);
   overflow: auto;
+  > ul {
+    padding-left: 10px;
+  }
   li {
     height: 22px;
     line-height: 22px;
@@ -64,6 +67,7 @@ const Aside = styled.aside`
     display: block;
     background-color: #f38701;
     border-radius: 2px;
+    margin-left: -10px;
     height: 18px;
     margin-top: 3px;
     position: absolute;
@@ -112,7 +116,7 @@ export const Hyperlink = ({ dom, mdStr }: any) => {
             <li key={heading.id} className={activeId === heading.id ? 'active' : ''}>
               <a
                 style={{
-                  marginLeft: `${heading.level - 2}em`,
+                  marginLeft: `${(heading.level - 2) * 0.5}em`,
                   fontWeight: activeId === heading.id ? 'bold' : 'normal',
                 }}
                 href={`#${heading.id}`}
