@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-marker",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "Baidu Map map-marker Components for React.",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/marker",
   "main": "cjs/index.js",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.0",
-    "@uiw/react-baidu-map-map": "2.6.1",
-    "@uiw/react-baidu-map-utils": "2.6.1"
+    "@uiw/react-baidu-map-map": "2.6.2",
+    "@uiw/react-baidu-map-utils": "2.6.2"
   }
 }
