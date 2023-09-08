@@ -34,6 +34,10 @@
 
 文档实例预览: [Github](https://uiwjs.github.io/react-baidu-map/) | [Gitee](https://uiw.gitee.io/react-baidu-map/)
 
+
+> [!WARNING]
+> 百度地图的 key 删除了，一些人开发直接复制 key ，导致申请的百度地图开发者 key 流量用完了。
+
 ## 特性
 
 - ♻️ 自动加载百度地图 SDK（通过创建 Script 标签的形式加载），包括第三方 SDK。
