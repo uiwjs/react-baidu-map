@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-map",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "Baidu Map Components for React.",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/map",
@@ -41,8 +41,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.0",
-    "@uiw/react-baidu-map-api-loader": "2.6.2",
-    "@uiw/react-baidu-map-types": "2.6.2",
-    "@uiw/react-baidu-map-utils": "2.6.2"
+    "@uiw/react-baidu-map-api-loader": "2.6.3",
+    "@uiw/react-baidu-map-types": "2.6.3",
+    "@uiw/react-baidu-map-utils": "2.6.3"
   }
 }
