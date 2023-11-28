@@ -36,6 +36,7 @@
     "remove": "npm run clean && lerna exec \"rm -rf package-lock.json\" --scope @uiw/* --scope website",
     "clean": "lerna clean --yes"
   },
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-baidu-map",
   "repository": {
     "type": "git",

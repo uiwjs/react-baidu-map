@@ -1,6 +1,10 @@
 TileLayer 地图图层
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-tile-layer.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-tile-layer)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-tile-layer.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-tile-layer)
+
 此类表示一个地图图层，您可以向地图中添加自定义图层，官方原生实例：https://lbsyun.baidu.com/jsdemo.htm#g0_2。
 
 ```jsx

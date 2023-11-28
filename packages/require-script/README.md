@@ -1,6 +1,10 @@
 RequireScript 加载第三方包
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-require-script.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-require-script)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-require-script.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-require-script)
+
 提供一个组件加载第三方包，也提供了一个 `requireScript` 方法加载第三方包。
 
 ```jsx

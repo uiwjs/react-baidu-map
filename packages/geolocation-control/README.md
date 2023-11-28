@@ -1,6 +1,10 @@
 GeolocationControl 定位控件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-geolocation-control.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-geolocation-control)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-geolocation-control.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-geolocation-control)
+
 负责进行地图定位的控件，使用html5浏览器定位功能。你也可以使用 `Map` 组件 `widget` 属性来设置控件更方便。
 
 

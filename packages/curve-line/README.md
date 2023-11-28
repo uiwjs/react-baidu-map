@@ -1,6 +1,10 @@
 CurveLine 弧线组件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-curve-line.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-curve-line)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-curve-line.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-curve-line)
+
 使用浏览器的矢量制图工具（如果可用）在地图上绘制弧线的地图叠加层，当前组件自动加载 [CurveLine.min.js](https://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js) 包，加载完成将会有个 `window.BMapLib` 的全局对象。
 
 ```jsx

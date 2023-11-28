@@ -1,6 +1,10 @@
 Control 自定义控件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-control.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-control)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-control.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-control)
+
 您可以通过此组件来实现自定义控件。同时你可以使用 `Map` 组件 `widget` 属性来更方便，设置自带默认控件。
 
 ```jsx

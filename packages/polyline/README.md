@@ -1,6 +1,10 @@
 Polyline 折线组件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-polyline.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-polyline)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-polyline.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-polyline)
+
 使用浏览器的矢量制图工具（如果可用）在地图上绘制折线的地图叠加层。
 
 ```jsx

@@ -1,6 +1,10 @@
 Map 组件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-map.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-map)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-map.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-map)
+
 Map 组件是其他组件的基础，Map 组件会给所有的子组件注入两个属性 **`map`**，**`container`** 和 **`BMap`**，在 `v2.3.0+` 版本支持使用 `useMapContext` 获取它们。
 
 🚧 注意

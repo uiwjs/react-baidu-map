@@ -1,6 +1,10 @@
 CopyrightControl 版权控件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-copyright-control.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-copyright-control)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-copyright-control.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-copyright-control)
+
 版权控件，您可以在地图上添加自己的版权信息。你也可以使用 `Map` 组件 `widget` 属性来设置控件更方便。
 
 ```jsx

@@ -2,6 +2,7 @@
   "name": "@uiw/react-baidu-map-drawing-manager",
   "version": "2.6.2",
   "description": "Baidu Map drawing-manager Components for React.",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/drawing-manager",
   "main": "cjs/index.js",
   "module": "esm/index.js",

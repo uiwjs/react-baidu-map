@@ -1,6 +1,10 @@
 withMap
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-with-map.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-with-map)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-with-map.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-with-map)
+
 一个高阶组件，用于将当前上下文的 `BMap.Map` 实例注入到目标组件中，主要用于实现对地图组件的自定义控制。
 
 ```jsx

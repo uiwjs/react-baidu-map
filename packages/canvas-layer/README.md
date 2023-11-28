@@ -1,6 +1,10 @@
 CanvasLayer 自定义Canvas
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-canvas-layer.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-canvas-layer)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-canvas-layer.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-canvas-layer)
+
 ⚠️ `BMap.CanvasLayer` API 不知道为何没有了
 
 用于在地图上绘制自定义的canvas2D或WebGL图形，[百度 CanvasLayer 文档](http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html#a3b28)。

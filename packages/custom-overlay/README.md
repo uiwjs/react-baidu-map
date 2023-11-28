@@ -1,6 +1,10 @@
 CustomOverlay 自定义覆盖物
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-custom-overlay.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-custom-overlay)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-custom-overlay.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-custom-overlay)
+
 用于渲染自定义的 DOM 对象。
 
 ```jsx

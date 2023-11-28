@@ -1,6 +1,10 @@
 Marker 点标注组件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-marker.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-marker)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-marker.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-marker)
+
 表示地图上一个图像标注。
 
 ```jsx

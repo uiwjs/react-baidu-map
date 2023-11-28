@@ -2,6 +2,7 @@
   "name": "@uiw/react-baidu-map-point-collection",
   "version": "2.6.2",
   "description": "Baidu Map map-point-collection Components for React.",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/point-collection",
   "main": "cjs/index.js",
   "module": "esm/index.js",

@@ -2,6 +2,7 @@
   "name": "@uiw/react-baidu-map-polygon",
   "version": "2.6.2",
   "description": "Baidu Map map-polygon Components for React.",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/polygon",
   "main": "cjs/index.js",
   "module": "esm/index.js",

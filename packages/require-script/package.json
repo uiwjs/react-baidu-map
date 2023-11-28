@@ -2,6 +2,7 @@
   "name": "@uiw/react-baidu-map-require-script",
   "version": "2.6.2",
   "description": "Baidu Map require-script Components for React.",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/require-script",
   "main": "cjs/index.js",
   "module": "esm/index.js",

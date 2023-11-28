@@ -1,6 +1,10 @@
 PointCollection 加载海量点
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-point-collection.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-point-collection)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-point-collection.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-point-collection)
+
 表示海量点类，利用该类可同时在地图上展示万级别的点，目前仅适用于html5浏览器。
 
 > 渲染海量点会耗费一定性能，应该注意不要频繁变动 point 数组

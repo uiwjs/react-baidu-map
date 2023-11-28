@@ -1,6 +1,10 @@
 InfoWindow 信息窗口
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-info-window.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-info-window)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-info-window.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-info-window)
+
 表示地图上包含信息的窗口。
 
 ```jsx

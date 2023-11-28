@@ -1,6 +1,10 @@
 DrawingManager 鼠标绘制工具条库
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-drawing-manager.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-drawing-manager)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-drawing-manager.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-drawing-manager)
+
 提供鼠标绘制点、线、面、多边形（矩形、圆）的编辑工具条的开源代码库。且用户可使用 JavaScript API 对应覆盖物（点、线、面等）类接口对其进行属性（如颜色、线宽等）设置、编辑（如开启线顶点编辑等）等功能
 
 > 当前组件自动加载 [DrawingManager_min.js](http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js)，加载完成将会有个 [`window.BMapLib`](http://api.map.baidu.com/library/DrawingManager/1.4/docs/symbols/BMapLib.DrawingManager.html) 的全局对象。

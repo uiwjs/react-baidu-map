@@ -3,6 +3,7 @@
   "version": "2.6.2",
   "private": true,
   "description": "Baidu Map canvas-layer Components for React.",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/canvas-layer",
   "main": "cjs/index.js",
   "module": "esm/index.js",

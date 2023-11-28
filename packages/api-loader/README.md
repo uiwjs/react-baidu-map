@@ -1,6 +1,10 @@
 APILoader
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-api-loader.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-api-loader)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-api-loader.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-api-loader)
+
 用于加载百度地图 SDK 依赖，加载完成，全局将会有 **`window.BMap`** 对象。
 
 - [x] 自动加载百度地图 SDK 依赖

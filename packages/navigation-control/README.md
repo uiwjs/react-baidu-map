@@ -1,6 +1,10 @@
 NavigationControl 平移缩放控件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-navigation-control.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-navigation-control)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-navigation-control.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-navigation-control)
+
 地图的平移缩放控件，可以对地图进行上下左右四个方向的平移和缩放操作。你也可以使用 `Map` 组件 `widget` 属性来设置控件更方便。
 
 ```jsx

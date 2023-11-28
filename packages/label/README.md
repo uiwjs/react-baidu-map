@@ -1,6 +1,11 @@
 Label 文本标注
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-baidu-map-label.svg)](https://www.npmjs.com/package/@uiw/react-baidu-map-label)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-baidu-map-label.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-baidu-map-label)
+
+表示地图上包
 表示地图上包含信息的窗口。
 
 ```jsx
