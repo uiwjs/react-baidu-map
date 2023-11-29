@@ -17,6 +17,10 @@ export const routesConfig: MenuRouteObject[] = [
     element: <Layout />,
     children: [
       {
+        menu: '支持一下吧',
+        path: 'https://jaywcjlove.github.io/#/sponsor',
+      },
+      {
         index: true,
         menu: '快速开始',
         element: (
