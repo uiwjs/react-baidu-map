@@ -1852,6 +1852,7 @@ function useDrawingManager(props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, loadMapLib, bMapLib, drawingManager]);
+  useEventProperties(drawingManager, props, ['CircleComplete', 'MarkerComplete', 'OverlayComplete', 'PolygonComplete', 'PolylineComplete', 'RectangleComplete']);
   return {
     drawingManager,
     setDrawingManager,

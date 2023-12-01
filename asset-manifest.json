@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.a778f35e.css",
-    "main.js": "/static/js/main.79f4e39b.js",
+    "main.js": "/static/js/main.f0ed7c20.js",
     "static/js/221.49458ca2.chunk.js": "/static/js/221.49458ca2.chunk.js",
     "static/js/837.afda5431.chunk.js": "/static/js/837.afda5431.chunk.js",
     "static/js/727.77838484.chunk.js": "/static/js/727.77838484.chunk.js",
@@ -28,16 +28,16 @@
     "static/js/359.374ff5fb.chunk.js": "/static/js/359.374ff5fb.chunk.js",
     "static/js/467.9ffb262c.chunk.js": "/static/js/467.9ffb262c.chunk.js",
     "static/js/502.6fae4133.chunk.js": "/static/js/502.6fae4133.chunk.js",
-    "static/js/45.6e724c9b.chunk.js": "/static/js/45.6e724c9b.chunk.js",
+    "static/js/45.106a6338.chunk.js": "/static/js/45.106a6338.chunk.js",
     "refractor-vendor.js": "/static/js/refractor-vendor.3248bcab.js",
     "uiw-vendor.js": "/static/js/uiw-vendor.bd5d8c86.js",
     "parse5-vendor.js": "/static/js/parse5-vendor.77e48597.js",
     "react-vendor.js": "/static/js/react-vendor.ef3775ea.js",
     "babel-standalone-vendor.js": "/static/js/babel-standalone-vendor.59aba135.js",
-    "static/js/952.d4a94cf7.chunk.js": "/static/js/952.d4a94cf7.chunk.js",
+    "static/js/952.d0fcf048.chunk.js": "/static/js/952.d0fcf048.chunk.js",
     "index.html": "/index.html",
     "main.a778f35e.css.map": "/static/css/main.a778f35e.css.map",
-    "main.79f4e39b.js.map": "/static/js/main.79f4e39b.js.map",
+    "main.f0ed7c20.js.map": "/static/js/main.f0ed7c20.js.map",
     "221.49458ca2.chunk.js.map": "/static/js/221.49458ca2.chunk.js.map",
     "837.afda5431.chunk.js.map": "/static/js/837.afda5431.chunk.js.map",
     "727.77838484.chunk.js.map": "/static/js/727.77838484.chunk.js.map",
@@ -64,13 +64,13 @@
     "359.374ff5fb.chunk.js.map": "/static/js/359.374ff5fb.chunk.js.map",
     "467.9ffb262c.chunk.js.map": "/static/js/467.9ffb262c.chunk.js.map",
     "502.6fae4133.chunk.js.map": "/static/js/502.6fae4133.chunk.js.map",
-    "45.6e724c9b.chunk.js.map": "/static/js/45.6e724c9b.chunk.js.map",
+    "45.106a6338.chunk.js.map": "/static/js/45.106a6338.chunk.js.map",
     "refractor-vendor.3248bcab.js.map": "/static/js/refractor-vendor.3248bcab.js.map",
     "uiw-vendor.bd5d8c86.js.map": "/static/js/uiw-vendor.bd5d8c86.js.map",
     "parse5-vendor.77e48597.js.map": "/static/js/parse5-vendor.77e48597.js.map",
     "react-vendor.ef3775ea.js.map": "/static/js/react-vendor.ef3775ea.js.map",
     "babel-standalone-vendor.59aba135.js.map": "/static/js/babel-standalone-vendor.59aba135.js.map",
-    "952.d4a94cf7.chunk.js.map": "/static/js/952.d4a94cf7.chunk.js.map"
+    "952.d0fcf048.chunk.js.map": "/static/js/952.d0fcf048.chunk.js.map"
   },
   "entrypoints": [
     "static/js/refractor-vendor.3248bcab.js",
@@ -79,6 +79,6 @@
     "static/js/react-vendor.ef3775ea.js",
     "static/js/babel-standalone-vendor.59aba135.js",
     "static/css/main.a778f35e.css",
-    "static/js/main.79f4e39b.js"
+    "static/js/main.f0ed7c20.js"
   ]
 }
