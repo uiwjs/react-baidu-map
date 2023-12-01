@@ -38,7 +38,7 @@ const Example = () => {
           isOpen={true}
           enableDrawingTool={true}
           drawingToolOptions={{
-            anchor: BMAP_ANCHOR_TOP_RIGHT,
+            anchor: window.BMAP_ANCHOR_TOP_RIGHT,
             offset: new BMap.Size(5, 5)
           }}
           circleOptions={styleOptions}
@@ -93,7 +93,7 @@ const Example = () => {
     isOpen: true, // 是否开启绘制模式
     enableDrawingTool: true, // 是否显示工具栏
     drawingToolOptions: {
-      anchor: BMAP_ANCHOR_TOP_RIGHT, // 位置
+      anchor: window.BMAP_ANCHOR_TOP_RIGHT, // 位置
       offset: new BMap.Size(5, 5) // 偏离值
     },
     circleOptions: styleOptions, // 圆的样式
