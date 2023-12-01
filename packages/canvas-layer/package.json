@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-canvas-layer",
-  "version": "2.6.3",
+  "version": "2.7.0",
   "private": true,
   "description": "Baidu Map canvas-layer Components for React.",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.0",
-    "@uiw/react-baidu-map-map": "2.6.3",
-    "@uiw/react-baidu-map-utils": "2.6.3"
+    "@uiw/react-baidu-map-map": "2.7.0",
+    "@uiw/react-baidu-map-utils": "2.7.0"
   }
 }
