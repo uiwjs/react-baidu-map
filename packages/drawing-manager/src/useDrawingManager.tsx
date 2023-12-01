@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useMapContext } from '@uiw/react-baidu-map-map';
-import { requireScript, requireCss } from '@uiw/react-baidu-map-utils';
+import { requireScript, requireCss, useEventProperties } from '@uiw/react-baidu-map-utils';
 import { DrawingManagerProps } from '.';
 
 export interface UseDrawingManager extends DrawingManagerProps {}
@@ -35,7 +35,7 @@ export function useDrawingManager(props = {} as UseDrawingManager) {
     polylineOptions,
     polygonOptions,
     rectangleOptions,
-  } as BMap.DrawingManagerOptions;
+  } as BMapLib.DrawingManagerOptions;
 
   useMemo(() => {
     // 如果第一次加载，会执行下面的
@@ -77,6 +77,15 @@ export function useDrawingManager(props = {} as UseDrawingManager) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, loadMapLib, bMapLib, drawingManager]);
+
+  useEventProperties<BMapLib.DrawingManager, UseDrawingManager>(drawingManager!, props, [
+    'CircleComplete',
+    'MarkerComplete',
+    'OverlayComplete',
+    'PolygonComplete',
+    'PolylineComplete',
+    'RectangleComplete',
+  ]);
 
   return {
     drawingManager,

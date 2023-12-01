@@ -45,6 +45,9 @@ const Example = () => {
           polylineOptions={styleOptions}
           polygonOptions={styleOptions}
           rectangleOptions={styleOptions}
+          onCircleComplete={(overlay) => {
+            console.log("overlay", overlay)
+          }}
         />
       </Map>
     </>
@@ -145,6 +148,17 @@ export default Demo;
 | offset | 偏移值 | BMap.Size | - |
 | scale | 工具栏的缩放比例,默认为1 | Number | - |
 | drawingModes | 工具栏上可以选择出现的绘制模式 | Array | - |
+
+## 事件
+
+| 参数 | 说明 | ----- |
+| ----- | ----- | ----- |
+onCircleComplete | 绘制圆完成后，派发的事件接口 | `(overlay: BMap.Circle) => void;` |
+onMarkerComplete | 绘制点完成后，派发的事件接口 | `(overlay: BMap.Marker) => void;` |
+onOverlayComplete | 鼠标绘制完成后，派发总事件的接口 | `(e: any) => void;` |
+onPolygonComplete | 绘制多边形完成后，派发的事件接口 | `(overlay: BMap.Polygon) => void;` |
+onPolylineComplete | 绘制线完成后，派发的事件接口 | `(overlay: BMap.Polyline) => void;` |
+onRectangleComplete | 绘制矩形完成后，派发的事件接口 | `(overlay: BMap.Polygon) => void;` |
 
 ### 官方文档
 

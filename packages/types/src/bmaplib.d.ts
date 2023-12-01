@@ -4,7 +4,21 @@ declare global {
   }
 }
 
-declare namespace BMap {
+declare namespace BMapLib {
+  type Callback = (...args: any[]) => void;
+
+  type Callback<T> = (e: any, overlay: T) => void;
+
+  /**
+   * 弧线
+   */
+  class CurveLine {
+    constructor(points: BMap.Point[], opts?: CurveLineOptions);
+  }
+  interface CurveLineOptions extends BMap.PolylineOptions {}
+  interface CurveLine extends BMap.Polyline {}
+  interface CurveLineEvents extends BMap.PolylineEvents {}
+
   interface DrawingManagerOptions {
     /**
      * 是否开启绘制模式
@@ -41,23 +55,38 @@ declare namespace BMap {
     scale?: number;
     drawingModes?: BMap.DrawingType[];
   }
-}
-
-declare namespace BMapLib {
-  type Callback = (...args: any[]) => void;
-
-  type Callback<T> = (e: any, overlay: T) => void;
-
-  /**
-   * 弧线
-   */
-  class CurveLine {
-    constructor(points: BMap.Point[], opts?: CurveLineOptions);
+  interface DrawingManagerEvents {
+    /**
+     * 绘制圆完成后，派发的事件接口
+     * @param {BMap.Circle} overlay
+     */
+    onCircleComplete?: (overlay: BMap.Circle) => void;
+    /**
+     * 绘制点完成后，派发的事件接口
+     * @param {BMap.Marker} overlay
+     */
+    onMarkerComplete?: (overlay: BMap.Marker) => void;
+    /**
+     * {Event Object} 鼠标绘制完成后，派发总事件的接口
+     * @param e
+     */
+    onOverlayComplete?: (e: any) => void;
+    /**
+     * 绘制多边形完成后，派发的事件接口
+     * @param {BMap.Polygon} overlay
+     */
+    onPolygonComplete?: (overlay: BMap.Polygon) => void;
+    /**
+     * 绘制线完成后，派发的事件接口
+     * @param {BMap.Polyline} overlay
+     */
+    onPolylineComplete?: (overlay: BMap.Polyline) => void;
+    /**
+     * 绘制矩形完成后，派发的事件接口
+     * @param {BMap.Polygon} overlay
+     */
+    onRectangleComplete?: (overlay: BMap.Polygon) => void;
   }
-  interface CurveLineOptions extends BMap.PolylineOptions {}
-  interface CurveLine extends BMap.Polyline {}
-  interface CurveLineEvents extends BMap.PolylineEvents {}
-
   /**
    * 鼠标绘制管理
    */
