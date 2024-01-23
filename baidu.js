@@ -1391,7 +1391,6 @@ function useMarker(props) {
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && marker && !icon && type) {
       var newIcon = getIcons(type);
-      console.log('>>>>newIcon>>>', newIcon);
       newIcon.setImageSize(new BMap.Size(600 / 2, 600 / 2));
       marker.setIcon(newIcon);
     }
