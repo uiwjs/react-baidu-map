@@ -112,7 +112,6 @@ export function useMarker(props = {} as UseMarker) {
   useEffect(() => {
     if (map && marker && !icon && type) {
       const newIcon = getIcons(type as string);
-      console.log('>>>>newIcon>>>', newIcon);
       newIcon.setImageSize(new BMap.Size(600 / 2, 600 / 2));
       marker.setIcon(newIcon);
     }
