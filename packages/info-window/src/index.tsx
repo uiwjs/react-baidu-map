@@ -1,3 +1,4 @@
+/// <reference types="@uiw/react-baidu-map-types" />
 import React, { Fragment, useEffect, useImperativeHandle } from 'react';
 import { OverlayProps } from '@uiw/react-baidu-map-map';
 import { useInfoWindow } from './useInfoWindow';

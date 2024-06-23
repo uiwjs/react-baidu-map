@@ -1,3 +1,4 @@
+/// <reference types="@uiw/react-baidu-map-types" />
 import React, { useImperativeHandle } from 'react';
 import { MapChildProps } from '@uiw/react-baidu-map-map';
 import { useDrawingManager } from './useDrawingManager';

@@ -1,3 +1,4 @@
+/// <reference types="@uiw/react-baidu-map-types" />
 import React from 'react';
 import Map, { MapProps } from '@uiw/react-baidu-map-map';
 

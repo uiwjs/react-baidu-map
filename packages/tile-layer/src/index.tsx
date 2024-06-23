@@ -1,3 +1,4 @@
+/// <reference types="@uiw/react-baidu-map-types" />
 import React, { useImperativeHandle, useEffect } from 'react';
 import { OverlayProps } from '@uiw/react-baidu-map-map';
 import { useTileLayer } from './useTileLayer';

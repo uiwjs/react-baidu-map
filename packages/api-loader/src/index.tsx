@@ -1,11 +1,15 @@
+/// <reference types="@uiw/react-baidu-map-types" />
+
 /**
  * 初始化和加载baidu地图
  */
 import React from 'react';
 import { requireScript } from '@uiw/react-baidu-map-utils';
+import '@uiw/react-baidu-map-types';
 
 declare global {
   interface Window {
+    BMap: any;
     [index: string]: () => any; // or just any
   }
 }

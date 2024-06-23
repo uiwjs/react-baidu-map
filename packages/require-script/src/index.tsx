@@ -1,3 +1,4 @@
+/// <reference types="@uiw/react-baidu-map-types" />
 import React, { Fragment, useEffect, useState } from 'react';
 import { requireScript } from '@uiw/react-baidu-map-utils';
 import { RenderProps } from '@uiw/react-baidu-map-map';

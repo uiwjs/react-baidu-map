@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "declaration": true,
     "baseUrl": ".",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "experimentalDecorators": true,
