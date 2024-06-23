@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-polygon",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "Baidu Map map-polygon Components for React.",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/polygon",
@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.0",
-    "@uiw/react-baidu-map-map": "2.7.1",
-    "@uiw/react-baidu-map-utils": "2.7.1"
+    "@uiw/react-baidu-map-map": "2.7.2",
+    "@uiw/react-baidu-map-utils": "2.7.2"
   }
 }
