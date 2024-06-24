@@ -7,12 +7,12 @@
 		exports["@uiw/react-baidu-map"] = factory(require("react"), require("react-dom"));
 	else
 		root["@uiw/react-baidu-map"] = factory(root["React"], root["ReactDOM"]);
-})(self, (__WEBPACK_EXTERNAL_MODULE__787__, __WEBPACK_EXTERNAL_MODULE__156__) => {
+})(self, (__WEBPACK_EXTERNAL_MODULE__442__, __WEBPACK_EXTERNAL_MODULE__3__) => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 837:
+/***/ 335:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 var __webpack_unused_export__;
@@ -25,35 +25,35 @@ var __webpack_unused_export__;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var f=__webpack_require__(787),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
+var f=__webpack_require__(442),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
 function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return{$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}__webpack_unused_export__=l;exports.jsx=q;exports.jsxs=q;
 
 
 /***/ }),
 
-/***/ 322:
+/***/ 85:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
 
 if (true) {
-  module.exports = __webpack_require__(837);
+  module.exports = __webpack_require__(335);
 } else {}
 
 
 /***/ }),
 
-/***/ 787:
+/***/ 442:
 /***/ ((module) => {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__787__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__442__;
 
 /***/ }),
 
-/***/ 156:
+/***/ 3:
 /***/ ((module) => {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__156__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
 
 /***/ })
 
@@ -126,8 +126,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__156__;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
@@ -200,12 +198,12 @@ __webpack_require__.d(__webpack_exports__, {
 ;// CONCATENATED MODULE: ../utils/esm/noop.js
 function noop() {}
 // EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
-var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(156);
+var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(3);
 // EXTERNAL MODULE: external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react"}
-var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(787);
+var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(442);
 var external_root_React_commonjs2_react_commonjs_react_amd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_);
 // EXTERNAL MODULE: ../../node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(322);
+var jsx_runtime = __webpack_require__(85);
 ;// CONCATENATED MODULE: ../utils/esm/hooks.js
 /// <reference types="@uiw/react-baidu-map-types" />
 
@@ -497,37 +495,35 @@ var usePortal = () => {
 
 
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+function asyncGeneratorStep(n, t, e, r, o, a, c) {
   try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
+    var i = n[a](c),
+      u = i.value;
+  } catch (n) {
+    return void e(n);
   }
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
+  i.done ? t(u) : Promise.resolve(u).then(r, o);
 }
-function _asyncToGenerator(fn) {
+function _asyncToGenerator(n) {
   return function () {
-    var self = this,
-      args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+    var t = this,
+      e = arguments;
+    return new Promise(function (r, o) {
+      var a = n.apply(t, e);
+      function _next(n) {
+        asyncGeneratorStep(a, r, o, _next, _throw, "next", n);
       }
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      function _throw(n) {
+        asyncGeneratorStep(a, r, o, _next, _throw, "throw", n);
       }
-      _next(undefined);
+      _next(void 0);
     });
   };
 }
+
 ;// CONCATENATED MODULE: ../api-loader/esm/index.js
+
+/// <reference types="@uiw/react-baidu-map-types" />
 
 /**
  * 初始化和加载baidu地图
@@ -692,32 +688,26 @@ APILoader.defaultProps = {
 APILoader.waitQueue = [];
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
-    return target;
-  };
-  return _extends.apply(this, arguments);
+    return n;
+  }, _extends.apply(null, arguments);
 }
+
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
+function _objectWithoutPropertiesLoose(r, e) {
+  if (null == r) return {};
+  var t = {};
+  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
+    if (e.indexOf(n) >= 0) continue;
+    t[n] = r[n];
   }
-  return target;
+  return t;
 }
+
 ;// CONCATENATED MODULE: ../map/esm/context.js
 
 
@@ -883,7 +873,6 @@ var _excluded = ["className", "style", "children"];
 
 
 
-
 var Provider = props => {
   var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
   return /*#__PURE__*/(0,jsx_runtime.jsx)(Context.Provider, {
@@ -1026,6 +1015,8 @@ function useCircle(props) {
 }
 ;// CONCATENATED MODULE: ../circle/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
+
 
 
 
@@ -1132,6 +1123,7 @@ function useCurveLine(props) {
 }
 ;// CONCATENATED MODULE: ../curve-line/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -1259,6 +1251,8 @@ function useCustomOverlay(props) {
   };
 }
 ;// CONCATENATED MODULE: ../custom-overlay/esm/index.js
+
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -1409,6 +1403,7 @@ function useMarker(props) {
 }
 ;// CONCATENATED MODULE: ../marker/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -1487,6 +1482,7 @@ function useLabel(props) {
 }
 ;// CONCATENATED MODULE: ../label/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -1563,6 +1559,7 @@ function useTileLayer(props) {
 }
 ;// CONCATENATED MODULE: ../tile-layer/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -1665,7 +1662,7 @@ function useInfoWindow(props) {
 }
 ;// CONCATENATED MODULE: ../info-window/esm/index.js
 
-
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -1762,6 +1759,7 @@ function usePointCollection(props) {
 }
 ;// CONCATENATED MODULE: ../point-collection/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -1860,6 +1858,7 @@ function useDrawingManager(props) {
 }
 ;// CONCATENATED MODULE: ../drawing-manager/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -1944,6 +1943,7 @@ function usePolyline(props) {
 }
 ;// CONCATENATED MODULE: ../polyline/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2025,6 +2025,7 @@ function usePolygon(props) {
 }
 ;// CONCATENATED MODULE: ../polygon/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2043,6 +2044,7 @@ function usePolygon(props) {
 }));
 ;// CONCATENATED MODULE: ../with-map/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2057,6 +2059,7 @@ function withMap(Comp) {
 }
 ;// CONCATENATED MODULE: ../require-script/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2161,6 +2164,8 @@ function useControl(props) {
 }
 ;// CONCATENATED MODULE: ../control/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
+
 
 
 
@@ -2256,6 +2261,7 @@ function CopyrightControlItem(props) {
 }
 ;// CONCATENATED MODULE: ../copyright-control/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2329,6 +2335,7 @@ function useNavigationControl(props) {
 }
 ;// CONCATENATED MODULE: ../navigation-control/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2392,6 +2399,7 @@ function useGeolocationControl(props) {
 }
 ;// CONCATENATED MODULE: ../geolocation-control/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2448,6 +2456,7 @@ function useOverviewMapControl(props) {
 }
 ;// CONCATENATED MODULE: ../overview-map-control/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2504,6 +2513,7 @@ function useScaleControl(props) {
 }
 ;// CONCATENATED MODULE: ../scale-control/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2564,6 +2574,7 @@ function useMapTypeControl(props) {
 }
 ;// CONCATENATED MODULE: ../type-control/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2607,6 +2618,7 @@ function usePanoramaControl(props) {
 }
 ;// CONCATENATED MODULE: ../panorama-control/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2667,6 +2679,7 @@ function useGroundOverlay(props) {
 }
 ;// CONCATENATED MODULE: ../ground-overlay/esm/index.js
 
+/// <reference types="@uiw/react-baidu-map-types" />
 
 
 
@@ -2681,8 +2694,6 @@ function useGroundOverlay(props) {
   return null;
 }));
 ;// CONCATENATED MODULE: ./src/index.tsx
-
-})();
 
 /******/ 	return __webpack_exports__;
 /******/ })()
