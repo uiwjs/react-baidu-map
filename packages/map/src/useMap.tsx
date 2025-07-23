@@ -36,7 +36,7 @@ export function useMap(props: UseMap = {}) {
   useMemo(() => {
     if (container && !map && BMap) {
       const instance = new BMap.Map(container, {
-        coordsType: coordsType,
+        coordsType,
         minZoom,
         maxZoom,
         mapType,
