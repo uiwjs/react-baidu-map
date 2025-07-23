@@ -27,7 +27,8 @@ export interface MapChildProps {
 export interface UseMap extends MapProps, MapChildProps {}
 
 export function useMap(props: UseMap = {}) {
-  const { widget, minZoom, maxZoom, mapType, enableHighResolution, enableAutoResize, enableMapClick } = props;
+  const { widget, minZoom, maxZoom, mapType, coordsType, enableHighResolution, enableAutoResize, enableMapClick } =
+    props;
   const [map, setMap] = useState<BMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);
   const [container, setContainer] = useState<HTMLDivElement | null | undefined>(props.container);
@@ -35,6 +36,7 @@ export function useMap(props: UseMap = {}) {
   useMemo(() => {
     if (container && !map && BMap) {
       const instance = new BMap.Map(container, {
+        coordsType: coordsType,
         minZoom,
         maxZoom,
         mapType,

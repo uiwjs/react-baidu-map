@@ -259,6 +259,7 @@ export default Demo;
 | maxZoom | 地图允许展示的最大级别 | `number` | - |
 | mapType | 地图类型 | MapType | `BMAP_NORMAL_MAP` |
 | mapStyle | 设置地图样式 | `MapStyle` | - |
+| coordsType | 指定输入输出的坐标类型 | `CoordsType` | - |
 | defaultCursor | 设置地图默认的鼠标指针样式。参数 `cursor` 应符合 CSS 的 `cursor` 属性规范 | `string` | - |
 | draggingCursor | 设置拖拽地图时的鼠标指针样式。参数 `cursor` 应符合 CSS 的 `cursor` 属性规范 | `string` | - |
 | panorama | 将全景实例与Map类进行绑定 | `Panorama` | - |

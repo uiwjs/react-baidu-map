@@ -469,7 +469,23 @@ declare namespace BMap {
      * 是否开启底图可点功能
      */
     enableMapClick?: boolean;
+    /**
+     * 指定输入输出的坐标类型，`BMAP_COORD_GCJ02`为`gcj02`坐标，`BMAP_COORD_BD09`为`bd09`坐标，默认为`BMAP_COORD_BD09`。
+     * 指定完成后API将以指定的坐标类型处理您传入的坐标
+     * @link https://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference_3_0.html
+     */
+    coordsType?: CoordsType; //'bd09ll' | 'bd09mc' | 'gcj02' | 'wgs84';
   }
+  /**
+   * 此常量用于指定输入输出的坐标类型。
+   * - `BMAP_COORD_GCJ02` 为`gcj02`坐标。
+   * - `BMAP_COORD_BD09` 为`bd09`坐标。
+   * - `BMAP_COORD_WGS84` 为`wgs84`坐标。
+   * - `BMAP_COORD_EPSG3857` 为`epsg3857`坐标。
+   * - `BMAP_COORD_GCJ02MERCATOR` 为`gcj02mercator`坐标。
+   * - `BMAP_COORD_MERCATOR` 为`mercator`坐标。
+   */
+  type CoordsType = string;
   /**
    * 此类代表视野，不可实例化，通过对象字面量形式表示。
    */
@@ -525,3 +541,26 @@ declare namespace BMap {
   type MapStyleV2 = { styleJson: MapStyleItem[] } | { styleId: string };
 }
 declare const BMAP_API_VERSION: BMap.APIVersion;
+
+/**
+ * 此常量用于指定输入输出的坐标类型。
+ * - `BMAP_COORD_GCJ02` 为`gcj02`坐标。
+ * - `BMAP_COORD_BD09` 为`bd09`坐标。
+ * - `BMAP_COORD_WGS84` 为`wgs84`坐标。
+ * - `BMAP_COORD_EPSG3857` 为`epsg3857`坐标。
+ * - `BMAP_COORD_GCJ02MERCATOR` 为`gcj02mercator`坐标。
+ * - `BMAP_COORD_MERCATOR` 为`mercator`坐标。
+ */
+
+/** `BMAP_COORD_GCJ02` 为`gcj02`坐标。 */
+declare const BMAP_COORD_GCJ02: BMap.CoordsType;
+/** `BMAP_COORD_BD09` 为`bd09`坐标。 */
+declare const BMAP_COORD_BD09: BMap.CoordsType;
+/** `BMAP_COORD_WGS84` 为`wgs84`坐标。 */
+declare const BMAP_COORD_WGS84: BMap.CoordsType;
+/** `BMAP_COORD_EPSG3857` 为`epsg3857`坐标。 */
+declare const BMAP_COORD_EPSG3857: BMap.CoordsType;
+/** `BMAP_COORD_GCJ02MERCATOR` 为`gcj02mercator`坐标。 */
+declare const BMAP_COORD_GCJ02MERCATOR: BMap.CoordsType;
+/** `BMAP_COORD_MERCATOR` 为`mercator`坐标。 */
+declare const BMAP_COORD_MERCATOR: BMap.CoordsType;
