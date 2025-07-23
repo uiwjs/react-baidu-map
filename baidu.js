@@ -765,7 +765,7 @@ function useMap(props) {
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (container && !map && BMap) {
       var instance = new BMap.Map(container, {
-        coordsType: coordsType,
+        coordsType,
         minZoom,
         maxZoom,
         mapType,
