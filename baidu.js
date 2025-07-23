@@ -26,7 +26,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
 
 if (true) {
   module.exports = __webpack_require__(335);
-} else {}
+} else // removed by dead control flow
+{}
 
 
 /***/ }),
@@ -750,6 +751,7 @@ function useMap(props) {
     minZoom,
     maxZoom,
     mapType,
+    coordsType,
     enableHighResolution,
     enableAutoResize,
     enableMapClick
@@ -763,6 +765,7 @@ function useMap(props) {
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (container && !map && BMap) {
       var instance = new BMap.Map(container, {
+        coordsType: coordsType,
         minZoom,
         maxZoom,
         mapType,
