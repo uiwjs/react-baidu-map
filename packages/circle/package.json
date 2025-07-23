@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-baidu-map-circle",
-  "version": "2.7.3",
+  "version": "2.7.4",
   "description": "Baidu Map circle Components for React.",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-baidu-map/#/circle",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.0",
-    "@uiw/react-baidu-map-map": "2.7.3",
-    "@uiw/react-baidu-map-utils": "2.7.3"
+    "@uiw/react-baidu-map-map": "2.7.4",
+    "@uiw/react-baidu-map-utils": "2.7.4"
   }
 }
