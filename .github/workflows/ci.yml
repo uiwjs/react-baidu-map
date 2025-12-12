@@ -48,11 +48,11 @@ jobs:
 
     # node@v24.0.0+ 
     # https://gist.github.com/jaywcjlove/a178278521a6f72c74525d3f1d9c4bf9
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/baidu-map/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/api-loader/
 
@@ -61,103 +61,103 @@ jobs:
     #     token: ${{ secrets.NPM_TOKEN }}
     #     package: packages/canvas-layer/package.json
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/circle/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/control/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/copyright-control/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/curve-line/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/custom-overlay/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/drawing-manager/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/geolocation-control/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/ground-overlay/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/info-window/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/label/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/map/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/marker/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/navigation-control/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/overview-map-control/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/panorama-control/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/point-collection/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/polygon/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/polyline/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/require-script/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/scale-control/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/tile-layer/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/type-control/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/types/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/utils/
 
-    - run: npm publish --access public
+    - run: NODE_AUTH_TOKEN="" npm publish --access public
       continue-on-error: true
       working-directory: packages/with-map/
 
