@@ -21,6 +21,8 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
 
     - run: npm -v
+    - run: npm install -g npm@8
+    - run: npm -v
     - run: npm install
     - run: npm install --workspaces
     - run: npm run build
@@ -43,6 +45,11 @@ jobs:
         filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
         output: website/build/CONTRIBUTORS.svg
         avatarSize: 42
+        
+    # npm@v11.5.0+ is required for OIDC support
+    # node@v22.0.0+ 
+    - name: Upgrade npm for OIDC support
+      run: npm install -g npm@latest
 
     # node@v24.0.0+ 
     # https://gist.github.com/jaywcjlove/a178278521a6f72c74525d3f1d9c4bf9
