@@ -11,10 +11,10 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm -v
@@ -32,10 +32,10 @@ jobs:
       contents: write
       id-token: write
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
       with:
-        node-version: 20
+        node-version: 24
         registry-url: 'https://registry.npmjs.org'
 
     - run: npm -v
@@ -64,17 +64,15 @@ jobs:
         output: website/build/CONTRIBUTORS.svg
         avatarSize: 42
 
+    # node@v24.0.0+ 
+    # https://gist.github.com/jaywcjlove/a178278521a6f72c74525d3f1d9c4bf9
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/baidu-map/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/api-loader/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     # - uses: JS-DevTools/npm-publish@v1
     #   with:
@@ -84,152 +82,102 @@ jobs:
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/circle/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/control/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/copyright-control/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/curve-line/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/custom-overlay/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/drawing-manager/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/geolocation-control/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/ground-overlay/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/info-window/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/label/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/map/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/marker/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/navigation-control/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/overview-map-control/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/panorama-control/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/point-collection/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/polygon/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/polyline/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/require-script/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/scale-control/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/tile-layer/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/type-control/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/types/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/utils/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm publish --access public
       continue-on-error: true
       working-directory: packages/with-map/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - name: Create Tag
       id: create_tag
