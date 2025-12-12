@@ -21,8 +21,6 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
 
     - run: npm -v
-    - run: npm install -g npm@8
-    - run: npm -v
     - run: npm install
     - run: npm install --workspaces
     - run: npm run build
