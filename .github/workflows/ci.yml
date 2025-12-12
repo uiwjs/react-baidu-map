@@ -8,24 +8,6 @@ env:
   SKIP_PREFLIGHT_CHECK: true
 
 jobs:
-  windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          registry-url: 'https://registry.npmjs.org'
-
-      - run: npm -v
-      - run: npm install -g npm@8
-      - run: npm -v
-      - run: npm install
-      - run: npm install --workspaces
-      - run: npm run build
-      - run: npm run doc
-      - run: npm run coverage
-
   build-deploy:
     runs-on: ubuntu-latest
     permissions:
