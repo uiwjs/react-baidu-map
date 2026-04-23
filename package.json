@@ -85,8 +85,8 @@
     "website"
   ],
   "devDependencies": {
-    "@types/react": "~18.2.16",
-    "@types/react-dom": "~18.2.7",
+    "@types/react": "~18.3.0",
+    "@types/react-dom": "~18.3.0",
     "@babel/runtime": "^7.18.9",
     "@kkt/ncc": "~1.1.0",
     "compile-less-cli": "~1.9.0",
